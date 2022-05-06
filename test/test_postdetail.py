@@ -297,20 +297,6 @@ class TestPostDetail(minium.MiniTest):
         self.page.get_element('button[class="send-btn"]').tap()
 
 
-    # def test_click_tfLine1(self):
-    #     """
-    #     切换成运营身份，再回到帖子详情页的，点击评论弹框，点击马甲选择
-    #     :return:
-    #     """
-    #     self.app.switch_tab("/page/index/mine?city=qz")
-    #     self.app.get_current_page()
-    #     self.page.get_element('view[class="openChangeRole"]').tap()
-    #     self.page.get_element('view[class="name"]', inner_text="运营-yy智慧zh").tap()
-    #     self.page.get_element('view[class="change-role-submit"]').tap()
-    #     self.app.navigate_to("/page/taofangquan/tieziDetail/tieziDetail?city=qz&postsid=10897")
-    #     self.page.get_element('view[class="detail-fix-input"]').tap()
-    #     self.page.get_element('view[class="sel_content tfLine1"]').tap()
-
 
 
 
