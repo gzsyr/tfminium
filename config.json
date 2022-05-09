@@ -1,6 +1,7 @@
 {
-  "project_path": "D:/365淘房/365淘房房产小程序/前端页面/tfxcx-master",
+  "project_path": "自己的工程路径",
   "debug_mode": "info",
-  "dev_tool_path": "C:/Program Files (x86)/Tencent/微信web开发者工具/cli.bat",
-  "platform": "ide"
+  "dev_tool_path": "自己的开发者工具路径/微信web开发者工具/cli.bat",
+  "platform": "IDE"
+
 }
