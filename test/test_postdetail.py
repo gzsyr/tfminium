@@ -8,7 +8,7 @@ class TestPostDetail(minium.MiniTest):
     """
 
     def setUp(self) -> None:
-        self.app.navigate_to("/page/taofangquan/tieziDetail/tieziDetail?city=qz&postsid=10897")
+        self.app.navigate_to("/page/taofangquan/tieziDetail/tieziDetail?city=qz&postsid=12746")
         delay(2)
         self.app.get_current_page()
         print("setUp!!!!")
@@ -82,7 +82,7 @@ class TestPostDetail(minium.MiniTest):
         帖子详情页，点击评论第一个房博士的“点击联系”按钮
         :return:
         """
-        e = self.page.get_element('view[class="commentList--contact-fbs"][data-useridentity="fbs"]')
+        e = self.page.get_element('view[class="commentList--contact-fbs commentList--connectfbs"]')
         e.tap()
         delay(2)
 
@@ -100,7 +100,7 @@ class TestPostDetail(minium.MiniTest):
         帖子详情页，点击评论第一个置业顾问的“点击联系”按钮
         :return:
         """
-        e = self.page.get_element('view[class="commentList--contact-fbs"][data-useridentity="zygw"]')
+        e = self.page.get_element('view[class="commentList--contact-fbs commentList--connectzygw"]')
         e.tap()
         delay(2)
 
@@ -139,7 +139,9 @@ class TestPostDetail(minium.MiniTest):
         self.page.get_element('view[class="commentList--reply-btn"]').tap()
         e2 = self.page.get_element('textarea[placeholder="说点什么吧"]')
         e2.input("帖子的评论回复测试")
-        self.page.get_element('button[class="send-btn"]').tap()
+        e3 = self.page.get_element('button[class="send-btn"]')
+        delay(1)
+        e3.tap()
 
     def test_click_replycontent(self):
         """
@@ -262,8 +264,6 @@ class TestPostDetail(minium.MiniTest):
         delay(1)
         self.page.get_element('button[class="share-btn hy"]').tap()
         delay(1)
-        # self.native.handle_modal("取消")
-        # delay(1)
 
     def test_click_share_hb(self):
         """
@@ -284,17 +284,12 @@ class TestPostDetail(minium.MiniTest):
         e1 = self.page.get_element('view[class="detail-fix-input"]')
         e1.tap()
         e2 = self.page.get_element('textarea[placeholder="说点什么吧"]')
-        # callback_args = None
-        # callback_called = threading.Semaphore(0)
-        #
-        # def callback(args):
-        #     nonlocal callback_args
-        #     callback_args = args
-        #     callback_called.release()
-        #
-        # self.app.hook_current_page_method("submitpostspl", callback)
         e2.input("UIceshi2")
-        self.page.get_element('button[class="send-btn"]').tap()
+        e3 = self.page.get_element('button[class="send-btn"]')
+        delay(1)
+        e3.tap()
+
+
 
 
 

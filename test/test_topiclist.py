@@ -10,7 +10,7 @@ class TestTopicList(minium.MiniTest):
 
     def setUp(self) -> None:
         self.app.navigate_to("/page/taofangquan/huati/huatiList?city=qz")
-        delay(2)
+        delay(3)
         self.app.get_current_page()
         print("setUp!!!!")
 
@@ -28,7 +28,8 @@ class TestTopicList(minium.MiniTest):
         话题列表，点击pk话题pk按钮
         :return:
         """
-        if self.page.get_element('view[class="Pk--button"]'):
+        b_l = self.page.element_is_exists('view[class="Pk--button"]')
+        if b_l == True:
             e = self.page.get_element('view[class="Pk--button"]')
             e.tap()
             delay(1)
@@ -52,6 +53,4 @@ class TestTopicList(minium.MiniTest):
         e = self.page.get_element('button[class="newHouseRfixed-share"]')
         e.tap()
         delay(2)
-        # self.native.handle_modal("取消")
 
-    
