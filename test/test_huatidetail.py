@@ -7,8 +7,8 @@ class TestHuaTiDetail(minium.MiniTest):
     话题详情页
     """
     def setUp(self) -> None:
-        self.app.navigate_to("/page/taofangquan/tieziDetail/tieziDetail?city=qz&postsid=2922")
-        delay(2)
+        self.app.navigate_to("/page/taofangquan/tieziDetail/tieziDetail?city=qz&postsid=11536")
+        delay(3)
         self.app.get_current_page()
         print("setUp!!!!")
 
@@ -71,7 +71,7 @@ class TestHuaTiDetail(minium.MiniTest):
         话题详情页，点击评论第一个置业顾问的“点击联系”按钮
         :return:
         """
-        e = self.page.get_element('view[class="commentList--contact-fbs commentList--connectzygw"][data-useridentity="zygw"]')
+        e = self.page.get_element('view[class="commentList--contact-fbs commentList--connectzygw"]')
         e.tap()
         delay(2)
 
@@ -110,7 +110,9 @@ class TestHuaTiDetail(minium.MiniTest):
         self.page.get_element('view[class="commentList--reply-btn"]').tap()
         e2 = self.page.get_element('textarea[placeholder="说点什么吧"]')
         e2.input("话题的评论回复测试")
-        self.page.get_element('button[class="send-btn"]').tap()
+        e3 = self.page.get_element('button[class="send-btn"]')
+        delay(1)
+        e3.tap()
 
     def test_click_replycontent(self):
         """
@@ -184,7 +186,9 @@ class TestHuaTiDetail(minium.MiniTest):
         e1.tap()
         e2 = self.page.get_element('textarea[placeholder="说点什么吧"]')
         e2.input("话题评论")
-        self.page.get_element('button[class="send-btn"]').tap()
+        e3 = self.page.get_element('button[class="send-btn"]')
+        delay(1)
+        e3.tap()
 
 
     

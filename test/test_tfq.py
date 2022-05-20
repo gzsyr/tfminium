@@ -10,8 +10,8 @@ class TestTfq(minium.MiniTest):
 
     def setUp(self) -> None:
         self.app.switch_tab("/page/find/find?city=qz")
-        delay(2)
-        page = self.app.get_current_page()
+        delay(3)
+        self.app.get_current_page()
         print("test  setup!!!!!!!!!!!!!")
 
     def test_swich_ht(self):
@@ -54,7 +54,8 @@ class TestTfq(minium.MiniTest):
         淘房圈首页，点击顶部banner
         :return:
         """
-        if self.page.get_element('image[class="tfq--banner-img tfq--index_banner"]'):
+        b_l = self.page.element_is_exists('image[class="tfq--banner-img tfq--index_banner"]')
+        if b_l == True:
             e = self.page.get_element('image[class="tfq--banner-img tfq--index_banner"]')
             e.tap()
             delay(2)
@@ -112,9 +113,13 @@ class TestTfq(minium.MiniTest):
         淘房圈首页，点击活动
         :return:
         """
-        e = self.page.get_element('image[class="tfq--activity_qd]')
-        e.tap()
-        delay(2)
+        b_l = self.page.element_is_exists('image[class="tfq--activity_qd]')
+        if b_l == True:
+            e = self.page.get_element('image[class="tfq--activity_qd]')
+            e.tap()
+            delay(2)
+        else:
+            print("没有配置活动")
 
 
     def test_click_hottopic(self):
@@ -140,7 +145,7 @@ class TestTfq(minium.MiniTest):
         淘房圈首页，热门圈子，点击“更多圈子”
         :return:
         """
-        e = self.page.get_element('navigator[class="more"]')
+        e = self.page.get_element('navigator[class="tfq--more"]')
         e.tap()
         delay(2)
 
@@ -234,14 +239,6 @@ class TestTfq(minium.MiniTest):
         e.tap()
         delay(2)
 
-    def test_click_share2(self):
-        """
-        淘房圈首页 ，点击右下角“分享”按钮
-        :return:
-        """
-        e = self.page.get_element('button[class="tfq--newHouseRfixed-share"]')
-        e.tap()
-        delay(2)
 
     def test_click_postbtn(self):
         """
@@ -249,6 +246,15 @@ class TestTfq(minium.MiniTest):
         :return:
         """
         e = self.page.get_element('image[class="tfq--postBtn_img"]')
+        e.tap()
+        delay(2)
+
+    def test_click_share2(self):
+        """
+        淘房圈首页 ，点击右下角“分享”按钮
+        :return:
+        """
+        e = self.page.get_element('button[class="tfq--newHouseRfixed-share"]')
         e.tap()
         delay(2)
 
