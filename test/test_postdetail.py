@@ -197,7 +197,6 @@ class TestPostDetail(minium.MiniTest):
         e.tap()
         delay(2)
 
-
     def test_click_fix_input(self):
         """
         帖子详情页，点击底部发布评论入口
@@ -254,16 +253,6 @@ class TestPostDetail(minium.MiniTest):
         self.page.get_element('view[class="closeBtn"]').tap()
         delay(1)
 
-    def test_click_share_hy(self):
-        """
-        帖子详情页，点击”分享“按钮，点击分享给好友
-        :return:
-        """
-        e = self.page.get_element('button[class="newHouseRfixed-share"]')
-        e.tap()
-        delay(1)
-        self.page.get_element('button[class="share-btn hy"]').tap()
-        delay(1)
 
     def test_click_share_hb(self):
         """
@@ -289,6 +278,16 @@ class TestPostDetail(minium.MiniTest):
         delay(1)
         e3.tap()
 
+    def test_click_share_hy(self):
+        """
+        帖子详情页，点击”分享“按钮，点击分享给好友
+        :return:
+        """
+        e = self.page.get_element('button[class="newHouseRfixed-share"]')
+        e.tap()
+        delay(1)
+        self.page.get_element('button[class="share-btn hy"]').tap()
+        delay(2)
 
 
 
