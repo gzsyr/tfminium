@@ -1,4 +1,4 @@
-# 南京站 online
+# add by yfl
 import minium
 
 from test.common import delay
@@ -63,12 +63,10 @@ class TestNewsHouseList(minium.MiniTest):
         点击广告
         :return:
         """
-
         ele = self.page.get_element('image[class="bannerTwo-img index_banner"]')
         ele.tap()
         print("ads: ", ele)
         delay(2)
-
 
     def test_click_yldc(self):
         """
