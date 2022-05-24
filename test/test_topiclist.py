@@ -1,4 +1,6 @@
+# add by zzh
 import minium
+import threading
 
 from test.common import delay
 
@@ -50,7 +52,11 @@ class TestTopicList(minium.MiniTest):
         话题列表，点击分享按钮
         :return:
         """
+
         e = self.page.get_element('button[class="newHouseRfixed-share"]')
         e.tap()
         delay(2)
+
+
+
 

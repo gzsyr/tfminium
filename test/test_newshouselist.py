@@ -1,3 +1,4 @@
+# add by yfl
 import minium
 
 from test.common import delay
@@ -9,14 +10,14 @@ class TestNewsHouseList(minium.MiniTest):
     """
 
     def setUp(self) -> None:
-        self.app.switch_tab('/page/newHouseList/newHouseList?city=nj')
+        self.app.switch_tab('/page/newHouseList/newHouseList')
         # page = self.app.get_current_page()
         delay(2)
         try:
             cls = self.page.get_element('view[class="ads_mask-close"]')
             cls.tap()
             print("关闭弹窗广告")
-        except IndexError:
+        except minium.MiniElementNotFoundError:
             print("无弹窗广告")
         print("test  setup!!!!!!!!!!!!!")
 
@@ -157,17 +158,6 @@ class TestNewsHouseList(minium.MiniTest):
         print("zx: ", ele)
         delay(2)
 
-    def test_click_fx(self):
-        """
-        点击分享
-        :return:
-        """
-        ele = self.page.get_element('button[class="newHouseRfixed-share xfxq_fx"]')
-        ele.tap()
-        print("fx: ", ele)
-        delay(2)
-        # self.native.shareConfirm()
-
     def test_click_housedetail(self):
         """
         进入新房详情页
@@ -293,3 +283,14 @@ class TestNewsHouseList(minium.MiniTest):
         ele1.tap()
         print("select_px: ", ele1)
         delay(2)
+
+    def test_z_click_fx(self):
+        """
+        点击分享
+        :return:
+        """
+        ele = self.page.get_element('button[class="newHouseRfixed-share xfxq_fx"]')
+        ele.tap()
+        print("fx: ", ele)
+        delay(2)
+        # self.native.forward_miniprogram_inside("虚拟好友")
