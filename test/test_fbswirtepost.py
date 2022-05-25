@@ -3,12 +3,12 @@ import minium
 from test.common import delay
 from test.test_mine import TestMine
 
-class TestFbsWritePost(minium.MiniTest):
+class TestFbsWritePost(minium.TestMine):
     """
     房博士身份发帖
     """
     def setUp(self) -> None:
-        TestMine.change_roles(self, re_name="fbs智慧", change_name="房博士-fbs智慧")
+        self.change_fbs()
         delay(1)
         self.app.navigate_to("/page/taofangquan/writePost/writePost?city=qz")
         delay(3)
