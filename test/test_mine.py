@@ -28,16 +28,32 @@ class TestMine(minium.MiniTest):
             e3.tap()
             delay(1)
 
-    def test_change_fbs(self):
+    def change_fbs(self):
         """
         测试切换身份,切换成房博士
         """
         self.change_roles(re_name="fbs智慧", change_name="房博士-fbs智慧")
 
+    def change_zygw(self):
+        """
+        切换身份，切换成置业顾问
+        :return:
+        """
+        self.change_roles(re_name="fbs智慧", change_name="房博士-fbs智慧")
 
+    def change_yy(self):
+        """
+        切换身份，切换成运营角色
+        :return:
+        """
+        self.change_roles(re_name="fbs智慧", change_name="房博士-fbs智慧")
 
-
-
+    def change_C(self):
+        """
+        切换到C端身份
+        :return:
+        """
+        self.change_roles(re_name="fbs智慧", change_name="房博士-fbs智慧")
 
 
 
