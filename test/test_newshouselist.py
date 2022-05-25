@@ -227,7 +227,7 @@ class TestNewsHouseList(minium.MiniTest):
         ele.tap()
         ele1 = self.page.get_element("view", inner_text="区域")
         ele1.tap()
-        ele2 = self.page.get_element("view", inner_text="鼓楼区")
+        ele2 = self.page.get_element("view", inner_text="洛江")
         ele2.tap()
         print("select_wz: ", ele2)
         delay(2)
@@ -239,7 +239,7 @@ class TestNewsHouseList(minium.MiniTest):
         """
         ele = self.page.get_element("view", inner_text="价格")
         ele.tap()
-        ele1 = self.page.get_element("view", inner_text="25000-30000元/㎡")
+        ele1 = self.page.get_element("view", inner_text="8000-10000元/㎡")
         ele1.tap()
         print("select_wz: ", ele1)
         delay(2)
@@ -262,7 +262,7 @@ class TestNewsHouseList(minium.MiniTest):
         :return:
         """
         self.page.get_element("view", inner_text="筛选").tap()
-        self.page.get_element("view", inner_text="品牌房企").tap()
+        self.page.get_element("view", inner_text="低总价").tap()
         self.page.get_element("view", inner_text="住宅").tap()
         self.page.get_element("view", inner_text="80-100㎡").tap()
         self.page.get_element("view", inner_text="六月内开盘").tap()
