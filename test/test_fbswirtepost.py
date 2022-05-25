@@ -3,7 +3,8 @@ import minium
 from test.common import delay
 from test.test_mine import TestMine
 
-class TestFbsWritePost(minium.TestMine):
+
+class TestFbsWritePost(TestMine):
     """
     房博士身份发帖
     """
