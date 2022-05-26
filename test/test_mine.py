@@ -1,9 +1,13 @@
 #add by zzh
 import minium
 from test.common import delay
+from test.test_base import TestBase
 
-class TestMine(minium.MiniTest):
 
+class TestMine(TestBase):
+    """
+    我的頁面
+    """
     def change_roles(self, re_name=None, change_name=None):
         """
         re_name：我的页面上期望展示的身份昵称
@@ -15,7 +19,7 @@ class TestMine(minium.MiniTest):
         delay(2)
         self.app.get_current_page()
         b_l = self.page.element_is_exists('view[class="grzx_zcdl-1"]', inner_text=re_name)
-        if b_l == True:
+        if b_l:
             print("不用切换角色")
         else:
             e1 = self.page.get_element('view[class="changeRole"]')
@@ -27,6 +31,7 @@ class TestMine(minium.MiniTest):
             e3 = self.page.get_element('view[class="change-role-submit"]')
             e3.tap()
             delay(1)
+        return self
 
     def change_fbs(self):
         """
@@ -39,7 +44,7 @@ class TestMine(minium.MiniTest):
         切换身份，切换成置业顾问
         :return:
         """
-        self.change_roles(re_name="fbs智慧", change_name="房博士-fbs智慧")
+        self.change_roles(re_name="线上", change_name="置业顾问-线上")
 
     def change_yy(self):
         """
@@ -47,6 +52,7 @@ class TestMine(minium.MiniTest):
         :return:
         """
         self.change_roles(re_name="fbs智慧", change_name="房博士-fbs智慧")
+        return self
 
     def change_C(self):
         """
