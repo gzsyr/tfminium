@@ -25,7 +25,6 @@ class TestNewhouseDetail(TestBase):
         """
         ele = self.page.get_element("image[class='newHouseBanner-img xfxq_xc']")
         ele.tap()
-        # delay(2)
 
     def test_goto_pk(self):
         """
@@ -34,7 +33,6 @@ class TestNewhouseDetail(TestBase):
         """
         ele = self.page.get_element("navigator[class='pk-icon']")
         ele.tap()
-        # delay(2)
 
     def test_goto_dy(self):
         """
@@ -43,7 +41,6 @@ class TestNewhouseDetail(TestBase):
         """
         ele = self.page.get_element("view[class='dy-icon']")
         ele.tap()
-        # delay(2)
 
     def test_goto_fdjsq(self):
         """
@@ -52,7 +49,6 @@ class TestNewhouseDetail(TestBase):
         """
         ele = self.page.get_element("view[class='newHouseInfor-price-r xfxq_jsq']")
         ele.tap()
-        # delay(2)
 
     def test_goto_addr(self):
         """
@@ -60,8 +56,7 @@ class TestNewhouseDetail(TestBase):
         :return:
         """
         ele = self.page.get_element("view[class='newHouseInfor-add-r']")
-        ele.tap()
-        # delay(2)
+        # ele.tap()
 
     def test_goto_lpdp_gd(self):
         """
@@ -70,7 +65,6 @@ class TestNewhouseDetail(TestBase):
         """
         ele = self.page.get_element("view[class='tfFlex tfFlexSb tfAlignC dpEntry']")
         ele.tap()
-        # delay(2)
 
     def test_goto_zxdt(self):
         """
@@ -79,7 +73,6 @@ class TestNewhouseDetail(TestBase):
         """
         ele = self.page.get_element("view[class='newHouseIconInLi-b']", inner_text="最新动态")
         ele.tap()
-        # delay(2)
 
     def test_goto_hxjx(self):
         """
@@ -88,7 +81,6 @@ class TestNewhouseDetail(TestBase):
         """
         ele = self.page.get_element("view[class='newHouseIconInLi-b']", inner_text="户型解析")
         ele.tap()
-        # delay(2)
 
     def test_goto_lpxq(self):
         """
@@ -97,7 +89,6 @@ class TestNewhouseDetail(TestBase):
         """
         ele = self.page.get_element("view[class='newHouseIconInLi-b']", inner_text="楼盘详情")
         ele.tap()
-        # delay(2)
 
     def test_goto_yfyj(self):
         """
@@ -106,7 +97,6 @@ class TestNewhouseDetail(TestBase):
         """
         ele = self.page.get_element("view[class='newHouseIconInLi-b']", inner_text="一房一价")
         ele.tap()
-        # delay(2)
 
     def test_goto_lpdp(self):
         """
@@ -115,7 +105,6 @@ class TestNewhouseDetail(TestBase):
         """
         ele = self.page.get_element("view[class='newHouseIconInLi-b']", inner_text="楼盘点评")
         ele.tap()
-        # delay(2)
 
     def test_goto_msbm(self):
         """
@@ -124,7 +113,6 @@ class TestNewhouseDetail(TestBase):
         """
         ele = self.page.get_element("view[class='ggweiR']", inner_text="马上报名")
         ele.tap()
-        # delay(2)
 
     def test_goto_bmqc(self):
         """
@@ -133,7 +121,6 @@ class TestNewhouseDetail(TestBase):
         """
         ele = self.page.get_element("view[class='left-icon disflex tfAlignC tfFlexC']")
         ele.tap()
-        # delay(2)
 
     def test_goto_bmxh(self):
         """
@@ -142,7 +129,6 @@ class TestNewhouseDetail(TestBase):
         """
         ele = self.page.get_element("view[class='disflex tfAlignC xf_xh_title']")
         ele.tap()
-        # delay(2)
 
     def test_goto_bmyfyj(self):
         """
@@ -151,7 +137,6 @@ class TestNewhouseDetail(TestBase):
         """
         ele = self.page.get_element("view[class='yifangyijia']")
         ele.tap()
-        # delay(2)
 
     def test_goto_bmgfzl(self):
         """
@@ -160,7 +145,6 @@ class TestNewhouseDetail(TestBase):
         """
         ele = self.page.get_element("view[class='goufangziliao']")
         ele.tap()
-        # delay(2)
 
     def test_goto_lpdt_more(self):
         """
@@ -169,7 +153,6 @@ class TestNewhouseDetail(TestBase):
         """
         ele = self.page.get_element("view[class='tfFlex tfFlexSb newHouseTitle-line xfxq_lpdt disflex-alignitems-center']")
         ele.tap()
-        # delay(2)
 
     def test_goto_xxxx_more(self):
         """
@@ -178,7 +161,6 @@ class TestNewhouseDetail(TestBase):
         """
         ele = self.page.get_element("view[class='tfFlex tfFlexSb newHouseTitle-line xfxq_lpdt']")
         ele.tap()
-        # delay(2)
 
     def test_goto_wzzb_dt(self):
         """
