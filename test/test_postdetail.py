@@ -132,18 +132,6 @@ class TestPostDetail(minium.MiniTest):
         e.tap()
         delay(2)
 
-    def test_send_commentlist_reply(self):
-        """
-        帖子详情页，点击第一个评论的“回复”按钮，发布评论回复
-        :return:
-        """
-        self.page.get_element('view[class="commentList--reply-btn"]').tap()
-        e2 = self.page.get_element('textarea[placeholder="说点什么吧"]')
-        e2.input("帖子的评论回复测试")
-        e3 = self.page.get_element('button[class="send-btn"]')
-        delay(1)
-        e3.tap()
-
     def test_click_replycontent(self):
         """
         帖子详情页，点击第一个评论的回复内容
@@ -266,19 +254,6 @@ class TestPostDetail(minium.MiniTest):
         self.page.get_element('button[class="share-btn pyq"]').tap()
         delay(1)
 
-    def test_send_reply(self):
-        """
-        帖子详情页，点击底部发布评论弹窗，发布评论
-        :return:
-        """
-        e1 = self.page.get_element('view[class="detail-fix-input"]')
-        e1.tap()
-        e2 = self.page.get_element('textarea[placeholder="说点什么吧"]')
-        e2.input("UIceshi2")
-        e3 = self.page.get_element('button[class="send-btn"]')
-        delay(1)
-        e3.tap()
-
     def test_click_share_hy(self):
         """
         帖子详情页，点击”分享“按钮，点击分享给好友
@@ -291,37 +266,5 @@ class TestPostDetail(minium.MiniTest):
         delay(2)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
 
 
