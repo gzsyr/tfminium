@@ -7,9 +7,9 @@
 import minium
 from test.common import delay
 
-class TestNewsDetail(minium.MiniTest):
+class TestNewsDetailPicture(minium.MiniTest):
     """
-    资讯详情页手机图片资讯
+    资讯详情页图片稿件
     """
 
     def setUp(self) -> None:
