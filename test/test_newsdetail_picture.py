@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- 
 # @Time : 2022/5/30 10:44 
 # @Author : zcm 
-# @File : test_newsdetail.py 
+# @File : test_newsdetail_picture.py
 # @desc:
 
 import minium
@@ -9,7 +9,7 @@ from test.common import delay
 
 class TestNewsDetail(minium.MiniTest):
     """
-    资讯详情页
+    资讯详情页手机图片资讯
     """
 
     def setUp(self) -> None:
