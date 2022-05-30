@@ -17,7 +17,7 @@ class TestNewsList(minium.MiniTest):
         self.app.navigate_to("/page/news/list?city=qz")
         delay(4)
         self.app.get_current_page()
-        print("setUp!!!!")
+        print("setUp!!!!!")
 
     def test_click_firstnews(self):
         """

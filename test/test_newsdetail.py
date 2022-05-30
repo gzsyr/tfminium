@@ -16,7 +16,7 @@ class TestNewsDetail(minium.MiniTest):
         self.app.navigate_to("/page/news/detail?id=029970948&city=qz")
         delay(3)
         self.app.get_current_page()
-        print("setUp!!!!")
+        print("setUp!!!!!")
         delay(2)
 
     def test_click_firsttjlp(self):
