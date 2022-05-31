@@ -4,16 +4,18 @@ from test.test_mine import TestMine
 
 class TestZygwWritePost(TestMine):
     """
-    房博士身份发帖
+    置业顾问身份发帖
     """
+    @classmethod
+    def setUpClass(cls) -> None:
+        super(TestZygwWritePost, cls).setUpClass()
+        cls().change_zygw()
+        print("setupclass")
+
     def setUp(self) -> None:
-        super().setUp()
-        self.change_zygw()
-        self.delay(1)
-        self.app.navigate_to("/page/taofangquan/writePost/writePost?city=qz")
-        self.delay(3)
-        self.app.get_current_page()
-        print("test  setup!!!!!!!!!!!!!")
+        self.page_name = "/page/taofangquan/writePost/writePost?city=qz"
+        self.switch = False
+        super(TestZygwWritePost, self).setUp()
 
     def test_zygw_input_title(self, text="测试帖子标题"):
         """
