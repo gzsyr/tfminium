@@ -1,25 +1,26 @@
 # add by yfl
 import minium
 
-from test.common import delay
+from test.test_base import TestBase
 
 
-class TestNewsHouseList(minium.MiniTest):
+class TestNewsHouseList(TestBase):
     """
     新房列表页面
     """
 
     def setUp(self) -> None:
-        self.app.switch_tab('/page/newHouseList/newHouseList')
-        # page = self.app.get_current_page()
-        delay(2)
+        self.page_name = "/page/newHouseList/newHouseList"
+        self.switch = True
+        super(TestNewsHouseList, self).setUp()
+
         try:
             cls = self.page.get_element('view[class="ads_mask-close"]')
             cls.tap()
             print("关闭弹窗广告")
         except minium.MiniElementNotFoundError:
             print("无弹窗广告")
-        print("test  setup!!!!!!!!!!!!!")
+        print("TestNewsHouseList setup")
 
     def test_click_search(self):
         """
@@ -29,7 +30,6 @@ class TestNewsHouseList(minium.MiniTest):
         ele = self.page.get_element('view[class="search-input"]')
         ele.tap()
         print("search: ", ele)
-        delay(2)
 
     # def test_search_result(self):
     #     """
@@ -55,8 +55,6 @@ class TestNewsHouseList(minium.MiniTest):
         """
         ele = self.page.get_element('navigator[class="search-map"]')
         ele.tap()
-        print("map: ", ele)
-        delay(2)
 
     def test_click_ads(self):
         """
@@ -65,8 +63,6 @@ class TestNewsHouseList(minium.MiniTest):
         """
         ele = self.page.get_element('image[class="bannerTwo-img index_banner"]')
         ele.tap()
-        print("ads: ", ele)
-        delay(2)
 
     def test_click_yldc(self):
         """
@@ -75,8 +71,6 @@ class TestNewsHouseList(minium.MiniTest):
         """
         ele = self.page.get_element('view[class="newHouseIconEnterLi xflb_rmlp"]')
         ele.tap()
-        print("rmlp: ", ele)
-        delay(2)
 
     def test_click_bnzf(self):
         """
@@ -85,8 +79,6 @@ class TestNewsHouseList(minium.MiniTest):
         """
         ele = self.page.get_element('view[class="newHouseIconEnterLi xflb_bnzf"]')
         ele.tap()
-        print("bnzf: ", ele)
-        delay(2)
 
     def test_click_vrkf(self):
         """
@@ -95,8 +87,6 @@ class TestNewsHouseList(minium.MiniTest):
         """
         ele = self.page.get_element('view[class="newHouseIconEnterLi xflb_vrkf"]')
         ele.tap()
-        print("vrkf: ", ele)
-        delay(2)
 
     def test_click_kft(self):
         """
@@ -105,8 +95,6 @@ class TestNewsHouseList(minium.MiniTest):
         """
         ele = self.page.get_element('view[class="newHouseIconEnterLi xflb_kft"]')
         ele.tap()
-        print("kft: ", ele)
-        delay(2)
 
     def test_click_dgli1(self):
         """
@@ -115,8 +103,6 @@ class TestNewsHouseList(minium.MiniTest):
         """
         ele = self.page.get_element('view[class="disflex tfAlignC newHouseDgLi xflb_dg1"]')
         ele.tap()
-        print("dgLi1: ", ele)
-        delay(2)
 
     def test_click_dgli2(self):
         """
@@ -125,8 +111,6 @@ class TestNewsHouseList(minium.MiniTest):
         """
         ele = self.page.get_element('view[class="disflex tfAlignC newHouseDgLi xflb_dg2"]')
         ele.tap()
-        print("dgLi2: ", ele)
-        delay(2)
 
     def test_click_dgli3(self):
         """
@@ -135,8 +119,6 @@ class TestNewsHouseList(minium.MiniTest):
         """
         ele = self.page.get_element('view[class="disflex tfAlignC newHouseDgLi xflb_dg3"]')
         ele.tap()
-        print("dgLi3: ", ele)
-        delay(2)
 
     def test_click_dgli4(self):
         """
@@ -145,8 +127,6 @@ class TestNewsHouseList(minium.MiniTest):
         """
         ele = self.page.get_element('view[class="disflex tfAlignC newHouseDgLi xflb_dg4"]')
         ele.tap()
-        print("dgLi4: ", ele)
-        delay(2)
 
     def test_click_zx(self):
         """
@@ -155,8 +135,6 @@ class TestNewsHouseList(minium.MiniTest):
         """
         ele = self.page.get_element('view[class="newHouseRfixed-wyzx xflb_fx"]')
         ele.tap()
-        print("zx: ", ele)
-        delay(2)
 
     def test_click_housedetail(self):
         """
@@ -165,8 +143,6 @@ class TestNewsHouseList(minium.MiniTest):
         """
         ele = self.page.get_elements('view[class="tfFlex xflb_lp disflex-flexwrap-nowrap"]')
         ele[0].tap()
-        print("goto_housedetail: ", ele)
-        delay(4)
 
     def test_show_wz(self):
         """
@@ -175,8 +151,6 @@ class TestNewsHouseList(minium.MiniTest):
         """
         ele = self.page.get_element("view", inner_text="位置")
         ele.tap()
-        print("wz: ", ele)
-        delay(2)
 
     def test_show_jg(self):
         """
@@ -185,8 +159,6 @@ class TestNewsHouseList(minium.MiniTest):
         """
         ele = self.page.get_element("view", inner_text="价格")
         ele.tap()
-        print("jg: ", ele)
-        delay(2)
 
     def test_show_hx(self):
         """
@@ -195,8 +167,6 @@ class TestNewsHouseList(minium.MiniTest):
         """
         ele = self.page.get_element("view", inner_text="户型")
         ele.tap()
-        print("hx: ", ele)
-        delay(2)
 
     def test_show_sx(self):
         """
@@ -205,8 +175,6 @@ class TestNewsHouseList(minium.MiniTest):
         """
         ele = self.page.get_element("view", inner_text="筛选")
         ele.tap()
-        print("sx: ", ele)
-        delay(2)
 
     def test_show_px(self):
         """
@@ -215,8 +183,6 @@ class TestNewsHouseList(minium.MiniTest):
         """
         ele = self.page.get_element("view", inner_text="排序")
         ele.tap()
-        print("px: ", ele)
-        delay(2)
 
     def test_select_wz(self):
         """
@@ -229,8 +195,6 @@ class TestNewsHouseList(minium.MiniTest):
         ele1.tap()
         ele2 = self.page.get_element("view", inner_text="洛江")
         ele2.tap()
-        print("select_wz: ", ele2)
-        delay(2)
 
     def test_select_jg(self):
         """
@@ -241,8 +205,6 @@ class TestNewsHouseList(minium.MiniTest):
         ele.tap()
         ele1 = self.page.get_element("view", inner_text="8000-10000元/㎡")
         ele1.tap()
-        print("select_wz: ", ele1)
-        delay(2)
 
     def test_select_hx(self):
         """
@@ -253,8 +215,6 @@ class TestNewsHouseList(minium.MiniTest):
         ele.tap()
         ele1 = self.page.get_element("view", inner_text="二室")
         ele1.tap()
-        print("select_hx: ", ele1)
-        delay(2)
 
     def test_select_sx(self):
         """
@@ -269,8 +229,6 @@ class TestNewsHouseList(minium.MiniTest):
         self.page.get_element("view", inner_text="精装修").tap()
         ele = self.page.get_element('view[class="newHouseMaskLi-sx-btn-confirm"]')
         ele.tap()
-        print("select_sx: ", ele)
-        delay(2)
 
     def test_select_px(self):
         """
@@ -281,8 +239,6 @@ class TestNewsHouseList(minium.MiniTest):
         ele.tap()
         ele1 = self.page.get_element("view", inner_text="开盘时间由近到远")
         ele1.tap()
-        print("select_px: ", ele1)
-        delay(2)
 
     def test_z_click_fx(self):
         """
@@ -291,6 +247,4 @@ class TestNewsHouseList(minium.MiniTest):
         """
         ele = self.page.get_element('button[class="newHouseRfixed-share xfxq_fx"]')
         ele.tap()
-        print("fx: ", ele)
-        delay(2)
         # self.native.forward_miniprogram_inside("虚拟好友")
