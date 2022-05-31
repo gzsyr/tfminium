@@ -25,7 +25,6 @@ class TestBase(minium.MiniTest):
         :return:
         """
         super(TestBase, self).setUp()
-        print(self.page_name)
         if self.switch:
             self.app.switch_tab(self.page_name)
         else:
