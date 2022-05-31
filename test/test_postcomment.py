@@ -1,7 +1,6 @@
 # add by zsy
 from minium import ddt_class, ddt_case, ddt_data
 
-from test.test_base import TestBase
 from test.test_mine import TestMine
 
 
@@ -10,6 +9,16 @@ class TestPostComment(TestMine):
     """
     所有身份 发布帖子评论、评论回复
     """
+    def setUp(self) -> None:
+        """
+        此处涉及切换身份，不继承TestMine的setup
+        :return:
+        """
+        self.page_name = "/page/index/mine?city=qz"
+        self.switch = True
+        super(TestPostComment, self).setUp()
+        print("TestPostComment  Setup")
+
     def get_shenfen(self, value):
         if value == 1:
             self.change_C()
@@ -57,6 +66,7 @@ class TestPostComment(TestMine):
         self.delay(1)
         e3.tap()
 
+    # 这个用例在最后发布的时候，点击的“发布”按钮，会引导到主评论，所以最后没有点击发布按钮
     @ddt_case(
         ddt_data(1, name="C"),
         ddt_data(2, name="zygw"),
@@ -76,8 +86,8 @@ class TestPostComment(TestMine):
         self.app.get_current_page()
 
         self.page.get_element('view[class="commentList--reply-btn"]').tap()
-        e2 = self.page.get_element('textarea[placeholder="说点什么吧"]')
+        e2 = self.page.get_element('textarea[name="quick_reply_content"]')
         e2.input(text)
-        e3 = self.page.get_element('button[class="send-btn"]')
-        self.delay(1)
-        e3.tap()
+        # e3 = self.page.get_element('button[class="send-btn"]')
+        # e3[1].tap()
+

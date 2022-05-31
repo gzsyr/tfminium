@@ -25,7 +25,6 @@ class TestBase(minium.MiniTest):
         :return:
         """
         super(TestBase, self).setUp()
-        print(self.page_name)
         if self.switch:
             self.app.switch_tab(self.page_name)
         else:
@@ -37,9 +36,6 @@ class TestBase(minium.MiniTest):
     def delay(self, second):
         time.sleep(second)
         return self
-
-    def aaaa(self):
-        print("test")
 
     def tearDown(self) -> None:
         self.delay(3)
