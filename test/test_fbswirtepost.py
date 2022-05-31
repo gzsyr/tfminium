@@ -215,7 +215,6 @@ class TestFbsWritePost(TestMine):
         """
         房博士身份，发帖页面，输入标题，内容，选择关联板块，关联楼盘，同步到圈子，点击“发布”按钮
         """
-
         self.test_fbs_input_title().delay(1).test_fbs_input_content().test_fbs_choose_bk().\
             test_fbs_choose_lp().test_fbs_choose_quanzi().test_fbs_submit()
         # self.page.get_element('textarea[class="tip"]').input("测试帖子标题")
@@ -262,18 +261,4 @@ class TestFbsWritePost(TestMine):
         # delay(1)
         # self.page.get_element('button[class="submit-btn"]').tap()
         # delay(1)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
