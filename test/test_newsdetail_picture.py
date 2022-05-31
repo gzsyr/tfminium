@@ -85,13 +85,21 @@ class TestNewsDetailPicture(minium.MiniTest):
 
     def test_click_comments(self):
         """
-        点击评论图标
+        点击评论图标，点击评论输入框，直接通过trigger发布
         :return:
         """
         e = self.page.get_element('view.fixBL-r')
         c = e.attribute('class')
         print('class:', c)
         e.tap()
+        delay(2)
+        e2 = self.page.get_element('button.fixBL-l')
+        print(e2.attribute('class'))
+        e2.tap()
+        e3 = self.page.get_element('input.fixBIntB-input')
+        print(e3.attribute('class'))
+        delay(2)
+        e3.trigger("confirm", {"value": "测试"})
         delay(2)
 
     def test_click_wyzx(self):
