@@ -1,45 +1,91 @@
 # -*- coding: utf-8 -*- 
-# @Time : 2022/5/31 15:03
-# @Author : zcm
-# @File : test_newsdetail_audio.py
+# @Time : 2022/5/31 10:02 
+# @Author : zcm 
+# @File : test_newsdetai_video.py 
 # @desc:
 
 from test.test_base import TestBase
 from common import delay
 
 
-class TestNewsDetailAudio(TestBase):
+class TestNewsdetailVideo(TestBase):
     """
-    资讯详情页音频稿件+精选栏目关注组件
+    资讯详情页视频稿件+楼盘名片稿件
     """
 
     def setUp(self) -> None:
-        self.page_name = "/page/news/detail?id=029783880&city=qz"
+        self.page_name = "/page/news/detail?id=029783878&city=qz"
         self.switch = False
-        super(TestNewsDetailAudio, self).setUp()
+        super(TestNewsdetailVideo, self).setUp()
         delay(2)
 
-    def test_01click_lanmu(self):
+    def test_01click_video(self):
         """
-        点击栏目关注组件订阅
+        点击视频播放
         :return:
         """
-        self.page.get_element('button.inforR').tap()
+        self.page.get_element('video#myVideo').play()
+
+    def test_02click_firstloupan(self):
+        """
+        点击楼盘名片组件
+        :return:
+        """
+        page = self.app.get_current_page()
+        page.scroll_to(1500, 500)
+        self.page.get_element('image.lpList-img').tap()
         delay(2)
 
-    def test_02click_audio(self):
+    def test_03click_kfbm(self):
         """
-        点击音频组件播放
+        点击看房报名
         :return:
         """
-        self.page.get_element('image.yinping_play').tap()
+        page = self.app.get_current_page()
+        delay(2)
+        page.scroll_to(1500, 500)
+        self.page.get_element('button[data-type="kf"]').tap()
+        # self.native.allow_authorize()
 
-    def test_03click_morepl(self):
+    def test_04click_dy(self):
         """
-        点击更多评论
+        点击订阅
         :return:
         """
-        self.page.get_element('view', inner_text='更多评论').tap()
+        page = self.app.get_current_page()
+        delay(2)
+        page.scroll_to(1500, 500)
+        self.page.get_element('button[data-type="dy"]').tap()
+
+    def test_05click_yh(self):
+        """
+        点击优惠
+        :return:
+        """
+        page = self.app.get_current_page()
+        delay(2)
+        page.scroll_to(1500, 500)
+        self.page.get_element('button[data-type="yh"]').tap()
+
+    def test_12click_tel(self):
+        """
+        点击拨打电话
+        :return:
+        """
+        page = self.app.get_current_page()
+        delay(2)
+        page.scroll_to(1500, 500)
+        self.page.get_element('button[class="lpList-btn lpList-btn-tel"]').tap()
+
+    def test_06click_more(self):
+        """
+        点击更多
+        :return:
+        """
+        page = self.app.get_current_page()
+        delay(2)
+        page.scroll_to(1500, 500)
+        self.page.get_element('view[class="getMore"]').tap()
 
     def test_07click_firsttjlp(self):
         """
