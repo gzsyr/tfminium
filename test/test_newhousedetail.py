@@ -12,11 +12,9 @@ class TestNewhouseDetail(TestBase):
     新房详情页页面
     """
     def setUp(self) -> None:
-        super().setUp()
-        self.app.navigate_to('/page/newhouse/detail?pinyin=shanhaiguojixzl&city=qz')
-        page = self.app.get_current_page()
-        print("test  setup!!!!!!!!!!!!!")
-        delay(2)
+        self.page_name = "/page/newhouse/detail?pinyin=shanhaiguojixzl&city=qz"
+        self.switch = False
+        super(TestNewhouseDetail, self).setUp()
 
     def test_goto_photo(self):
         """
