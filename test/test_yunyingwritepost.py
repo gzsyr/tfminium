@@ -6,13 +6,18 @@ class TestYyWritePost(TestMine):
     """
     运营身份发帖
     """
+
+    # 变更setupclass、setup内容
+    @classmethod
+    def setUpClass(cls) -> None:
+        super(TestYyWritePost, cls).setUpClass()
+        cls().change_yy()
+        print("setupclass")
+
     def setUp(self) -> None:
-        self.change_yy()
-        self.delay(1)
-        self.app.navigate_to("/page/taofangquan/writePost/writePost?city=qz")
-        self.delay(3)
-        self.app.get_current_page()
-        print("test  setup!!!!!!!!!!!!!")
+        self.page_name = "/page/taofangquan/writePost/writePost?city=qz"
+        self.switch = False
+        super(TestYyWritePost, self).setUp()
 
     def test_yy_input_title(self):
         """

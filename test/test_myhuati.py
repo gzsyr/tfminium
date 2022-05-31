@@ -1,22 +1,20 @@
-import minium
-from test.common import delay
+from test.test_base import TestBase
 
-class TestMyHuaTi(minium.MiniTest):
+
+class TestMyHuaTi(TestBase):
     """
     我的话题页面
     """
 
     def setUp(self) -> None:
-        self.app.navigate_to("/page/mine/myHuati/myHuati?city=qz")
-        delay(2)
-        self.app.get_current_page()
-        print("test  setup!!!!!!!!!!!!!")
-
-    def tearDown(self) -> None:
-        delay(2)
+        self.page_name = "/page/mine/myHuati/myHuati?city=qz"
+        self.switch = False
+        super(TestMyHuaTi, self).setUp()
+        print("TestMyHuaTi setup")
 
     def test_click(self):
         """
         我的话题页面，点击话题
         """
         self.page.get_element('view[class="title"]').tap()
+
