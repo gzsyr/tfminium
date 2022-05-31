@@ -29,7 +29,6 @@ class TestNewsHouseList(TestBase):
         """
         ele = self.page.get_element('view[class="search-input"]')
         ele.tap()
-        print("search: ", ele)
 
     # def test_search_result(self):
     #     """
