@@ -38,9 +38,6 @@ class TestBase(minium.MiniTest):
         time.sleep(second)
         return self
 
-    def aaaa(self):
-        print("test")
-
     def tearDown(self) -> None:
         self.delay(3)
         super(TestBase, self).tearDown()
