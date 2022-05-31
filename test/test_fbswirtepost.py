@@ -6,13 +6,17 @@ class TestFbsWritePost(TestMine):
     """
     房博士身份发帖
     """
+    @classmethod
+    def setUpClass(cls) -> None:
+        super(TestFbsWritePost, cls).setUpClass()
+        cls().change_fbs()
+        print("TestFbsWritePost setupclass")
+
     def setUp(self) -> None:
-        self.change_fbs()
-        self.delay(1)
-        self.app.navigate_to("/page/taofangquan/writePost/writePost?city=qz")
-        self.delay(3)
-        self.app.get_current_page()
-        print("test  setup!!!!!!!!!!!!!")
+        self.page_name = "/page/taofangquan/writePost/writePost?city=qz"
+        self.switch = False
+        super(TestFbsWritePost, self).setUp()
+        print("TestFbsWritePost setup")
 
     def test_fbs_input_title(self, text="测试帖子标题"):
         """
