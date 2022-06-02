@@ -172,3 +172,16 @@ class TestNewsdetailVideo(TestBase):
         e = self.page.get_element('button[class="fixBR-btn zx"]')
         delay(2)
         e.tap()
+
+    def test_00click_firstyd(self):
+        """
+        点击推荐阅读
+        :return:
+        """
+        try:
+            e = self.page.get_elements('view[class="tjydlist-li tfFlex tfFlexSb tfAlingnC"]')
+            e[0].tap()
+            delay(2)
+        except:
+            return
+
