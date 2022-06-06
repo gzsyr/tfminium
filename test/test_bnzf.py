@@ -21,7 +21,7 @@ class TestBnzf(TestBase):
 
     def test_01_click_bnzf_xf(self):
         """
-        点击帮你找房，点击新房，选择住宅，丰泽，10000以上，120-140㎡，140-160㎡，点击一键找房，
+        点击帮你找房，点击新房，选择住宅，丰泽，10000以上，120-140㎡，140-160㎡，点击一键找房
         :return:
         """
         e = self.page.get_element('button[class="fixBR-btn zf"]').tap()
@@ -86,7 +86,7 @@ class TestBnzf(TestBase):
 
     def test_05_click_callim(self):
         """
-        点击帮你找房，点击一键找房，点击在线咨询，点击发送框，输入测试，点击发送，点击语音按钮，长按语音输入5s，再点击语音按钮，点击+按钮，点击历史消息
+        点击帮你找房，点击一键找房，点击在线咨询，点击输入框，输入测试，点击发送，点击语音按钮，长按语音输入5s，再点击语音按钮，点击+按钮，点击历史消息
         :return:
         """
         e = self.page.get_element('button[class="fixBR-btn zf"]').tap()
