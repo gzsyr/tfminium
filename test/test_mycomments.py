@@ -4,7 +4,7 @@ from test.test_base import TestBase
 
 class TestMyComments(TestBase):
     """
-    进入我的帖子页面
+    进入我的评论页面
     """
 
     def setUp(self) -> None:
