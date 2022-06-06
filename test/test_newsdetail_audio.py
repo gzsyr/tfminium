@@ -19,7 +19,7 @@ class TestNewsDetailAudio(TestBase):
         super(TestNewsDetailAudio, self).setUp()
         delay(2)
 
-    def test_01click_lanmu(self):
+    def test_01_click_lanmu(self):
         """
         点击栏目关注组件订阅
         :return:
@@ -27,21 +27,29 @@ class TestNewsDetailAudio(TestBase):
         self.page.get_element('button.inforR').tap()
         delay(2)
 
-    def test_02click_audio(self):
+    def test_02_click_audio(self):
         """
         点击音频组件播放
         :return:
         """
         self.page.get_element('image.yinping_play').tap()
 
-    def test_03click_morepl(self):
+    def test_03_click_morepl(self):
         """
         点击更多评论
         :return:
         """
         self.page.get_element('view', inner_text='更多评论').tap()
 
-    def test_07click_firsttjlp(self):
+    def test_04_click_bnzf(self):
+        """
+        点击帮你找房
+        :return:
+        """
+        e = self.page.get_element('button[class="fixBR-btn zf"]').tap()
+        delay(3)
+
+    def test_07_click_firsttjlp(self):
         """
         点击第一个推荐楼盘
         :return:
@@ -51,7 +59,7 @@ class TestNewsDetailAudio(TestBase):
         e.tap()
         delay(3)
 
-    def test_13click_tel(self):
+    def test_13_click_tel(self):
         """
         点击拨打电话图标
         :return:
@@ -60,7 +68,7 @@ class TestNewsDetailAudio(TestBase):
         delay(2)
         e.tap()
 
-    def test_08click_backindex(self):
+    def test_08_click_backindex(self):
         """
         点击首页
         :return:
@@ -69,7 +77,7 @@ class TestNewsDetailAudio(TestBase):
         delay(2)
         e.tap()
 
-    def test_15click_share(self):
+    def test_15_click_share(self):
         """
         点击分享
         :return:
@@ -78,7 +86,7 @@ class TestNewsDetailAudio(TestBase):
         delay(2)
         e.tap()
 
-    def test_09click_writecomment(self):
+    def test_09_click_writecomment(self):
         """
         点击写评论，直接通过trigger发布
         :return:
@@ -90,7 +98,7 @@ class TestNewsDetailAudio(TestBase):
         delay(2)
         e2.trigger("confirm", {"value": "测试"})
 
-    def test_10click_comments(self):
+    def test_10_click_comments(self):
         """
         点击评论图标，点击评论输入框，直接通过trigger发布,并点赞
         :return:
@@ -109,7 +117,7 @@ class TestNewsDetailAudio(TestBase):
         delay(2)
         self.page.get_element('button.pllist-zan').tap()
 
-    def test_11click_dianzan(self):
+    def test_11_click_dianzan(self):
         """
         点击点赞图标
         :return:
@@ -118,7 +126,7 @@ class TestNewsDetailAudio(TestBase):
         delay(2)
         e.tap()
 
-    def test_14click_wyzx(self):
+    def test_14_click_wyzx(self):
         """
         点击我要咨询
         :return:
@@ -127,7 +135,7 @@ class TestNewsDetailAudio(TestBase):
         delay(2)
         e.tap()
 
-    def test_00click_firstyd(self):
+    def test_00_click_firstyd(self):
         """
         点击推荐阅读
         :return:

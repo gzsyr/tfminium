@@ -19,14 +19,14 @@ class TestNewsdetailVideo(TestBase):
         super(TestNewsdetailVideo, self).setUp()
         delay(2)
 
-    def test_01click_video(self):
+    def test_01_click_video(self):
         """
         点击视频播放
         :return:
         """
         self.page.get_element('video#myVideo').play()
 
-    def test_02click_firstloupan(self):
+    def test_02_click_firstloupan(self):
         """
         点击楼盘名片组件
         :return:
@@ -36,7 +36,7 @@ class TestNewsdetailVideo(TestBase):
         self.page.get_element('image.lpList-img').tap()
         delay(2)
 
-    def test_03click_kfbm(self):
+    def test_03_click_kfbm(self):
         """
         点击看房报名
         :return:
@@ -47,7 +47,7 @@ class TestNewsdetailVideo(TestBase):
         self.page.get_element('button[data-type="kf"]').tap()
         # self.native.allow_authorize()
 
-    def test_04click_dy(self):
+    def test_04_click_dy(self):
         """
         点击订阅
         :return:
@@ -57,7 +57,7 @@ class TestNewsdetailVideo(TestBase):
         page.scroll_to(1500, 500)
         self.page.get_element('button[data-type="dy"]').tap()
 
-    def test_05click_yh(self):
+    def test_05_click_yh(self):
         """
         点击优惠
         :return:
@@ -67,7 +67,7 @@ class TestNewsdetailVideo(TestBase):
         page.scroll_to(1500, 500)
         self.page.get_element('button[data-type="yh"]').tap()
 
-    def test_12click_tel(self):
+    def test_12_click_tel(self):
         """
         点击拨打电话
         :return:
@@ -77,7 +77,7 @@ class TestNewsdetailVideo(TestBase):
         page.scroll_to(1500, 500)
         self.page.get_element('button[class="lpList-btn lpList-btn-tel"]').tap()
 
-    def test_06click_more(self):
+    def test_06_click_more(self):
         """
         点击更多
         :return:
@@ -87,7 +87,7 @@ class TestNewsdetailVideo(TestBase):
         page.scroll_to(1500, 500)
         self.page.get_element('view[class="getMore"]').tap()
 
-    def test_07click_firsttjlp(self):
+    def test_07_click_firsttjlp(self):
         """
         点击第一个推荐楼盘
         :return:
@@ -97,7 +97,7 @@ class TestNewsdetailVideo(TestBase):
         e.tap()
         delay(3)
 
-    def test_13click_tel(self):
+    def test_13_click_tel(self):
         """
         点击拨打电话图标
         :return:
@@ -106,7 +106,7 @@ class TestNewsdetailVideo(TestBase):
         delay(2)
         e.tap()
 
-    def test_08click_backindex(self):
+    def test_08_click_backindex(self):
         """
         点击首页
         :return:
@@ -115,7 +115,7 @@ class TestNewsdetailVideo(TestBase):
         delay(2)
         e.tap()
 
-    def test_15click_share(self):
+    def test_15_click_share(self):
         """
         点击分享
         :return:
@@ -124,7 +124,7 @@ class TestNewsdetailVideo(TestBase):
         delay(2)
         e.tap()
 
-    def test_09click_writecomment(self):
+    def test_09_click_writecomment(self):
         """
         点击写评论，直接通过trigger发布
         :return:
@@ -136,7 +136,7 @@ class TestNewsdetailVideo(TestBase):
         delay(2)
         e2.trigger("confirm", {"value": "测试"})
 
-    def test_10click_comments(self):
+    def test_10_click_comments(self):
         """
         点击评论图标，点击评论输入框，直接通过trigger发布,并点赞
         :return:
@@ -155,7 +155,7 @@ class TestNewsdetailVideo(TestBase):
         delay(2)
         self.page.get_element('button.pllist-zan').tap()
 
-    def test_11click_dianzan(self):
+    def test_11_click_dianzan(self):
         """
         点击点赞图标
         :return:
@@ -164,7 +164,7 @@ class TestNewsdetailVideo(TestBase):
         delay(2)
         e.tap()
 
-    def test_14click_wyzx(self):
+    def test_14_click_wyzx(self):
         """
         点击我要咨询
         :return:
@@ -173,7 +173,7 @@ class TestNewsdetailVideo(TestBase):
         delay(2)
         e.tap()
 
-    def test_00click_firstyd(self):
+    def test_00_click_firstyd(self):
         """
         点击推荐阅读
         :return:
