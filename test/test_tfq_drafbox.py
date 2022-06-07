@@ -1,5 +1,3 @@
-import minium
-from test.common import delay
 from test import test_base
 from test.test_base import TestBase
 
@@ -43,7 +41,7 @@ class TestDrafBox(TestBase):
             e = self.page.get_element('view[class="draft_delete"]')
             e.tap()
             self.app.restore_wx_method("showModal")
-            delay(2)
+            self.delay(2)
             self.capture("删除")
             self.native.handle_modal("取消", "删除")
         else:
@@ -66,7 +64,7 @@ class TestDrafBox(TestBase):
         草稿箱页面，切换至楼盘评论tab，点击楼盘评论标题
         """
         self.page.get_element('view[class="draft_item"]', inner_text="楼盘评论").tap()
-        delay(3)
+        self.delay(3)
         self.page.get_element('view[class="tfLine1 mt10"]').tap()
 
     def test_click_lpdelete(self):
@@ -74,7 +72,7 @@ class TestDrafBox(TestBase):
         草稿箱页面，切换至楼盘评论tab，点击楼盘评论删除按钮
         """
         self.page.get_element('view[class="draft_item"]', inner_text="楼盘评论").tap()
-        delay(3)
+        self.delay(3)
         self.page.get_element('view[class="draft_delete"]').tap()
 
     def test_click_lpdelete1(self):
@@ -82,7 +80,7 @@ class TestDrafBox(TestBase):
         草稿箱页面，切换至楼盘评论tab，点击楼盘评论删除按钮，二次确认点击取消
         """
         self.page.get_element('view[class="draft_item"]', inner_text="楼盘评论").tap()
-        delay(3)
+        self.delay(3)
         b_l = self.page.element_is_exists('view[class="draft_delete"]')
         if b_l:
             result = {"confirm": False}
@@ -90,14 +88,9 @@ class TestDrafBox(TestBase):
             e = self.page.get_element('view[class="draft_delete"]')
             e.tap()
             self.app.restore_wx_method("showModal")
-            delay(2)
+            self.delay(2)
             self.capture("删除")
             self.native.handle_modal("取消", "删除")
         else:
             print("没有楼盘评论草稿")
-
-
-
-
-
 

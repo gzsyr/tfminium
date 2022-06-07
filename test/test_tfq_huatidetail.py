@@ -1,5 +1,4 @@
 # add by zzh
-from test.common import delay
 from test.test_base import TestBase
 
 
@@ -104,7 +103,7 @@ class TestHuaTiDetail(TestBase):
         e2 = self.page.get_element('textarea[placeholder="说点什么吧"]')
         e2.input("话题的评论回复测试")
         e3 = self.page.get_element('button[class="send-btn"]')
-        delay(1)
+        self.delay(1)
         e3.tap()
 
     def test_click_replycontent(self):
@@ -173,7 +172,7 @@ class TestHuaTiDetail(TestBase):
         e2 = self.page.get_element('textarea[placeholder="说点什么吧"]')
         e2.input("话题评论")
         e3 = self.page.get_element('button[class="send-btn"]')
-        delay(1)
+        self.delay(1)
         e3.tap()
 
 
