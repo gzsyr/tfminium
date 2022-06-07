@@ -5,7 +5,7 @@
 # @desc:
 
 from test.test_base import TestBase
-from common import delay
+from test.common import delay
 
 
 class TestNewsDetailBnzf(TestBase):
