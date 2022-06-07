@@ -1,7 +1,7 @@
 {
-  "project_path": "E:/淘房小程序前端页面/tfxcx-master",
+  "project_path": "自己的工程路径",
   "debug_mode": "info",
-  "dev_tool_path": "D:/Program Files (x86)/Tencent/微信web开发者工具/cli.bat",
+  "dev_tool_path": "自己的安装路径/微信web开发者工具/cli.bat",
   "platform": "ide",
   "full_reset": "True"
 }
