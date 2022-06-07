@@ -1,4 +1,3 @@
-from test import test_base
 from test.test_base import TestBase
 
 
