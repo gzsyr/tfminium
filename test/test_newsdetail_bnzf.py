@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*- 
 # @Time : 2022/6/6 10:34 
 # @Author : zcm 
-# @File : test_bnzf.py
+# @File : test_newsdetail_bnzf.py
 # @desc:
 
 from test.test_base import TestBase
-from common import delay
+from test.common import delay
 
 
-class TestBnzf(TestBase):
+class TestNewsDetailBnzf(TestBase):
     """
     资讯详情页，点击帮你找房
     """
@@ -16,7 +16,7 @@ class TestBnzf(TestBase):
     def setUp(self) -> None:
         self.page_name = "/page/news/detail?id=029783880&city=qz"
         self.switch = False
-        super(TestBnzf, self).setUp()
+        super(TestNewsDetailBnzf, self).setUp()
         delay(2)
 
     def test_01_click_bnzf_xf(self):
@@ -94,7 +94,7 @@ class TestBnzf(TestBase):
         e1 = self.page.get_element('button[class="find bnzf_yjzf"]').tap()
         delay(4)
         e2 = self.page.get_element('view[class="opt-item im bnzf_im"]').tap()
-        delay(2)
+        delay(6)
         e3 = self.page.get_element('input[class="chatinput-input w500"]')
         e3.tap()
         delay(2)
