@@ -8,10 +8,11 @@ class TestHuaTiDetail(minium.MiniTest):
     话题详情页
     """
     def setUp(self) -> None:
-        self.app.navigate_to("/page/taofangquan/tieziDetail/tieziDetail?city=qz&postsid=11536")
-        delay(3)
-        self.app.get_current_page()
-        print("setUp!!!!")
+        self.page_name = "/page/taofangquan/tieziDetail/tieziDetail?city=qz&postsid=11536"
+        self.switch = False
+
+        super(TestHuaTiDetail, self).setUp()
+        print("TestHuaTiDetail setup")
 
     def test_click_content(self):
         """

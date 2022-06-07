@@ -7,10 +7,10 @@ class TestQuanZiDetail(minium.MiniTest):
     """
 
     def setUp(self) -> None:
-        self.app.navigate_to("/page/taofangquan/huati/huatiDetail?city=qz&topicid=751")
-        delay(3)
-        self.app.get_current_page()
-        print("test  setup!!!!!!!!!!!!!")
+        self.page_name = "/page/taofangquan/huati/huatiDetail?city=qz&topicid=751"
+        self.switch = False
+        super(TestQuanZiDetail, self).setUp()
+        print("TestQuanZiDetail  Setup")
 
     def test_click_forcebtn(self):
         """

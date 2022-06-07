@@ -9,6 +9,7 @@ class TestPostDetail(minium.MiniTest):
     """
 
     def setUp(self) -> None:
+
         self.app.navigate_to("/page/taofangquan/tieziDetail/tieziDetail?city=qz&postsid=12746")
         delay(2)
         self.app.get_current_page()
@@ -21,7 +22,6 @@ class TestPostDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="post_cont"]')
         e.tap()
-        delay(2)
 
     def test_click_laud(self):
         """
@@ -30,7 +30,6 @@ class TestPostDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="item laud"]')
         e.tap()
-        delay(2)
 
     def test_click_more(self):
         """
@@ -39,7 +38,6 @@ class TestPostDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="item more-ctr"]')
         e.tap()
-        delay(2)
 
     def test_click_newpost(self):
         """
@@ -48,7 +46,6 @@ class TestPostDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="toutiao-swiper-item tfLine1"]')
         e.tap()
-        delay(2)
 
     def test_click_moren(self):
         """
@@ -57,7 +54,6 @@ class TestPostDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="moren_sort active_sort"]')
         e.tap()
-        delay(2)
 
     def test_click_new(self):
         """
@@ -66,7 +62,6 @@ class TestPostDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="new_sort"]')
         e.tap()
-        delay(2)
 
     def test_click_fbsavator(self):
         """
@@ -75,8 +70,6 @@ class TestPostDetail(minium.MiniTest):
         """
         e = self.page.get_element('image[class="commentList--avator"][data-useridentity="fbs"]')
         e.tap()
-        delay(2)
-
 
     def test_click_fbscontact(self):
         """
@@ -85,7 +78,6 @@ class TestPostDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="commentList--contact-fbs commentList--connectfbs"]')
         e.tap()
-        delay(2)
 
     def test_click_zygwavator(self):
         """
@@ -94,7 +86,6 @@ class TestPostDetail(minium.MiniTest):
         """
         e = self.page.get_element('image[class="commentList--avator"][data-useridentity="zygw"]')
         e.tap()
-        delay(2)
 
     def test_click_zygwcontact(self):
         """
@@ -103,7 +94,6 @@ class TestPostDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="commentList--contact-fbs commentList--connectzygw"]')
         e.tap()
-        delay(2)
 
     def test_click_text(self):
         """
@@ -112,7 +102,6 @@ class TestPostDetail(minium.MiniTest):
         """
         e = self.page.get_element('navigator[class="commentList--content-rich-text"]')
         e.tap()
-        delay(2)
 
     def test_click_commentlist_laud(self):
         """
@@ -121,7 +110,6 @@ class TestPostDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="commentList--laud-btn"]')
         e.tap()
-        delay(2)
 
     def test_click_commentlist_reply(self):
         """
@@ -130,7 +118,6 @@ class TestPostDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="commentList--reply-btn"]')
         e.tap()
-        delay(2)
 
     def test_click_replycontent(self):
         """
@@ -139,7 +126,6 @@ class TestPostDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="commentList--reply-content"]')
         e.tap()
-        delay(2)
 
     def test_click_reply_more(self):
         """
@@ -148,7 +134,6 @@ class TestPostDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="commentList--more-reply"]')
         e.tap()
-        delay(2)
 
     def test_click_reply_laud(self):
         """
@@ -157,7 +142,6 @@ class TestPostDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="commentList--laud-btn"][data-laudtype="son"]')
         e.tap()
-        delay(2)
 
     def test_click_returnPl(self):
         """
@@ -166,7 +150,6 @@ class TestPostDetail(minium.MiniTest):
         """
         e = self.page.get_element('image[class="returnPl"]')
         e.tap()
-        delay(2)
 
     def test_click_add(self):
         """
@@ -175,7 +158,6 @@ class TestPostDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="add"]')
         e.tap()
-        delay(2)
 
     def test_click_add_close(self):
         """
@@ -184,7 +166,6 @@ class TestPostDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="close"]')
         e.tap()
-        delay(2)
 
     def test_click_fix_input(self):
         """
@@ -193,7 +174,6 @@ class TestPostDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="detail-fix-input"]')
         e.tap()
-        delay(2)
 
     def test_click_addgroup(self):
         """
@@ -202,16 +182,14 @@ class TestPostDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="item bottom-add-group"]')
         e.tap()
-        delay(2)
 
     def test_click_collect(self):
         """
         帖子详情页，点击底部“收藏”按钮
         :return:
         """
-        e = self.page.get_element('view[class="item bottom-collect"]')
+        e = self.page.get_element('view[class="item bottom-collect is_collect"]')
         e.tap()
-        delay(2)
 
     def test_click_bottom_laud(self):
         """
@@ -220,7 +198,6 @@ class TestPostDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="item bottom-laud"]')
         e.tap()
-        delay(2)
 
     def test_click_share(self):
         """
@@ -229,7 +206,6 @@ class TestPostDetail(minium.MiniTest):
         """
         e = self.page.get_element('button[class="newHouseRfixed-share"]')
         e.tap()
-        delay(2)
 
     def test_click_share_close(self):
         """
@@ -238,9 +214,8 @@ class TestPostDetail(minium.MiniTest):
         """
         e = self.page.get_element('button[class="newHouseRfixed-share"]')
         e.tap()
-        delay(1)
+        self.delay(1)
         self.page.get_element('view[class="closeBtn"]').tap()
-        delay(1)
 
 
     def test_click_share_hb(self):
@@ -250,9 +225,8 @@ class TestPostDetail(minium.MiniTest):
         """
         e = self.page.get_element('button[class="newHouseRfixed-share"]')
         e.tap()
-        delay(1)
+        self.delay(1)
         self.page.get_element('button[class="share-btn pyq"]').tap()
-        delay(1)
 
     def test_click_share_hy(self):
         """
@@ -261,10 +235,6 @@ class TestPostDetail(minium.MiniTest):
         """
         e = self.page.get_element('button[class="newHouseRfixed-share"]')
         e.tap()
-        delay(1)
+        self.delay(1)
         self.page.get_element('button[class="share-btn hy"]').tap()
-        delay(2)
-
-
-
 

@@ -11,10 +11,10 @@ class TestTopicList(minium.MiniTest):
     """
 
     def setUp(self) -> None:
-        self.app.navigate_to("/page/taofangquan/huati/huatiList?city=qz")
-        delay(3)
-        self.app.get_current_page()
-        print("setUp!!!!")
+        self.page_name = "/page/taofangquan/huati/huatiList?city=qz"
+        self.switch = False
+        super(TestTopicList, self).setUp()
+        print("TestTopicList  Setup")
 
     def test_click_topictitle(self):
         """

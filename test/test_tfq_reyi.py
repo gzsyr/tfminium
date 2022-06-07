@@ -8,10 +8,10 @@ class TestReYi(minium.MiniTest):
     """
 
     def setUp(self) -> None:
-        self.app.navigate_to("/page/taofangquan/tieziList/tieziList?city=qz")
-        delay(3)
-        self.app.get_current_page()
-        print("test  setup!!!!!!!!!!!!!")
+        self.page_name = "/page/taofangquan/tieziList/tieziList?city=qz"
+        self.switch = False
+        super(TestReYi, self).setUp()
+        print("TestReYi  Setup")
 
     def tearDown(self) -> None:
         delay(2)

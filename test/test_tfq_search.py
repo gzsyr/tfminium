@@ -8,10 +8,10 @@ class TestTfqSearch(minium.MiniTest):
     """
 
     def setUp(self) -> None:
-        self.app.navigate_to("/page/taofangquan/search/search?city=qz")
-        delay(3)
-        self.app.get_current_page()
-        print("test  setup!!!!!!!!!!!!!")
+        self.page_name = "/page/taofangquan/search/search?city=qz"
+        self.switch = False
+        super(TestTfqSearch, self).setUp()
+        print("TestTfqSearch  Setup")
 
     def tearDown(self) -> None:
         delay(2)

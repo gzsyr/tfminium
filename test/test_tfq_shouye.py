@@ -9,10 +9,10 @@ class TestTfq(minium.MiniTest):
     """
 
     def setUp(self) -> None:
-        self.app.switch_tab("/page/find/find?city=qz")
-        delay(3)
-        self.app.get_current_page()
-        print("test  setup!!!!!!!!!!!!!")
+        self.page_name = "/page/find/find?city=qz"
+        self.switch = True
+        super(TestTfq, self).setUp()
+        print("TestTfq  Setup")
 
     def test_swich_ht(self):
         """
