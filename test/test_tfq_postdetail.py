@@ -1,19 +1,18 @@
 # add by zzh
-import minium
-from test.common import delay
-import threading
 
-class TestPostDetail(minium.MiniTest):
+from test.test_base import TestBase
+
+
+class TestPostDetail(TestBase):
     """
     帖子详情页
     """
 
     def setUp(self) -> None:
-
-        self.app.navigate_to("/page/taofangquan/tieziDetail/tieziDetail?city=qz&postsid=12746")
-        delay(2)
-        self.app.get_current_page()
-        print("setUp!!!!")
+        self.page_name = "/page/taofangquan/tieziDetail/tieziDetail?city=qz&postsid=12746"
+        self.switch = False
+        super(TestPostDetail, self).setUp()
+        print("TestPostDetail  Setup")
 
     def test_click_content(self):
         """

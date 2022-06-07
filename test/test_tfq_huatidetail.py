@@ -1,8 +1,9 @@
 # add by zzh
-import minium
 from test.common import delay
+from test.test_base import TestBase
 
-class TestHuaTiDetail(minium.MiniTest):
+
+class TestHuaTiDetail(TestBase):
 
     """
     话题详情页
@@ -21,7 +22,6 @@ class TestHuaTiDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="post_cont"]')
         e.tap()
-        delay(2)
 
     def test_click_moren(self):
         """
@@ -30,7 +30,6 @@ class TestHuaTiDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="moren_sort active_sort"]')
         e.tap()
-        delay(2)
 
     def test_click_new(self):
         """
@@ -39,7 +38,6 @@ class TestHuaTiDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="new_sort"]')
         e.tap()
-        delay(2)
 
     def test_click_fbsavator(self):
         """
@@ -48,7 +46,6 @@ class TestHuaTiDetail(minium.MiniTest):
         """
         e = self.page.get_element('image[class="commentList--avator"][data-useridentity="fbs"]')
         e.tap()
-        delay(2)
 
     def test_click_fbscontact(self):
         """
@@ -57,7 +54,6 @@ class TestHuaTiDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="commentList--contact-fbs commentList--connectfbs"]')
         e.tap()
-        delay(2)
 
     def test_click_zygwavator(self):
         """
@@ -66,7 +62,6 @@ class TestHuaTiDetail(minium.MiniTest):
         """
         e = self.page.get_element('image[class="commentList--avator"][data-useridentity="zygw"]')
         e.tap()
-        delay(2)
 
     def test_click_zygwcontact(self):
         """
@@ -75,7 +70,6 @@ class TestHuaTiDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="commentList--contact-fbs commentList--connectzygw"]')
         e.tap()
-        delay(2)
 
     def test_click_text(self):
         """
@@ -84,7 +78,6 @@ class TestHuaTiDetail(minium.MiniTest):
         """
         e = self.page.get_element('navigator[class="commentList--content-rich-text"]')
         e.tap()
-        delay(2)
 
     def test_click_commentlist_laud(self):
         """
@@ -93,8 +86,7 @@ class TestHuaTiDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="commentList--laud-btn"]')
         e.tap()
-        delay(2)
-        
+
     def test_click_commentlist_reply(self):
         """
         话题详情页，点击第一个评论的“回复”按钮
@@ -102,7 +94,6 @@ class TestHuaTiDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="commentList--reply-btn"]')
         e.tap()
-        delay(2)
 
     def test_send_commentlist_reply(self):
         """
@@ -123,7 +114,6 @@ class TestHuaTiDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="commentList--reply-content"]')
         e.tap()
-        delay(2)
 
     def test_click_reply_more(self):
         """
@@ -132,7 +122,6 @@ class TestHuaTiDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="commentList--more-reply"]')
         e.tap()
-        delay(2)
 
     def test_click_reply_laud(self):
         """
@@ -141,7 +130,6 @@ class TestHuaTiDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="commentList--laud-btn"][data-laudtype="son"]')
         e.tap()
-        delay(2)
 
     def test_click_returnPl(self):
         """
@@ -150,7 +138,6 @@ class TestHuaTiDetail(minium.MiniTest):
         """
         e = self.page.get_element('image[class="returnPl"]')
         e.tap()
-        delay(2)
 
     def test_click_fix_input(self):
         """
@@ -159,7 +146,6 @@ class TestHuaTiDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="detail-fix-input"]')
         e.tap()
-        delay(2)
 
     def test_click_addgroup(self):
         """
@@ -168,7 +154,6 @@ class TestHuaTiDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="item bottom-add-group"]')
         e.tap()
-        delay(2)
 
     def test_click_share(self):
         """
@@ -177,7 +162,6 @@ class TestHuaTiDetail(minium.MiniTest):
         """
         e = self.page.get_element('button[class="newHouseRfixed-share"]')
         e.tap()
-        delay(2)
 
     def test_send_reply(self):
         """

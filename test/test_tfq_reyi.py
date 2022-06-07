@@ -1,8 +1,8 @@
 # add by zzh  淘房圈正在热议页面
-import minium
-from test.common import delay
+from test.test_base import TestBase
 
-class TestReYi(minium.MiniTest):
+
+class TestReYi(TestBase):
     """
     淘房圈正在热议页面
     """
@@ -12,9 +12,6 @@ class TestReYi(minium.MiniTest):
         self.switch = False
         super(TestReYi, self).setUp()
         print("TestReYi  Setup")
-
-    def tearDown(self) -> None:
-        delay(2)
 
     def test_click_title(self):
         """
@@ -27,3 +24,4 @@ class TestReYi(minium.MiniTest):
         正在热议页面，点击底部发帖入口
         """
         self.page.get_element('view[class="write_Post tfFlex tfAlignC tfFlexC"]').tap()
+

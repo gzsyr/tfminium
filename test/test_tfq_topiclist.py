@@ -1,10 +1,8 @@
 # add by zzh
-import minium
-import threading
+from test.test_base import TestBase
 
-from test.common import delay
 
-class TestTopicList(minium.MiniTest):
+class TestTopicList(TestBase):
 
     """
     话题列表页
@@ -23,7 +21,6 @@ class TestTopicList(minium.MiniTest):
         """
         e = self.page.get_element('view[class="title"]')
         e.tap()
-        delay(2)
 
     def test_click_PK(self):
         """
@@ -34,7 +31,6 @@ class TestTopicList(minium.MiniTest):
         if b_l == True:
             e = self.page.get_element('view[class="Pk--button"]')
             e.tap()
-            delay(1)
         else:
             print("没有可点击的Pk按钮")
 
@@ -45,7 +41,6 @@ class TestTopicList(minium.MiniTest):
         """
         e = self.page.get_element('view[class="join"]')
         e.tap()
-        delay(2)
 
     def test_click_share(self):
         """
@@ -55,8 +50,4 @@ class TestTopicList(minium.MiniTest):
 
         e = self.page.get_element('button[class="newHouseRfixed-share"]')
         e.tap()
-        delay(2)
-
-
-
 

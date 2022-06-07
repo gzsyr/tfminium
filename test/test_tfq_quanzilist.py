@@ -1,7 +1,7 @@
-import minium
-from test.common import delay
+from test.test_base import TestBase
 
-class TestQuanZi(minium.MiniTest):
+
+class TestQuanZi(TestBase):
     """
     圈子广场
     """
@@ -19,7 +19,6 @@ class TestQuanZi(minium.MiniTest):
         """
         e = self.page.get_element('view[class="flex tfAlignC hotSearch"]')
         e.tap()
-        delay(2)
 
     def test_click_btn1(self):
         """
@@ -28,7 +27,6 @@ class TestQuanZi(minium.MiniTest):
         """
         e = self.page.get_element('view[class="btn"]', inner_text="关注")
         e.tap()
-        delay(2)
 
     def test_click_btn2(self):
         """
@@ -37,4 +35,4 @@ class TestQuanZi(minium.MiniTest):
         """
         e = self.page.get_element('view[class="btn"]', inner_text="已关注")
         e.tap()
-        delay(2)
+

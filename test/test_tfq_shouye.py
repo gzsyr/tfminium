@@ -1,8 +1,8 @@
 # add by zzh
-import minium
-from test.common import delay
+from test.test_base import TestBase
 
-class TestTfq(minium.MiniTest):
+
+class TestTfq(TestBase):
 
     """
     淘房圈首页
@@ -28,8 +28,6 @@ class TestTfq(minium.MiniTest):
         """
         e = self.page.get_element('image[class="tfq--mustread"]')
         e.tap()
-        print("元素：", e)
-        delay(2)
 
     def test_click_search(self):
         """
@@ -38,7 +36,6 @@ class TestTfq(minium.MiniTest):
         """
         e = self.page.get_element('view[class="tfq--search-input"]')
         e.tap()
-        delay(2)
 
     def test_click_share1(self):
         """
@@ -47,7 +44,6 @@ class TestTfq(minium.MiniTest):
         """
         e = self.page.get_element("view[class='tfq--sharetxt']")
         e.tap()
-        delay(2)
 
     def test_click_banner(self):
         """
@@ -58,7 +54,6 @@ class TestTfq(minium.MiniTest):
         if b_l == True:
             e = self.page.get_element('image[class="tfq--banner-img tfq--index_banner"]')
             e.tap()
-            delay(2)
         else:
             print("没有配置banner")
 
@@ -69,7 +64,6 @@ class TestTfq(minium.MiniTest):
         """
         e = self.page.get_element('view[class="tfq--topicItem"][data-index="0"]')
         e.tap()
-        delay(2)
 
     def test_click_topic2(self):
         """
@@ -78,7 +72,6 @@ class TestTfq(minium.MiniTest):
         """
         e = self.page.get_element('view[class="tfq--topicItem"][data-index="1"]')
         e.tap()
-        delay(2)
 
     def test_click_topic3(self):
         """
@@ -87,7 +80,6 @@ class TestTfq(minium.MiniTest):
         """
         e = self.page.get_element('view[class="tfq--topicItem"][data-index="2"]')
         e.tap()
-        delay(2)
 
     def test_click_topic4(self):
         """
@@ -96,7 +88,6 @@ class TestTfq(minium.MiniTest):
         """
         e = self.page.get_element('view[class="tfq--topicItem"][data-index="3"]')
         e.tap()
-        delay(2)
 
     def test_click_qzSquare(self):
         """
@@ -106,7 +97,6 @@ class TestTfq(minium.MiniTest):
         e = self.page.get_element('image[class="tfq--topicImg"]'
                                   '[src="https://tfxcx.house365.com/static/2021tfq/square.png"]')
         e.tap()
-        delay(2)
 
     def test_click_active(self):
         """
@@ -117,7 +107,6 @@ class TestTfq(minium.MiniTest):
         if b_l == True:
             e = self.page.get_element('image[class="tfq--activity_qd]')
             e.tap()
-            delay(2)
         else:
             print("没有配置活动")
 
@@ -129,7 +118,6 @@ class TestTfq(minium.MiniTest):
         """
         e = self.page.get_element('view[class="tfq--title tfq--tfline2"]')
         e.tap()
-        delay(2)
 
     def test_click_newpost(self):
         """
@@ -138,7 +126,6 @@ class TestTfq(minium.MiniTest):
         """
         e = self.page.get_element('view[class="tfq--toutiao-swiper-item tfq--tfLine1"]')
         e.tap()
-        delay(2)
 
     def test_click_more(self):
         """
@@ -147,7 +134,6 @@ class TestTfq(minium.MiniTest):
         """
         e = self.page.get_element('navigator[class="tfq--more"]')
         e.tap()
-        delay(2)
 
     def test_click_hotQuanZi1(self):
         """
@@ -156,7 +142,6 @@ class TestTfq(minium.MiniTest):
         """
         e = self.page.get_elements('image[class="tfq--ico"]')[0]
         e.tap()
-        delay(2)
 
     def test_click_hotQuanZi2(self):
         """
@@ -165,7 +150,6 @@ class TestTfq(minium.MiniTest):
         """
         e = self.page.get_elements('image[class="tfq--ico"]')[1]
         e.tap()
-        delay(2)
 
     def test_click_hotQuanZi3(self):
         """
@@ -174,7 +158,6 @@ class TestTfq(minium.MiniTest):
         """
         e = self.page.get_elements('image[class="tfq--ico"]')[2]
         e.tap()
-        delay(2)
 
     def test_click_hotQuanZi4(self):
         """
@@ -183,7 +166,6 @@ class TestTfq(minium.MiniTest):
         """
         e = self.page.get_elements('image[class="tfq--ico"]')[3]
         e.tap()
-        delay(2)
 
     def test_click_post_content(self):
         """
@@ -192,7 +174,6 @@ class TestTfq(minium.MiniTest):
         """
         e = self.page.get_element('view[class="tfq--post_cont"]')
         e.tap()
-        delay(2)
 
     def test_click_post_quanzi(self):
         """
@@ -201,7 +182,6 @@ class TestTfq(minium.MiniTest):
         """
         e = self.page.get_element('view[class="tfq--posttag tfq--flex tfq--tfAlignC"]')
         e.tap()
-        delay(2)
 
     def test_click_post_share(self):
         """
@@ -210,7 +190,6 @@ class TestTfq(minium.MiniTest):
         """
         e = self.page.get_element('button[class="tfq--shareDetail"]')
         e.tap()
-        delay(2)
 
     def test_click_post_reply(self):
         """
@@ -219,7 +198,6 @@ class TestTfq(minium.MiniTest):
         """
         e = self.page.get_element('view[class="tfq--replyBtn"]')
         e.tap()
-        delay(2)
 
     def test_click_post_laud(self):
         """
@@ -228,7 +206,6 @@ class TestTfq(minium.MiniTest):
         """
         e = self.page.get_element('view[class="tfq--laud-btn"]')
         e.tap()
-        delay(2)
 
     def test_click_addgroup(self):
         """
@@ -237,7 +214,6 @@ class TestTfq(minium.MiniTest):
         """
         e = self.page.get_element('image[class="addgroup--addgroupimg"]')
         e.tap()
-        delay(2)
 
 
     def test_click_postbtn(self):
@@ -247,7 +223,6 @@ class TestTfq(minium.MiniTest):
         """
         e = self.page.get_element('image[class="tfq--postBtn_img"]')
         e.tap()
-        delay(2)
 
     def test_click_share2(self):
         """
@@ -256,8 +231,4 @@ class TestTfq(minium.MiniTest):
         """
         e = self.page.get_element('button[class="tfq--newHouseRfixed-share"]')
         e.tap()
-        delay(2)
-
-
-
 

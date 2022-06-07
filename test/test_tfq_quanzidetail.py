@@ -1,7 +1,8 @@
 # add by zzh
-import minium
-from test.common import delay
-class TestQuanZiDetail(minium.MiniTest):
+from test.test_base import TestBase
+
+
+class TestQuanZiDetail(TestBase):
     """
     圈子详情页
     """
@@ -24,13 +25,12 @@ class TestQuanZiDetail(minium.MiniTest):
             e = self.page.get_element('text[data-type="2"]', inner_text="已关注")
             e.tap()
             self.app.restore_wx_method("showModal")
-            delay(2)
+            self.delay(2)
             self.capture("取消关注")
             self.native.handle_modal("确定", "取消关注")
         else:
             e = self.page.get_element('text[class="add"]', inner_text="+")
             e.tap()
-            delay(1)
 
 
     def test_click_linked_huati(self):
@@ -40,7 +40,6 @@ class TestQuanZiDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="associate_huatiInfo list-desc"]')
         e.tap()
-        delay(1)
 
     def test_click_linked_quanzi(self):
         """
@@ -50,7 +49,6 @@ class TestQuanZiDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="groupInfo tfline2"]')
         e.tap()
-        delay(1)
 
     def test_click_fbs_avat0r(self):
         """
@@ -59,7 +57,6 @@ class TestQuanZiDetail(minium.MiniTest):
         """
         e = self.page.get_element('image[class="avatar"][data-user_identity="fbs"]')
         e.tap()
-        delay(1)
 
     def test_click_fbs_im(self):
         """
@@ -68,7 +65,6 @@ class TestQuanZiDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="connect connectfbs"]')
         e.tap()
-        delay(1)
 
     def test_click_zygw_avator(self):
         """
@@ -77,7 +73,6 @@ class TestQuanZiDetail(minium.MiniTest):
         """
         e = self.page.get_element('image[class="avatar"][data-user_identity="zygw"]')
         e.tap()
-        delay(1)
 
     def test_click_zygw_im(self):
         """
@@ -86,7 +81,6 @@ class TestQuanZiDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="connect connectzygw"]')
         e.tap()
-        delay(1)
 
     def test_click_content(self):
         """
@@ -95,7 +89,6 @@ class TestQuanZiDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="post_Title flex tfAlignC"]')
         e.tap()
-        delay(1)
 
     def test_click_posttag(self):
         """
@@ -103,7 +96,6 @@ class TestQuanZiDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="posttag tfFlex tfAlignC"]')
         e.tap()
-        delay(1)
 
     def test_click_laud_btn(self):
         """
@@ -111,7 +103,6 @@ class TestQuanZiDetail(minium.MiniTest):
                 """
         e = self.page.get_element('view[class="laud-btn"]')
         e.tap()
-        delay(1)
 
     def test_click_reply(self):
         """
@@ -119,7 +110,6 @@ class TestQuanZiDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="replyBtn"]')
         e.tap()
-        delay(1)
 
     def test_click_post_share(self):
         """
@@ -127,7 +117,6 @@ class TestQuanZiDetail(minium.MiniTest):
         """
         e = self.page.get_element('button[class="shareDetail"]')
         e.tap()
-        delay(1)
 
     def test_click_returnPl(self):
         """
@@ -135,7 +124,6 @@ class TestQuanZiDetail(minium.MiniTest):
         """
         e = self.page.get_element('image[class="returnPl"]')
         e.tap()
-        delay(1)
 
     def test_click_page_share(self):
         """
@@ -143,7 +131,6 @@ class TestQuanZiDetail(minium.MiniTest):
                 """
         e = self.page.get_element('button[class="shareBtn"]')
         e.tap()
-        delay(1)
 
     def test_click_postBtn(self):
         """
@@ -151,11 +138,4 @@ class TestQuanZiDetail(minium.MiniTest):
         """
         e = self.page.get_element('view[class="postBtn"]')
         e.tap()
-        delay(1)
-
-
-
-
-
-
 
