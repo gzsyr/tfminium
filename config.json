@@ -3,5 +3,34 @@
   "debug_mode": "info",
   "dev_tool_path": "自己的开发者工具路径/微信web开发者工具/cli.bat",
   "platform": "IDE",
-  "full_reset": "True"
+  "full_reset": "True",
+  "mock_native_modal": {
+        "weRunData": {
+            "encryptedData": "123",
+            "iv": "456=="
+        },
+        "userInfo": {
+            "nickName":"test test",
+            "gender":1,
+            "language":"zh_CN",
+            "city":"",
+            "province":"",
+            "country":"St.Kitts and Nevis",
+            "avatarUrl":"https://xxxx.qq.com"
+        },
+        "location": {
+            "address": "广东省广州市",
+            "latitude": 23.0999,
+            "longitude": 113.3249,
+            "name": "腾讯微信总部"
+        },
+        "locations": {
+            "T.I.T创意园": {
+                "address": "广东省广州市海珠区新港中路397号",
+                "latitude": 23.10,
+                "longitude": 113.33,
+                "name": "T.I.T创意园"
+            }
+        },
+    }
 }
