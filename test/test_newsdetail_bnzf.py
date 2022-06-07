@@ -94,7 +94,7 @@ class TestNewsDetailBnzf(TestBase):
         e1 = self.page.get_element('button[class="find bnzf_yjzf"]').tap()
         delay(4)
         e2 = self.page.get_element('view[class="opt-item im bnzf_im"]').tap()
-        delay(2)
+        delay(6)
         e3 = self.page.get_element('input[class="chatinput-input w500"]')
         e3.tap()
         delay(2)
