@@ -1,7 +1,10 @@
 # add by zzh
 import minium
 from test.common import delay
-class TestQuanZiDetail(minium.MiniTest):
+from test.test_base import TestBase
+
+
+class TestQuanZiDetail(TestBase):
     """
     圈子详情页
     """

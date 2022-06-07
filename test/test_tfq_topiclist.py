@@ -3,8 +3,10 @@ import minium
 import threading
 
 from test.common import delay
+from test.test_base import TestBase
 
-class TestTopicList(minium.MiniTest):
+
+class TestTopicList(TestBase):
 
     """
     话题列表页

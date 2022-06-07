@@ -1,7 +1,9 @@
 import minium
 from test.common import delay
+from test.test_base import TestBase
 
-class TestQuanZi(minium.MiniTest):
+
+class TestQuanZi(TestBase):
     """
     圈子广场
     """

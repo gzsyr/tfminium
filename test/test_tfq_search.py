@@ -1,8 +1,10 @@
 # add by zzh
 import minium
 from test.common import delay
+from test.test_base import TestBase
 
-class TestTfqSearch(minium.MiniTest):
+
+class TestTfqSearch(TestBase):
     """
     淘房圈搜索页面
     """

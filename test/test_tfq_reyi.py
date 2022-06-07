@@ -1,8 +1,10 @@
 # add by zzh  淘房圈正在热议页面
 import minium
 from test.common import delay
+from test.test_base import TestBase
 
-class TestReYi(minium.MiniTest):
+
+class TestReYi(TestBase):
     """
     淘房圈正在热议页面
     """

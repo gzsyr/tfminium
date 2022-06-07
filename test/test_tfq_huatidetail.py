@@ -1,8 +1,10 @@
 # add by zzh
 import minium
 from test.common import delay
+from test.test_base import TestBase
 
-class TestHuaTiDetail(minium.MiniTest):
+
+class TestHuaTiDetail(TestBase):
 
     """
     话题详情页
