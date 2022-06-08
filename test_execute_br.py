@@ -3,8 +3,6 @@
 # pip install BeautifulReport
 
 import unittest
-
-import HtmlTestRunner
 from BeautifulReport import BeautifulReport
 
 from test.test_android import TestAndroid
