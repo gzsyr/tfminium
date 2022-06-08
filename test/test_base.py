@@ -37,6 +37,24 @@ class TestBase(minium.MiniTest):
         time.sleep(second)
         return self
 
+    def element_is_exist(self, selector=None, inner_text=None):
+        """
+        查找是否存在某个元素，参数目前就只支持selector和inner_text，后期慢慢增加
+        :param selector: 查找元素的selector
+        :param inner_text:  包含的text
+        :return:
+        """
+        return self.page.element_is_exists(selector=selector, inner_text=inner_text)
+
+    def find_element(self, selector=None, inner_text=None):
+        """
+        查找某个元素，参数目前就只支持selector和inner_text，后期慢慢增加
+        :param selector: 查找元素的selector
+        :param inner_text:  包含的text
+        :return:
+        """
+        return self.page.get_element(selector=selector, inner_text=inner_text)
+
     def tearDown(self) -> None:
         self.delay(3)
         super(TestBase, self).tearDown()
