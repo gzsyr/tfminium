@@ -5,7 +5,6 @@
 import unittest
 from BeautifulReport import BeautifulReport
 
-from test.test_android import TestAndroid
 from test.test_first import TestFirst
 from test.test_kft import TestKFT
 from test.test_newhousedetail import TestNewhouseDetail
@@ -18,7 +17,6 @@ if __name__ == "__main__":
 
     # suite.addTests(loader.loadTestsFromTestCase(TestFirst))
     # suite.addTests(loader.loadTestsFromTestCase(TestKFT))
-    # suite.addTests(loader.loadTestsFromTestCase(TestAndroid))
     suite.addTests(loader.loadTestsFromTestCase(TestNewhouseDetail))
     suite.addTests((loader.loadTestsFromTestCase(TestMyPost)))
 
