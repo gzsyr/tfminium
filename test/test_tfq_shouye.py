@@ -2,7 +2,7 @@
 from test.test_base import TestBase
 
 
-class TestTfq(TestBase):
+class TestTfqShouYe(TestBase):
 
     """
     淘房圈首页
@@ -11,8 +11,8 @@ class TestTfq(TestBase):
     def setUp(self) -> None:
         self.page_name = "/page/find/find?city=qz"
         self.switch = True
-        super(TestTfq, self).setUp()
-        print("TestTfq  Setup")
+        super(TestTfqShouYe, self).setUp()
+        print("TestTfqShouYe  Setup")
 
     def test_swich_ht(self):
         """
