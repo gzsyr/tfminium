@@ -5,7 +5,7 @@
 import unittest
 from BeautifulReport import BeautifulReport
 
-#from test.test_android import TestAndroid
+# from test.test_android import TestAndroid
 from test.test_first import TestFirst
 from test.test_kft import TestKFT
 from test.test_newhousedetail import TestNewhouseDetail
@@ -26,7 +26,7 @@ from test.test_tfq_quanzidetail import TestQuanZiDetail
 from test.test_tfq_quanzilist import TestQuanZi
 from test.test_tfq_reyi import TestReYi
 from test.test_tfq_search import TestTfqSearch
-from test.test_tfq_shouye import TestTfq
+from test.test_tfq_shouye import TestTfqShouYe
 from test.test_tfq_topiclist import TestTopicList
 from test.test_tfq_yunyingwritepost import TestYyWritePost
 from test.test_tfq_zygwwirtepost import TestZygwWritePost
@@ -35,11 +35,11 @@ if __name__ == "__main__":
     suite = unittest.TestSuite()  # 添加测试套件
     loader = unittest.TestLoader()  # 定义loader加载器
 
-    #suite.addTests(loader.loadTestsFromTestCase(TestFirst))
-    #suite.addTests(loader.loadTestsFromTestCase(TestKFT))
+    # suite.addTests(loader.loadTestsFromTestCase(TestFirst))
+    # suite.addTests(loader.loadTestsFromTestCase(TestKFT))
     # suite.addTests(loader.loadTestsFromTestCase(TestAndroid))
-    #suite.addTests(loader.loadTestsFromTestCase(TestNewhouseDetail))
-    suite.addTests((loader.loadTestsFromTestCase(TestTfq)))
+    # suite.addTests(loader.loadTestsFromTestCase(TestNewhouseDetail))
+    suite.addTests((loader.loadTestsFromTestCase(TestTfqShouYe)))
     suite.addTests((loader.loadTestsFromTestCase(TestBangDan)))
     suite.addTests((loader.loadTestsFromTestCase(TestCommentDetail)))
     suite.addTests((loader.loadTestsFromTestCase(TestDrafBox)))
@@ -57,11 +57,9 @@ if __name__ == "__main__":
     suite.addTests((loader.loadTestsFromTestCase(TestQuanZi)))
     suite.addTests((loader.loadTestsFromTestCase(TestReYi)))
     suite.addTests((loader.loadTestsFromTestCase(TestTfqSearch)))
-    suite.addTests((loader.loadTestsFromTestCase(TestTfq)))
     suite.addTests((loader.loadTestsFromTestCase(TestTopicList)))
     suite.addTests((loader.loadTestsFromTestCase(TestYyWritePost)))
     suite.addTests((loader.loadTestsFromTestCase(TestZygwWritePost)))
-
 
     br = BeautifulReport(suites=suite)
     br.report(description='淘房小程序淘房圈测试报告', filename='br_report.html')
@@ -74,4 +72,3 @@ if __name__ == "__main__":
     # python -m http.server 12345 -d /path/to/dir/of/report
     # 浏览器输入地址
     # http://localhost:12345/
-
