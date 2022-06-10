@@ -1,3 +1,5 @@
+import minium
+
 from test.test_base import TestBase
 
 
@@ -11,7 +13,6 @@ class TestDrafBox(TestBase):
         self.switch = False
         super(TestDrafBox, self).setUp()
         print("TestDrafBox setup")
-
 
     def test_click_draftitle(self):
         """
@@ -72,9 +73,14 @@ class TestDrafBox(TestBase):
         """
         self.page.get_element('view[class="draft_item"]', inner_text="楼盘评论").tap()
         self.delay(3)
-        self.page.get_element('view[class="draft_delete"]').tap()
+        exist = self.page.element_is_exists('view[class="draft_delete"]')
 
-    def test_click_lpdelete1(self):
+        if exist:
+            self.page.get_element('view[class="draft_delete"]').tap()
+        else:
+            print("暂无内容，直接pass")
+
+    def test_click_lpdelete_confirm(self):
         """
         草稿箱页面，切换至楼盘评论tab，点击楼盘评论删除按钮，二次确认点击取消
         """
