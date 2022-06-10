@@ -16,6 +16,7 @@ class TestZygwWritePost(TestMine):
         self.page_name = "/page/taofangquan/writePost/writePost?city=qz"
         self.switch = False
         super(TestZygwWritePost, self).setUp()
+        print("TestZygwWritePost setup")
 
     def test_zygw_input_title(self, text="测试帖子标题"):
         """
