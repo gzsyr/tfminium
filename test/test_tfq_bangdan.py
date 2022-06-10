@@ -45,7 +45,7 @@ class TestBangDan(TestBase):
         self.delay(2)
         self.page.get_element('button[class="share-btn pyq"]').tap()
 
-    def test_click_share_hy(self):
+    def test_z_click_share_hy(self):
         """
         淘房圈-榜单页面，点击”分享“，分享好友
         """
