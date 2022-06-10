@@ -37,7 +37,7 @@ class TestTfqShouYe(TestBase):
         e = self.page.get_element('view[class="tfq--search-input"]')
         e.tap()
 
-    def test_click_share1(self):
+    def test_z_click_share_top(self):
         """
         淘房圈首页，点击顶部分享按钮
         :return:
@@ -183,7 +183,7 @@ class TestTfqShouYe(TestBase):
         e = self.page.get_element('view[class="tfq--posttag tfq--flex tfq--tfAlignC"]')
         e.tap()
 
-    def test_click_post_share(self):
+    def test_z_click_post_share(self):
         """
         淘房圈首页-好帖推荐，第一个帖子，点击分享按钮
         :return:
@@ -224,7 +224,7 @@ class TestTfqShouYe(TestBase):
         e = self.page.get_element('image[class="tfq--postBtn_img"]')
         e.tap()
 
-    def test_click_share2(self):
+    def test_z_click_share_icon(self):
         """
         淘房圈首页 ，点击右下角“分享”按钮
         :return:
