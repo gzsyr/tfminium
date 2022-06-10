@@ -61,6 +61,9 @@ if __name__ == "__main__":
     suite.addTests((loader.loadTestsFromTestCase(TestYyWritePost)))
     suite.addTests((loader.loadTestsFromTestCase(TestZygwWritePost)))
 
+
+    # suite = unittest.defaultTestLoader.discover('./test/', pattern='test_tfq_*.py')
+
     br = BeautifulReport(suites=suite)
     br.report(description='淘房小程序淘房圈测试报告', filename='br_report.html')
 
