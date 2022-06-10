@@ -187,8 +187,10 @@ class TestPostDetail(TestBase):
         帖子详情页，点击底部“收藏”按钮
         :return:
         """
-        e = self.page.get_element('view[class="item bottom-collect is_collect"]')
-        e.tap()
+        # e = self.page.get_element('view[class="item bottom-collect is_collect"]')
+        # e.tap()
+        # 收藏和未收藏显示的上面class不一样，更新为下面的方法
+        self.page.get_element('view[class="text"]', inner_text="收藏").tap()
 
     def test_click_bottom_laud(self):
         """
