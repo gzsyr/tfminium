@@ -97,5 +97,5 @@ class TestDrafBox(TestBase):
             self.capture("删除")
             self.native.handle_modal("取消", "删除")
         else:
-            print("没有楼盘评论草稿")
+            print("没有楼盘评论草稿，直接pass")
 
