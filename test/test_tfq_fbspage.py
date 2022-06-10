@@ -67,7 +67,7 @@ class TestFbsPage(TestBase):
         点击楼盘评论的“点赞”icon
         :return:
         """
-        self.page.get_element('view[class="laud-btn is_laud"]').tap()
+        self.page.get_element('view[class="laud-btn"]').tap()
 
     def test_loupanpinglun_reply(self):
         """
