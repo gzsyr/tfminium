@@ -18,6 +18,7 @@ class TestYyWritePost(TestMine):
         self.page_name = "/page/taofangquan/writePost/writePost?city=qz"
         self.switch = False
         super(TestYyWritePost, self).setUp()
+        print("TestYyWritePost setup")
 
     def test_yy_input_title(self):
         """
