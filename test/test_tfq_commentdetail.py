@@ -61,9 +61,10 @@ class TestCommentDetail(TestBase):
         """
         self.page.get_element('image[class="returnPl"]').tap()
 
-    def test_get_page_wxml(self):
+    def test_click_commenticon(self):
         """
-        获取当前页面的wxml，并打印
+        点击最下面一行的评论入口
         :return:
         """
-        print(self.page.get_element('page'))
+        self.page.get_element('view[class="detail-fix-input"]').tap()
+
