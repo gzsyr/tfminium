@@ -229,7 +229,7 @@ class TestPostDetail(TestBase):
         self.delay(1)
         self.page.get_element('button[class="share-btn pyq"]').tap()
 
-    def test_click_share_hy(self):
+    def test_z_click_share_hy(self):
         """
         帖子详情页，点击”分享“按钮，点击分享给好友
         :return:
