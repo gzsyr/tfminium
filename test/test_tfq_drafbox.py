@@ -65,7 +65,12 @@ class TestDrafBox(TestBase):
         """
         self.page.get_element('view[class="draft_item"]', inner_text="楼盘评论").tap()
         self.delay(3)
-        self.page.get_element('view[class="tfLine1 mt10"]').tap()
+
+        exist = self.page.element_is_exists('view[class="tfLine1 mt10"]')
+        if exist:
+            self.page.get_element('view[class="tfLine1 mt10"]').tap()
+        else:
+            print("暂无楼盘评论，直接pass")
 
     def test_click_lpdelete(self):
         """
@@ -78,7 +83,7 @@ class TestDrafBox(TestBase):
         if exist:
             self.page.get_element('view[class="draft_delete"]').tap()
         else:
-            print("暂无内容，直接pass")
+            print("暂无楼盘评论，直接pass")
 
     def test_click_lpdelete_confirm(self):
         """
