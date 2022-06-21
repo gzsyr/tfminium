@@ -150,6 +150,17 @@ class TestPostDetail(TestBase):
         e = self.page.get_element('image[class="returnPl"]')
         e.tap()
 
+    def test_goto_housedetail(self):
+        """
+        帖子详情页，点击楼盘卡片，进入楼盘详情页
+        :return:
+        """
+        exist = self.page.element_is_exists('view[class="lpcard_tuwrap"]')
+        if exist:
+            self.page.get_element('view=[class="lpcard_tuwrap"]').tap()
+        else:
+            print("本帖子没有带楼盘名片，该用例直接pass")
+
     def test_click_add(self):
         """
         帖子详情页，点击“加入群聊”入口
@@ -199,6 +210,17 @@ class TestPostDetail(TestBase):
         """
         e = self.page.get_element('view[class="item bottom-laud"]')
         e.tap()
+
+    def test_click_bottom_zygwim(self):
+        """
+        帖子详情页，点击底部“置业顾问在线咨询”按钮
+        :return:
+        """
+        exist = self.page.element_is_exists('image[class="bottom-connect-avatar"]')
+        if exist:
+            self.page.get_element('image[class="bottom-connect-avatar"]').tap()
+        else:
+            print("本帖子没有配置关联置业顾问，该用例直接pass")
 
     def test_click_share(self):
         """
