@@ -49,7 +49,7 @@ class TestFbsPage(TestBase):
 
     def test_click_huati(self):
         """
-        点击“实地看盘
+        点击“话题“
         :return:
         """
         self.page.get_element('view[data-eventid="2955"]').tap()
