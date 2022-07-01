@@ -32,37 +32,37 @@ from test.test_tfq_yunyingwritepost import TestYyWritePost
 from test.test_tfq_zygwwirtepost import TestZygwWritePost
 
 if __name__ == "__main__":
-    suite = unittest.TestSuite()  # 添加测试套件
-    loader = unittest.TestLoader()  # 定义loader加载器
+    # suite = unittest.TestSuite()  # 添加测试套件
+    # loader = unittest.TestLoader()  # 定义loader加载器
 
     # suite.addTests(loader.loadTestsFromTestCase(TestFirst))
     # suite.addTests(loader.loadTestsFromTestCase(TestKFT))
     # suite.addTests(loader.loadTestsFromTestCase(TestAndroid))
-    # suite.addTests(loader.loadTestsFromTestCase(TestNewhouseDetail))
-    suite.addTests((loader.loadTestsFromTestCase(TestTfqShouYe)))
-    suite.addTests((loader.loadTestsFromTestCase(TestBangDan)))
-    suite.addTests((loader.loadTestsFromTestCase(TestCommentDetail)))
-    suite.addTests((loader.loadTestsFromTestCase(TestDrafBox)))
-    suite.addTests((loader.loadTestsFromTestCase(TestFbsPage)))
-    suite.addTests((loader.loadTestsFromTestCase(TestFbsWritePost)))
-    suite.addTests((loader.loadTestsFromTestCase(TestHuaTiDetail)))
-    suite.addTests((loader.loadTestsFromTestCase(TestLinkedBangdan)))
-    suite.addTests((loader.loadTestsFromTestCase(TestMyComments)))
-    suite.addTests((loader.loadTestsFromTestCase(TestMyHuaTi)))
-    suite.addTests((loader.loadTestsFromTestCase(TestMyPost)))
-    suite.addTests((loader.loadTestsFromTestCase(TestMyQuzi)))
-    suite.addTests((loader.loadTestsFromTestCase(TestPostComment)))
-    suite.addTests((loader.loadTestsFromTestCase(TestPostDetail)))
-    suite.addTests((loader.loadTestsFromTestCase(TestQuanZiDetail)))
-    suite.addTests((loader.loadTestsFromTestCase(TestQuanZi)))
-    suite.addTests((loader.loadTestsFromTestCase(TestReYi)))
-    suite.addTests((loader.loadTestsFromTestCase(TestTfqSearch)))
-    suite.addTests((loader.loadTestsFromTestCase(TestTopicList)))
-    suite.addTests((loader.loadTestsFromTestCase(TestYyWritePost)))
-    suite.addTests((loader.loadTestsFromTestCase(TestZygwWritePost)))
+    # # suite.addTests(loader.loadTestsFromTestCase(TestNewhouseDetail))
+    # suite.addTests((loader.loadTestsFromTestCase(TestTfqShouYe)))
+    # suite.addTests((loader.loadTestsFromTestCase(TestBangDan)))
+    # suite.addTests((loader.loadTestsFromTestCase(TestCommentDetail)))
+    # suite.addTests((loader.loadTestsFromTestCase(TestDrafBox)))
+    # suite.addTests((loader.loadTestsFromTestCase(TestFbsPage)))
+    # suite.addTests((loader.loadTestsFromTestCase(TestFbsWritePost)))
+    # suite.addTests((loader.loadTestsFromTestCase(TestHuaTiDetail)))
+    # suite.addTests((loader.loadTestsFromTestCase(TestLinkedBangdan)))
+    # suite.addTests((loader.loadTestsFromTestCase(TestMyComments)))
+    # suite.addTests((loader.loadTestsFromTestCase(TestMyHuaTi)))
+    # suite.addTests((loader.loadTestsFromTestCase(TestMyPost)))
+    # suite.addTests((loader.loadTestsFromTestCase(TestMyQuzi)))
+    # suite.addTests((loader.loadTestsFromTestCase(TestPostComment)))
+    # suite.addTests((loader.loadTestsFromTestCase(TestPostDetail)))
+    # suite.addTests((loader.loadTestsFromTestCase(TestQuanZiDetail)))
+    # suite.addTests((loader.loadTestsFromTestCase(TestQuanZi)))
+    # suite.addTests((loader.loadTestsFromTestCase(TestReYi)))
+    # suite.addTests((loader.loadTestsFromTestCase(TestTfqSearch)))
+    # suite.addTests((loader.loadTestsFromTestCase(TestTopicList)))
+    # suite.addTests((loader.loadTestsFromTestCase(TestYyWritePost)))
+    # suite.addTests((loader.loadTestsFromTestCase(TestZygwWritePost)))
 
 
-    # suite = unittest.defaultTestLoader.discover('./test/', pattern='test_tfq_*.py')
+    suite = unittest.defaultTestLoader.discover('./test/', pattern='test_tfq_*.py')
 
     br = BeautifulReport(suites=suite)
     br.report(description='淘房小程序淘房圈测试报告', filename='br_report.html')
