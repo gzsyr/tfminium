@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- 
 # @Time : 2022/6/6 10:34 
 # @Author : zcm 
-# @File : test_newsdetail_bnzf.py
+# @File : test_bnzf.py
 # @desc:
 
 from test.test_base import TestBase
@@ -10,7 +10,7 @@ from test.common import delay
 
 class TestNewsDetailBnzf(TestBase):
     """
-    资讯详情页，点击帮你找房
+    帮你找房页面
     """
 
     def setUp(self) -> None:
