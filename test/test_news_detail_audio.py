@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- 
 # @Time : 2022/5/31 15:03
 # @Author : zcm
-# @File : test_newsdetail_audio.py
+# @File : test_news_detail_audio.py
 # @desc:
 
 from test.test_base import TestBase

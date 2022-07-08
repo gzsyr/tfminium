@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- 
 # @Time : 2022/5/30 9:58 
 # @Author : zcm 
-# @File : test_newslist.py 
+# @File : test_news_list.py
 # @desc:
 
 import minium
