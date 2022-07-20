@@ -1,4 +1,6 @@
 # add by zzh
+import unittest
+
 from test.test_base import TestBase
 
 
@@ -37,6 +39,7 @@ class TestTfqShouYe(TestBase):
         e = self.page.get_element('view[class="tfq--search-input"]')
         e.tap()
 
+    @unittest.skip("v6.13.x删除此功能")
     def test_z_click_share_top(self):
         """
         淘房圈首页，点击顶部分享按钮
@@ -207,6 +210,7 @@ class TestTfqShouYe(TestBase):
         e = self.page.get_element('view[class="tfq--laud-btn"]')
         e.tap()
 
+    @unittest.skip("v6.13.x删除此功能")
     def test_click_addgroup(self):
         """
         淘房圈首页 ，点击右下角“加群”按钮
@@ -224,6 +228,7 @@ class TestTfqShouYe(TestBase):
         e = self.page.get_element('image[class="tfq--postBtn_img"]')
         e.tap()
 
+    @unittest.skip("v6.13.x删除此功能")
     def test_z_click_share_icon(self):
         """
         淘房圈首页 ，点击右下角“分享”按钮
