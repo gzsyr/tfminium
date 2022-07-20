@@ -95,7 +95,8 @@ class TestQuanZiDetail(TestBase):
         """
         圈子详情页，点击帖子的关联圈子
         """
-        e = self.page.get_element('view[class="posttag tfFlex tfAlignC"]')
+        # e = self.page.get_element('view[class="posttag tfFlex tfAlignC"]')
+        e = self.page.get_element('view[class="posttag flex tfAlignC"]')
         e.tap()
 
     def test_click_laud_btn(self):
@@ -138,6 +139,7 @@ class TestQuanZiDetail(TestBase):
         """
         圈子详情页，点击“发布帖子”按钮
         """
-        e = self.page.get_element('view[class="postBtn"]')
+        # e = self.page.get_element('view[class="postBtn"]')
+        e = self.page.get_element('image[class="postBtn_img"]')
         e.tap()
 
