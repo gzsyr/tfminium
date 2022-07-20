@@ -43,7 +43,8 @@ class TestPostDetail(TestBase):
         帖子详情页，点击帖子"最新热帖"按钮
         :return:
         """
-        e = self.page.get_element('view[class="toutiao-swiper-item tfLine1"]')
+        # e = self.page.get_element('view[class="toutiao-swiper-item tfLine1"]')
+        e = self.page.get_element('swiper-item[id="ontieziDetail"]')
         e.tap()
 
     def test_click_moren(self):
@@ -260,4 +261,18 @@ class TestPostDetail(TestBase):
         e.tap()
         self.delay(1)
         self.page.get_element('button[class="share-btn hy"]').tap()
+
+    def test_click_newpost_more(self):
+        """
+        帖子详情页，点击最新热帖的，“更多”按钮
+        :return:
+        """
+        self.page.get_element('view[id="goTieZiList"]').tap()
+
+    def test_click_allpicture(self):
+        """
+        帖子详情页，点击“查看完整图片”按钮
+        :return:
+        """
+        self.page.get_element('view[id="newHouseBanner-ckmore"]').tap()
 

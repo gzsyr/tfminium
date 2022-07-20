@@ -68,3 +68,9 @@ class TestCommentDetail(TestBase):
         """
         self.page.get_element('view[class="detail-fix-input"]').tap()
 
+    def test_click_allpicture(self):
+        """
+        帖子详情页，点击“查看完整图片”按钮
+        :return:
+        """
+        self.page.get_element('view[id="newHouseBanner-ckmore"]').tap()
