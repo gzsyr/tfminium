@@ -95,7 +95,7 @@ class TestNewsDetailBnzf(TestBase):
         delay(4)
         e2 = self.page.get_element('view[class="opt-item im bnzf_im"]').tap()
         delay(6)
-        e3 = self.page.get_element('input[class="chatinput-input w500"]')
+        e3 = self.page.get_element('input[class="chatinput-input"]')
         e3.tap()
         delay(2)
         e3.input('测试')
@@ -107,6 +107,8 @@ class TestNewsDetailBnzf(TestBase):
         delay(2)
         e6 = self.page.get_element('button[class="chatinput-voice-mask"]').long_press(5000)
         delay(2)
+        # 上面这步之后需要使用麦克风授权
+        self.native.allow_record()
         e5.tap()
         delay(2)
         e7 = self.page.get_element('image[class="chatinput-img fr"]').tap()
