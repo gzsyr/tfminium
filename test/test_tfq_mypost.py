@@ -23,4 +23,4 @@ class TestMyPost(TestBase):
         点击我的帖子，进入点击圈子名称，进入圈子详情
         :return:
         """
-        self.page.get_element('view[class="posttag tfFlex tfAlignC"]').tap()
+        self.page.get_element('view[class="posttag flex tfAlignC"]').tap()
