@@ -12,7 +12,6 @@ class TestKFTRoute(minium.MiniTest):
         page = self.app.get_current_page()
         print("test  setup!!!!!!!!!!!!!")
 
-
     def test_click_list(self):
         """
         点击第一个楼盘
@@ -20,13 +19,8 @@ class TestKFTRoute(minium.MiniTest):
         """
         delay(2)
         ele = self.page.get_element('image[src="http://img11.house365.com/njnewhouse/2015/04/25/thumb/1429933967553b0f8fd1606.png"]')
-        # ele = self.page.get_element('//navigator[@url="/page/newhouse/detail?pinyin=wandaokelagongguan&city=qz"]/view/view')
         ele.tap()
         print("click_list:", ele)
-        # ele = self.page.get_elements('//view[@class="list__item line"]/navigator')
-        # e = ele[0]
-        # e.tap()
-        # print("click_list:", e)
         delay(5)
 
     def test_click_first(self):
