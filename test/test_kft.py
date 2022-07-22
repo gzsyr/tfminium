@@ -1,7 +1,7 @@
 import time
 
 import minium
-
+import unittest
 from test.common import delay
 
 
@@ -17,8 +17,9 @@ class TestKFT(minium.MiniTest):
 
     def test_click_kfxq(self):
         """
-        手机号需要预先输入，
-        看房团页面，点击看房需求,
+        前置条件是登录，
+        手机号是登录之后自动获取，
+        看房团页面，点击看房需求，
         键入当日日期，
         点击楼盘输入框，进入新页面，
         点击输入框，输入‘苏宁’
@@ -80,6 +81,7 @@ class TestKFT(minium.MiniTest):
         print("click_signup:", ele)
         delay(2)
 
+    @unittest.skip("加群图标已删除")
     def test_click_addgroup(self):
         """
         点击加群图标
@@ -99,4 +101,15 @@ class TestKFT(minium.MiniTest):
         delay(2)
         ele.tap()
         print("click_zallroutes:", ele)
+        delay(2)
+
+    def test_click_zchangeroute(self):
+        """
+        全部路线切换成路线1
+        :return:
+        """
+        ele = self.page.get_element('picker[class="headT"]')
+        delay(2)
+        ele.trigger("change", {"value":2})
+        print("click_zchangeroute:", ele)
         delay(2)
