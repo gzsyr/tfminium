@@ -24,7 +24,7 @@ class TestNewsList(minium.MiniTest):
         点击第一条资讯
         :return:
         """
-        e = self.page.get_element('//view[@class="list-box"]/navigator')
+        e = self.page.get_element('//view[@class="list-box list-box_ads"]/navigator')
         c = e.attribute('class')
         print('class:', c)
         e.tap()
@@ -40,7 +40,7 @@ class TestNewsList(minium.MiniTest):
         print('class:', c)
         e.tap()
         delay(2)
-        e2 = self.page.get_element('//view[@class="list-box"]/navigator')
+        e2 = self.page.get_element('//view[@class="list-box list-box_ads"]/navigator')
         c2 = e2.attribute('class')
         print('class:', c2)
         e2.tap()
