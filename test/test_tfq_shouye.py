@@ -119,7 +119,7 @@ class TestTfqShouYe(TestBase):
         淘房圈首页，点击热门话题中的第一个
         :return:
         """
-        e = self.page.get_element('view[class="tfq--title tfq--tfline2"]')
+        e = self.page.get_element('view[class="tfq--title"]')
         e.tap()
 
     def test_click_newpost(self):

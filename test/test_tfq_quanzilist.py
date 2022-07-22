@@ -17,7 +17,7 @@ class TestQuanZi(TestBase):
         点击圈子，进入圈子详情页
         :return:
         """
-        e = self.page.get_element('view[class="flex tfAlignC hotSearch"]')
+        e = self.page.get_element('view[class="hotSearch"]')
         e.tap()
 
     def test_click_btn1(self):
@@ -25,8 +25,11 @@ class TestQuanZi(TestBase):
         点击圈子列表的”关注“按钮
         :return:
         """
-        e = self.page.get_element('view[class="btn"]', inner_text="关注")
-        e.tap()
+        ret = self.page.element_is_exists('view[class="btn"]', inner_text="关注")
+        if ret == True:
+            self.page.get_element('view[class="btn"]', inner_text="关注").tap()
+        else:
+            print("第一条圈子已关注，此用例直接pass")
 
     def test_click_btn2(self):
         """
