@@ -1,4 +1,6 @@
 # add by zzh
+import unittest
+
 from test.test_base import TestBase
 
 
@@ -18,18 +20,17 @@ class TestQuanZiDetail(TestBase):
         圈子详情页，点击顶部关注/已关注按钮
         :return:
         """
-        b_l = self.page.element_is_exists('text[data-type="2"]', inner_text="已关注")
+        b_l = self.page.element_is_exists('view[id="qz_focuson"]')
         if b_l == True:
             result = {"confirm": True}
             self.app.mock_wx_method("showModal", result=result)
-            e = self.page.get_element('text[data-type="2"]', inner_text="已关注")
-            e.tap()
+            self.page.get_element('view[id="qz_focuson"]').tap()
             self.app.restore_wx_method("showModal")
             self.delay(2)
             self.capture("取消关注")
             self.native.handle_modal("确定", "取消关注")
         else:
-            e = self.page.get_element('text[class="add"]', inner_text="+")
+            e = self.page.get_element('view[id="qz_nofocuson"]')
             e.tap()
 
 
@@ -94,7 +95,8 @@ class TestQuanZiDetail(TestBase):
         """
         圈子详情页，点击帖子的关联圈子
         """
-        e = self.page.get_element('view[class="posttag tfFlex tfAlignC"]')
+        # e = self.page.get_element('view[class="posttag tfFlex tfAlignC"]')
+        e = self.page.get_element('view[class="posttag flex tfAlignC"]')
         e.tap()
 
     def test_click_laud_btn(self):
@@ -125,6 +127,7 @@ class TestQuanZiDetail(TestBase):
         e = self.page.get_element('image[class="returnPl"]')
         e.tap()
 
+    @unittest.skip("v6.13.x删除此功能")
     def test_click_page_share(self):
         """
         圈子详情页，点击底部分享按钮
@@ -136,6 +139,7 @@ class TestQuanZiDetail(TestBase):
         """
         圈子详情页，点击“发布帖子”按钮
         """
-        e = self.page.get_element('view[class="postBtn"]')
+        # e = self.page.get_element('view[class="postBtn"]')
+        e = self.page.get_element('image[class="postBtn_img"]')
         e.tap()
 

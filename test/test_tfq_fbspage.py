@@ -49,7 +49,7 @@ class TestFbsPage(TestBase):
 
     def test_click_huati(self):
         """
-        点击“实地看盘
+        点击“话题“
         :return:
         """
         self.page.get_element('view[data-eventid="2955"]').tap()
@@ -81,7 +81,7 @@ class TestFbsPage(TestBase):
         点击楼盘评论的圈子，进入圈子页面
         :return:
         """
-        self.page.get_element('view[class="posttag tfFlex tfAlignC"]').tap()
+        self.page.get_element('view[class="posttag flex tfAlignC"]').tap()
 
     def test_huati_dianzan(self):
         """
@@ -109,5 +109,5 @@ class TestFbsPage(TestBase):
         点击话题tab下的第一条带圈子的内容，进入对应圈子详情
         :return:
         """
-        self.test_click_huati().delay(2).page.get_element('view[class="posttag tfFlex tfAlignC"]').tap()
+        self.test_click_huati().delay(2).page.get_element('view[class="posttag flex tfAlignC"]').tap()
 
