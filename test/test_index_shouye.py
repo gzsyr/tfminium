@@ -123,3 +123,62 @@ class TestIndexShouye(TestBase):
         :return:
         """
         self.page.get_element('view[class="zhlc-item"]').click()
+
+    def test_click_zhaofang(self):
+        """
+        首页，点击找房模块“帮你找房”的“马上找房”按钮
+        :return:
+        """
+        self.page.get_element('view[class="link-btn"]', inner_text="马上找房").click()
+
+    def test_click_maifang(self):
+        """
+        首页，点击找房模块“帮你卖房”
+        :return:
+        """
+        self.page.get_element('view[class="item"]', inner_text="帮你卖房").click()
+
+    def test_click_maifang_fabu(self):
+        """
+        首页，点击找房模块“帮你卖房”的“发布房源”按钮
+        :return:
+        """
+        self.test_click_maifang()
+        self.page.get_element('navigator[class="link-btn"]', inner_text="发布房源").click()
+
+    def test_click_fbs_zixun(self):
+        """
+        首页，点击房博士模块第一个房博士的“立即咨询”
+        :return:
+        """
+        self.page.get_element('view[class="fbs-qus-btn"]', inner_text="立即咨询").click()
+
+    def test_click_fbs_avatar(self):
+        """
+        首页，点击房博士模块 第一个房博士的头像
+        :return:
+        """
+        self.page.get_element('image[class="fbs-avatar"]').click()
+
+    def test_click_fbs_more(self):
+        """
+        首页，点击房博士模块“更多”按钮
+        :return:
+        """
+        self.page.get_element('view[class="indexTitR index_fbsgd"]').click()
+
+    def test_click_icon(self):
+        """
+        首页，点击右下角的广告icon
+        :return:
+        """
+        ele = self.page.get_element('add-group').get_element('view').get_element('image')
+        ele.click()
+
+    def test_click_tuijian_loupan(self):
+        """
+        首页，点击推荐楼盘列表的第一个楼盘
+        :return:
+        """
+        self.page.get_element('view[class="commonNewHouseLi-l"]').click()
+
