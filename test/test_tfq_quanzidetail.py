@@ -10,7 +10,7 @@ class TestQuanZiDetail(TestBase):
     """
 
     def setUp(self) -> None:
-        self.page_name = "/page/taofangquan/huati/huatiDetail?city=qz&topicid=751"
+        self.page_name = f"/page/taofangquan/huati/huatiDetail?city=qz&topicid={self.quanzi}"    # dev
         self.switch = False
         super(TestQuanZiDetail, self).setUp()
         print("TestQuanZiDetail  Setup")
