@@ -129,7 +129,7 @@ class TestPostDetail(TestBase):
 
     def test_click_reply_more(self):
         """
-        帖子详情页，点击第一个评论的"查看全部X条回复"
+        帖子详情页，点击评论的"查看全部X条回复"
         :return:
         """
         e = self.page.get_element('view[class="commentList--more-reply"]')
@@ -167,7 +167,7 @@ class TestPostDetail(TestBase):
         帖子详情页，点击“加入群聊”入口
         :return:
         """
-        e = self.page.get_element('view[class="add"]')
+        e = self.page.get_element('view[class="add_jqbtn"]')
         e.tap()
 
     def test_click_add_close(self):
