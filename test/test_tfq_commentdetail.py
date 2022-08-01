@@ -7,7 +7,7 @@ class TestCommentDetail(TestBase):
     帖子的评论详情页
     """
     def setUp(self) -> None:
-        self.page_name = "/page/taofangquan/tieziCommentDetail/tieziCommentDetail?city=qz&pid=47170&postsid=12746"
+        self.page_name = f"/page/taofangquan/tieziCommentDetail/tieziCommentDetail?city=qz&pid={self.pinglunid}&postsid={self.postid}"
         self.switch = False
         super(TestCommentDetail, self).setUp()
         print("TestCommentDetail setup test")

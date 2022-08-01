@@ -54,7 +54,7 @@ class TestPostComment(TestMine):
         text = self.get_shenfen(value)
 
         self.delay(1)
-        self.app.navigate_to("/page/taofangquan/tieziDetail/tieziDetail?city=qz&postsid=12746")
+        self.app.navigate_to(f"/page/taofangquan/tieziDetail/tieziDetail?city=qz&postsid={self.postid}")
         self.delay(2)
         self.app.get_current_page()
 
@@ -81,7 +81,7 @@ class TestPostComment(TestMine):
         text = self.get_shenfen(value)
 
         self.delay(1)
-        self.app.navigate_to("/page/taofangquan/tieziDetail/tieziDetail?city=qz&postsid=12746")
+        self.app.navigate_to(f"/page/taofangquan/tieziDetail/tieziDetail?city=qz&postsid={self.postid}")
         self.delay(2)
         self.app.get_current_page()
 

@@ -8,7 +8,7 @@ class TestHuaTiDetail(TestBase):
     话题详情页
     """
     def setUp(self) -> None:
-        self.page_name = "/page/taofangquan/tieziDetail/tieziDetail?city=qz&postsid=11536"
+        self.page_name = f"/page/taofangquan/tieziDetail/tieziDetail?city=qz&postsid={self.huatiid}"
         self.switch = False
 
         super(TestHuaTiDetail, self).setUp()
@@ -174,8 +174,4 @@ class TestHuaTiDetail(TestBase):
         e3 = self.page.get_element('button[class="send-btn"]')
         self.delay(1)
         e3.tap()
-
-
-    
-
 

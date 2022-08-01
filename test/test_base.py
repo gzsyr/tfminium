@@ -3,6 +3,8 @@ import time
 
 import minium
 
+from test.handle_wrapper import handle_black
+
 
 class TestBase(minium.MiniTest):
     """
@@ -13,6 +15,27 @@ class TestBase(minium.MiniTest):
     page_name = '/page/index/index'
     # 切换页面的方式，True使用navigate_to，False使用switch_to
     switch = False
+
+    # 以下id的相关参数，根据online、dev来选择或者设置
+    # 帖子的id
+    # postid = 12746 # online
+    postid = 3387 # dev
+
+    # 帖子评论的id
+    # pinglunid = 47170 # online
+    pinglunid = 7887 # dev
+
+    # 话题的id
+    # huatiid = 11536 # online
+    huatiid = 3393 # dev
+
+    # 圈子的id
+    # quanzi = 751  # online
+    quanzi = 430  # dev
+
+    # 房博士页面，房博士的uid 和roleid
+    fbs_uid = 3403749
+    fbs_roleid = 1081
 
     @classmethod
     def setUpClass(cls) -> None:
@@ -46,6 +69,7 @@ class TestBase(minium.MiniTest):
         """
         return self.page.element_is_exists(selector=selector, inner_text=inner_text)
 
+    @handle_black
     def find_element(self, selector=None, inner_text=None):
         """
         查找某个元素，参数目前就只支持selector和inner_text，后期慢慢增加
@@ -53,7 +77,10 @@ class TestBase(minium.MiniTest):
         :param inner_text:  包含的text
         :return:
         """
-        return self.page.get_element(selector=selector, inner_text=inner_text)
+        print("start: find_element")
+        ele = self.page.get_element(selector=selector, inner_text=inner_text)
+        print("end: find_element")
+        return ele
 
     def tearDown(self) -> None:
         self.delay(3)

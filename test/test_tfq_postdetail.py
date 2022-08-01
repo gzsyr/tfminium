@@ -9,7 +9,7 @@ class TestPostDetail(TestBase):
     """
 
     def setUp(self) -> None:
-        self.page_name = "/page/taofangquan/tieziDetail/tieziDetail?city=qz&postsid=12746"
+        self.page_name = f"/page/taofangquan/tieziDetail/tieziDetail?city=qz&postsid={self.postid}"
         self.switch = False
         super(TestPostDetail, self).setUp()
         print("TestPostDetail  Setup")

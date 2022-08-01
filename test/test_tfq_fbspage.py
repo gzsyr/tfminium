@@ -7,7 +7,7 @@ class TestFbsPage(TestBase):
     房博士主页
     """
     def setUp(self) -> None:
-        self.page_name = '/page/taofangquan/personalDetails/fbs/fbs?city=qz&uid=3403749&role_uid=1081'
+        self.page_name = f'/page/taofangquan/personalDetails/fbs/fbs?city=qz&uid={self.fbs_uid}&role_uid={self.fbs_roleid}'
         self.switch = False
         super(TestFbsPage, self).setUp()
         print("TestFbsPage setup")
@@ -102,7 +102,8 @@ class TestFbsPage(TestBase):
         点击话题tab下的一条postsid="13684"，进入详情页
         :return:
         """
-        self.test_click_huati().delay(2).page.get_element('view[class="postitem"][data-postsid="13684"]').tap()
+        # self.test_click_huati().delay(2).page.get_element('view[class="postitem"][data-postsid="13684"]').tap()
+        self.test_click_huati().delay(2).page.get_element('view[class="postitem"]').tap()
 
     def test_huati_quanzi(self):
         """
