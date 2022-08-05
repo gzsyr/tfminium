@@ -3,8 +3,6 @@ import time
 
 import minium
 
-from test.handle_wrapper import handle_black
-
 
 class TestBase(minium.MiniTest):
     """
@@ -69,7 +67,6 @@ class TestBase(minium.MiniTest):
         """
         return self.page.element_is_exists(selector=selector, inner_text=inner_text)
 
-    @handle_black
     def find_element(self, selector=None, inner_text=None):
         """
         查找某个元素，参数目前就只支持selector和inner_text，后期慢慢增加
