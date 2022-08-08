@@ -12,21 +12,11 @@ class TestFuncVR(TestBase):
         super(TestFuncVR, self).setUp()
         print("TestFuncVR setup test")
 
-    def set_pick_filter(self, index, value):
-        """
-        picker选择器的选择
-        index: 元素的顺序
-        value: 选择的pick数值
-        """
-        ele = self.page.get_element(f'picker[data-bj="{index}"]')
-        ele.click()
-        ele.pick(value)
-
     def test_filter_area(self):
         """
         VR看房页面，点击筛选项“区域”选择
         """
-        self.set_pick_filter(0, 2)
+        self.set_pick_filter('picker[data-bj="0"]', 2)
 
         ele = self.page.get_elements('view[class= "headBarLi-txt tfLine1 picker"]')
         self.verifyStr(ele[0].inner_text, '丰泽', "VR看房页面，点击筛选项“区域”选择 丰泽 ok")
@@ -35,7 +25,7 @@ class TestFuncVR(TestBase):
         """
         VR看房页面，点击筛选项“价格”选择
         """
-        self.set_pick_filter(1, 3)
+        self.set_pick_filter('picker[data-bj="1"]', 3)
 
         ele = self.page.get_elements('view[class= "headBarLi-txt tfLine1 picker"]')
         self.verifyStr(ele[1].inner_text, '4000-5000元/㎡', "VR看房页面，点击筛选项“价格”选择 4000-5000元/㎡ ok")
@@ -44,7 +34,7 @@ class TestFuncVR(TestBase):
         """
         VR看房页面，点击筛选项“户型”选择
         """
-        self.set_pick_filter(2, 3)
+        self.set_pick_filter('picker[data-bj="2"]', 3)
 
         ele = self.page.get_elements('view[class= "headBarLi-txt tfLine1 picker"]')
         self.verifyStr(ele[2].inner_text, '三室', "VR看房页面，点击筛选项“户型”选择 三室 ok")

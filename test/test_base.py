@@ -59,7 +59,18 @@ class TestBase(minium.MiniTest):
         time.sleep(second)
         return self
 
-    def verifyStr(self, first, second, msg, capture=True):
+    def set_pick_filter(self, selector, value):
+        """
+        picker选择器的选择
+        selector: 元素选择器
+        value: 选择的pick数值
+        """
+        ele = self.page.get_element(selector)
+        ele.click()
+        ele.pick(value)
+        return self
+
+    def verifyStr(self, first, second, msg=None, capture=True):
         """
         结果校验
         first: 实际字串
