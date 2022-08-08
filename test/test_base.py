@@ -1,4 +1,5 @@
 # add by zsy
+import inspect
 import time
 
 import minium
@@ -11,7 +12,7 @@ class TestBase(minium.MiniTest):
 
     # 打開的頁面名称
     page_name = '/page/index/index'
-    # 切换页面的方式，True使用navigate_to，False使用switch_to
+    # 切换页面的方式，False使用navigate_to，True使用switch_to
     switch = False
 
     # 以下id的相关参数，根据online、dev来选择或者设置
@@ -58,6 +59,43 @@ class TestBase(minium.MiniTest):
         time.sleep(second)
         return self
 
+    def verifyStr(self, first, second, msg, capture=True):
+        """
+        结果校验
+        first: 实际字串
+        second: 目标字串
+        msg: 匹配结果文案
+        capture: 是否截图
+                  True--默认截图
+                  False--无需截图
+        """
+        try:
+            self.assertEqual(first, second, msg)
+        except self.failureException as e:
+            # print("-------------------", inspect.stack())
+            # name = inspect.stack()[1].function
+            # print("********************", name)
+            if capture:
+                self.capture(inspect.stack()[1].function)
+            raise e
+
+    def verifyPageName(self, pagename, capture=True):
+        """
+        对进入pagename的页面路径校验
+        pagename: 目标页面名称
+        capture: 是否截图
+                  True--默认截图
+                  False--无需截图
+        """
+        ret = self.app.wait_for_page(pagename)
+        try:
+            self.assertTrue(ret, f"wait {pagename} success")
+            self.assertEqual(self.app.current_page.path, pagename, f"goto {pagename} OK")
+        except self.failureException as e:
+            if capture:
+                self.capture(inspect.stack()[1].function)
+            raise e
+
     def element_is_exist(self, selector=None, inner_text=None):
         """
         查找是否存在某个元素，参数目前就只支持selector和inner_text，后期慢慢增加
@@ -80,6 +118,6 @@ class TestBase(minium.MiniTest):
         return ele
 
     def tearDown(self) -> None:
-        self.delay(3)
+        self.delay(1)
         super(TestBase, self).tearDown()
         print("------tear Down test------")
