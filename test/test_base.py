@@ -50,7 +50,8 @@ class TestBase(minium.MiniTest):
         if self.switch:
             self.app.switch_tab(self.page_name)
         else:
-            self.app.navigate_to(self.page_name)
+            # self.app.navigate_to(self.page_name)
+            self.app.relaunch(self.page_name)
         self.delay(3)
         self.app.get_current_page()
         print("++++++set up test+++++++")
@@ -70,11 +71,28 @@ class TestBase(minium.MiniTest):
         ele.pick(value)
         return self
 
+    def verifyContainsStr(self, member, container, msg=None, capture=True):
+        """
+        结果包含关系校验
+        member: 匹配的关键词
+        container: 需要校验的内容
+        msg: 匹配结果文案
+        capture: 是否截图
+                  True--默认截图
+                  False--无需截图
+        """
+        try:
+            self.assertIn(member, container, msg)
+        except self.failureException as e:
+            if capture:
+                self.capture(inspect.stack()[1].function)
+            raise e
+
     def verifyStr(self, first, second, msg=None, capture=True):
         """
         结果校验
-        first: 实际字串
-        second: 目标字串
+        first: 实际结果，支持bool
+        second: 目标结果，支持bool
         msg: 匹配结果文案
         capture: 是否截图
                   True--默认截图
