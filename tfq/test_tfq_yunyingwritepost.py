@@ -283,13 +283,13 @@ class TestYyWritePost(TestMine):
 
     def test_yy_choose_vest(self):
         """
-        运营身份，发帖页面，点击关联用户入口，进入选择马甲页面，输入“智慧”，搜索，选择第一个结果
+        运营身份，发帖页面，点击关联用户入口，进入选择马甲页面，输入“马甲”，搜索，选择第一个结果
         """
         e1 = self.page.get_element('view[class="associated_users_name tfLine1"]')
         e1.tap()
         self.delay(1)
         e2 = self.page.get_element('input[placeholder="请输入搜索昵称"]')
-        e2.input("智慧")
+        e2.input("马甲")
         self.delay(1)
         self.page.get_element('view[class="search-btn"]').tap()
         self.delay(1)
@@ -435,7 +435,7 @@ class TestYyWritePost(TestMine):
         e1.tap()
         self.delay(1)
         e2 = self.page.get_element('input[placeholder="请输入搜索昵称"]')
-        e2.input("智慧")
+        e2.input("马甲")
         self.delay(1)
         self.page.get_element('view[class="search-btn"]').tap()
         self.delay(2)
