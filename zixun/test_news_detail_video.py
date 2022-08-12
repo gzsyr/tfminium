@@ -5,7 +5,6 @@
 # @desc:
 
 from test.test_base import TestBase
-from common import delay
 
 
 class TestNewsdetailVideo(TestBase):
@@ -17,7 +16,6 @@ class TestNewsdetailVideo(TestBase):
         self.page_name = "/page/news/detail?id=029783878&city=qz"
         self.switch = False
         super(TestNewsdetailVideo, self).setUp()
-        delay(2)
 
     def test_01_click_video(self):
         """
@@ -34,7 +32,6 @@ class TestNewsdetailVideo(TestBase):
         page = self.app.get_current_page()
         page.scroll_to(1500, 500)
         self.page.get_element('image.lpList-img').tap()
-        delay(2)
 
     def test_03_click_kfbm(self):
         """
@@ -42,7 +39,7 @@ class TestNewsdetailVideo(TestBase):
         :return:
         """
         page = self.app.get_current_page()
-        delay(2)
+        self.delay(2)
         page.scroll_to(1500, 500)
         self.page.get_element('button[data-type="kf"]').tap()
         # self.native.allow_authorize()
@@ -53,7 +50,7 @@ class TestNewsdetailVideo(TestBase):
         :return:
         """
         page = self.app.get_current_page()
-        delay(2)
+        self.delay(2)
         page.scroll_to(1500, 500)
         self.page.get_element('button[data-type="dy"]').tap()
 
@@ -63,7 +60,7 @@ class TestNewsdetailVideo(TestBase):
         :return:
         """
         page = self.app.get_current_page()
-        delay(2)
+        self.delay(2)
         page.scroll_to(1500, 500)
         self.page.get_element('button[data-type="yh"]').tap()
 
@@ -73,7 +70,7 @@ class TestNewsdetailVideo(TestBase):
         :return:
         """
         page = self.app.get_current_page()
-        delay(2)
+        self.delay(2)
         page.scroll_to(1500, 500)
         self.page.get_element('button[class="lpList-btn lpList-btn-tel"]').tap()
 
@@ -83,7 +80,7 @@ class TestNewsdetailVideo(TestBase):
         :return:
         """
         page = self.app.get_current_page()
-        delay(2)
+        self.delay(2)
         page.scroll_to(1500, 500)
         self.page.get_element('view[class="getMore"]').tap()
 
@@ -93,9 +90,8 @@ class TestNewsdetailVideo(TestBase):
         :return:
         """
         e = self.page.get_element('//view[@class="tjlplist-rl"]')
-        delay(2)
+        self.delay(2)
         e.tap()
-        delay(3)
 
     def test_13_click_tel(self):
         """
@@ -103,7 +99,7 @@ class TestNewsdetailVideo(TestBase):
         :return:
         """
         e = self.page.get_element('//button[@class="tjlplist-tel"]')
-        delay(2)
+        self.delay(2)
         e.tap()
 
     def test_08_click_backindex(self):
@@ -112,7 +108,7 @@ class TestNewsdetailVideo(TestBase):
         :return:
         """
         e = self.page.get_element('//view[@class="newHouseRfixed-index xfxq_index"]')
-        delay(2)
+        self.delay(2)
         e.tap()
 
     def test_15_click_share(self):
@@ -121,7 +117,7 @@ class TestNewsdetailVideo(TestBase):
         :return:
         """
         e = self.page.get_element('//button[@class="newHouseRfixed-share xfxq_fx"]')
-        delay(2)
+        self.delay(2)
         e.tap()
 
     def test_09_click_writecomment(self):
@@ -130,10 +126,10 @@ class TestNewsdetailVideo(TestBase):
         :return:
         """
         e = self.page.get_element('button.fixBL-l')
-        delay(2)
+        self.delay(2)
         e.tap()
         e2 = self.page.get_element('input.fixBIntB-input')
-        delay(2)
+        self.delay(2)
         e2.trigger("confirm", {"value": "测试"})
 
     def test_10_click_comments(self):
@@ -142,17 +138,17 @@ class TestNewsdetailVideo(TestBase):
         :return:
         """
         e = self.page.get_element('view.fixBL-r')
-        delay(2)
+        self.delay(2)
         e.tap()
-        delay(2)
+        self.delay(2)
         e2 = self.page.get_element('button.fixBL-l')
-        delay(2)
+        self.delay(2)
         e2.tap()
-        delay(2)
+        self.delay(2)
         e3 = self.page.get_element('input.fixBIntB-input')
-        delay(2)
+        self.delay(2)
         e3.trigger("confirm", {"value": "测试"})
-        delay(2)
+        self.delay(2)
         self.page.get_element('button.pllist-zan').tap()
 
     def test_11_click_dianzan(self):
@@ -161,7 +157,7 @@ class TestNewsdetailVideo(TestBase):
         :return:
         """
         e = self.page.get_element('button[class="pllist-zan"]')
-        delay(2)
+        self.delay(2)
         e.tap()
 
     def test_14_click_wyzx(self):
@@ -170,7 +166,7 @@ class TestNewsdetailVideo(TestBase):
         :return:
         """
         e = self.page.get_element('button[class="fixBR-btn zx"]')
-        delay(2)
+        self.delay(2)
         e.tap()
 
     def test_00_click_firstyd(self):
@@ -181,7 +177,7 @@ class TestNewsdetailVideo(TestBase):
         try:
             e = self.page.get_elements('view[class="tjydlist-li tfFlex tfFlexSb tfAlingnC"]')
             e[0].tap()
-            delay(2)
+            self.delay(2)
         except:
             return
 

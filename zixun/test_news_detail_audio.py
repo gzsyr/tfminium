@@ -5,7 +5,6 @@
 # @desc:
 
 from test.test_base import TestBase
-from common import delay
 
 
 class TestNewsDetailAudio(TestBase):
@@ -17,7 +16,6 @@ class TestNewsDetailAudio(TestBase):
         self.page_name = "/page/news/detail?id=029783880&city=qz"
         self.switch = False
         super(TestNewsDetailAudio, self).setUp()
-        delay(2)
 
     def test_01_click_lanmu(self):
         """
@@ -25,7 +23,7 @@ class TestNewsDetailAudio(TestBase):
         :return:
         """
         self.page.get_element('button.inforR').tap()
-        delay(2)
+        self.delay(2)
 
     def test_02_click_audio(self):
         """
@@ -47,7 +45,6 @@ class TestNewsDetailAudio(TestBase):
         :return:
         """
         e = self.page.get_element('button[class="fixBR-btn zf"]').tap()
-        delay(3)
 
     def test_07_click_firsttjlp(self):
         """
@@ -55,9 +52,8 @@ class TestNewsDetailAudio(TestBase):
         :return:
         """
         e = self.page.get_element('//view[@class="tjlplist-rl"]')
-        delay(2)
+        self.delay(2)
         e.tap()
-        delay(3)
 
     def test_13_click_tel(self):
         """
@@ -65,7 +61,7 @@ class TestNewsDetailAudio(TestBase):
         :return:
         """
         e = self.page.get_element('//button[@class="tjlplist-tel"]')
-        delay(2)
+        self.delay(2)
         e.tap()
 
     def test_08_click_backindex(self):
@@ -74,7 +70,7 @@ class TestNewsDetailAudio(TestBase):
         :return:
         """
         e = self.page.get_element('//view[@class="newHouseRfixed-index xfxq_index"]')
-        delay(2)
+        self.delay(2)
         e.tap()
 
     def test_15_click_share(self):
@@ -83,7 +79,7 @@ class TestNewsDetailAudio(TestBase):
         :return:
         """
         e = self.page.get_element('//button[@class="newHouseRfixed-share xfxq_fx"]')
-        delay(2)
+        self.delay(2)
         e.tap()
 
     def test_09_click_writecomment(self):
@@ -92,10 +88,10 @@ class TestNewsDetailAudio(TestBase):
         :return:
         """
         e = self.page.get_element('button.fixBL-l')
-        delay(2)
+        self.delay(2)
         e.tap()
         e2 = self.page.get_element('input.fixBIntB-input')
-        delay(2)
+        self.delay(2)
         e2.trigger("confirm", {"value": "测试"})
 
     def test_10_click_comments(self):
@@ -104,17 +100,17 @@ class TestNewsDetailAudio(TestBase):
         :return:
         """
         e = self.page.get_element('view.fixBL-r')
-        delay(2)
+        self.delay(2)
         e.tap()
-        delay(2)
+        self.delay(2)
         e2 = self.page.get_element('button.fixBL-l')
-        delay(2)
+        self.delay(2)
         e2.tap()
-        delay(2)
+        self.delay(2)
         e3 = self.page.get_element('input.fixBIntB-input')
-        delay(2)
+        self.delay(2)
         e3.trigger("confirm", {"value": "测试"})
-        delay(2)
+        self.delay(2)
         self.page.get_element('button.pllist-zan').tap()
 
     def test_11_click_dianzan(self):
@@ -123,7 +119,7 @@ class TestNewsDetailAudio(TestBase):
         :return:
         """
         e = self.page.get_element('button[class="pllist-zan"]')
-        delay(2)
+        self.delay(2)
         e.tap()
 
     def test_14_click_wyzx(self):
@@ -132,7 +128,7 @@ class TestNewsDetailAudio(TestBase):
         :return:
         """
         e = self.page.get_element('button[class="fixBR-btn zx"]')
-        delay(2)
+        self.delay(2)
         e.tap()
 
     def test_00_click_firstyd(self):
@@ -143,6 +139,6 @@ class TestNewsDetailAudio(TestBase):
         try:
             e = self.page.get_elements('view[class="tjydlist-li tfFlex tfFlexSb tfAlingnC"]')
             e[0].tap()
-            delay(2)
+            self.delay(2)
         except:
             return

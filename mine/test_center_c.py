@@ -5,7 +5,6 @@
 # @desc:
 
 from test.test_base import TestBase
-from common import delay
 from test.test_mine import TestMine
 
 
@@ -30,7 +29,6 @@ class TestCenterC(TestMine):
         self.page_name = "/page/index/mine"
         self.switch = True
         super(TestCenterC, self).setUp()
-        delay(2)
 
     def test_01_C_click_avatar(self):
         """

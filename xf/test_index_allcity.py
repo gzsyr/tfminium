@@ -10,12 +10,12 @@ class TestAllcity(TestBase):
         super(TestAllcity, self).setUp()
         print("TestAllcity setup test")
 
-    def test_select_nj(self):
+    def test_select_qz(self):
         """
-        选择站点：南京
+        选择站点：泉州
         :return:
         """
-        self.page.get_element('text[class="hot-city"]', inner_text="南京").tap()
+        self.page.get_element('text[class="hot-city"]', inner_text="泉州").click()
 
     # def click_location(self):
     #     """
