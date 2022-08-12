@@ -1,5 +1,5 @@
 # add by zsy
-from test.test_base import TestBase
+from base.test_base import TestBase
 
 
 class TestFuncZhiMai(TestBase):
@@ -10,7 +10,7 @@ class TestFuncZhiMai(TestBase):
         self.page_name = "/page/newhouse/zmpd/zmpd?city=qz"
         self.switch = False
         super(TestFuncZhiMai, self).setUp()
-        print("TestFuncZhiMai setup test")
+        print("TestFuncZhiMai setup atest")
 
     def test_search(self):
         """

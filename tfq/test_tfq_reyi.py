@@ -1,5 +1,5 @@
 # add by zzh  淘房圈正在热议页面
-from test.test_base import TestBase
+from base.test_base import TestBase
 
 
 class TestReYi(TestBase):

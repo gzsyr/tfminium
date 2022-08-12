@@ -1,5 +1,5 @@
 # add by zsy
-from test.test_mine import TestMine
+from base.test_mine import TestMine
 
 
 class TestZygwWritePost(TestMine):

@@ -3,8 +3,8 @@ import threading
 
 import minium
 
-from test.common import delay
-from test.test_base import TestBase
+from base.common import delay
+from base.test_base import TestBase
 
 
 class TestNewhouseDetail(TestBase):

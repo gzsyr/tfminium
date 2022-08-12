@@ -1,4 +1,4 @@
-from test.test_base import TestBase
+from base.test_base import TestBase
 
 
 class TestQuanZi(TestBase):

@@ -1,6 +1,6 @@
 /outputs/
 /report/
-/test/outputs/
+/base/outputs/
 config.json
 suite.json
 /.idea

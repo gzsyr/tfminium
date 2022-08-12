@@ -1,8 +1,6 @@
 # add by zzh
 
-import minium
-from test.common import delay
-from test.test_base import TestBase
+from base.test_base import TestBase
 
 
 class TestMyQuzi(TestBase):

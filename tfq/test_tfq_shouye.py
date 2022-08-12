@@ -1,7 +1,7 @@
 # add by zzh
 import unittest
 
-from test.test_base import TestBase
+from base.test_base import TestBase
 
 
 class TestTfqShouYe(TestBase):

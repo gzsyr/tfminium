@@ -1,6 +1,5 @@
 # add by zsy
-from test.common import delay
-from test.test_base import TestBase
+from base.test_base import TestBase
 
 
 class TestAllcity(TestBase):
@@ -8,7 +7,7 @@ class TestAllcity(TestBase):
         self.page_name = "/page/index/city"
         self.switch = False
         super(TestAllcity, self).setUp()
-        print("TestAllcity setup test")
+        print("TestAllcity setup atest")
 
     def test_select_qz(self):
         """

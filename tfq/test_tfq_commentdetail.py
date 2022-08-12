@@ -1,5 +1,5 @@
 # add by zsy
-from test.test_base import TestBase
+from base.test_base import TestBase
 
 
 class TestCommentDetail(TestBase):
@@ -10,7 +10,7 @@ class TestCommentDetail(TestBase):
         self.page_name = f"/page/taofangquan/tieziCommentDetail/tieziCommentDetail?city=qz&pid={self.pinglunid}&postsid={self.postid}"
         self.switch = False
         super(TestCommentDetail, self).setUp()
-        print("TestCommentDetail setup test")
+        print("TestCommentDetail setup atest")
 
     def test_click_open_arrow(self):
         """

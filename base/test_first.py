@@ -1,12 +1,9 @@
-import os
-import time
 
-import minium
-
-from test.common import delay
+from base.common import delay
+from base.test_base import TestBase
 
 
-class TestFirst(minium.MiniTest):
+class TestFirst(TestBase):
 
     # def test_get_system_info(self):
     #     print(self.mini.call_wx_method("getSystemInfo"))
@@ -49,8 +46,9 @@ class TestFirst(minium.MiniTest):
         测试用例失败
         :return:
         """
-        ele = self.page.get_element("dddddd")
-        delay(2)
+        # ele = self.page.get_element("dddddd")
+        # delay(2)
+        self.find_element("eeeee")
 
 # if __name__ == "__main__":
 #     import unittest

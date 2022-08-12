@@ -1,5 +1,5 @@
 # add by zzh
-from test.test_mine import TestMine
+from base.test_mine import TestMine
 
 
 class TestYyWritePost(TestMine):

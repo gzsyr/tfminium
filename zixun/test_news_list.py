@@ -5,7 +5,7 @@
 # @desc:
 
 import minium
-from test.common import delay
+from base.common import delay
 
 
 class TestNewsList(minium.MiniTest):

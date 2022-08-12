@@ -1,5 +1,5 @@
 # add by zsy
-from test.test_base import TestBase
+from base.test_base import TestBase
 
 
 class TestFbsPage(TestBase):

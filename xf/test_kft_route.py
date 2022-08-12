@@ -1,6 +1,6 @@
 import minium
 
-from test.common import delay
+from base.common import delay
 
 
 class TestKFTRoute(minium.MiniTest):
@@ -10,7 +10,7 @@ class TestKFTRoute(minium.MiniTest):
     def setUp(self) -> None:
         self.app.navigate_to('/page/houseteam/detail?id=8359&city=qz')
         page = self.app.get_current_page()
-        print("test  setup!!!!!!!!!!!!!")
+        print("atest  setup!!!!!!!!!!!!!")
 
     def test_click_list(self):
         """

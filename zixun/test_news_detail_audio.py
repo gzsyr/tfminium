@@ -4,7 +4,7 @@
 # @File : test_news_detail_audio.py
 # @desc:
 
-from test.test_base import TestBase
+from base.test_base import TestBase
 
 
 class TestNewsDetailAudio(TestBase):

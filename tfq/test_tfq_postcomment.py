@@ -1,7 +1,7 @@
 # add by zsy
 from minium import ddt_class, ddt_case, ddt_data
 
-from test.test_mine import TestMine
+from base.test_mine import TestMine
 
 
 @ddt_class(testNameFormat="%(name)s")

@@ -1,5 +1,5 @@
 # add by zsy
-from test.test_base import TestBase
+from base.test_base import TestBase
 
 
 class TestFuncVR(TestBase):
@@ -10,7 +10,7 @@ class TestFuncVR(TestBase):
         self.page_name = '/page/vr/vrlist?city=qz'
         self.switch = False
         super(TestFuncVR, self).setUp()
-        print("TestFuncVR setup test")
+        print("TestFuncVR setup atest")
 
     def test_filter_area(self):
         """

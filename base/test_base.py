@@ -54,7 +54,7 @@ class TestBase(minium.MiniTest):
             self.app.relaunch(self.page_name)
         self.delay(3)
         self.app.get_current_page()
-        print("++++++set up test+++++++")
+        print("++++++set up atest+++++++")
 
     def delay(self, second):
         time.sleep(second)
@@ -149,4 +149,4 @@ class TestBase(minium.MiniTest):
     def tearDown(self) -> None:
         self.delay(1)
         super(TestBase, self).tearDown()
-        print("------tear Down test------")
+        print("------tear Down atest------")

@@ -4,8 +4,7 @@
 # @File : test_center_c.py 
 # @desc:
 
-from test.test_base import TestBase
-from test.test_mine import TestMine
+from base.test_mine import TestMine
 
 
 class TestCenterC(TestMine):

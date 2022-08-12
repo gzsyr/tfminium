@@ -4,8 +4,8 @@
 # @File : test_bnzf.py
 # @desc:
 
-from test.test_base import TestBase
-from test.common import delay
+from base.test_base import TestBase
+from base.common import delay
 
 
 class TestNewsDetailBnzf(TestBase):

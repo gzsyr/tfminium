@@ -2,7 +2,7 @@ import time
 
 import minium
 import unittest
-from test.common import delay
+from base.common import delay
 
 
 class TestKFT(minium.MiniTest):
@@ -12,7 +12,7 @@ class TestKFT(minium.MiniTest):
     def setUp(self) -> None:
         self.app.navigate_to('/page/houseteam/list?city=qz')
         page = self.app.get_current_page()
-        print("test  setup!!!!!!!!!!!!!")
+        print("atest  setup!!!!!!!!!!!!!")
         delay(2)
 
     def test_click_kfxq(self):

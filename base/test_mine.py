@@ -1,6 +1,5 @@
 #add by zzh
-from test.common import delay
-from test.test_base import TestBase
+from base.test_base import TestBase
 
 
 class TestMine(TestBase):
@@ -48,7 +47,8 @@ class TestMine(TestBase):
         切换身份，切换成置业顾问
         :return:
         """
-        self.change_roles(re_name="线上", change_name="置业顾问-线上")
+        # self.change_roles(re_name="线上", change_name="置业顾问-线上")    # online
+        self.change_roles(re_name="线上", change_name="置业顾问-测试pre环境")    # dev
 
     def change_yy(self):
         """

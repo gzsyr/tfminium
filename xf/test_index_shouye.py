@@ -2,7 +2,7 @@
 import minium
 from minium import ddt_class
 
-from test.test_base import TestBase
+from base.test_base import TestBase
 
 
 @ddt_class()
@@ -14,7 +14,7 @@ class TestIndexShouye(TestBase):
         self.page_name = "/page/index/index"
         self.switch = True
         super(TestIndexShouye, self).setUp()
-        print("TestIndexShouye setup test")
+        print("TestIndexShouye setup atest")
 
     def test_click_banner_one(self):
         """
@@ -84,7 +84,7 @@ class TestIndexShouye(TestBase):
         首页，摇号查询模块，输入框输入内容
         :return:
         """
-        self.page.get_element('input[type="text"]').input("test minitest")
+        self.page.get_element('input[type="text"]').input("atest minitest")
 
     def test_click_yaohao_inquire(self):
         """
