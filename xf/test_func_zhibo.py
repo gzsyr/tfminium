@@ -41,7 +41,7 @@ class TestFuncZhiBo(TestBase):
 
     def goto_zhibo(self):
         """
-        直播看房页面，
+        点击列表页第一个直播，进入直播详情页
         """
         self.page.get_element('view[class="tt bold"]').click()
         self.delay(1)
