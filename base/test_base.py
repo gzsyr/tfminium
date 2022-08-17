@@ -1,5 +1,6 @@
 # add by zsy
 import inspect
+import os
 import time
 
 import minium
@@ -9,6 +10,8 @@ class TestBase(minium.MiniTest):
     """
     继承自minitest的testbase类，后面所有测试类均继承自该类
     """
+    # 当前测试类的类名
+    classname = None
 
     # 打開的頁面名称
     page_name = '/page/index/index'
@@ -85,7 +88,8 @@ class TestBase(minium.MiniTest):
             self.assertIn(member, container, msg)
         except self.failureException as e:
             if capture:
-                self.capture(inspect.stack()[1].function)
+                # self.capture(inspect.stack()[1].function)
+                self.get_capture(verifyerr=True, fname=inspect.stack()[1].function)
             raise e
 
     def verifyStr(self, first, second, msg=None, capture=True):
@@ -105,7 +109,8 @@ class TestBase(minium.MiniTest):
             # name = inspect.stack()[1].function
             # print("********************", name)
             if capture:
-                self.capture(inspect.stack()[1].function)
+                # self.capture(inspect.stack()[1].function)
+                self.get_capture(verifyerr=True, fname=inspect.stack()[1].function)
             raise e
 
     def verifyPageName(self, pagename, capture=True):
@@ -122,8 +127,32 @@ class TestBase(minium.MiniTest):
             self.assertEqual(self.app.current_page.path, pagename, f"goto {pagename} OK")
         except self.failureException as e:
             if capture:
-                self.capture(inspect.stack()[1].function)
+                # self.capture(inspect.stack()[1].function)
+                self.get_capture(verifyerr=True, fname=inspect.stack()[1].function)
             raise e
+
+    def get_capture(self, verifyerr=False, fname=None):
+        """
+        抓取当前页面截图
+        verifyerr: 供assert出错时使用
+                   False：非assert的时候使用
+                   True： assert的时候使用
+        fname: 供assert出错时使用，当verifyerr=True时有效
+        """
+        self.delay(1)
+        # 抓取的文件名称，已测试用例命名
+        if verifyerr:
+            name = 'assert-' + fname + time.strftime('-%H-%M-%S')
+        else:
+            name = inspect.stack()[1].function + time.strftime('-%H-%M-%S')
+
+        filename = "%s.png" % name
+        screen_dir = '../screenshot/' + self.classname
+        path = os.path.join('../screenshot/'+self.classname, filename)
+        if not os.path.exists(screen_dir):
+            os.makedirs(screen_dir)
+        self.native.screen_shot(path)
+        return
 
     def element_is_exist(self, selector=None, inner_text=None):
         """
