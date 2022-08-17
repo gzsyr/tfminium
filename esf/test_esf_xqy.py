@@ -112,8 +112,8 @@ class Testesfxqy(TestBase):
         :return:
         """
         align_msg = self.page.get_elements('view[class="flex align_center msg"]')
-        msg_one = align_msg[value]
-        msg_one.tap()
+        msg_list = align_msg[value]
+        msg_list.tap()
 
     def test_goto_xqckxq(self):
         """
@@ -189,7 +189,6 @@ class Testesfxqy(TestBase):
         猜你喜欢，进入房源详情页
         :return:
         """
-
         # 页面滚动到猜你喜欢区域
         self.page.scroll_to(1750, 500)
         delay(1)
