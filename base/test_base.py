@@ -10,8 +10,12 @@ class TestBase(minium.MiniTest):
     """
     继承自minitest的testbase类，后面所有测试类均继承自该类
     """
-    # 当前测试类的类名
+    # 当前测试类的类名(截图是需用到)，定在setup的时候，赋值self.__class__.__name__
     classname = None
+
+    # 鼠标m、键盘k的实例，在需要使用到的地方，先判定下如果为None，需要m=PyMouse()，k=PyKeyboard()
+    m = None
+    k = None
 
     # 打開的頁面名称
     page_name = '/page/index/index'
@@ -147,8 +151,8 @@ class TestBase(minium.MiniTest):
             name = inspect.stack()[1].function + time.strftime('-%H-%M-%S')
 
         filename = "%s.png" % name
-        screen_dir = '../screenshot/' + self.classname
-        path = os.path.join('../screenshot/'+self.classname, filename)
+        screen_dir = './screenshot/' + self.classname
+        path = os.path.join('./screenshot/'+self.classname, filename)
         if not os.path.exists(screen_dir):
             os.makedirs(screen_dir)
         self.native.screen_shot(path)
