@@ -82,7 +82,7 @@ class TestBase(minium.MiniTest):
     def input_value_by_mk(self, png, value):
         """
         通过键盘鼠标来输入内容
-        png: 需要比对的截图，与当前文件在同一文件夹
+        png: 需要比对的截图，文件放在xf里面，则为: xf/xxx.png
         value: 需要键盘输入的内容
         """
         path = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), png)
