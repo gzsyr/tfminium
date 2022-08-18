@@ -4,6 +4,7 @@ import os
 import time
 
 import minium
+import pyautogui
 
 
 class TestBase(minium.MiniTest):
@@ -76,6 +77,36 @@ class TestBase(minium.MiniTest):
         ele = self.page.get_element(selector)
         ele.click()
         ele.pick(value)
+        return self
+
+    def input_value_by_mk(self, png, value):
+        """
+        通过键盘鼠标来输入内容
+        png: 需要比对的截图，与当前文件在同一文件夹
+        value: 需要键盘输入的内容
+        """
+        path = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), png)
+        print(path)
+        btm = pyautogui.locateOnScreen(path)
+        print(btm)
+
+        if btm is None:
+            # 如果比对的图没有在屏幕上面找到 assert
+            pyautogui.screenshot(png[(png.find('/')+1):-4]+'-assert.png')
+            self.verifyStr(True, False, f'获取pyautogui.locateOnScreen {png} is None')
+            return self
+
+        from pymouse import PyMouse
+        if self.m is None:
+            self.m = PyMouse()
+        self.m.click(btm[0], btm[1])
+
+        self.delay(1)
+        from pykeyboard import PyKeyboard
+        if self.k is None:
+            self.k = PyKeyboard()
+        # self.k.press_keys(characters=value) # 如果是‘1’，‘0’，‘0’则输入之后显示为10
+        self.k.type_string(value)
         return self
 
     def verifyContainsStr(self, member, container, msg=None, capture=True):
