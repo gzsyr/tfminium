@@ -9,6 +9,7 @@ class TestFuncZhiMai(TestBase):
     def setUp(self) -> None:
         self.page_name = "/page/newhouse/zmpd/zmpd?city=qz"
         self.switch = False
+        self.classname = self.__class__.__name__
         super(TestFuncZhiMai, self).setUp()
         print("TestFuncZhiMai setup atest")
 
@@ -61,6 +62,7 @@ class TestFuncZhiMai(TestBase):
         """
         self.page.get_element('view[class="im-btn"]').click()
 
+        self.delay(1)
         self.verifyPageName('/im/pages/chating/chating')
 
     def test_unfold_hxlist(self):
