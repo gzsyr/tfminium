@@ -240,8 +240,6 @@ class Testesfxqxq(TestBase):
         """
         self.page.scroll_to(1400, 500)
         delay(1)
-
-        #有点问题
         pldz = self.page.element_is_exists('view[class="center"][data-index="0"][data-level="1"]')
         if pldz == True:
             dz = self.page.get_elements('view[class="center"][data-index="0"][data-level="1"]')
@@ -298,9 +296,6 @@ class Testesfxqxq(TestBase):
         self.page.scroll_to(1490, 500)
         delay(1)
 
-        #e = self.page.get_element('view[class="msg"][data-accid="zsb_nj_902867"]')
-        #e.tap()
-
         elms = self.page.get_elements('view[class="msg"]')
         if len(elms) > 0:
             elms[0].tap()
@@ -314,9 +309,6 @@ class Testesfxqxq(TestBase):
         """
         self.page.scroll_to(1490, 500)
         delay(1)
-
-        #e = self.page.get_element('view[class="tel"][data-phone="15895958458"]')
-        #e.tap()
 
         elms = self.page.get_elements('view[class="tel"]')
         if len(elms) > 0:
