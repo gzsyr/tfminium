@@ -109,6 +109,40 @@ class TestBase(minium.MiniTest):
         self.k.type_string(value)
         return self
 
+    def verifyByScreenshot(self, png):
+        """
+        页面图片对比
+        png: 需要比对的截图，文件放在xf里面，则为: xf/xxx.png
+        """
+        path = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), png)
+        print(path)
+        btm = pyautogui.locateOnScreen(path)
+        print(btm)
+
+        self.get_screenshot(pname=inspect.stack()[1].function)
+
+        if btm is None:
+            # 如果比对的图没有在屏幕上面找到 assert
+            raise self.failureException
+
+    def get_screenshot(self, pname=None):
+        """
+        使用pyautogui的截图，将整个屏幕截屏
+        """
+        self.delay(1)
+        if pname:
+            name = pname + time.strftime('-%H-%M-%S')
+        else:
+            name = inspect.stack()[1].function + time.strftime('-%H-%M-%S')
+
+        filename = "%s.png" % name
+        screen_dir = './screenshot/' + self.classname
+        path = os.path.join('./screenshot/'+self.classname, filename)
+        if not os.path.exists(screen_dir):
+            os.makedirs(screen_dir)
+        pyautogui.screenshot(path)
+        return
+
     def verifyContainsStr(self, member, container, msg=None, capture=True):
         """
         结果包含关系校验

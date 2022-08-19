@@ -32,7 +32,8 @@ class TestIndexShouye(TestBase):
         :return:
         """
         # self.page.get_element('view[data-index2="0"]').click()
-        self.page.get_element(f'view[data-index2="{value-1}"]').click()
+        self.page.get_element(f'view[data-index1="0"][data-index2="{value-1}"]').click()
+        self.delay(1)
 
     def test_click_toutiao(self):
         """
@@ -129,6 +130,7 @@ class TestIndexShouye(TestBase):
         首页，点击找房模块“帮你找房”的“马上找房”按钮
         :return:
         """
+        self.page.get_element('view[data-index="0"]', inner_text='帮你找房').click()
         self.page.get_element('view[class="link-btn"]', inner_text="马上找房").click()
 
     def test_click_maifang(self):
@@ -136,7 +138,7 @@ class TestIndexShouye(TestBase):
         首页，点击找房模块“帮你卖房”
         :return:
         """
-        self.page.get_element('view[class="item"]', inner_text="帮你卖房").click()
+        self.page.get_element('view[data-index="1"]', inner_text="帮你卖房").click()
 
     def test_click_maifang_fabu(self):
         """
@@ -158,6 +160,7 @@ class TestIndexShouye(TestBase):
         首页，点击房博士模块 第一个房博士的头像
         :return:
         """
+        self.delay(1)
         self.page.get_element('image[class="fbs-avatar"]').click()
 
     def test_click_fbs_more(self):
@@ -182,3 +185,6 @@ class TestIndexShouye(TestBase):
         """
         self.page.get_element('view[class="commonNewHouseLi-l"]').click()
 
+    def tearDown(self) -> None:
+        self.app.go_home()
+        super(TestIndexShouye, self).tearDown()

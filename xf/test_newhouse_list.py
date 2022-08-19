@@ -247,3 +247,7 @@ class TestNewsHouseList(TestBase):
         ele = self.page.get_element('button[class="newHouseRfixed-share xfxq_fx"]')
         ele.tap()
         # self.native.forward_miniprogram_inside("虚拟好友")
+
+    def tearDown(self) -> None:
+        self.app.go_home()
+        super(TestNewsHouseList, self).tearDown()
