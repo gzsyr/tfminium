@@ -1,0 +1,36 @@
+# 小区评论页面 测试参数
+# 输入：comment-小区评论
+# 您的身份：业主(yz)/租户（zh）/熟悉小区（sxxq）
+
+N1:
+  comment: '业主好好好好好好'
+  dateid: '1'
+  yourself: '业主'
+  zhpj: '4'
+  jy: '1'
+  pt: '2'
+  jyy: '3'
+  pz: '4'
+  wy: '0'
+
+N2:
+  comment: '租户好好好好好好'
+  dateid: '2'
+  yourself: '租户'
+  zhpj: '3'
+  jy: '0'
+  pt: '1'
+  jyy: '2'
+  pz: '3'
+  wy: '4'
+
+N3:
+  comment: '熟悉小区好好好好好好'
+  dateid: '3'
+  yourself: '熟悉小区'
+  zhpj: '0'
+  jy: '1'
+  pt: '3'
+  jyy: '4'
+  pz: '0'
+  wy: '2'
