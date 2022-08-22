@@ -11,6 +11,7 @@ class TestPostDetail(TestBase):
     def setUp(self) -> None:
         self.page_name = f"/page/taofangquan/tieziDetail/tieziDetail?city=qz&postsid={self.postid}"
         self.switch = False
+        self.classname = self.__class__.__name__
         super(TestPostDetail, self).setUp()
         print("TestPostDetail  Setup")
 
@@ -275,4 +276,22 @@ class TestPostDetail(TestBase):
         :return:
         """
         self.page.get_element('view[id="newHouseBanner-ckmore"]').tap()
+
+    def test_goto_command_house(self):
+        """
+        帖子详情页，点击热门新房模块 第一个
+        """
+        self.page.get_element('view[class="commonNewHouseLi-l"]').tap()
+
+        self.verifyPageName('/page/newhouse/detail')
+        self.get_screenshot()
+
+    def test_goto_command_post(self):
+        """
+        帖子详情页，点击 相关推荐 第一条帖子
+        """
+        self.page.get_element('view[class="recommend_post_cont"]').tap()
+
+        self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
+        self.get_screenshot()
 
