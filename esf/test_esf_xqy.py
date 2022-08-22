@@ -37,18 +37,6 @@ class Testesfxqy(TestBase):
         e = self.page.get_element('view[class="button collect"]')
         e.tap()
 
-    def test_goto_qxcollect(self):
-        """
-        取消收藏
-        :return:
-        """
-        qxcollec = self.page.element_is_exists('view[class="button collect"]')
-        if qxcollec == True:
-            e = self.page.get_element('view[class="button collect"]')
-            e.tap()
-        else:
-            print("0")
-
     def test_goto_share(self):
         """
         点击分享
