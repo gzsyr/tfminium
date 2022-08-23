@@ -1,3 +1,4 @@
+from ddt import file_data
 from minium import ddt_class, ddt_case
 
 from base.common import delay
@@ -110,143 +111,91 @@ class Testesflby(TestBase):
         e = self.page.get_element('image[class="img"]')
         e.tap()
 
-    def test_select_bx(self):
-        """
-        筛选不限
-        :return:
-        """
-        e = self.page.get_element("view", inner_text="位置")
-        e.tap()
-        e1 = self.page.get_element("view", inner_text="不限")
-        e1.tap()
-
-    def test_select_qy(self):
+    @file_data('./test_func_weizhi.yml')
+    def test_select_qy(self, **kargs):
         """
         筛选位置-区域
         :return:
         """
-        e = self.page.get_element("view", inner_text="位置")
-        e.tap()
-        e1 = self.page.get_element("view", inner_text="区域")
-        e1.tap()
-        e2 = self.page.get_element("view", inner_text="鼓楼区")
-        e2.tap()
-        e3 = self.page.get_element("view", inner_text="华侨路")
-        e3.tap()
-        delay(2)
         e4 = self.page.get_element('view[class="pa clear"]')
         e4.tap()
-
-    def test_select_dt(self):
-        """
-        筛选位置-地铁
-        :return:
-        """
-        e = self.page.get_element("view", inner_text="位置")
+        e = self.page.get_element("view", inner_text=kargs['district'])
         e.tap()
-        e1 = self.page.get_element("view", inner_text="地铁")
+        e1 = self.page.get_element("view", inner_text=kargs['searchone'])
         e1.tap()
-        e2 = self.page.get_element("view", inner_text="10号线")
+        e2 = self.page.get_element("view", inner_text=kargs['searchtwo'])
         e2.tap()
-        e3 = self.page.get_element("view", inner_text="雨山路站")
+        e3 = self.page.get_element("view", inner_text=kargs['searchthree'])
         e3.tap()
         delay(2)
-        e4 = self.page.get_element('view[class="pa clear"]')
-        e4.tap()
 
-    def test_select_xx(self):
-        """
-        筛选位置-学校
-        :return:
-        """
-        e = self.page.get_element("view", inner_text="位置")
-        e.tap()
-        e1 = self.page.get_element("view", inner_text="学校")
-        e1.tap()
-        e2 = self.page.get_element("view", inner_text="雨花台区")
-        e2.tap()
-        e3 = self.page.get_element("view", inner_text="雨花台中学")
-        e3.tap()
-        delay(2)
-        e4 = self.page.get_element('view[class="pa clear"]')
-        e4.tap()
-
-    def test_select_zj(self):
-        """
-        筛选总价
-        :return:
-        """
-        e = self.page.get_element("view", inner_text="总价")
-        e.tap()
-        e1 = self.page.get_element("view", inner_text="150-200万")
-        e1.tap()
-        delay(2)
-        e3 = self.page.get_element('view[class="pa clear"]')
-        e3.tap()
-
-    def test_select_zjzdy(self):
+    @file_data('./test_func_zongjia.yml')
+    def test_select_zjzdy(self, **kwargs):
         """
         筛选总价自定义
         :return:
         """
-        e = self.page.get_element("view", inner_text="总价")
+        e3 = self.page.get_element('view[class="pa clear"]')
+        e3.tap()
+        e = self.page.get_element("view", inner_text=kwargs['zdy'])
         e.tap()
-        self.page.get_element("input", inner_text="最低价").input("500")
-        self.page.get_element("input", inner_text="最高价").input("1000")
+        self.page.get_element("input", inner_text="最低价").input(kwargs['nameone'])
+        self.page.get_element("input", inner_text="最高价").input(kwargs['nametwo'])
         e1 = self.page.get_element('view[class="price--text_center price--confirm"]')
         e1.tap()
         delay(2)
-        e3 = self.page.get_element('view[class="pa clear"]')
-        e3.tap()
 
-    def test_select_fx(self):
+    @file_data('./test_func_zongjia.yml')
+    def test_select_fx(self, **kwargs):
         """
         筛选房型
         :return:
-        """
-        e = self.page.get_element("view", inner_text="房型")
+       """
+        self.page.get_element('view[class="pa clear"]').tap()
+        e = self.page.get_element("view", inner_text=kwargs['fx'])
         e.tap()
-        self.page.get_element('view[class="room--flex room--align_center room--justify_between room--screen_item room--roomOption"][data-index="3"]').tap()
-        self.page.get_element('view[class="room--flex room--align_center room--justify_between room--screen_item room--roomOption"][data-index="4"]').tap()
+        self.page.get_element('text', inner_text=kwargs['namethree']).tap()
+        self.page.get_element('text', inner_text=kwargs['namefour']).tap()
         self.page.get_element('text', inner_text="确定").tap()
         delay(2)
-        self.page.get_element('view[class="pa clear"]').tap()
 
-    def test_select_gdqd(self):
+    @file_data('./test_func_zongjia.yml')
+    def test_select_gdqd(self, **kwargs):
         """
         更多筛选确定
         :return:
         """
-        self.page.get_element("view", inner_text="更多").tap()
-        self.page.get_element('text', inner_text="个人").tap()
-        self.page.get_element('text', inner_text="住宅").tap()
-        self.page.get_element('text', inner_text="100-120㎡").tap()
+        self.page.get_element('view[class="pa clear"]').tap()
+        self.page.get_element("view", inner_text=kwargs['more']).tap()
+        self.page.get_element('text', inner_text=kwargs['ly']).tap()
+        self.page.get_element('text', inner_text=kwargs['lx']).tap()
+        self.page.get_element('text', inner_text=kwargs['mj']).tap()
+        self.page.scroll_to(348, 500)
+        delay(1)
+        self.page.get_element('text', inner_text=kwargs['zx']).tap()
+        self.page.get_element('text', inner_text=kwargs['fl']).tap()
+        self.page.get_element('text', inner_text=kwargs['lc']).tap()
+        self.page.scroll_to(648, 500)
+        delay(1)
+        self.page.get_element('text', inner_text=kwargs['cx']).tap()
+        self.page.get_element('text', inner_text=kwargs['sf']).tap()
+        self.page.scroll_to(848, 500)
+        delay(1)
+        self.page.get_element('text', inner_text=kwargs['qjkf']).tap()
+        self.page.get_element('text', inner_text=kwargs['cq']).tap()
         self.page.get_element('text', inner_text="确定").tap()
         delay(2)
-        self.page.get_element('view[class="pa clear"]').tap()
 
-    def test_select_gdcz(self):
-        """
-        更多筛选重置
-        :return:
-        """
-        self.page.get_element("view", inner_text="更多").tap()
-        self.page.get_element('text', inner_text="中介").tap()
-        self.page.get_element('text', inner_text="别墅").tap()
-        self.page.get_element('text', inner_text="300㎡以上").tap()
-        self.page.get_element('text', inner_text="重置").tap()
-        delay(2)
-        self.page.get_element('view[class="pa clear"]').tap()
-
-    def test_select_px(self):
+    @file_data('./test_func_zongjia.yml')
+    def test_select_px(self, **kwargs):
         """
         排序
         :return:
         """
-        self.page.get_element("view", inner_text="排序").tap()
-        self.page.get_element("text", inner_text="总价由低到高").tap()
-        delay(2)
         self.page.get_element('view[class="pa clear"]').tap()
+        self.page.get_element("view", inner_text=kwargs['paixu']).tap()
+        self.page.get_element("text", inner_text=kwargs['paixuone']).tap()
+        delay(2)
 
     @ddt_case(
         0, 1, 2, 3, 4
