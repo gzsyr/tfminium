@@ -45,7 +45,7 @@ class TestFuncXxts(TestBase):
         消协投诉页，点击房博士咨询im
         """
         self.page.get_element('view[class="im-icon"]').click()
-        self.delay(1)
+        self.delay(2)
         # 验证
         self.verifyPageName('/im/pages/chating/chating')
         self.get_capture()
