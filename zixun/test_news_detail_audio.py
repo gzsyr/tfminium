@@ -3,6 +3,7 @@
 # @Author : zcm
 # @File : test_news_detail_audio.py
 # @desc:
+import time
 
 from base.test_base import TestBase
 
@@ -15,130 +16,136 @@ class TestNewsDetailAudio(TestBase):
     def setUp(self) -> None:
         self.page_name = "/page/news/detail?id=029783880&city=qz"
         self.switch = False
+        self.classname = self.__class__.__name__
         super(TestNewsDetailAudio, self).setUp()
 
-    def test_01_click_lanmu(self):
+    def test_01_click_dingyue(self):
         """
-        点击栏目关注组件订阅
-        :return:
+        资讯音频详情页，点击栏目关注组件订阅
         """
         self.page.get_element('button.inforR').tap()
-        self.delay(2)
+        self.delay(1)
+
+        self.verifyByScreenshot('zixun/dy.png')
 
     def test_02_click_audio(self):
         """
-        点击音频组件播放
-        :return:
+        资讯音频详情页，点击音频组件播放
         """
         self.page.get_element('image.yinping_play').tap()
 
+        self.get_screenshot()
+
     def test_03_click_morepl(self):
         """
-        点击更多评论
-        :return:
+        资讯音频详情页，点击更多评论
         """
         self.page.get_element('view', inner_text='更多评论').tap()
 
+        self.verifyPageName('/page/news/pllist')
+        self.get_screenshot()
+
     def test_04_click_bnzf(self):
         """
-        点击帮你找房
-        :return:
+        资讯详情页，点击帮你找房
         """
-        e = self.page.get_element('button[class="fixBR-btn zf"]').tap()
+        self.page.get_element('button[class="fixBR-btn zf"]').tap()
+
+        self.verifyPageName('/page/newhouse/bnzf/bnzf')
+        self.get_screenshot()
 
     def test_07_click_firsttjlp(self):
         """
-        点击第一个推荐楼盘
-        :return:
+        资讯音频详情页，点击第一个推荐楼盘
         """
-        e = self.page.get_element('//view[@class="tjlplist-rl"]')
-        self.delay(2)
-        e.tap()
+        self.page.get_element('//view[@class="tjlplist-rl"]').tap()
 
-    def test_13_click_tel(self):
+        self.verifyPageName('/page/newhouse/detail')
+        self.get_screenshot()
+
+    def test_13_click_firsttjlp_tel(self):
         """
-        点击拨打电话图标
-        :return:
+        资讯音频详情页，点击推荐楼盘第一个电话图标
         """
-        e = self.page.get_element('//button[@class="tjlplist-tel"]')
-        self.delay(2)
-        e.tap()
+        self.page.get_element('//button[@class="tjlplist-tel"]').tap()
+        self.delay(1)
+
+        self.verifyByScreenshot('xf/call.png')
 
     def test_08_click_backindex(self):
         """
-        点击首页
-        :return:
+        资讯音频详情页，点击首页
         """
-        e = self.page.get_element('//view[@class="newHouseRfixed-index xfxq_index"]')
-        self.delay(2)
-        e.tap()
+        self.page.get_element('//view[@class="newHouseRfixed-index xfxq_index"]').tap()
+
+        self.verifyPageName('/page/index/index')
+        self.get_screenshot()
 
     def test_15_click_share(self):
         """
-        点击分享
-        :return:
+        资讯音频详情页，点击分享
         """
-        e = self.page.get_element('//button[@class="newHouseRfixed-share xfxq_fx"]')
-        self.delay(2)
-        e.tap()
+        self.page.get_element('//button[@class="newHouseRfixed-share xfxq_fx"]').tap()
+
+        self.get_screenshot()
 
     def test_09_click_writecomment(self):
         """
-        点击写评论，直接通过trigger发布
-        :return:
+        资讯音频详情页，点击写评论，直接通过trigger发布
         """
-        e = self.page.get_element('button.fixBL-l')
-        self.delay(2)
-        e.tap()
-        e2 = self.page.get_element('input.fixBIntB-input')
-        self.delay(2)
-        e2.trigger("confirm", {"value": "测试"})
+        self.page.get_element('button.fixBL-l').tap()
+        tm = time.strftime('%Y-%m-%d %H:%M:%S')
+        tap = 'self.page.get_element(\'input.fixBIntB-input\').trigger("confirm", {"value": "'+tm+'"})'
+        self.verifyStr(True, self.getShowToast(tap), '评论成功')
+
+        self.get_screenshot()
 
     def test_10_click_comments(self):
         """
-        点击评论图标，点击评论输入框，直接通过trigger发布,并点赞
-        :return:
+        资讯音频详情页，进入全部评论页面，点击评论输入框，直接通过trigger发布,并点赞
         """
-        e = self.page.get_element('view.fixBL-r')
-        self.delay(2)
-        e.tap()
-        self.delay(2)
-        e2 = self.page.get_element('button.fixBL-l')
-        self.delay(2)
-        e2.tap()
-        self.delay(2)
-        e3 = self.page.get_element('input.fixBIntB-input')
-        self.delay(2)
-        e3.trigger("confirm", {"value": "测试"})
-        self.delay(2)
-        self.page.get_element('button.pllist-zan').tap()
+        # 进入全部评论页面
+        self.page.get_element('view.fixBL-r').tap()
+        self.delay(1)
+        # 点击评论框
+        self.page.get_element('button.fixBL-l').tap()
+        # 写评论
+        tm = time.strftime('%Y-%m-%d %H:%M:%S')
+        tap = 'self.page.get_element(\'input.fixBIntB-input\').trigger("confirm", {"value": "'+tm+'"})'
+        self.verifyStr(True, self.getShowToast(tap), '评论成功')
+        self.delay(1)
+
+        # 点赞页面第一条评论
+        tap = 'self.page.get_element(\'button.pllist-zan\').tap()'
+        self.verifyStr(True, self.getShowToast(tap), '点赞成功')
+
+        self.get_screenshot()
 
     def test_11_click_dianzan(self):
         """
-        点击点赞图标
-        :return:
+        资讯音频详情页，点击点赞图标
         """
-        e = self.page.get_element('button[class="pllist-zan"]')
-        self.delay(2)
-        e.tap()
+        tap = 'self.page.get_element(\'button[class="pllist-zan"]\').tap()'
+        self.verifyStr(True, self.getShowToast(tap), '点赞成功')
+
+        self.get_screenshot()
 
     def test_14_click_wyzx(self):
         """
-        点击我要咨询
-        :return:
+        资讯音频详情页，点击我要咨询
         """
-        e = self.page.get_element('button[class="fixBR-btn zx"]')
-        self.delay(2)
-        e.tap()
+        self.page.get_element('button[class="fixBR-btn zx"]').tap()
+
+        self.verifyByScreenshot('xf/call.png')
 
     def test_00_click_firstyd(self):
         """
-        点击推荐阅读
-        :return:
+        资讯音频详情页，点击推荐阅读
         """
         try:
-            e = self.page.get_elements('view[class="tjydlist-li tfFlex tfFlexSb tfAlingnC"]')
-            e[0].tap()
-            self.delay(2)
+            self.page.get_element('view[class="tjydlist-li tfFlex tfFlexSb tfAlingnC"]').tap()
         except:
-            return
+            print('此条资讯无推荐阅读')
+
+        self.get_screenshot()
+
