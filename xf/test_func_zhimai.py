@@ -20,6 +20,7 @@ class TestFuncZhiMai(TestBase):
         self.page.get_element('input[class="headZmT-input"]').input("苏宁测试11")
 
         self.verifyStr(True, self.page.element_is_exists('view[class="item"]'))
+        self.get_screenshot()
 
     def test_filter_area(self):
         """
@@ -29,6 +30,7 @@ class TestFuncZhiMai(TestBase):
 
         ele = self.page.get_elements('view[class="item tfLine1"]')
         self.verifyStr(ele[0].inner_text, '丰泽', "直卖频道页，点击筛选项“区域”选择 丰泽 ok")
+        self.get_screenshot()
 
     def test_filter_price(self):
         """
@@ -38,6 +40,7 @@ class TestFuncZhiMai(TestBase):
 
         ele = self.page.get_elements('view[class="item tfLine1"]')
         self.verifyStr(ele[1].inner_text, '4000-5000元/㎡', "直卖频道页，点击筛选项“价格”选择 4000-5000元/㎡ ok")
+        self.get_screenshot()
 
     def test_filter_huxing(self):
         """
@@ -47,6 +50,7 @@ class TestFuncZhiMai(TestBase):
 
         ele = self.page.get_elements('view[class="item tfLine1"]')
         self.verifyStr(ele[2].inner_text, '三室', "直卖频道页，点击筛选项“户型”选择 三室 ok")
+        self.get_screenshot()
 
     def test_goto_housedetail(self):
         """
@@ -55,6 +59,7 @@ class TestFuncZhiMai(TestBase):
         self.page.get_element('view[class="relative zmpd_lp"]').click()
 
         self.verifyPageName('/page/newhouse/detail')
+        self.get_screenshot()
 
     def test_goto_im(self):
         """
@@ -64,6 +69,7 @@ class TestFuncZhiMai(TestBase):
 
         self.delay(1)
         self.verifyPageName('/im/pages/chating/chating')
+        self.get_screenshot()
 
     def test_unfold_hxlist(self):
         """
@@ -72,6 +78,7 @@ class TestFuncZhiMai(TestBase):
         self.page.get_element('view[class="ctr zmpd_zkhx"]').click()
 
         self.verifyStr(True, self.page.element_is_exists('view[class="arr open"]'))
+        self.get_screenshot()
 
     def test_goto_hxdetail(self):
         """
@@ -80,6 +87,7 @@ class TestFuncZhiMai(TestBase):
         self.page.get_element('view[class="house-info"]').click()
 
         self.verifyPageName('/page/newhouse/hx/hxdetail')
+        self.get_screenshot()
 
     def test_goto_morehx(self):
         """
@@ -88,3 +96,5 @@ class TestFuncZhiMai(TestBase):
         self.page.get_element('view[class="more-btn"]').click()
 
         self.verifyPageName('/page/newhouse/hx/hxlist')
+        self.get_screenshot()
+

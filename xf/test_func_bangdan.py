@@ -46,7 +46,7 @@ class TestFuncBangDan(TestBase):
 
         self.verifyPageName('/page/newhouse/detail')
 
-        self.get_capture()
+        self.get_screenshot()
 
     # def test_filepath(self):
     #     self.get_capture()

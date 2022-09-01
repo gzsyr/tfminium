@@ -87,7 +87,7 @@ class TestFuncJsq(TestBase):
 
         self.verifyPageName('/page/tools/fdjsq/result/result', '跳到计算结果页 ok')
         self.verifyContainsStr(kargs['bjret'], self.page.get_elements('view[class="monthly-num"]')[1].inner_text, 'result ok')
-        self.get_capture()
+        self.get_screenshot()
 
     @file_data('./test_func_jsq.yml')
     def test_sydk_dxi_total(self, **kargs):
@@ -103,7 +103,7 @@ class TestFuncJsq(TestBase):
         self.verifyPageName('/page/tools/fdjsq/result/result', '跳到计算结果页 ok')
         self.page.wait_for('view[class="monthly-num"]')
         self.verifyContainsStr(kargs['bxret'], self.page.get_elements('view[class="monthly-num"]')[0].inner_text, 'result ok')
-        self.get_capture()
+        self.get_screenshot()
 
     @file_data('./test_func_jsq.yml')
     def test_sydk_dben_price(self, **kargs):
@@ -123,7 +123,7 @@ class TestFuncJsq(TestBase):
         self.page.wait_for('view[class="monthly-num"]')
         self.verifyContainsStr(kargs['bjpriceret'], self.page.get_elements('view[class="monthly-num"]')[1].inner_text,
                                'result ok')
-        self.get_capture()
+        self.get_screenshot()
 
     @file_data('./test_func_jsq.yml')
     def test_sydk_dxi_price(self, **kargs):
@@ -142,40 +142,48 @@ class TestFuncJsq(TestBase):
         self.page.wait_for('view[class="monthly-num"]')
         self.verifyContainsStr(kargs['bxpriceret'], self.page.get_elements('view[class="monthly-num"]')[0].inner_text,
                                'result ok')
-        self.get_capture()
+        self.get_screenshot()
 
     # 以下 公积金贷款 的测试用例
     @file_data('./test_func_jsq.yml')
-    def test_gjj_dben(self, **kwargs):
+    def test_gjj_2dben(self, **kwargs):
         """
         “公积金”，等额本金、贷款总额、贷款期限
         """
-        self.click_gjjtab().gjj_click_debj().\
+        self.click_gjjtab().delay(1).gjj_click_debj().delay(1).\
             input_value_by_mk(png='xf/pricetotal.png', value=kwargs['gjjtotal']).\
             gjj_slider_years(kwargs['gjjyears']).\
-            click_submitbtn()
+            delay(1).\
+            click_submitbtn().delay(1)
 
         self.verifyPageName('/page/tools/fdjsq/result/result', '跳到计算结果页 ok')
         self.page.wait_for('view[class="monthly-num"]')
         self.verifyContainsStr(kwargs['gjjbjret'], self.page.get_elements('view[class="monthly-num"]')[1].inner_text,
                                'result ok')
-        self.get_capture()
+        self.get_screenshot()
 
     @file_data('./test_func_jsq.yml')
-    def test_gjj_dxi(self, **kwargs):
+    def test_gjj_1dxi(self, **kwargs):
         """
         “公积金”，等额本金、贷款总额、贷款期限
         """
-        self.click_gjjtab().\
+        self.click_gjjtab().delay(1).\
             input_value_by_mk(png='xf/pricetotal.png', value=kwargs['gjjtotal']).\
+            delay(1).\
             gjj_slider_years(kwargs['gjjyears']).\
+            delay(1).\
             click_submitbtn()
+
+        self.delay(1)
+        if self.page.path == '/page/tools/fdjsq/sd/index':
+            print('点击开始计算没有响应后，再次点击')
+            self.click_submitbtn()
 
         self.verifyPageName('/page/tools/fdjsq/result/result', '跳到计算结果页 ok')
         self.page.wait_for('view[class="monthly-num"]')
         self.verifyContainsStr(kwargs['gjjbxret'], self.page.get_elements('view[class="monthly-num"]')[0].inner_text,
                                'result ok')
-        self.get_capture()
+        self.get_screenshot()
 
     # 以下 组合贷款 的测试用例
     @file_data('./test_func_jsq.yml')
@@ -185,9 +193,11 @@ class TestFuncJsq(TestBase):
         """
         self.click_zhtab().\
             input_value_by_mk(png='xf/pricetotal.png', value=kwargs['total']).\
+            delay(1).\
             sydk_slider_years(kwargs['years']).\
             sydk_input_Lpr(kwargs['lpr']).\
-            sydk_input_lprbp(kwargs['lprbp']).\
+            sydk_input_lprbp(kwargs['lprbp']). \
+            delay(1). \
             input_value_by_mk(png='xf/pricetotal.png', value=kwargs['gjjtotal']).\
             gjj_slider_years(kwargs['years']).\
             click_submitbtn()
@@ -199,7 +209,7 @@ class TestFuncJsq(TestBase):
                                'result ok')
         self.verifyContainsStr(kwargs['gjjbxret'], self.page.get_elements('view[class="monthly-num-black pl40"]')[1].inner_text,
                                'result ok')
-        self.get_capture()
+        self.get_screenshot()
 
     @file_data('./test_func_jsq.yml')
     def test_zhdk_dben(self, **kwargs):
@@ -223,7 +233,7 @@ class TestFuncJsq(TestBase):
                                'result ok')
         self.verifyContainsStr(kwargs['gjjbjret'], self.page.get_elements('view[class="monthly-num-black pl30"]')[1].inner_text,
                                'result ok')
-        self.get_capture()
+        self.get_screenshot()
 
     # 以下是页面相关元素的点击
     def click_gjjtab(self):
@@ -370,7 +380,7 @@ class TestFuncJsq(TestBase):
         ele.input(total)
         return self
 
-    def gjj_slider_years(self, years=20):
+    def gjj_slider_years(self, years=25):
         """
         “公积金贷款”，滑动贷款期限
         """

@@ -40,7 +40,7 @@ class TestXfMap(TestBase):
 
         self.page.get_element('cover-view[class="confirm"]').click()
 
-        self.get_capture()
+        self.get_screenshot()
 
     @file_data('./test_xf_map_search.yml')
     def test_xf_map_search(self, lpname="万科雨悦光年"):
@@ -61,6 +61,5 @@ class TestXfMap(TestBase):
             self.page.get_element('cover-view[class="item-content"]').click()
 
             self.verifyPageName('/page/newhouse/detail')
-            self.get_capture()
-        else:
-            self.get_capture()
+
+        self.get_screenshot()

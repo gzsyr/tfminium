@@ -22,7 +22,7 @@ class TestNewhouseYhcx(TestBase):
         self.page.get_element('image[class="qcPic2 disflex-flex-shrink-0"]').tap()
 
         self.verifyPageName('/page/newhouse/detail')
-        self.get_capture()
+        self.get_screenshot()
 
     def test_click_yhlc(self):
         """
@@ -31,7 +31,7 @@ class TestNewhouseYhcx(TestBase):
         self.page.get_element('view[class="disflex-flex-shrink-0 qcTxt2"]', inner_text='摇号流程').tap()
 
         self.verifyPageName('/page/news/detail')
-        self.get_capture()
+        self.get_screenshot()
 
     @file_data('./test_newhouse_yhcx_final.yml')
     def test_result_final_search(self, kw='洪叶', ret=True):
@@ -45,7 +45,7 @@ class TestNewhouseYhcx(TestBase):
             self.delay(1)
             self.page.get_element('view[class="bdliBR-t arr"]', text_contains='选房序号').tap()
             self.delay(1)
-        self.get_capture()
+        self.get_screenshot()
 
     @file_data('./test_newhouse_yhcx_round.yml')
     def test_result_round_search(self, rn=0, round='第一轮', kw='洪叶', ret=True):
@@ -64,4 +64,4 @@ class TestNewhouseYhcx(TestBase):
         if ret:
             self.delay(1)
             self.verifyContainsStr(kw, self.page.get_element('view[class="disflex-flexgrow-1"]').inner_wxml, f'摇号结果 最终结果 {kw}ok')
-        self.get_capture()
+        self.get_screenshot()

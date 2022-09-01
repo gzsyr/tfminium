@@ -21,4 +21,4 @@ class TestFuncJqkp(TestBase):
 
         # 验证
         self.verifyPageName('/page/newhouse/detail')
-        self.get_capture()
+        self.get_screenshot()

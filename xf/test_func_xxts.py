@@ -38,7 +38,7 @@ class TestFuncXxts(TestBase):
         self.app.release_hook_wx_method("showToast")
 
         self.verifyStr(True, is_called, "toast called ")
-        self.get_capture()
+        self.get_screenshot()
 
     def test_fbs_im(self):
         """
@@ -48,7 +48,7 @@ class TestFuncXxts(TestBase):
         self.delay(2)
         # 验证
         self.verifyPageName('/im/pages/chating/chating')
-        self.get_capture()
+        self.get_screenshot()
 
     def test_fbs_call(self):
         """
