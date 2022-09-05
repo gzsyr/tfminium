@@ -1,9 +1,5 @@
 # add by zsy
-import threading
 
-import minium
-
-from base.common import delay
 from base.test_base import TestBase
 
 
@@ -14,178 +10,281 @@ class TestNewhouseDetail(TestBase):
     def setUp(self) -> None:
         self.page_name = "/page/newhouse/detail?pinyin=shanhaiguojixzl&city=qz"
         self.switch = False
+        self.classname = self.__class__.__name__
         super(TestNewhouseDetail, self).setUp()
+        self.delay(2)
 
     def test_goto_photo(self):
         """
-        点击相册
-        :return:
+        新房详情页页面，点击相册
         """
-        ele = self.page.get_element("image[class='newHouseBanner-img xfxq_xc']")
-        ele.tap()
+        self.page.get_element("image[class='newHouseBanner-img xfxq_xc']").tap()
+
+        self.verifyPageName('/page/newhouse/xcny/xcnylist')
+        self.get_screenshot()
 
     def test_goto_pk(self):
         """
-        点击PK
-        :return:
+        新房详情页页面，点击PK
         """
-        ele = self.page.get_element("navigator[class='pk-icon']")
-        ele.tap()
+        self.page.get_element("navigator[class='pk-icon']").tap()
+
+        self.verifyPageName('/page/newhouse/loupanPk/loupanPk')
+        self.get_screenshot()
 
     def test_goto_dy(self):
         """
-        点击订阅（爱心按钮）
-        :return:
+        新房详情页页面，点击订阅（爱心按钮）
         """
-        ele = self.page.get_element("view[class='dy-icon']")
-        ele.tap()
+        if self.page.element_is_exists('view[class="dy-icon is_sub"]'):
+            self.page.get_element('view[class="dy-icon is_sub"]').tap()
+
+            self.verifyStr(True, self.page.element_is_exists('view[class="dy-icon"]'),
+                           '取消订阅 ok')
+        else:
+            self.page.get_element('view[class="dy-icon"]').tap()
+
+            self.verifyStr(True, self.page.element_is_exists('view[class="dy-icon is_sub"]'),
+                           '订阅 ok')
+
+        self.get_screenshot()
 
     def test_goto_fdjsq(self):
         """
-        点击房贷计算器
-        :return:
+        新房详情页页面，点击房贷计算器
         """
-        ele = self.page.get_element("view[class='newHouseInfor-price-r xfxq_jsq']")
-        ele.tap()
+        self.page.get_element("view[class='newHouseInfor-price-r xfxq_jsq']").tap()
+
+        self.verifyPageName('/page/tools/fdjsq/sd/index')
+        self.get_screenshot()
 
     def test_goto_addr(self):
         """
-        点击地址右箭头
-        :return:
+        新房详情页页面，点击地址右箭头
         """
-        ele = self.page.get_element("view[class='newHouseInfor-add-r']")
-        # ele.tap()
+        self.page.get_element("view[class='newHouseInfor-add-r']").tap()
+
+        self.get_screenshot()
+
+        # 退出地图页面
+        self.input_value_by_mk(png='xf/mapreturn.png')
 
     def test_goto_lpdp_gd(self):
         """
-        点击楼盘点评滚动处
-        :return:
+        新房详情页页面，点击楼盘点评滚动处，进入楼盘点评页面，点击第一条点评，进入点评详情页
         """
-        ele = self.page.get_element("view[class='tfFlex tfFlexSb tfAlignC dpEntry']")
-        ele.tap()
+        self.page.get_element("view[class='tfFlex tfFlexSb tfAlignC dpEntry']").tap()
+        self.verifyPageName('/page/taofangquan/lpdp/lpdp')
+
+        #
+        # # 返回到楼盘点评页
+        # self.app.navigate_back()
+        # self.verifyPageName('/page/taofangquan/lpdp/lpdp')
+        #
+        # # 点击中部的圈子，进入圈子详情页
+        # self.page.get_element('view[class="qzwrap"]').tap()
+        # self.verifyPageName('/page/taofangquan/huati/huatiDetail')
+        # # 返回到楼盘点评页
+        # self.app.navigate_back()
+        # self.verifyPageName('/page/taofangquan/lpdp/lpdp')
+
+        self.verifyPageName('/page/taofangquan/lpdp/lpdp')
+        self.get_screenshot()
 
     def test_goto_zxdt(self):
         """
-        点击最新动态
-        :return:
+        新房详情页页面，点击最新动态
         """
-        ele = self.page.get_element("view[class='newHouseIconInLi-b']", inner_text="最新动态")
-        ele.tap()
+        self.page.get_element("view[class='newHouseIconInLi-b']", inner_text="最新动态").tap()
+
+        self.verifyPageName('/page/newhouse/zxdt/zxdt')
+        self.get_screenshot()
 
     def test_goto_hxjx(self):
         """
-        点击户型解析
-        :return:
+        新房详情页页面，点击户型解析
         """
-        ele = self.page.get_element("view[class='newHouseIconInLi-b']", inner_text="户型解析")
-        ele.tap()
+        self.page.get_element("view[class='newHouseIconInLi-b']", inner_text="户型解析").tap()
+
+        self.verifyPageName('/page/newhouse/hx/hxlist')
+        self.get_screenshot()
 
     def test_goto_lpxq(self):
         """
-        点击楼盘详情
-        :return:
+        新房详情页页面，点击楼盘详情
         """
-        ele = self.page.get_element("view[class='newHouseIconInLi-b']", inner_text="楼盘详情")
-        ele.tap()
+        self.page.get_element("view[class='newHouseIconInLi-b']", inner_text="楼盘详情").tap()
+
+        self.verifyPageName('/page/newhouse/lpxx/lpxx')
+        self.get_screenshot()
 
     def test_goto_yfyj(self):
         """
-        点击一房一价
-        :return:
+        新房详情页页面，点击一房一价
         """
-        ele = self.page.get_element("view[class='newHouseIconInLi-b']", inner_text="一房一价")
-        ele.tap()
+        self.page.get_element("view[class='newHouseIconInLi-b']", inner_text="一房一价").tap()
+
+        self.verifyPageName('/page/newhouse/fd/xkb')
+        self.get_screenshot()
 
     def test_goto_lpdp(self):
         """
-        点击楼盘点评
-        :return:
+        新房详情页页面，点击楼盘点评
         """
-        ele = self.page.get_element("view[class='newHouseIconInLi-b']", inner_text="楼盘点评")
-        ele.tap()
+        self.page.get_element("view[class='newHouseIconInLi-b']", inner_text="楼盘点评").tap()
+
+        self.verifyPageName('/page/taofangquan/lpdp/lpdp')
+        self.get_screenshot()
 
     def test_goto_msbm(self):
         """
-        点击马上报名
-        :return:
+        新房详情页页面，点击马上报名(后台配置的）
         """
-        ele = self.page.get_element("view[class='ggweiR']", inner_text="马上报名")
-        ele.tap()
+        self.page.get_element("view[class='ggweiR']", inner_text="马上报名").tap()
+
+        self.get_screenshot()
 
     def test_goto_bmqc(self):
         """
-        点击报名清册
-        :return:
+        新房详情页页面，点击报名清册
         """
-        ele = self.page.get_element("view[class='left-icon disflex tfAlignC tfFlexC']")
-        ele.tap()
+        self.page.get_element("view[class='left-icon disflex tfAlignC tfFlexC']").tap()
+
+        self.verifyPageName('/page/yaohao/publicity')
+        self.get_screenshot()
 
     def test_goto_bmxh(self):
         """
-        点击报名序号
-        :return:
+        新房详情页页面，点击报名序号
         """
-        ele = self.page.get_element("view[class='disflex tfAlignC xf_xh_title']")
-        ele.tap()
+        self.page.get_element("view[class='disflex tfAlignC xf_xh_title']").tap()
+
+        self.verifyPageName('/page/mine/myLottery/myLottery')
+        self.get_screenshot()
 
     def test_goto_bmyfyj(self):
         """
-        点击最新摇号下方的一房一价
-        :return:
+        新房详情页页面，点击最新摇号下方的一房一价
         """
-        ele = self.page.get_element("view[class='yifangyijia']")
-        ele.tap()
+        self.page.get_element("view[class='yifangyijia']").tap()
+
+        self.verifyPageName('/page/newhouse/fd/xkb')
+        self.get_screenshot()
 
     def test_goto_bmgfzl(self):
         """
-        点击最新摇号下方的购房资料
-        :return:
+        新房详情页页面，点击最新摇号下方的购房资料
         """
-        ele = self.page.get_element("view[class='goufangziliao']")
-        ele.tap()
+        self.page.get_element("view[class='goufangziliao']").tap()
+
+        self.get_screenshot()
 
     def test_goto_lpdt_more(self):
         """
-        点击楼盘动态更多
-        :return:
+        新房详情页页面，点击楼盘动态更多
         """
-        ele = self.page.get_element("view[class='tfFlex tfFlexSb newHouseTitle-line xfxq_lpdt disflex-alignitems-center']")
-        ele.tap()
+        self.page.get_element("view[class='tfFlex tfFlexSb newHouseTitle-line xfxq_lpdt disflex-alignitems-center']").tap()
+
+        self.verifyPageName('/page/newhouse/zxdt/zxdt')
+        self.get_screenshot()
 
     def test_goto_xxxx_more(self):
         """
-        点击楼盘详细信息
-        :return:
+        新房详情页页面，点击楼盘详细信息
         """
-        ele = self.page.get_element("view[class='tfFlex tfFlexSb newHouseTitle-line xfxq_lpdt']")
-        ele.tap()
+        self.page.get_element("view[class='tfFlex tfFlexSb newHouseTitle-line xfxq_lpdt']").tap()
+
+        self.verifyPageName('/page/newhouse/lpxx/lpxx')
+        self.get_screenshot()
 
     def test_goto_wzzb_dt(self):
         """
-        点击位置周边下的地图
-        :return:
+        新房详情页页面，点击位置周边下的地图
         """
-        self.page.scroll_to(2200, 500)
-        delay(2)
-        ele = self.page.get_element("view[class='newHouseMap-map-icon xfxq_wzdt']")
-        # ele.tap()    # IDE点击地图之后无法从地图页面返回，暂时先不加点击
-        # delay(4)
-        # self.native.map_back_to_mp()
+        self.page.scroll_to(2500, 500)
+        self.delay(2)
+        # self.page.get_element("map[class='newHouseMap-map-img xfxq_wzdt']").tap()
+        self.page.get_element('view[class="newHouseTitle-r xfxq_qbhx"][data-eventid="2648"]').tap()
+        self.get_screenshot()
+        self.input_value_by_mk('xf/mapreturn.png')
 
-        # 试试官方方法，貌似行不通，官方提供的是选择位置
-        # called = threading.Semaphore(0)
-        # callback_args = None
+    def test_goto_jgfx(self):
+        """
+        新房详情页，点击价格分析
+        """
+        self.page.scroll_to(2500, 500)
+        self.delay(2)
+        self.page.get_element('view[class="newHouseTitle-l"]', inner_text='价格分析').tap()
 
-        # def callback(args):
-        #     nonlocal callback_args
-        #     called.release()
-        #     callback_args = args
-        # self.app.hook_wx_method("openLocation", callback=callback)
-        # self.page.get_element("view[class='newHouseMap-map-icon xfxq_wzdt']").tap()
-        # delay(1)
-        # # self.native.allow_get_location(True)  # 授权获取位置
-        # self.native.map_back_to_mp()  # 确认选择位置
-        # is_called = called.acquire(timeout=10)
-        # self.app.release_hook_wx_method("openLocation")
-        # delay(10)
-        # # self.native.
+        self.verifyPageName('/page/newhouse/priceAnalyse/priceAnalyse')
+        self.get_screenshot()
+
+    def test_goto_kpjl(self):
+        """
+        新房详情页，点击开盘记录
+        """
+        self.page.scroll_to(2500, 500)
+        self.delay(2)
+        self.page.get_element('view[class="newHouseTitle-l"]', inner_text='开盘记录').tap()
+
+        self.verifyPageName('/page/newhouse/historyLp/historyLp')
+        self.get_screenshot()
+
+    def test_goto_dianping(self):
+        """
+        新房详情页，点击楼盘评论楼层的“全部点评”
+        """
+        self.page.scroll_to(2500, 500)
+        self.delay(2)
+        self.page.get_element('view[class="more newHouseTitle-r-sj"]', inner_text='全部点评').tap()
+
+        self.verifyPageName('/page/taofangquan/lpdp/lpdp')
+        self.get_screenshot()
+
+    def test_goto_dianping_and_pinglun(self):
+        """
+        新房详情页，点击楼盘评论楼层的“我要评论”，并且发布评论
+        """
+        self.page.scroll_to(2500, 500)
+        self.delay(2)
+        self.page.get_element('view[class="iwantdpT"]', inner_text='我要评论').tap()
+
+        self.verifyPageName('/page/taofangquan/writePingjia/writePingjia')
+        self.get_screenshot()
+
+    def test_goto_commenthouse(self):
+        """
+        新房详情页，点击热门楼盘楼层的第一个楼盘，进新房详情页
+        """
+        self.page.scroll_to(2500, 500)
+        self.delay(2)
+        self.page.get_element('image[class="commonNewHouseLi-l-img"]').tap()
+
+        self.get_screenshot()
+
+    def test_goto_buttom_im(self):
+        """
+        新房详情页面，点击底部的“在线咨询”
+        """
+        self.page.get_element('view[class="comBottomBar--link-button comBottomBar--im"]').tap()
+        self.delay(3)
+
+        self.verifyPageName('/im/pages/chating/chating')
+        self.get_screenshot()
+
+    def test_z_click_buttom_call(self):
+        """
+        新房详情页面，点击底部的“拨打电话”
+        """
+        self.page.get_element('view[class="comBottomBar--link-button comBottomBar--call"]').tap()
+        self.delay(1)
+        self.verifyByScreenshot('xf/call.png')
+
+    def test_click_buttom_yaohao(self):
+        """
+        新房详情页面，点击底部的“摇号”
+        """
+        self.page.get_element('navigator[class="comBottomBar--link-button comBottomBar--yaohao"]').tap()
+
+        self.verifyPageName('/page/newhouse/historyLp/historyLp')
+        self.get_screenshot()

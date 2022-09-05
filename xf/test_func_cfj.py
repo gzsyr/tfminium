@@ -26,6 +26,11 @@ class TestFuncCfj(TestBase):
             input_value_by_mk(png='xf/cfjarea.png', value=area).\
             submit()
 
+        self.delay(1)
+        if self.page.path == '/page/checkprices/index':
+            print('点击开始计算没有响应后，再次点击')
+            self.submit()
+
         self.verifyPageName('/page/checkprices/result')
         self.get_screenshot()
 

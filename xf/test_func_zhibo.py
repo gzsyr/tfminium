@@ -12,6 +12,7 @@ class TestFuncZhiBo(TestBase):
     def setUp(self) -> None:
         self.page_name = '/page/chatroom/index?city=qz'
         self.switch = False
+        self.classname = self.__class__.__name__
         super(TestFuncZhiBo, self).setUp()
         print('TestFuncZhiBo setup')
 
@@ -26,7 +27,7 @@ class TestFuncZhiBo(TestBase):
         # 校验
         self.verifyContainsStr(kwargs['anchor'], self.page.get_element('view[class="zb-now-t flex flexSb"]').inner_text,
                                '点击搜索结果第一个，进入直播详情 ok')
-        # self.verifyStr(True, self.page.element_is_exists('view[class="name"]', inner_text=kwargs['anchor']), '直播看房页面，搜索 主播 存在')
+        self.get_screenshot()
 
     @file_data('./test_func_zhibo.yml')
     def test_select_city(self, **kwargs):
@@ -38,6 +39,7 @@ class TestFuncZhiBo(TestBase):
         # 校验
         self.verifyStr(True, self.page.element_is_exists('view[class="mainContent"]'),
                        '城市列表页面数据 存在')
+        self.get_screenshot()
 
     def goto_zhibo(self):
         """

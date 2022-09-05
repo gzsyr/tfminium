@@ -13,6 +13,7 @@ class TestIndexShouye(TestBase):
     def setUp(self) -> None:
         self.page_name = "/page/index/index"
         self.switch = True
+        self.classname = self.__class__.__name__
         super(TestIndexShouye, self).setUp()
         print("TestIndexShouye setup atest")
 
@@ -22,6 +23,8 @@ class TestIndexShouye(TestBase):
         :return:
         """
         self.page.get_element('image[class="bannerTwo-img index_banner"]').click()
+
+        self.get_screenshot()
 
     @minium.ddt_case(
         1, 2, 3, 4, 5, 6, 7, 8, 9, 10
@@ -34,6 +37,7 @@ class TestIndexShouye(TestBase):
         # self.page.get_element('view[data-index2="0"]').click()
         self.page.get_element(f'view[data-index1="0"][data-index2="{value-1}"]').click()
         self.delay(1)
+        self.get_screenshot()
 
     def test_click_toutiao(self):
         """
@@ -41,6 +45,7 @@ class TestIndexShouye(TestBase):
         :return:
         """
         self.page.get_element('view[class="toutiao-swiper-item tfLine1"]').click()
+        self.get_screenshot()
 
     def test_click_reyi_more(self):
         """
@@ -48,6 +53,7 @@ class TestIndexShouye(TestBase):
         :return:
         """
         self.page.get_element('view[class="jujiao-icon"]').click()
+        self.get_screenshot()
 
     def test_click_reyi_first(self):
         """
@@ -55,6 +61,7 @@ class TestIndexShouye(TestBase):
         :return:
         """
         self.page.get_element('view[class="jujiao-swiper-item tfLine1"]').click()
+        self.get_screenshot()
 
     def test_click_middle_adv(self):
         """
@@ -62,6 +69,7 @@ class TestIndexShouye(TestBase):
         :return:
         """
         self.page.get_element('image[class="game-enter-img"]').click()
+        self.get_screenshot()
 
     @minium.ddt_case(
         1, 2, 3, 4
@@ -72,6 +80,7 @@ class TestIndexShouye(TestBase):
         :return:
         """
         self.page.get_element(f'view[class="guide-item"][data-index="{value-1}"]').click()
+        self.get_screenshot()
 
     def test_click_yaohao_loupan_name(self):
         """
@@ -79,6 +88,7 @@ class TestIndexShouye(TestBase):
         :return:
         """
         self.page.get_element('view[class="bd yhcx-picker"]').click()
+        self.get_screenshot()
 
     def test_click_yaohao_input(self):
         """
@@ -86,6 +96,7 @@ class TestIndexShouye(TestBase):
         :return:
         """
         self.page.get_element('input[type="text"]').input("atest minitest")
+        self.get_screenshot()
 
     def test_click_yaohao_inquire(self):
         """
@@ -93,6 +104,7 @@ class TestIndexShouye(TestBase):
         :return:
         """
         self.page.get_element('navigator[class="link-btn"]').click()
+        self.get_screenshot()
 
     @minium.ddt_case(
         1, 2
@@ -103,6 +115,7 @@ class TestIndexShouye(TestBase):
         :return:
         """
         self.page.get_element(f'view[class="yhcx-tab-item"][data-index="{value}"]').click()
+        self.get_screenshot()
 
     def test_click_sell_loupan(self):
         """
@@ -110,6 +123,7 @@ class TestIndexShouye(TestBase):
         :return:
         """
         self.page.get_element('view[class="name oneline"]').click()
+        self.get_screenshot()
 
     def test_click_zhibo_more(self):
         """
@@ -117,6 +131,7 @@ class TestIndexShouye(TestBase):
         :return:
         """
         self.page.get_element('view[class="indexTitRsj"]').click()
+        self.get_screenshot()
 
     def test_click_zhibo_first(self):
         """
@@ -124,6 +139,7 @@ class TestIndexShouye(TestBase):
         :return:
         """
         self.page.get_element('view[class="zhlc-item"]').click()
+        self.get_screenshot()
 
     def test_click_zhaofang(self):
         """
@@ -132,6 +148,7 @@ class TestIndexShouye(TestBase):
         """
         self.page.get_element('view[data-index="0"]', inner_text='帮你找房').click()
         self.page.get_element('view[class="link-btn"]', inner_text="马上找房").click()
+        self.get_screenshot()
 
     def test_click_maifang(self):
         """
@@ -139,6 +156,7 @@ class TestIndexShouye(TestBase):
         :return:
         """
         self.page.get_element('view[data-index="1"]', inner_text="帮你卖房").click()
+        self.get_screenshot()
 
     def test_click_maifang_fabu(self):
         """
@@ -147,6 +165,7 @@ class TestIndexShouye(TestBase):
         """
         self.test_click_maifang()
         self.page.get_element('navigator[class="link-btn"]', inner_text="发布房源").click()
+        self.get_screenshot()
 
     def test_click_fbs_zixun(self):
         """
@@ -154,6 +173,7 @@ class TestIndexShouye(TestBase):
         :return:
         """
         self.page.get_element('view[class="fbs-qus-btn"]', inner_text="立即咨询").click()
+        self.get_screenshot()
 
     def test_click_fbs_avatar(self):
         """
@@ -162,6 +182,7 @@ class TestIndexShouye(TestBase):
         """
         self.delay(1)
         self.page.get_element('image[class="fbs-avatar"]').click()
+        self.get_screenshot()
 
     def test_click_fbs_more(self):
         """
@@ -169,14 +190,15 @@ class TestIndexShouye(TestBase):
         :return:
         """
         self.page.get_element('view[class="indexTitR index_fbsgd"]').click()
+        self.get_screenshot()
 
     def test_click_icon(self):
         """
         首页，点击右下角的广告icon
         :return:
         """
-        ele = self.page.get_element('add-group').get_element('view').get_element('image')
-        ele.click()
+        self.page.get_element('add-group').get_element('view').get_element('image').click()
+        self.get_screenshot()
 
     def test_click_tuijian_loupan(self):
         """
@@ -184,6 +206,7 @@ class TestIndexShouye(TestBase):
         :return:
         """
         self.page.get_element('view[class="commonNewHouseLi-l"]').click()
+        self.get_screenshot()
 
     def tearDown(self) -> None:
         self.app.go_home()

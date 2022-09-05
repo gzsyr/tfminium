@@ -3,45 +3,47 @@
 # @Author : zcm 
 # @File : test_news_list.py
 # @desc:
-
-import minium
-from base.common import delay
+from base.test_base import TestBase
 
 
-class TestNewsList(minium.MiniTest):
+class TestNewsList(TestBase):
     """
     资讯列表页
     """
 
     def setUp(self) -> None:
-        self.app.navigate_to("/page/news/list?city=qz")
-        delay(4)
-        self.app.get_current_page()
-        print("setUp!!!!!")
+        self.page_name ="/page/news/list?city=qz"
+        self.switch = False
+        self.classname = self.__class__.__name__
+        super(TestNewsList, self).setUp()
 
     def test_click_firstnews(self):
         """
-        点击第一条资讯
-        :return:
+        资讯列表页，点击第一条资讯
         """
-        e = self.page.get_element('//view[@class="list-box list-box_ads"]/navigator')
-        c = e.attribute('class')
-        print('class:', c)
-        e.tap()
-        delay(2)
+        self.page.get_element('//view[@class="list-box list-box_ads"]/navigator').tap()
+
+        self.verifyPageName('/page/news/detail')
+        self.get_screenshot()
 
     def test_click_loupandaogou(self):
         """
-        点击楼盘导购，点击第一条资讯
-        :return:
+        资讯列表页，点击楼盘导购，点击第一条资讯
         """
-        e = self.page.get_element('text', inner_text='楼盘导购')
-        c = e.attribute('class')
-        print('class:', c)
-        e.tap()
-        delay(2)
-        e2 = self.page.get_element('//view[@class="list-box list-box_ads"]/navigator')
-        c2 = e2.attribute('class')
-        print('class:', c2)
-        e2.tap()
-        delay(2)
+        self.page.get_element('text', inner_text='楼盘导购').tap()
+        self.delay(1)
+        self.page.get_element('//view[@class="list-box list-box_ads"]/navigator').tap()
+
+        self.verifyPageName('/page/news/detail')
+        self.get_screenshot()
+
+    def test_click_adv(self):
+        """
+        资讯列表页，点击横幅广告
+        """
+        try:
+            self.page.get_element('image[class="bannerTwo-img index_banner"]').tap()
+        except:
+            print('资讯列表页面无广告')
+
+        self.get_screenshot()

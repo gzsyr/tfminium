@@ -1,78 +1,66 @@
-import minium
-
-from base.common import delay
+from base.test_base import TestBase
 
 
-class TestKFTRoute(minium.MiniTest):
+class TestKFTRoute(TestBase):
     """
     看房团路线页面
     """
     def setUp(self) -> None:
-        self.app.navigate_to('/page/houseteam/detail?id=8359&city=qz')
-        page = self.app.get_current_page()
-        print("atest  setup!!!!!!!!!!!!!")
+        self.page_name = '/page/houseteam/detail?id=8359&city=qz'
+        self.switch = False
+        self.classname = self.__class__.__name__
+        super(TestKFTRoute, self).setUp()
 
     def test_click_list(self):
         """
-        点击第一个楼盘
-        :return:
+        看房团路线页面，点击第一个楼盘，进入楼盘详情页
         """
-        delay(2)
-        ele = self.page.get_element('image[src="http://img11.house365.com/njnewhouse/2015/04/25/thumb/1429933967553b0f8fd1606.png"]')
-        ele.tap()
-        print("click_list:", ele)
-        delay(5)
+        self.page.get_element('image[class="list-poster houseteam"]').tap()
+
+        self.verifyPageName('/page/newhouse/detail')
+        self.get_screenshot()
 
     def test_click_first(self):
         """
-        点击首页
-        :return:
+        看房团路线页面，点击首页
         """
-        ele = self.page.get_element('to-home-btn[is="component/toHomeBtn"]').get_element('image[role="img"]')
-        ele.tap()
-        print("click_first:", ele)
-        delay(2)
+        self.page.get_element('image[class="toHomeBtn--img-style"]').tap()
+
+        self.verifyPageName('/page/index/index')
+        self.get_screenshot()
 
     def test_click_signup(self):
         """
-        点击立即报名,点击我已阅读小√，输入手机号，点击获取验证码
-        :return:
+        看房团路线页面，点击立即报名,点击我已阅读小√，输入手机号，点击获取验证码
         """
-        ele = self.page.get_element('view[class="f30 white t-c"]')
-        ele.tap()
-        delay(4)
-        e2 = self.page.get_element('image.agree-icon').tap()
-        e3 = self.page.get_element('input', inner_text='请填写11位手机号码').input('15105182846')
-        e4 = self.page.get_element('button').tap()
-        print("click_signup:", ele)
-        delay(4)
+        self.page.get_element('view[class="f30 white t-c"]').tap()
+
+        self.verifyPageName('/page/houseteam/apply')
+        self.get_screenshot()
 
     def test_click_activity(self):
         """
-        点击活动流程
-        :return:
+        看房团路线页面，点击活动流程
         """
-        ele = self.page.get_element('view[class="activity"]')
-        ele.tap()
-        print("click_activity:", ele)
-        delay(2)
+        self.page.get_element('view[class="activity"]').tap()
+
+        self.verifyPageName('/page/houseteam/activity')
+        self.get_screenshot()
 
     def test_click_declare(self):
         """
-        点击免责声明
-        :return:
+        看房团路线页面，点击免责声明
         """
-        ele = self.page.get_element('view[class="declare"]')
-        ele.tap()
-        print("click_declare:", ele)
-        delay(2)
+        self.page.get_element('view[class="declare"]').tap()
+
+        self.verifyPageName('/page/houseteam/declare')
+        self.get_screenshot()
 
     def test_click_zphone(self):
         """
-        点击电话咨询图标
-        :return:
+        看房团路线页面，点击电话咨询图标
         """
-        ele = self.page.get_element('icon[class="icon-tel mt15"]')
-        ele.tap()
-        print("click_zphone:", ele)
-        delay(2)
+        self.page.get_element('icon[class="icon-tel mt15"]').tap()
+        self.delay(1)
+
+        self.verifyByScreenshot('xf/call.png')

@@ -1,9 +1,11 @@
 # add by yfl
 import minium
+from ddt import file_data, ddt, data
 
 from base.test_base import TestBase
 
 
+@ddt
 class TestNewsHouseList(TestBase):
     """
     新房列表页面
@@ -12,241 +14,166 @@ class TestNewsHouseList(TestBase):
     def setUp(self) -> None:
         self.page_name = "/page/newHouseList/newHouseList"
         self.switch = True
+        self.classname = self.__class__.__name__
         super(TestNewsHouseList, self).setUp()
 
         try:
-            cls = self.page.get_element('view[class="ads_mask-close"]')
-            cls.tap()
+            self.page.get_element('view[class="ads_mask-close"]').tap()
             print("关闭弹窗广告")
         except minium.MiniElementNotFoundError:
             print("无弹窗广告")
         print("TestNewsHouseList setup")
 
-    def test_click_search(self):
+    def test_click_1_search_and_select_and_clear(self):
         """
-        点击搜索框
-        :return:
+        新房列表页面，点击搜索框，输入关键词，点击搜索结果第一条，展示带关键字的列表，点击搜索框的“清空”按钮
         """
-        ele = self.page.get_element('view[class="search-input"]')
-        ele.tap()
+        self.page.get_element('navigator', text_contains='请输入楼盘名或区域').tap()
+        # 进入搜索页面
+        self.app.wait_for_page('/page/search/index')
+        # 输入关键词
+        self.page.get_element('input[class="searchTR-input"]').input("泉州万科城")
+        self.delay(1)
+        # 选择搜索结果
+        self.page.get_element('view[class="searchBLi tfFlex tfFlexSb tfLine1"]').tap()
+        self.delay(1)
 
-    # def test_search_result(self):
-    #     """
-    #     点击搜索框->搜索万科未来城
-    #     :return:
-    #     """
-    #     ele = self.page.get_element('view[class="search-input"]')
-    #     ele.tap()
-    #     ele2 = self.page.get_element("input")
-    #     ele2.tap()
-    #     delay(2)
-    #     self.native.input_text("万科未来城")
-    #     delay(2)
-    #     ele3 = self.page.get_element('view[class="searchBLi-l"]', text_contains='万科未来城')
-    #     ele3.tap()
-    #     print("search: ", ele)
-    #     delay(2)
+        self.page.get_element('view[class="cleanKeyWord"]', inner_text='清空').tap()
+
+        self.get_screenshot()
 
     def test_click_map(self):
         """
-        点击地图
-        :return:
+        新房列表页面，点击地图
         """
-        ele = self.page.get_element('navigator[class="search-map"]')
-        ele.tap()
+        self.page.get_element('navigator[class="search-map"]').tap()
+
+        self.verifyPageName('/page/newhouse/mapzf/mapzf')
+        self.get_screenshot()
 
     def test_click_ads(self):
         """
-        点击广告
-        :return:
+        新房列表页面，点击联板广告
         """
-        ele = self.page.get_element('image[class="bannerTwo-img index_banner"]')
-        ele.tap()
+        self.page.get_element('image[class="bannerTwo-img index_banner"]').tap()
 
-    def test_click_yldc(self):
-        """
-        点击热门楼盘
-        :return:
-        """
-        ele = self.page.get_element('view[class="newHouseIconEnterLi xflb_rmlp"]')
-        ele.tap()
+        self.get_screenshot()
 
-    def test_click_bnzf(self):
+    @file_data('./test_newhouse_list_func.yml')
+    def test_click_yldc(self, **kwargs):
         """
-        点击帮你找房
-        :return:
+        新房列表页面，联板广告下面，点击功能入口
         """
-        ele = self.page.get_element('view[class="newHouseIconEnterLi xflb_bnzf"]')
-        ele.tap()
+        self.page.get_element('view[class="newHouseIconEnterLi-b"]', inner_text=kwargs['funcname']).tap()
 
-    def test_click_vrkf(self):
-        """
-        点击VR看房
-        :return:
-        """
-        ele = self.page.get_element('view[class="newHouseIconEnterLi xflb_vrkf"]')
-        ele.tap()
+        if kwargs['pagename']:
+            self.verifyPageName(kwargs['pagename'])
+        self.get_screenshot()
 
-    def test_click_kft(self):
+    @data(1, 2, 3, 4)
+    def test_click_dgmk(self, num):
         """
-        点击看房团
-        :return:
+        新房列表页面，功能入口下方，点击导购模块
         """
-        ele = self.page.get_element('view[class="newHouseIconEnterLi xflb_kft"]')
-        ele.tap()
+        self.page.get_element(f'view[class="disflex tfAlignC newHouseDgLi xflb_dg{num}"]').tap()
 
-    def test_click_dgli1(self):
-        """
-        点击导购模块1
-        :return:
-        """
-        ele = self.page.get_element('view[class="disflex tfAlignC newHouseDgLi xflb_dg1"]')
-        ele.tap()
-
-    def test_click_dgli2(self):
-        """
-        点击导购模块2
-        :return:
-        """
-        ele = self.page.get_element('view[class="disflex tfAlignC newHouseDgLi xflb_dg2"]')
-        ele.tap()
-
-    def test_click_dgli3(self):
-        """
-        点击导购模块3
-        :return:
-        """
-        ele = self.page.get_element('view[class="disflex tfAlignC newHouseDgLi xflb_dg3"]')
-        ele.tap()
-
-    def test_click_dgli4(self):
-        """
-        点击导购模块4
-        :return:
-        """
-        ele = self.page.get_element('view[class="disflex tfAlignC newHouseDgLi xflb_dg4"]')
-        ele.tap()
+        self.get_screenshot()
 
     def test_click_zx(self):
         """
-        点击咨询
-        :return:
+        新房列表页面，点击咨询
         """
-        ele = self.page.get_element('view[class="newHouseRfixed-wyzx xflb_fx"]')
-        ele.tap()
+        self.page.get_element('view[class="newHouseRfixed-wyzx xflb_fx"]').tap()
+        self.delay(2)
+
+        self.verifyStr(True, self.page.wait_for('view[class="chating-history"]'),
+                       '进入im页面正确')
+        self.get_screenshot()
 
     def test_click_housedetail(self):
         """
-        进入新房详情页
-        :return:
+        新房列表页面，进入新房详情页
         """
-        ele = self.page.get_elements('view[class="tfFlex xflb_lp disflex-flexwrap-nowrap"]')
-        ele[0].tap()
+        self.page.get_element('view[class="tfFlex xflb_lp disflex-flexwrap-nowrap"]').tap()
 
-    def test_show_wz(self):
-        """
-        展开位置筛选
-        :return:
-        """
-        ele = self.page.get_element("view", inner_text="位置")
-        ele.tap()
+        self.verifyPageName('/page/newhouse/detail')
+        self.get_screenshot()
 
-    def test_show_jg(self):
+    @data('洛江')
+    def test_select_wz(self, qy='洛江'):
         """
-        展开价格筛选
-        :return:
+        新房列表页面，筛选区域
         """
-        ele = self.page.get_element("view", inner_text="价格")
-        ele.tap()
+        self.page.get_element('view[class="newHouseTabLi-msg wmax114 tfLine1"]', inner_text="位置").tap()
+        self.page.get_element('view[class="maxw175 tfLine1"]', inner_text="区域").tap()
+        self.page.get_element('view[class="newHouseMaskLi-twoLi tfLine1"]', inner_text=qy).tap()
 
-    def test_show_hx(self):
-        """
-        展开户型筛选
-        :return:
-        """
-        ele = self.page.get_element("view", inner_text="户型")
-        ele.tap()
+        self.verifyStr(True, self.page.element_is_exists('view[class="newHouseTabLi-msg wmax114 tfLine1"]', inner_text=qy),
+                       '筛选区域正确')
+        self.get_screenshot()
 
-    def test_show_sx(self):
+    @data('8000-10000元/㎡')
+    def test_select_jg(self, jg):
         """
-        展开筛选
-        :return:
+        新房列表页面，筛选价格
         """
-        ele = self.page.get_element("view", inner_text="筛选")
-        ele.tap()
+        self.page.get_element('view[class="newHouseTabLi-msg wmax114 tfLine1"]', inner_text="价格").tap()
+        self.page.get_element('view[class="newHouseMaskLi-price-li"]', inner_text=jg).tap()
 
-    def test_show_px(self):
-        """
-        展开排序
-        :return:
-        """
-        ele = self.page.get_element("view", inner_text="排序")
-        ele.tap()
+        self.verifyStr(True, self.page.element_is_exists('view[class="newHouseTabLi-msg wmax114 tfLine1"]', inner_text=jg),
+                       '筛选价格正确')
+        self.get_screenshot()
 
-    def test_select_wz(self):
+    # @data('二室')
+    def test_select_hx(self, hx='二室'):
         """
-        筛选鼓楼区
-        :return:
+        新房列表页面，筛选户型
         """
-        ele = self.page.get_element("view", inner_text="位置")
-        ele.tap()
-        ele1 = self.page.get_element("view", inner_text="区域")
-        ele1.tap()
-        ele2 = self.page.get_element("view", inner_text="洛江")
-        ele2.tap()
+        self.page.get_element('view[class="newHouseTabLi-msg wmax114 tfLine1"]', inner_text="户型").tap()
+        self.page.get_element('view[class="newHouseMaskLi-price-li"]', inner_text=hx).tap()
 
-    def test_select_jg(self):
-        """
-        筛选25000-3000元
-        :return:
-        """
-        ele = self.page.get_element("view", inner_text="价格")
-        ele.tap()
-        ele1 = self.page.get_element("view", inner_text="8000-10000元/㎡")
-        ele1.tap()
+        self.verifyStr(True, self.page.element_is_exists('view[class="newHouseTabLi-msg wmax114 tfLine1"]', inner_text=hx),
+                       '筛选户型正确')
+        self.get_screenshot()
 
-    def test_select_hx(self):
-        """
-        筛选二室
-        :return:
-        """
-        ele = self.page.get_element("view", inner_text="户型")
-        ele.tap()
-        ele1 = self.page.get_element("view", inner_text="二室")
-        ele1.tap()
-
-    def test_select_sx(self):
+    @file_data('./test_newhouse_list_sx.yml')
+    def test_select_sx(self, **kwargs):
         """
         筛选
-        :return:
         """
-        self.page.get_element("view", inner_text="筛选").tap()
-        self.page.get_element("view", inner_text="低总价").tap()
-        self.page.get_element("view", inner_text="住宅").tap()
-        self.page.get_element("view", inner_text="80-100㎡").tap()
-        self.page.get_element("view", inner_text="六月内开盘").tap()
-        self.page.get_element("view", inner_text="精装修").tap()
-        ele = self.page.get_element('view[class="newHouseMaskLi-sx-btn-confirm"]')
-        ele.tap()
+        self.page.get_element('view[class="newHouseTabLi-msg"]', inner_text="筛选").tap()
+        if kwargs['ts']:
+            self.page.get_element('view[class="newHouseMaskLi-sx-li"]', inner_text=kwargs['ts']).tap()
+        if kwargs['lx']:
+            self.page.get_element('view[class="newHouseMaskLi-sx-li"]', inner_text=kwargs['lx']).tap()
+        if kwargs['mj']:
+            self.page.get_element('view[class="newHouseMaskLi-sx-li"]', inner_text=kwargs['mj']).tap()
+        if kwargs['kpsj']:
+            self.page.get_element('view[class="newHouseMaskLi-sx-li"]', inner_text=kwargs['kpsj']).tap()
+        if kwargs['zx']:
+            self.page.get_element('view[class="newHouseMaskLi-sx-li"]', inner_text=kwargs['zx']).tap()
 
-    def test_select_px(self):
+        self.page.get_element('view[class="newHouseMaskLi-sx-btn-confirm"]').tap()
+
+        self.get_screenshot()
+
+    @data('开盘时间由近到远')
+    def test_select_px(self, px):
         """
-        筛选排序
-        :return:
+        新房列表页面，筛选排序
         """
-        ele = self.page.get_element("view", inner_text="排序")
-        ele.tap()
-        ele1 = self.page.get_element("view", inner_text="开盘时间由近到远")
-        ele1.tap()
+        self.page.get_element('view[class="newHouseTabLi-msg"]', inner_text="排序").tap()
+        self.page.get_element('view[class="newHouseMaskLi-price-li"]', inner_text=px).tap()
+
+        self.get_screenshot()
 
     def test_z_click_fx(self):
         """
-        点击分享
-        :return:
+        新房列表页面，点击分享
         """
-        ele = self.page.get_element('button[class="newHouseRfixed-share xfxq_fx"]')
-        ele.tap()
-        # self.native.forward_miniprogram_inside("虚拟好友")
+        self.page.get_element('button[class="newHouseRfixed-share xfxq_fx"]')
+
+        self.get_screenshot()
 
     def tearDown(self) -> None:
         self.app.go_home()
