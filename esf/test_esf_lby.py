@@ -8,12 +8,13 @@ from base.test_base import TestBase
 @ddt_class()
 class Testesflby(TestBase):
     """
-    二手房首页
+    二手房列表页
     """
 
     def setUp(self, true=None) -> None:
         self.page_name = "/esf/sell/pages/home/home"
         self.switch = true
+        self.classname = self.__class__.__name__
         super(Testesflby, self).setUp()
         print("Testesflby setup")
 
@@ -24,6 +25,8 @@ class Testesflby(TestBase):
         """
         e = self.page.get_element('input[class="search--flex_1"]')
         e.tap()
+        self.verifyPageName('/esf/sell/pages/search/search', '搜索 ok')
+        delay(5)
 
     @ddt_case(
         0, 1, 2, 3, 4
@@ -34,9 +37,9 @@ class Testesflby(TestBase):
         :param value:
         :return:
         """
-        # e = self.page.get_element('view[class="text_center tile"][data-index="0"]')
-        # e.tap()
-        self.page.get_element(f'view[class="text_center tile"][data-index="{value}"]').click()
+        self.page.get_element(f'view[class="text_center tile"][data-index="{value}"]').tap()
+        self.get_capture()
+        delay(3)
 
     @ddt_case(
         0, 1, 2
@@ -47,8 +50,10 @@ class Testesflby(TestBase):
         :param value:
         :return:
         """
-        self.page.get_element(
-            f'view[class="inline_flex flex_column justify_center entrance"][data-index="{value}"]').click()
+        self.page.get_element(f'view[class="inline_flex flex_column justify_center entrance"][data-index="{value}"]').tap()
+        #self.get_capture()
+        self.get_screenshot()
+        delay(5)
 
     def test_click_gg(self):
         """
@@ -63,139 +68,310 @@ class Testesflby(TestBase):
             print("没有配置广告")
 
 
-    def test_show_wz(self):
+    @file_data('./test_esf_list.yml')
+    def test_search(self, **kwargs):
         """
-        展开位置筛选
+        二手房筛选
         :return:
         """
-        e = self.page.get_element("view", inner_text="位置")
-        e.tap()
 
-    def test_show_zj(self):
-        """
-        展开总价筛选
-        :return:
-        """
-        e = self.page.get_element("view", inner_text="总价")
-        e.tap()
+        # 清空筛选条件
+        self.clear_search()
+        self.delay(1)
 
-    def test_show_fx(self):
-        """
-        展开房型筛选
-        :return:
-        """
-        e = self.page.get_element("view", inner_text="房型")
-        e.tap()
+        # 位置筛选
+        if 'pos_text_1' in kwargs.keys():
+            pos_text_1 = kwargs['pos_text_1']
+            pos_text_2 = kwargs['pos_text_2']
+            pos_text_3 = kwargs['pos_text_3']
 
-    def test_show_gd(self):
-        """
-        展开更多筛选
-        :return:
-        """
-        e = self.page.get_element("view", inner_text="更多")
-        e.tap()
+            if pos_text_1 != '':
+                self.pos_search(pos_text_1, pos_text_2, pos_text_3)
+                self.delay(1)
 
-    def test_show_px(self):
-        """
-        展开排序筛选
-        :return:
-        """
-        e = self.page.get_element("view", inner_text="排序")
-        e.tap()
+        # 总价筛选
+        if 'price_text' in kwargs.keys():
+            price_text = kwargs['price_text']
+            min_val = kwargs['min_val']
+            max_val = kwargs['max_val']
 
-    def test_show_delete(self):
-        """
-        点击删除按钮
-        :return:
-        """
-        e = self.page.get_element('image[class="img"]')
-        e.tap()
+            self.price_search(price_text, min_val, max_val)
+            self.delay(1)
 
-    @file_data('./test_func_weizhi.yml')
-    def test_select_qy(self, **kargs):
-        """
-        筛选位置-区域
-        :return:
-        """
-        e4 = self.page.get_element('view[class="pa clear"]')
-        e4.tap()
-        e = self.page.get_element("view", inner_text=kargs['district'])
-        e.tap()
-        e1 = self.page.get_element("view", inner_text=kargs['searchone'])
-        e1.tap()
-        e2 = self.page.get_element("view", inner_text=kargs['searchtwo'])
-        e2.tap()
-        e3 = self.page.get_element("view", inner_text=kargs['searchthree'])
-        e3.tap()
-        delay(2)
+        # 房型筛选
+        if 'hx_text' in kwargs.keys():
+            hx_text = kwargs['hx_text']
 
-    @file_data('./test_func_zongjia.yml')
-    def test_select_zjzdy(self, **kwargs):
-        """
-        筛选总价自定义
-        :return:
-        """
-        e3 = self.page.get_element('view[class="pa clear"]')
-        e3.tap()
-        e = self.page.get_element("view", inner_text=kwargs['zdy'])
-        e.tap()
-        self.page.get_element("input", inner_text="最低价").input(kwargs['nameone'])
-        self.page.get_element("input", inner_text="最高价").input(kwargs['nametwo'])
-        e1 = self.page.get_element('view[class="price--text_center price--confirm"]')
-        e1.tap()
-        delay(2)
+            self.house_type_search(hx_text)
+            self.delay(1)
 
-    @file_data('./test_func_zongjia.yml')
-    def test_select_fx(self, **kwargs):
+        # 更多筛选
+        if 'more_flag' in kwargs.keys():
+            ary_more_text = {}
+            ary_more_key = ['info_from_text',
+                            'info_type_text',
+                            'build_area_text',
+                            'fitment_text',
+                            'years_text',
+                            'floor_text',
+                            'forward_text',
+                            'tax_type',
+                            'is360_text',
+                            'mright_text'
+                            ]
+
+            for str_key in ary_more_key:
+                if str_key in kwargs.keys():
+                    ary_more_text[str_key] = kwargs[str_key]
+                else:
+                    ary_more_text[str_key] = ''
+
+            self.more_search(ary_more_text)
+            self.delay(1)
+
+        # 筛选排序
+        if 'order_by_text' in kwargs.keys():
+            order_by_text = kwargs['order_by_text']
+
+            self.search_order_by(order_by_text)
+            self.delay(1)
+
+        # 截图
+        self.get_capture()
+
+    def pos_search(self, text_1, text_2, text_3):
         """
-        筛选房型
-        :return:
-       """
+        位置筛选
+        """
+
+        self.delay(1)
+        flag = self.page.element_is_exists('view[class="line_1 screenTabText"]',
+                                           inner_text='位置')
+        if flag:
+            e = self.page.get_element('view[class="line_1 screenTabText"]',
+                                      inner_text="位置")
+            e.tap()
+            self.delay(1)
+
+            e = self.page.get_element("//location/view/view/view/text", inner_text=text_1)
+            e.tap()
+            self.delay(1)
+
+            if text_1 != '不限':
+                verify_text = text_2
+                e = self.page.get_element("//location//view/scroll-view[1]/view/text", inner_text=text_2)
+                e.tap()
+                self.delay(1)
+
+                if text_3 != '':
+                    verify_text = text_3
+                    e = self.page.get_element("//location//view/scroll-view[2]/view/text", inner_text=text_3)
+                    e.tap()
+                    self.delay(1)
+
+                verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText screenTabColor"]',
+                                                          inner_text=verify_text)
+            else:
+                verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText"]',
+                                                          inner_text='位置')
+
+            print(verify_flag)
+        else:
+            print("没找到位置按钮")
+
+        return self
+
+    def price_search(self, price_text, min_val, max_val):
+        """
+        总价筛选
+        """
+
+        self.delay(1)
+        flag = self.page.element_is_exists('view[class="line_1 screenTabText"]',
+                                           inner_text='总价')
+        if flag:
+            e = self.page.get_element('view[class="line_1 screenTabText"]',
+                                      inner_text="总价")
+            e.tap()
+            self.delay(1)
+
+            if price_text != '':
+                e = self.page.get_element("//price/view/scroll-view/view/text", inner_text=price_text)
+                e.tap()
+                self.delay(1)
+
+                if price_text == '不限':
+                    verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText"]',
+                                                              inner_text="总价")
+                else:
+                    verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText screenTabColor"]',
+                                                              inner_text=price_text)
+            else:
+                if min_val != '':
+                    e = self.page.get_element("//price/view/view/view/input", inner_text="最低价")
+                    e.input(min_val)
+
+                if max_val != '':
+                    e = self.page.get_element("//price/view/view/view/input", inner_text="最高价")
+                    e.input(max_val)
+
+                e = self.page.get_element('view[class="price--text_center price--confirm"]')
+                e.tap()
+                self.delay(1)
+
+                if min_val == '':
+                    verify_text = max_val + '万以下'
+                elif max_val == '':
+                    verify_text = min_val + '万以上'
+                else:
+                    verify_text = min_val + '-' + max_val + '万'
+                    # 缺 min_val > max_val 情况
+
+                verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText screenTabColor"]',
+                                                          inner_text=verify_text)
+
+            print(verify_flag)
+        else:
+            print("没找到总价按钮")
+
+        return self
+
+    def house_type_search(self, hx_text):
+        """
+        房型筛选
+        """
+
+        self.delay(1)
+        flag = self.page.element_is_exists('view[class="line_1 screenTabText"]',
+                                           inner_text='房型')
+        if flag:
+            e = self.page.get_element('view[class="line_1 screenTabText"]',
+                                      inner_text="房型")
+            e.tap()
+            self.delay(1)
+
+            if hx_text == '不限':
+                e = self.page.get_element("view", inner_text=hx_text)
+                e.tap()
+                self.delay(1)
+
+                verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText"]',
+                                                          inner_text="房型")
+            else:
+                ary_hx = hx_text.split("|")
+
+                if len(ary_hx) == 1:
+                    e = self.page.get_element("//room/view/scroll-view/view/text", inner_text=hx_text)
+                    e.tap()
+
+                    e = self.page.get_element('//room/view/view/view/text', inner_text="确定")
+                    e.tap()
+                    self.delay(1)
+
+                    verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText screenTabColor"]',
+                                                              inner_text=hx_text)
+                else:
+                    for hx in ary_hx:
+                        e = self.page.get_element("//room/view/scroll-view/view/text", inner_text=hx)
+                        e.tap()
+
+                    e = self.page.get_element('//room/view/view/view/text', inner_text="确定")
+                    e.tap()
+                    self.delay(1)
+
+                    verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText screenTabColor"]',
+                                                              inner_text="多选")
+
+            print(verify_flag)
+        else:
+            print("没找到房型按钮")
+
+        return self
+
+    def search_order_by(self, order_by_text):
+        """
+        筛选排序
+        """
+
+        self.delay(1)
+        flag = self.page.element_is_exists('view[class="line_1 screenTabText"]',
+                                           inner_text='排序')
+        if flag:
+            e = self.page.get_element('view[class="line_1 screenTabText"]',
+                                      inner_text="排序")
+            e.tap()
+            self.delay(1)
+
+            e = self.page.get_element("//sort/view/view/view/text", inner_text=order_by_text)
+            e.tap()
+            self.delay(1)
+        else:
+            print("没找到排序按钮")
+
+        return self
+
+    def more_search(self, ary_more_text):
+        """
+        更多筛选
+        """
+        self.delay(1)
+        flag = self.page.element_is_exists('view[class="line_1 screenTabText"]',
+                                           inner_text='更多')
+        if flag:
+            e = self.page.get_element('view[class="line_1 screenTabText"]',
+                                      inner_text="更多")
+            e.tap()
+            self.delay(1)
+
+            dict_more_height = {'info_from_text': 0,
+                                'info_type_text': 70,
+                                'build_area_text': 180,
+                                'fitment_text': 290,
+                                'years_text': 360,
+                                'floor_text': 470,
+                                'forward_text': 540,
+                                'tax_type': 650,
+                                'is360_text': 720,
+                                'mright_text': 790
+                                }
+
+            scroll_view = self.page.get_element('//more/view/scroll-view')
+
+            for str_key in ary_more_text:
+                more_text = ary_more_text[str_key]
+                more_height = dict_more_height[str_key]
+
+                if more_text != '':
+                    if more_height != 0:
+                        scroll_view.scroll_to(y=more_height)
+                        self.delay(1)
+
+                    e = self.page.get_element("//more/view/scroll-view/view/view[2]/view/text",
+                                              inner_text=more_text)
+                    e.tap()
+                    self.delay(1)
+
+            e = self.page.get_element('//more/view/view/view/text', inner_text="确定")
+            e.tap()
+            self.delay(1)
+
+            verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText screenTabColor"]',
+                                                      inner_text="更多")
+
+            print(verify_flag)
+        else:
+            print("没找到更多按钮")
+
+        return self
+
+    def clear_search(self):
+        """
+        清空筛选条件
+        """
+        self.delay(1)
         self.page.get_element('view[class="pa clear"]').tap()
-        e = self.page.get_element("view", inner_text=kwargs['fx'])
-        e.tap()
-        self.page.get_element('text', inner_text=kwargs['namethree']).tap()
-        self.page.get_element('text', inner_text=kwargs['namefour']).tap()
-        self.page.get_element('text', inner_text="确定").tap()
-        delay(2)
 
-    @file_data('./test_func_zongjia.yml')
-    def test_select_gdqd(self, **kwargs):
-        """
-        更多筛选确定
-        :return:
-        """
-        self.page.get_element('view[class="pa clear"]').tap()
-        self.page.get_element("view", inner_text=kwargs['more']).tap()
-        self.page.get_element('text', inner_text=kwargs['ly']).tap()
-        self.page.get_element('text', inner_text=kwargs['lx']).tap()
-        self.page.get_element('text', inner_text=kwargs['mj']).tap()
-        self.page.scroll_to(348, 500)
-        delay(1)
-        self.page.get_element('text', inner_text=kwargs['zx']).tap()
-        self.page.get_element('text', inner_text=kwargs['fl']).tap()
-        self.page.get_element('text', inner_text=kwargs['lc']).tap()
-        self.page.scroll_to(648, 500)
-        delay(1)
-        self.page.get_element('text', inner_text=kwargs['cx']).tap()
-        self.page.get_element('text', inner_text=kwargs['sf']).tap()
-        self.page.scroll_to(848, 500)
-        delay(1)
-        self.page.get_element('text', inner_text=kwargs['qjkf']).tap()
-        self.page.get_element('text', inner_text=kwargs['cq']).tap()
-        self.page.get_element('text', inner_text="确定").tap()
-        delay(2)
-
-    @file_data('./test_func_zongjia.yml')
-    def test_select_px(self, **kwargs):
-        """
-        排序
-        :return:
-        """
-        self.page.get_element('view[class="pa clear"]').tap()
-        self.page.get_element("view", inner_text=kwargs['paixu']).tap()
-        self.page.get_element("text", inner_text=kwargs['paixuone']).tap()
-        delay(2)
+        return self
 
     @ddt_case(
         0, 1, 2, 3, 4
@@ -206,7 +382,10 @@ class Testesflby(TestBase):
         :param value:
         :return:
         """
+        self.page.get_element('view[class="pa clear"]').tap()
         self.page.get_element(f'view[class="text_center screenQuickItem"][data-index="{value}"]').tap()
+        self.get_capture()
+        delay(5)
 
 
     def test_click_housedetail(self):
@@ -224,3 +403,5 @@ class Testesflby(TestBase):
         # 点击
         elms = elm_first_item.get_element('sellitem').get_elements('view')
         elms[0].tap()
+        self.verifyPageName('/esf/sell/pages/detail/detail', '房源详情 ok')
+        delay(5)
