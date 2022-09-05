@@ -1,6 +1,7 @@
 # add by zsy
 import inspect
 import os
+import threading
 import time
 
 import minium
@@ -25,20 +26,20 @@ class TestBase(minium.MiniTest):
 
     # 以下id的相关参数，根据online、dev来选择或者设置
     # 帖子的id
-    # postid = 12746 # online
-    postid = 3387 # dev
+    postid = 12746 # online
+    # postid = 3387 # dev
 
     # 帖子评论的id
-    # pinglunid = 47170 # online
-    pinglunid = 7887 # dev
+    pinglunid = 47170 # online
+    # pinglunid = 7887 # dev
 
     # 话题的id
-    # huatiid = 11536 # online
-    huatiid = 3393 # dev
+    huatiid = 11536 # online
+    # huatiid = 3393 # dev
 
     # 圈子的id
-    # quanzi = 751  # online
-    quanzi = 430  # dev
+    quanzi = 751  # online
+    # quanzi = 430  # dev
 
     # 房博士页面，房博士的uid 和roleid
     fbs_uid = 3403749
@@ -59,14 +60,42 @@ class TestBase(minium.MiniTest):
             self.app.switch_tab(self.page_name)
         else:
             # self.app.navigate_to(self.page_name)
-            self.app.relaunch(self.page_name)
+            rp = self.app.relaunch(self.page_name)
+
+            if rp.path != self.page_name.split("?")[0]:
+                print(rp.path, 'need to relaunch')
+                self.delay(1)
+                self.app.relaunch(self.page_name)
         self.delay(3)
-        self.app.get_current_page()
+
         print("++++++set up atest+++++++")
 
     def delay(self, second):
         time.sleep(second)
         return self
+
+    def getShowToast(self, eval_method):
+        """
+        捕获 showToast的弹框
+        eval_method: 需要点击的元素与操作
+        return: True-捕获成功，False-捕获失败
+        """
+        # 监听回调, 阻塞当前主线程
+        called = threading.Semaphore(0)
+        callback_args = None
+
+        def callback(args):
+            nonlocal callback_args
+            called.release()
+            callback_args = args
+
+        self.app.hook_wx_method("showToast", callback=callback)
+        # self.page.get_element('view[class="laud-btn"]').tap()
+        eval(eval_method)
+        is_called = called.acquire(timeout=5)
+        self.app.release_hook_wx_method("showToast")
+
+        return is_called
 
     def set_pick_filter(self, selector, value):
         """
@@ -79,7 +108,7 @@ class TestBase(minium.MiniTest):
         ele.pick(value)
         return self
 
-    def input_value_by_mk(self, png, value):
+    def input_value_by_mk(self, png, value=None):
         """
         通过键盘鼠标来输入内容
         png: 需要比对的截图，文件放在xf里面，则为: xf/xxx.png
@@ -88,6 +117,7 @@ class TestBase(minium.MiniTest):
         path = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), png)
         print(path)
         btm = pyautogui.locateOnScreen(path)
+        # btm = pyautogui.locateCenterOnScreen(path)
         print(btm)
 
         if btm is None:
@@ -96,17 +126,19 @@ class TestBase(minium.MiniTest):
             self.verifyStr(True, False, f'获取pyautogui.locateOnScreen {png} is None')
             return self
 
-        from pymouse import PyMouse
-        if self.m is None:
-            self.m = PyMouse()
-        self.m.click(btm[0], btm[1])
+        # from pymouse import PyMouse
+        # if self.m is None:
+        #     self.m = PyMouse()
+        # self.m.click(btm[0], btm[1])
+        pyautogui.click(btm[0], btm[1])
 
-        self.delay(1)
-        from pykeyboard import PyKeyboard
-        if self.k is None:
-            self.k = PyKeyboard()
-        # self.k.press_keys(characters=value) # 如果是‘1’，‘0’，‘0’则输入之后显示为10
-        self.k.type_string(value)
+        # self.delay(1)
+        # from pykeyboard import PyKeyboard
+        # if self.k is None:
+        #     self.k = PyKeyboard()
+        if value is not None:
+        #     self.k.type_string(value)
+              pyautogui.write(value)
         return self
 
     def verifyByScreenshot(self, png):
@@ -116,7 +148,7 @@ class TestBase(minium.MiniTest):
         """
         path = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), png)
         print(path)
-        btm = pyautogui.locateOnScreen(path)
+        btm = pyautogui.locateOnScreen(path, confidence=0.8)
         print(btm)
 
         self.get_screenshot(pname=inspect.stack()[1].function)
