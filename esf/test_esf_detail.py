@@ -3,7 +3,7 @@ from base.common import delay
 
 from base.test_base import TestBase
 @ddt_class()
-class Testesfxqy(TestBase):
+class Testesfdetail(TestBase):
     """
     二手房详情页
     """
@@ -11,8 +11,8 @@ class Testesfxqy(TestBase):
     def setUp(self, true=None) -> None:
         self.page_name = "/esf/sell/pages/detail/detail?sellId=329209949"
         self.switch = true
-        super(Testesfxqy, self).setUp()
-        print("Testesfxqy setup")
+        super(Testesfdetail, self).setUp()
+        print("Testesfdetail setup")
 
     def test_goto_photo(self):
         """

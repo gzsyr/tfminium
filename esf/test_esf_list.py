@@ -6,7 +6,7 @@ from base.test_base import TestBase
 
 
 @ddt_class()
-class Testesflby(TestBase):
+class Testesflist(TestBase):
     """
     二手房列表页
     """
@@ -15,8 +15,8 @@ class Testesflby(TestBase):
         self.page_name = "/esf/sell/pages/home/home"
         self.switch = true
         self.classname = self.__class__.__name__
-        super(Testesflby, self).setUp()
-        print("Testesflby setup")
+        super(Testesflist, self).setUp()
+        print("Testesflist setup")
 
     def test_click_search(self):
         """
