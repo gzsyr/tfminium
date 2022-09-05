@@ -1,0 +1,74 @@
+N1:
+  pos_text_1: '不限'
+  pos_text_2: ''
+  pos_text_3: ''
+
+N2:
+  pos_text_1: '区域'
+  pos_text_2: '玄武区'
+  pos_text_3: '珠江路'
+
+N3:
+  pos_text_1: '地铁'
+  pos_text_2: '2号线'
+  pos_text_3: '元通站'
+
+N4:
+  pos_text_1: '学校'
+  pos_text_2: '雨花台区'
+  pos_text_3: '景明佳园小学'
+
+N5:
+  pos_text_1: '附近'
+  pos_text_2: '5km'
+  pos_text_3: ''
+
+N6:
+  price_text: '不限'
+  min_val: ''
+  max_val: ''
+
+N7:
+  price_text: '80万以下'
+  min_val: ''
+  max_val: ''
+
+N8:
+  price_text: ''
+  min_val: '123'
+  max_val: ''
+
+N9:
+  price_text: ''
+  min_val: '444'
+  max_val: '555'
+
+N10:
+  price_text: ''
+  min_val: ''
+  max_val: '321'
+
+N11:
+  hx_text: '不限'
+
+N12:
+  hx_text: '二室|四室'
+
+N13:
+  hx_text: '三室'
+
+N14:
+  order_by_text: '总价由高到低'
+
+N15:
+  more_flag: ''
+  info_from_text: '放心看'
+  info_type_text: '住宅'
+  build_area_text: '300㎡以上'
+  fitment_text: '精装'
+  years_text: '2015年后'
+  floor_text: '2-5层'
+  forward_text: '南北通透'
+  tax_type: '无增值税无个税'
+  is360_text: 'AI讲房'
+  mright_text: '产权房'
