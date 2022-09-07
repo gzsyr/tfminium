@@ -3,16 +3,16 @@ from base.common import delay
 
 from base.test_base import TestBase
 @ddt_class()
-class Testesfxqy(TestBase):
+class Testesfdetail(TestBase):
     """
     二手房详情页
     """
 
     def setUp(self, true=None) -> None:
-        self.page_name = "/esf/sell/pages/detail/detail?sellId=335881321"
+        self.page_name = "/esf/sell/pages/detail/detail?sellId=329209949"
         self.switch = true
-        super(Testesfxqy, self).setUp()
-        print("Testesfxqy setup")
+        super(Testesfdetail, self).setUp()
+        print("Testesfdetail setup")
 
     def test_goto_photo(self):
         """
@@ -20,6 +20,9 @@ class Testesfxqy(TestBase):
         """
         elms = self.page.get_element('view[id="banner"]').get_element('banner').get_elements('view')
         elms[0].get_element('swiper').get_element('swiper-item').tap()
+        delay(3)
+        self.get_screenshot()
+        delay(5)
 
     def test_goto_fxk(self):
         """
@@ -28,6 +31,9 @@ class Testesfxqy(TestBase):
         """
         e = self.page.get_element('view[class="pr between fangXinKan"]')
         e.tap()
+        delay(2)
+        self.get_capture()
+        delay(1)
 
     def test_goto_collect(self):
         """
@@ -36,7 +42,12 @@ class Testesfxqy(TestBase):
         """
         e = self.page.get_element('view[class="button collect"]')
         e.tap()
+        self.get_capture()
+        delay(5)
 
+        """
+        取消收藏
+        """
     def test_goto_share(self):
         """
         点击分享
@@ -44,6 +55,9 @@ class Testesfxqy(TestBase):
         """
         e = self.page.get_element('button[class="button"]')
         e.tap()
+        #self.get_capture()
+        self.get_screenshot()
+        delay(1)
 
     def test_goto_ckxq(self):
         """
