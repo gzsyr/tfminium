@@ -16,7 +16,7 @@ class TestMineFbs(TestBase):
         """
         我的问答页面，点击第一个问答，进入问答详情页
         """
-        self.page.get_element('view[class="question-text ml30"]').click()
+        self.page.get_element('view[class="question-text ml30"]').tap()
 
         self.verifyPageName('/fbs/detail/detail')
-        self.get_capture()
+        self.get_screenshot()

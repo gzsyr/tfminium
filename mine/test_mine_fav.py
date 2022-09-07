@@ -16,20 +16,20 @@ class TestMineFav(TestBase):
         """
         我的收藏页，点击帖子进入帖子详情
         """
-        self.page.get_element('view[data-index="0"]').click()
-        self.page.get_element('navigator[class="item"]').click()
+        self.page.get_element('view[data-index="0"]').tap()
+        self.page.get_element('navigator[class="item"]').tap()
 
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
-        self.get_capture()
+        self.get_screenshot()
 
     def test_goto_fav_first_house(self):
         """
         我的收藏页，点击楼盘tab，点击第一个楼盘进入楼盘详情页
         """
-        self.page.get_element('view[data-index="1"]').click()
-
-        # self.page.wait_for('view[class="commonNewHouseLi-l-img"]')
-        self.page.get_element('image[class="commonNewHouseLi-l-img"]').click()
+        self.page.get_element('view[data-index="1"]').tap()
+        self.delay(2)
+        self.page.get_element('image[class="commonNewHouseLi-l-img"]').tap()
 
         self.verifyPageName('/page/newhouse/detail')
-        self.get_capture()
+        self.get_screenshot()
+
