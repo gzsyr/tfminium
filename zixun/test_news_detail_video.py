@@ -43,7 +43,7 @@ class TestNewsdetailVideo(TestBase):
         """
         self.page.scroll_to(1500, 500)
         self.page.get_element('button[data-type="kf"]').tap()
-        self.delay(1)
+        self.delay(3)
         self.verifyByScreenshot('zixun/bmcg.png')
 
     def test_04_click_dy(self):
@@ -52,7 +52,7 @@ class TestNewsdetailVideo(TestBase):
         """
         self.page.scroll_to(1500, 500)
         self.page.get_element('button[data-type="dy"]').tap()
-        self.delay(1)
+        self.delay(3)
         self.verifyByScreenshot('zixun/365app.png')
 
     def test_05_click_yh(self):
@@ -122,9 +122,10 @@ class TestNewsdetailVideo(TestBase):
         """
         # 进入全部评论页面
         self.page.get_element('view.fixBL-r').tap()
-        self.delay(1)
+        self.delay(4)
         # 点击评论框
         self.page.get_element('button.fixBL-l').tap()
+        # self.input_value_by_mk('zixun/ip.png')
         # 写评论
         tm = time.strftime('%Y-%m-%d %H:%M:%S')
         tap = 'self.page.get_element(\'input.fixBIntB-input\').trigger("confirm", {"value": "' + tm + '"})'

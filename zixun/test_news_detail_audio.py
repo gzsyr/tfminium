@@ -106,9 +106,10 @@ class TestNewsDetailAudio(TestBase):
         """
         # 进入全部评论页面
         self.page.get_element('view.fixBL-r').tap()
-        self.delay(1)
+        self.delay(4)
         # 点击评论框
         self.page.get_element('button.fixBL-l').tap()
+        # self.input_value_by_mk('zixun/ip.png')
         # 写评论
         tm = time.strftime('%Y-%m-%d %H:%M:%S')
         tap = 'self.page.get_element(\'input.fixBIntB-input\').trigger("confirm", {"value": "'+tm+'"})'
