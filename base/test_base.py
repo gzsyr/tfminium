@@ -255,6 +255,20 @@ class TestBase(minium.MiniTest):
         self.native.screen_shot(path)
         return
 
+    def get_third_title(self):
+        """
+        获取当前登录用户的身份
+        """
+        result = self.app.call_wx_method('getStorageSync', 'userInfoNew').\
+            get('result').get('result').get('third_data')
+
+        if result:
+            third = result.get('qz')['third_title']
+            print('getStorageSync: ', third)
+            return third
+        else:
+            return 'C端用户'
+
     def element_is_exist(self, selector=None, inner_text=None):
         """
         查找是否存在某个元素，参数目前就只支持selector和inner_text，后期慢慢增加
