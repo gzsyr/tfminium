@@ -6,7 +6,7 @@
 
 from base.test_mine import TestMine
 
-
+# 跟C端用户中心页面一样的，无需再测
 class TestCenterFBS(TestMine):
     """
     个人中心页，房博士用户

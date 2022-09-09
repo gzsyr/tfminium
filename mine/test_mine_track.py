@@ -16,8 +16,8 @@ class TestMineTrack(TestBase):
         """
         点击足迹的第一个楼盘
         """
-        self.page.get_element('view[class="commonNewHouseLi"]').click()
+        self.page.get_element('view[class="commonNewHouseLi-name tfLine1"]').tap()
 
         # 校验
         self.verifyPageName('/page/newhouse/detail')
-        self.get_capture()
+        self.get_screenshot()
