@@ -1,4 +1,6 @@
 # add by zsy
+import time
+
 from ddt import ddt, data
 
 from base.test_mine import TestMine
@@ -182,6 +184,50 @@ class TestCenterZygw(TestMine):
 
         self.verifyPageName('/page/mine/wdhb/wdhb')
         self.get_screenshot()
+
+    def test_mycustomer_search_comment(self):
+        """
+        置业顾问个人中心，我的客户页面，搜索后的第一个结果写跟进记录
+        """
+        self.page.get_element('view[class="tab-text"]', inner_text='我的客户').tap()
+        self.delay(1)
+        # 我的客户页面
+        # 搜索客户
+        self.page.get_element('input[class="search-input"]').input('1122'+'\n')
+        self.delay(1)
+        # 点击第一个搜索结果
+        try:
+            # self.page.get_element('image[class="btnIcon"]').tap()
+            self.page.get_element('text', inner_text='写跟进').tap()
+        except:
+            print('没有搜索到客户数据，用例通过')
+            self.get_screenshot()
+            return
+
+        self.add_comment(bz=time.strftime('%Y-%m-%d %H:%M:%S'))
+
+        self.get_screenshot()
+
+    def add_comment(self, yx='高', lx='普通跟进', zt='联系不上', bz='test'):
+        """
+        添加跟进记录页面
+        """
+        self.delay(1)
+        if yx:
+            self.page.get_element('view[class="tagitem"][data-index="0"]', inner_text=yx).tap()
+        if lx:
+            lxele = self.page.get_element('view[data-index="1"]', inner_text=lx)
+            a = lxele.attribute('class')
+            if 'active' not in a[0]:
+                lxele.tap()
+        if zt:
+            self.page.get_element('view[class="tagitem"][data-index="2"]', inner_text=zt).tap()
+        if bz:
+            self.page.get_element('textarea').input(bz)
+
+        tap = 'self.page.get_element(\'button\').tap()'
+        self.getShowToast(tap)
+
 
     # @classmethod
     # def tearDownClass(cls):
