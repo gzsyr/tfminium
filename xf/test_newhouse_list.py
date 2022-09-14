@@ -86,7 +86,7 @@ class TestNewsHouseList(TestBase):
         self.page.get_element('view[class="newHouseRfixed-wyzx xflb_fx"]').tap()
         self.delay(2)
 
-        self.verifyStr(True, self.page.wait_for('view[class="chating-history"]'),
+        self.verifyStr(True, self.page.element_is_exists('image[class="historychat"]'),
                        '进入im页面正确')
         self.get_screenshot()
 

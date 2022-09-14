@@ -174,7 +174,7 @@ class TestFuncJsq(TestBase):
             delay(1).\
             click_submitbtn()
 
-        self.delay(1)
+        self.delay(2)
         if self.page.path == '/page/tools/fdjsq/sd/index':
             print('点击开始计算没有响应后，再次点击')
             self.click_submitbtn()

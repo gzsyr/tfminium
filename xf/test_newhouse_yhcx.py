@@ -39,7 +39,7 @@ class TestNewhouseYhcx(TestBase):
         摇号结果查询页，摇号最终结果tab，输入姓名/证明号查询
         """
         self.page.get_element('view[data-index="0"]', inner_text='摇号最终结果').tap()
-        self.page.get_element('input[class="search-int"').input(kw+'\n')
+        self.page.get_element('input[class="search-int"]').input(kw+'\n')
 
         if ret:
             self.delay(1)
@@ -59,7 +59,7 @@ class TestNewhouseYhcx(TestBase):
         self.page.get_element(f'view[data-index="{rn}"]', inner_text=round).tap()
 
         # 输入关键词
-        self.page.get_element('input[class="search-int"').input(kw + '\n')
+        self.page.get_element('input[class="search-int"]').input(kw + '\n')
 
         if ret:
             self.delay(1)
