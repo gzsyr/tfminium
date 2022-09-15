@@ -259,11 +259,14 @@ class TestBase(minium.MiniTest):
         """
         获取当前登录用户的身份
         """
+        sf = {'fbs': '房博士', 'yunying': '运营', 'zygw': '置业顾问'}
         result = self.app.call_wx_method('getStorageSync', 'userInfoNew').\
             get('result').get('result').get('third_data')
 
         if result:
-            third = result.get('qz')['third_title']
+            # third = result.get('qz')['third_title']
+            sf_tmp = result.get('qz')['third_identity']
+            third = sf[sf_tmp]
             print('getStorageSync: ', third)
             return third
         else:
