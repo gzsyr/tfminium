@@ -84,10 +84,11 @@ class TestNewsHouseList(TestBase):
         新房列表页面，点击咨询
         """
         self.page.get_element('view[class="newHouseRfixed-wyzx xflb_fx"]').tap()
-        self.delay(2)
+        self.delay(5)
 
         self.verifyStr(True, self.page.element_is_exists('image[class="historychat"]'),
                        '进入im页面正确')
+        # self.verifyByScreenshot('xf/IM.png')
         self.get_screenshot()
 
     def test_click_housedetail(self):

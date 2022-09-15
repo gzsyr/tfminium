@@ -203,8 +203,9 @@ class TestNewhouseDetail(TestBase):
         """
         self.page.scroll_to(3000, 500)
         self.delay(2)
-        # self.page.get_element("map[class='newHouseMap-map-img xfxq_wzdt']").tap()
-        self.page.get_element('view[class="newHouseTitle-r xfxq_qbhx"][data-eventid="2648"]').tap()
+
+        # self.page.get_element('view[class="newHouseTitle-r xfxq_qbhx"][data-eventid="2648"]').tap()
+        self.page.get_element('view[data-eventid="2648"]').tap()
         self.get_screenshot()
         self.input_value_by_mk('xf/mapreturn.png')
 
