@@ -15,7 +15,7 @@ if __name__ == '__main__':
                  # "--show-capture=all",
                  "--html=pytestReport.html",  # html的报告
                  # "--co",  # 仅收集用例
-                 "--alluredir", "./pytestResult-attach",   # 使用allure报告
+                 "--alluredir", "./pytestResult",   # 使用allure报告
                  # "./xf/test_newhouse_list.py::TestNewsHouseList::test_click_zx",   # 运行指定文件
                  "./zixun",
                  "./tfq",
@@ -25,5 +25,5 @@ if __name__ == '__main__':
                  "--reruns-delay", '2'
                  ])
 
-    os.system(r"allure generate --clean ./pytestResult-attach -o ./pytestReport-attach")
-    os.system(r"allure open ./pytestReport-attach")  # 打开测试报告
+    os.system(r"allure generate --clean ./pytestResult -o ./pytestReport")
+    os.system(r"allure open ./pytestReport")  # 打开测试报告
