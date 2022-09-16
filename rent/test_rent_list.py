@@ -25,12 +25,12 @@ class Testrentlist(TestBase):
         e = self.page.get_element('view[class="input"]')
         e.tap()
         self.verifyPageName('/esf/sell/rent/office/search/search', '搜索 ok')
-        delay(5)
+        delay(3)
 
     @ddt_case(
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9
     )
-    def test_click_king(self, vaule):
+    def test_click_king(self, value):
         """
         点击金刚区（整租、合租等）
         :return:
@@ -38,7 +38,7 @@ class Testrentlist(TestBase):
         king = self.page.element_is_exists('view[class="quick-link"]')
         if king == True:
             obj = self.page.get_elements('view[class="quick-link"]')
-            obj[vaule].tap()
+            obj[value].tap()
             delay(3)
             self.get_capture()
         else:
