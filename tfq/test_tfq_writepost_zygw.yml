@@ -1,0 +1,13 @@
+# 置业顾问身份发布 帖子
+# 输入：title-帖子标题，content-帖子内容，lpname-楼盘名称，quanzi-圈子名称
+#
+SHGJ:
+  title: '置业顾问'
+  content: '这是忒自内筒'
+  lpname: '山海国际'
+  quanzi: '话题四'
+QZWKC:
+  title: '关联泉州万科城'
+  content: '这是忒自内筒'
+  lpname: '泉州万科城'
+  quanzi: '话题二'

@@ -1,0 +1,30 @@
+# 运营身份发布 投票 帖子
+# 输入：title-帖子标题，content-帖子内容，votetitle-投票标题，votelist-投票选项（2个或者3个），ismultiple-是否支持多选
+#
+NM:
+  title: '仅单选'
+  content: '这是单选投票的帖子'
+  votetitle: '投票标题'
+  votelist:
+    - '这是第一个选项'
+    - '这是第二个选项'
+  ismultiple: false
+
+MM:
+  title: '多选'
+  content: '这是多选投票的帖子'
+  votetitle: '投票标题'
+  votelist:
+    - '这是第一个选项'
+    - '这是第二个选项'
+    - '这是第三个选项'
+    - '这是第4个选项'
+    - '这是第5个选项'
+    - '这是第6个选项'
+    - '这是第7个选项'
+    - '这是第8个选项'
+    - '这是第9个选项'
+    - '这是第10个选项'
+    - '这是第11个选项'
+    - '这是第12个选项'
+  ismultiple: true

@@ -1,4 +1,7 @@
 # add by zsy
+
+
+# 帖子回复，评论回复，在test_tfq_postdetail.py中已经写了测试用例，此处不需要了
 from minium import ddt_class, ddt_case, ddt_data
 
 from base.test_mine import TestMine
@@ -41,7 +44,7 @@ class TestPostComment(TestMine):
         ddt_data(3, name="yy"),
         ddt_data(4, name="fbs")
     )
-    def test_postcomment(self, value):
+    def postcomment(self, value):
         """
         不同身份，帖子详情页，点击底部发布评论弹窗，发布评论
         :param value:
@@ -73,7 +76,7 @@ class TestPostComment(TestMine):
         ddt_data(3, name="yy"),
         ddt_data(4, name="fbs")
     )
-    def test_send_commentlist_reply(self, value):
+    def send_commentlist_reply(self, value):
         """
         不同身份，帖子详情页，点击第一个评论的“回复”按钮，发布评论回复
         :return:
