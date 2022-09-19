@@ -1,0 +1,30 @@
+N1:
+  pos_text_1: '不限'
+  pos_text_2: ''
+  pos_text_3: ''
+
+N2:
+  pos_text_1: '区属'
+  pos_text_2: '玄武区'
+  pos_text_3: '珠江路|北京东路|丹凤街'
+
+N3:
+  pos_text_1: '地铁'
+  pos_text_2: '2号线'
+  pos_text_3: '元通站'
+
+N4:
+  price_text: '3-4元/天*㎡'
+
+N5:
+  area_text: '100-200㎡'
+
+N6:
+  order_by_text: '价格从高到低'
+
+N7:
+  more_flag: ''
+  office_type_text: '普通办公'
+  source_text: '中介'
+  fitment_text: '精装'
+  special_text: '整栋'
