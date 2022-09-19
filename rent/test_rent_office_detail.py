@@ -5,16 +5,16 @@ from base.common import delay
 from base.test_base import TestBase
 
 @ddt
-class Testrentdetail(TestBase):
+class Testrentofficedetail(TestBase):
     """
-    租房详情页
+    写字楼详情页
     """
     def setUp(self, true=None) -> None:
-        self.page_name = "/esf/sell/rent/detail/detail?rentId=106727255&city=nj"
+        self.page_name = "/esf/sell/rent/detail/detail?rentId=106601771"
         self.switch = true
         self.classname = self.__class__.__name__
-        super(Testrentdetail, self).setUp()
-        print("Testrentdetail setup")
+        super(Testrentofficedetail, self).setUp()
+        print("Testrentofficedetail setup")
 
     def test_goto_photo(self):
         """
@@ -83,56 +83,18 @@ class Testrentdetail(TestBase):
             self.get_capture()
             delay(1)
 
-    def test_click_xiaoqu(self):
+    def test_click_fygk(self):
         """
-        点击小区
+        点击房源概况-房源详情咨询
         :return:
         """
-        self.page.scroll_to(400, 500)
-        delay(1)
-        m = self.page.element_is_exists('view[class="flex_1 between"]')
-        if m == True:
-            self.page.get_element('view[class="flex_1 between"]').tap()
+        fygk = self.page.element_is_exists('text', inner_text='房源概况')
+        if fygk == True:
+            e = self.page.get_element('view[class="center msg"]')
+            e.tap()
             self.get_capture()
-            delay(1)
         else:
-            print('没有小区')
-            self.get_capture()
-            delay(1)
-
-    def test_click_ditie(self):
-        """
-        点击地铁地图
-        :return:
-        """
-        self.page.scroll_to(400, 500)
-        delay(1)
-        m = self.page.element_is_exists('view[class="flex flex_1 justify_between"]')
-        if m == True:
-            self.page.get_element('view[class="flex flex_1 justify_between"]').tap()
-            self.get_capture()
-            delay(1)
-        else:
-            print('没有地铁')
-            self.get_capture()
-            delay(1)
-
-    def test_click_fyim(self):
-        """
-        点击房源详情咨询
-        :return:
-        """
-        self.page.scroll_to(500, 500)
-        delay(1)
-        m = self.page.element_is_exists('view[class="center msg"]')
-        if m == True:
-            self.page.get_element('view[class="center msg"]').tap()
-            self.get_capture()
-            delay(1)
-        else:
-            print('没有房源详情咨询')
-            self.get_capture()
-            delay(1)
+            print('没有房源概况模块')
 
     def test_click_descmsg(self):
         """
@@ -293,17 +255,8 @@ class Testrentdetail(TestBase):
         e.tap()
         self.get_capture()
 
-    def test_goto_ask(self):
-        """
-        点击提问
-        :return:
-        """
-        e = self.page.get_element('view[class="center askBtn"]')
-        e.tap()
-        self.get_capture()
-
     @ddt_case(
-        1, 2, 3, 4
+        0, 1, 2, 3, 4, 5
     )
     def test_goto_asklayer(self, value):
         """
@@ -311,10 +264,13 @@ class Testrentdetail(TestBase):
         :param value:
         :return:
         """
-        align_ask = self.page.get_elements('view[class="pa flex align_center question moveOut"]')
-        ask_one = align_ask[value]
-        ask_one.tap()
-        self.get_capture()
+        self.page.get_element('view[class="center askBtn"]').tap()
+        if self.page.wait_for('//view[@class="pa questions"]/view'):
+            elms = self.page.get_elements('//view[@class="pa questions"]/view/text')
+            if len(elms) > value:
+                #print(value)
+                elms[value].tap()
+                self.get_capture()
 
     def test_goto_broker(self):
         """
