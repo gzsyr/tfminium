@@ -10,7 +10,6 @@ class Testesflist(TestBase):
     """
     二手房列表页
     """
-
     def setUp(self, true=None) -> None:
         self.page_name = "/esf/sell/pages/home/home"
         self.switch = true
@@ -50,8 +49,9 @@ class Testesflist(TestBase):
         :param value:
         :return:
         """
-        self.page.get_element(f'view[class="inline_flex flex_column justify_center entrance"][data-index="{value}"]').tap()
-        #self.get_capture()
+        self.page.get_element(f'view[class="inline_flex flex_column justify_center entrance"]'
+                              f'[data-index="{value}"]').tap()
+        # self.get_capture()
         self.get_screenshot()
         delay(5)
 
@@ -61,12 +61,11 @@ class Testesflist(TestBase):
         :return:
         """
         b_l = self.page.element_is_exists('swiper-item[class="img"]')
-        if b_l == True:
+        if b_l:
             e = self.page.get_element('swiper-item[class="img"]')
             e.tap()
         else:
             print("没有配置广告")
-
 
     @file_data('./test_esf_list.yml')
     def test_search(self, **kwargs):
@@ -386,7 +385,6 @@ class Testesflist(TestBase):
         self.page.get_element(f'view[class="text_center screenQuickItem"][data-index="{value}"]').tap()
         self.get_capture()
         delay(5)
-
 
     def test_click_housedetail(self):
         """

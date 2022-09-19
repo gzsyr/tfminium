@@ -1,10 +1,10 @@
-from ddt import file_data, ddt
+from ddt import file_data
 from minium import ddt_class, ddt_case
 
-from base.common import delay
 from base.test_base import TestBase
 
-@ddt
+
+@ddt_class()
 class Testrentlist(TestBase):
     """
     租房列表页
@@ -25,7 +25,7 @@ class Testrentlist(TestBase):
         e = self.page.get_element('view[class="input"]')
         e.tap()
         self.verifyPageName('/esf/sell/rent/office/search/search', '搜索 ok')
-        delay(3)
+        self.delay(3)
 
     @ddt_case(
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9
@@ -36,10 +36,10 @@ class Testrentlist(TestBase):
         :return:
         """
         king = self.page.element_is_exists('view[class="quick-link"]')
-        if king == True:
+        if king:
             obj = self.page.get_elements('view[class="quick-link"]')
             obj[value].tap()
-            delay(3)
+            self.delay(3)
             self.get_capture()
         else:
             print("无")
@@ -59,14 +59,16 @@ class Testrentlist(TestBase):
         elms = elm_first_item.get_element('rentItem').get_elements('view')
         elms[0].tap()
         self.verifyPageName('/esf/sell/rent/detail/detail', '房源详情 ok')
-        delay(5)
+        self.delay(5)
 
     @file_data('./test_rent_list.yml')
     def test_search(self, **kwargs):
         """
-        二手房筛选
+        租房筛选
         :return:
         """
+        self.tab_class = '//view[@class="flex tab"]/view[@class="tab-text"]'
+        self.tab_class_selected = '//view[@class="flex tab selected"]/view[@class="tab-text"]'
 
         # 清空筛选条件
         self.clear_search()
@@ -91,7 +93,7 @@ class Testrentlist(TestBase):
             self.price_search(price_text, min_val, max_val)
             self.delay(1)
 
-        # 房型筛选
+        # 户型筛选
         if 'hx_text' in kwargs.keys():
             hx_text = kwargs['hx_text']
 
@@ -101,16 +103,11 @@ class Testrentlist(TestBase):
         # 更多筛选
         if 'more_flag' in kwargs.keys():
             ary_more_text = {}
-            ary_more_key = ['info_from_text',
+            ary_more_key = ['rent_type_text',
+                            'origin_from_text',
                             'info_type_text',
-                            'build_area_text',
                             'fitment_text',
-                            'years_text',
-                            'floor_text',
-                            'forward_text',
-                            'tax_type',
-                            'is360_text',
-                            'mright_text'
+                            'special_text'
                             ]
 
             for str_key in ary_more_key:
@@ -136,37 +133,60 @@ class Testrentlist(TestBase):
         """
         位置筛选
         """
+        is_selected = False
+        verify_text = '位置'
 
         self.delay(1)
-        flag = self.page.element_is_exists('view[class="line_1 screenTabText"]',
-                                           inner_text='位置')
+        flag = self.page.element_is_exists(self.tab_class, text_contains=verify_text)
         if flag:
-            e = self.page.get_element('view[class="line_1 screenTabText"]',
-                                      inner_text="位置")
+            e = self.page.get_element(self.tab_class, text_contains=verify_text)
             e.tap()
             self.delay(1)
 
-            e = self.page.get_element("//location/view/view/view/text", inner_text=text_1)
+            e = self.page.get_element("//location/view/view/view", text_contains=text_1)
             e.tap()
             self.delay(1)
 
             if text_1 != '不限':
-                verify_text = text_2
-                e = self.page.get_element("//location//view/scroll-view[1]/view/text", inner_text=text_2)
-                e.tap()
-                self.delay(1)
+                if text_2 != '不限' and text_2 != '':
+                    is_selected = True
 
-                if text_3 != '':
-                    verify_text = text_3
-                    e = self.page.get_element("//location//view/scroll-view[2]/view/text", inner_text=text_3)
+                    e = self.page.get_element("//location//view/scroll-view[1]/view", text_contains=text_2)
                     e.tap()
                     self.delay(1)
 
-                verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText screenTabColor"]',
-                                                          inner_text=verify_text)
+                    if text_3 != '不限' and text_3 != '':
+                        ary_text3 = text_3.split("|")
+
+                        i = 0
+                        verify_text = ''
+                        for k in ary_text3:
+                            if k == '不限' or k == '':
+                                continue
+
+                            e = self.page.get_element("//location//view/scroll-view[2]/view/text", inner_text=k)
+                            e.tap()
+
+                            if verify_text != '':
+                                verify_text += ','
+
+                            verify_text += k
+
+                            # 最多只能选 3 个
+                            i += 1
+                            if i == 3:
+                                break
+                    else:
+                        verify_text = text_2
+
+            e = self.page.get_element('//location/view/view[2]/view', inner_text="确定")
+            e.tap()
+            self.delay(1)
+
+            if is_selected:
+                verify_flag = self.page.element_is_exists(self.tab_class_selected, text_contains=verify_text)
             else:
-                verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText"]',
-                                                          inner_text='位置')
+                verify_flag = self.page.element_is_exists(self.tab_class, text_contains=verify_text)
 
             print(verify_flag)
         else:
@@ -178,106 +198,90 @@ class Testrentlist(TestBase):
         """
         租金筛选
         """
+        is_selected = False
+        verify_text = '租金'
 
         self.delay(1)
-        flag = self.page.element_is_exists('view[class="flex tab"]',
-                                           inner_text='租金')
+        flag = self.page.element_is_exists(self.tab_class, text_contains=verify_text)
         if flag:
-            e = self.page.get_element('view[class="flex tab"]',
-                                      inner_text="租金")
+            e = self.page.get_element(self.tab_class, text_contains=verify_text)
             e.tap()
             self.delay(1)
 
             if price_text != '':
-                e = self.page.get_element("//price/view/scroll-view/view/text", inner_text=price_text)
+                e = self.page.get_element("//price/view/scroll-view/view", text_contains=price_text)
                 e.tap()
                 self.delay(1)
 
-                if price_text == '不限':
-                    verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText"]',
-                                                              inner_text="总价")
-                else:
-                    verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText screenTabColor"]',
-                                                              inner_text=price_text)
+                if price_text != '不限':
+                    is_selected = True
+                    verify_text = price_text
             else:
+                is_selected = True
+
                 if min_val != '':
-                    e = self.page.get_element("//price/view/view/view/input", inner_text="最低价")
+                    e = self.page.get_element("//price/view/view/input", inner_text="最低价")
                     e.input(min_val)
+                    self.delay(1)
 
                 if max_val != '':
-                    e = self.page.get_element("//price/view/view/view/input", inner_text="最高价")
+                    e = self.page.get_element("//price/view/view/input", inner_text="最高价")
                     e.input(max_val)
+                    self.delay(1)
 
-                e = self.page.get_element('view[class="price--text_center price--confirm"]')
+                e = self.page.get_element('view[class="price--confirm price--enable"]')
                 e.tap()
                 self.delay(1)
 
                 if min_val == '':
-                    verify_text = max_val + '万以下'
+                    verify_text = max_val + '元以下'
                 elif max_val == '':
-                    verify_text = min_val + '万以上'
+                    verify_text = min_val + '元以上'
                 else:
-                    verify_text = min_val + '-' + max_val + '万'
+                    verify_text = min_val + '-' + max_val + '元'
                     # 缺 min_val > max_val 情况
 
-                verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText screenTabColor"]',
-                                                          inner_text=verify_text)
+            if is_selected:
+                verify_flag = self.page.element_is_exists(self.tab_class_selected, text_contains=verify_text)
+            else:
+                verify_flag = self.page.element_is_exists(self.tab_class, text_contains=verify_text)
 
             print(verify_flag)
         else:
-            print("没找到总价按钮")
+            print("没找到租金按钮")
 
         return self
 
     def house_type_search(self, hx_text):
         """
-        房型筛选
+        户型筛选
         """
+        is_selected = False
+        verify_text = '户型'
 
         self.delay(1)
-        flag = self.page.element_is_exists('view[class="line_1 screenTabText"]',
-                                           inner_text='房型')
+        flag = self.page.element_is_exists(self.tab_class, text_contains=verify_text)
         if flag:
-            e = self.page.get_element('view[class="line_1 screenTabText"]',
-                                      inner_text="房型")
+            e = self.page.get_element(self.tab_class, text_contains=verify_text)
             e.tap()
             self.delay(1)
 
-            if hx_text == '不限':
-                e = self.page.get_element("view", inner_text=hx_text)
-                e.tap()
-                self.delay(1)
+            if hx_text != '不限':
+                is_selected = True
+                verify_text = hx_text
 
-                verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText"]',
-                                                          inner_text="房型")
+            e = self.page.get_element("//room/scroll-view/view", text_contains=hx_text)
+            e.tap()
+            self.delay(1)
+
+            if is_selected:
+                verify_flag = self.page.element_is_exists(self.tab_class_selected, text_contains=verify_text)
             else:
-                ary_hx = hx_text.split("|")
-
-                if len(ary_hx) == 1:
-                    e = self.page.get_element("//room/view/scroll-view/view/text", inner_text=hx_text)
-                    e.tap()
-
-                    e = self.page.get_element('//room/view/view/view/text', inner_text="确定")
-                    e.tap()
-                    self.delay(1)
-
-                    verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText screenTabColor"]',
-                                                              inner_text=hx_text)
-                else:
-                    for hx in ary_hx:
-                        e = self.page.get_element("//room/view/scroll-view/view/text", inner_text=hx)
-                        e.tap()
-
-                    e = self.page.get_element('//room/view/view/view/text', inner_text="确定")
-                    e.tap()
-                    self.delay(1)
-
-                    verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText screenTabColor"]',
-                                                              inner_text="多选")
+                verify_flag = self.page.element_is_exists(self.tab_class, text_contains=verify_text)
 
             print(verify_flag)
         else:
-            print("没找到房型按钮")
+            print("没找到户型按钮")
 
         return self
 
@@ -285,19 +289,29 @@ class Testrentlist(TestBase):
         """
         筛选排序
         """
+        is_selected = False
+        verify_text = '排序'
 
         self.delay(1)
-        flag = self.page.element_is_exists('view[class="line_1 screenTabText"]',
-                                           inner_text='排序')
+        flag = self.page.element_is_exists(self.tab_class, text_contains=verify_text)
         if flag:
-            e = self.page.get_element('view[class="line_1 screenTabText"]',
-                                      inner_text="排序")
+            e = self.page.get_element(self.tab_class, text_contains=verify_text)
             e.tap()
             self.delay(1)
 
-            e = self.page.get_element("//sort/view/view/view/text", inner_text=order_by_text)
+            if order_by_text != '不限':
+                is_selected = True
+
+            e = self.page.get_element("//order/scroll-view/view", text_contains=order_by_text)
             e.tap()
             self.delay(1)
+
+            if is_selected:
+                verify_flag = self.page.element_is_exists(self.tab_class_selected, text_contains=verify_text)
+            else:
+                verify_flag = self.page.element_is_exists(self.tab_class, text_contains=verify_text)
+
+            print(verify_flag)
         else:
             print("没找到排序按钮")
 
@@ -307,25 +321,21 @@ class Testrentlist(TestBase):
         """
         更多筛选
         """
+        is_selected = False
+        verify_text = '更多'
+
         self.delay(1)
-        flag = self.page.element_is_exists('view[class="line_1 screenTabText"]',
-                                           inner_text='更多')
+        flag = self.page.element_is_exists(self.tab_class, text_contains=verify_text)
         if flag:
-            e = self.page.get_element('view[class="line_1 screenTabText"]',
-                                      inner_text="更多")
+            e = self.page.get_element(self.tab_class, text_contains=verify_text)
             e.tap()
             self.delay(1)
 
-            dict_more_height = {'info_from_text': 0,
-                                'info_type_text': 70,
-                                'build_area_text': 180,
-                                'fitment_text': 290,
-                                'years_text': 360,
-                                'floor_text': 470,
-                                'forward_text': 540,
-                                'tax_type': 650,
-                                'is360_text': 720,
-                                'mright_text': 790
+            dict_more_height = {'rent_type_text': 0,
+                                'origin_from_text': 72,
+                                'info_type_text': 144,
+                                'fitment_text': 256,
+                                'special_text': 368
                                 }
 
             scroll_view = self.page.get_element('//more/view/scroll-view')
@@ -334,22 +344,25 @@ class Testrentlist(TestBase):
                 more_text = ary_more_text[str_key]
                 more_height = dict_more_height[str_key]
 
-                if more_text != '':
+                if more_text != '不限' and more_text != '':
+                    is_selected = True
+
                     if more_height != 0:
                         scroll_view.scroll_to(y=more_height)
                         self.delay(1)
 
-                    e = self.page.get_element("//more/view/scroll-view/view/view[2]/view/text",
-                                              inner_text=more_text)
+                    e = self.page.get_element("//more/view/scroll-view/view/view", text_contains=more_text)
                     e.tap()
                     self.delay(1)
 
-            e = self.page.get_element('//more/view/view/view/text', inner_text="确定")
+            e = self.page.get_element('//more/view/view/view', inner_text="确定")
             e.tap()
             self.delay(1)
 
-            verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText screenTabColor"]',
-                                                      inner_text="更多")
+            if is_selected:
+                verify_flag = self.page.element_is_exists(self.tab_class_selected, text_contains=verify_text)
+            else:
+                verify_flag = self.page.element_is_exists(self.tab_class, text_contains=verify_text)
 
             print(verify_flag)
         else:
@@ -362,8 +375,6 @@ class Testrentlist(TestBase):
         清空筛选条件
         """
         self.delay(1)
-        self.page.get_element('view[class="pa clear"]').tap()
+        self.page.get_element('image[class="icon-clear-filter"]').tap()
 
         return self
-
-
