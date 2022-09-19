@@ -1,7 +1,7 @@
 from base.test_base import TestBase
 
 
-class TestQuanZi(TestBase):
+class TestTfqQuanZi(TestBase):
     """
     圈子广场
     """
@@ -9,33 +9,25 @@ class TestQuanZi(TestBase):
     def setUp(self) -> None:
         self.page_name = "/page/taofangquan/huati/huatiSquare?city=qz"
         self.switch = False
-        super(TestQuanZi, self).setUp()
+        self.classname = self.__class__.__name__
+        super(TestTfqQuanZi, self).setUp()
         print("TestQuanZi  Setup")
 
     def test_click_quanzi(self):
         """
-        点击圈子，进入圈子详情页
-        :return:
+        圈子广场，点击圈子，进入圈子详情页
         """
-        e = self.page.get_element('view[class="hotSearch"]')
-        e.tap()
+        self.page.get_element('view[class="hotSearch"]').tap()
 
-    def test_click_btn1(self):
-        """
-        点击圈子列表的”关注“按钮
-        :return:
-        """
-        ret = self.page.element_is_exists('view[class="btn"]', inner_text="关注")
-        if ret == True:
-            self.page.get_element('view[class="btn"]', inner_text="关注").tap()
-        else:
-            print("第一条圈子已关注，此用例直接pass")
+        self.verifyPageName('/page/taofangquan/huati/huatiDetail')
+        self.get_screenshot()
 
-    def test_click_btn2(self):
+    def test_click_fav(self):
         """
-        点击圈子列表的”已关注“按钮
-        :return:
+        圈子广场，点击圈子列表第一条，点击”关注“按钮变为“已关注”，或（“已关注”）点击后进入圈子详情页
         """
-        e = self.page.get_element('view[class="btn"]', inner_text="已关注")
-        e.tap()
+        self.page.get_element('view[data-index2="0"]').tap()
+
+        self.get_screenshot()
+
 

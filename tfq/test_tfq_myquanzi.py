@@ -3,7 +3,7 @@
 from base.test_base import TestBase
 
 
-class TestMyQuzi(TestBase):
+class TestTfqMyQuzi(TestBase):
     """
     我的圈子页面
     """
@@ -11,7 +11,8 @@ class TestMyQuzi(TestBase):
     def setUp(self) -> None:
         self.page_name = "/page/mine/myQuanzi/myQuanzi?city=qz"
         self.switch = False
-        super(TestMyQuzi, self).setUp()
+        self.classname = self.__class__.__name__
+        super(TestTfqMyQuzi, self).setUp()
         print("TestMyQuzi setup")
 
     def test_click(self):
@@ -19,3 +20,7 @@ class TestMyQuzi(TestBase):
         我的圈子页面，点击圈子
         """
         self.page.get_element('view[class="title tfline2"]').tap()
+
+        self.verifyPageName('/page/taofangquan/huati/huatiDetail')
+        self.get_screenshot()
+

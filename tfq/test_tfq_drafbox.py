@@ -1,7 +1,7 @@
 from base.test_base import TestBase
 
 
-class TestDrafBox(TestBase):
+class TestTfqDrafBox(TestBase):
     """
     草稿箱页面
     """
@@ -9,8 +9,9 @@ class TestDrafBox(TestBase):
     def setUp(self) -> None:
         self.page_name = "/page/mine/draftBox/draftBox?city=qz"
         self.switch = False
-        super(TestDrafBox, self).setUp()
-        print("TestDrafBox setup")
+        self.classname = self.__class__.__name__
+        super(TestTfqDrafBox, self).setUp()
+        print("TestTfqDrafBox setup")
 
     def test_click_draftitle(self):
         """
@@ -18,23 +19,16 @@ class TestDrafBox(TestBase):
         """
         self.page.get_element('view[class="draft_tit"]').tap()
 
+        self.verifyPageName('/page/taofangquan/writePost/writePost')
+        self.get_screenshot()
+
     def test_click_delete(self):
         """
-        草稿箱页面，点击帖子草稿删除按钮
+        草稿箱页面，点击帖子草稿删除按钮，二次确定点击删除
         """
         b_l = self.page.element_is_exists('view[class="draft_delete"]')
         if b_l:
-            self.page.get_element('view[class="draft_delete"]').tap()
-        else:
-            print("没有帖子草稿")
-
-    def test_click_delete1(self):
-        """
-        草稿箱页面，点击帖子草稿删除按钮，二次确定点击取消
-        """
-        b_l = self.page.element_is_exists('view[class="draft_delete"]')
-        if b_l:
-            result = {"confirm": False}
+            result = {"confirm": True}
             self.app.mock_wx_method("showModal", result=result)
             e = self.page.get_element('view[class="draft_delete"]')
             e.tap()
@@ -45,17 +39,15 @@ class TestDrafBox(TestBase):
         else:
             print("没有帖子草稿")
 
+        self.get_screenshot()
+
     def test_click_lptab(self):
         """
         草稿箱页面，切换至楼盘评论tab
         """
         self.page.get_element('view[class="draft_item"]', inner_text="楼盘评论").tap()
 
-    def test_click_tiezitab(self):
-        """
-        草稿箱页面，切换至帖子tab
-        """
-        self.page.get_element('view[class="draft_item draft_active"]').tap()
+        self.get_screenshot()
 
     def test_click_lptitle(self):
         """
@@ -70,18 +62,7 @@ class TestDrafBox(TestBase):
         else:
             print("暂无楼盘评论，直接pass")
 
-    def test_click_lpdelete(self):
-        """
-        草稿箱页面，切换至楼盘评论tab，点击楼盘评论删除按钮
-        """
-        self.page.get_element('view[class="draft_item"]', inner_text="楼盘评论").tap()
-        self.delay(3)
-        exist = self.page.element_is_exists('view[class="draft_delete"]')
-
-        if exist:
-            self.page.get_element('view[class="draft_delete"]').tap()
-        else:
-            print("暂无楼盘评论，直接pass")
+        self.get_screenshot()
 
     def test_click_lpdelete_confirm(self):
         """
@@ -102,3 +83,4 @@ class TestDrafBox(TestBase):
         else:
             print("没有楼盘评论草稿，直接pass")
 
+        self.get_screenshot()
