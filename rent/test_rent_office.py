@@ -37,7 +37,7 @@ class Testrentoffice(TestBase):
         """
         tile = self.page.get_element(f'view[class="text_center tile"][data-type = "{value}"]')
         tile.tap()
-        self.get_capture()
+        self.get_screenshot()
         delay(3)
 
     @ddt_case(
@@ -53,7 +53,7 @@ class Testrentoffice(TestBase):
         if len(elms) > value:
             elms[value].tap()
             self.delay(1)
-            self.get_capture()
+            self.get_screenshot()
 
     def test_click_rmlp(self):
         """
@@ -64,7 +64,7 @@ class Testrentoffice(TestBase):
         if rmlp == True:
             gd = self.page.get_element('view[class="center check"][data-type="2"]')
             gd.tap()
-            self.get_capture()
+            self.get_screenshot()
         else:
             print('没有热门楼盘模块')
 
@@ -77,7 +77,7 @@ class Testrentoffice(TestBase):
         if rmlp == True:
             gd = self.page.get_element('view[class="center check"][data-type="1"]')
             gd.tap()
-            self.get_capture()
+            self.get_screenshot()
         else:
             print('没有推荐写字楼模块')
 
@@ -99,7 +99,7 @@ class Testrentoffice(TestBase):
                 # 点击第一条房源
                 elms = elm_first_item.get_element('officeItem').get_elements('view')
                 elms[0].tap()
-                self.get_capture()
+                self.get_screenshot()
         else:
             print('没有推荐写字楼模块')
 

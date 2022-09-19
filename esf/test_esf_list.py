@@ -25,7 +25,7 @@ class Testesflist(TestBase):
         e = self.page.get_element('input[class="search--flex_1"]')
         e.tap()
         self.verifyPageName('/esf/sell/pages/search/search', '搜索 ok')
-        delay(5)
+        delay(3)
 
     @ddt_case(
         0, 1, 2, 3, 4
@@ -37,7 +37,7 @@ class Testesflist(TestBase):
         :return:
         """
         self.page.get_element(f'view[class="text_center tile"][data-index="{value}"]').tap()
-        self.get_capture()
+        self.get_screenshot()
         delay(3)
 
     @ddt_case(
@@ -64,6 +64,7 @@ class Testesflist(TestBase):
         if b_l:
             e = self.page.get_element('swiper-item[class="img"]')
             e.tap()
+            self.get_screenshot()
         else:
             print("没有配置广告")
 
@@ -136,7 +137,7 @@ class Testesflist(TestBase):
             self.delay(1)
 
         # 截图
-        self.get_capture()
+        self.get_screenshot()
 
     def pos_search(self, text_1, text_2, text_3):
         """
@@ -383,7 +384,7 @@ class Testesflist(TestBase):
         """
         self.page.get_element('view[class="pa clear"]').tap()
         self.page.get_element(f'view[class="text_center screenQuickItem"][data-index="{value}"]').tap()
-        self.get_capture()
+        self.get_screenshot()
         delay(5)
 
     def test_click_housedetail(self):

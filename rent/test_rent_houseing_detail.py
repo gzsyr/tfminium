@@ -33,14 +33,14 @@ class Testrenthouseingdetail(TestBase):
         """
         e = self.page.get_element('view[class="button collect"]')
         e.tap()
-        self.get_capture()
+        self.get_screenshot()
         delay(3)
         """
         取消收藏
         """
         e1 = self.page.get_element('view[class="button collect"]')
         e1.tap()
-        self.get_capture()
+        self.get_screenshot()
 
     def test_goto_share(self):
         """
@@ -72,12 +72,10 @@ class Testrenthouseingdetail(TestBase):
         m = self.page.element_is_exists('view[class="map"]')
         if m == True:
             self.page.get_element('view[class="map"]').tap()
-            self.get_capture()
+            self.get_screenshot()
             delay(2)
         else:
             print('没有该模块')
-            self.get_capture()
-            delay(1)
 
     def test_click_module(self):
         """
@@ -90,7 +88,7 @@ class Testrenthouseingdetail(TestBase):
         if re == True:
             elm_items = self.page.get_elements('view[class="flex itemHas"]')
             elm_items[0].tap()
-            self.get_capture()
+            self.get_screenshot()
             delay(2)
         else:
             print('没有相关推荐')
@@ -106,7 +104,7 @@ class Testrenthouseingdetail(TestBase):
         if mo == True:
             m = self.page.get_element('view[class="center checkMore"]')
             m.tap()
-            self.get_capture()
+            self.get_screenshot()
             delay(2)
         else:
             print('没有相关推荐')
@@ -120,5 +118,5 @@ class Testrenthouseingdetail(TestBase):
         delay(1)
         m = self.page.get_element('view[class="center msg"]')
         m.tap()
-        self.get_capture()
+        self.get_screenshot()
         delay(2)

@@ -1,0 +1,23 @@
+N1:
+  pos_text_1: '不限'
+  pos_text_2: ''
+  pos_text_3: ''
+
+N2:
+  pos_text_1: '区属'
+  pos_text_2: '玄武区'
+  pos_text_3: '珠江路|北京东路|丹凤街'
+
+N3:
+  pos_text_1: '地铁'
+  pos_text_2: '2号线'
+  pos_text_3: '元通站'
+
+N4:
+  build_text: '纯写字楼'
+
+N5:
+  price_text: '2-3元/天*㎡'
+
+N6:
+  order_by_text: '价格（从低到高）'

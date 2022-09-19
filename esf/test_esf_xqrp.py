@@ -10,6 +10,7 @@ class Testesfxqrp(TestBase):
     def setUp(self, true=None) -> None:
         self.page_name = "/esf/village/pages/comment/list/list"
         self.switch = true
+        self.classname = self.__class__.__name__
         super(Testesfxqrp, self).setUp()
         print("Testesfxqrp setup")
 
@@ -20,6 +21,8 @@ class Testesfxqrp(TestBase):
         """
         e = self.page.get_element('view[class="flex align_center search"]')
         e.tap()
+        self.verifyPageName('/esf/sell/pages/search/search', '搜索 ok')
+        delay(3)
 
     def test_click_todo(self):
         """
@@ -28,6 +31,7 @@ class Testesfxqrp(TestBase):
         """
         e = self.page.get_element('view[class="center toDo"]')
         e.tap()
+        self.get_screenshot()
 
     def test_click_hotcomment(self):
         """
@@ -36,6 +40,7 @@ class Testesfxqrp(TestBase):
         """
         hotlist = self.page.get_elements('view[class="between hotComment"]')
         hotlist[0].tap()
+        self.get_screenshot()
 
     def test_click_commentim(self):
         """
@@ -45,6 +50,7 @@ class Testesfxqrp(TestBase):
         elms_im = self.page.get_elements('view[class="msg"]')
         if len(elms_im) > 0:
             elms_im[0].tap()
+            self.get_screenshot()
         else:
             print("没有评论")
 
@@ -56,6 +62,7 @@ class Testesfxqrp(TestBase):
         elms_tel = self.page.get_elements('view[class="tel"]')
         if len(elms_tel) > 0:
             elms_tel[0].tap()
+            self.get_screenshot()
         else:
             print("没有评论")
 
@@ -67,6 +74,7 @@ class Testesfxqrp(TestBase):
         elms_list = self.page.get_elements('view[class="commentItem"]')
         if len(elms_list) > 0:
             elms_list[0].tap()
+            self.get_screenshot()
         else:
             print("没有评论")
 
@@ -81,6 +89,7 @@ class Testesfxqrp(TestBase):
 
             if len(plimg) > 0:
                 plimg[0].tap()
+                self.get_screenshot()
             else:
                 print("没有评论图片")
         else:
@@ -97,6 +106,7 @@ class Testesfxqrp(TestBase):
         if pldz == True:
             dz = self.page.get_elements('view[class="center"][data-index="0"][data-level="1"]')
             dz[0].tap()
+            self.get_screenshot()
         else:
             print("没有评论")
 
@@ -112,6 +122,7 @@ class Testesfxqrp(TestBase):
         if qxdz == True:
             qx = self.page.get_elements('view[class="center like"][data-index="0"][data-level="1"]')
             qx[0].tap()
+            self.get_screenshot()
         else:
             print("没有点赞")
 
@@ -125,6 +136,7 @@ class Testesfxqrp(TestBase):
         pllp = self.page.get_elements('view[class="flex align_center villageName"]')
         if len(pllp) > 0:
             pllp[0].tap()
+            self.get_screenshot()
         else:
             print("没有评论")
 
@@ -137,3 +149,4 @@ class Testesfxqrp(TestBase):
         delay(1)
         e = self.page.get_element('//view[@class="hover_button_wrapper"]')
         e.tap()
+        self.get_screenshot()

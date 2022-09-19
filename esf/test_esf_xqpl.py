@@ -13,6 +13,7 @@ class Testesfxqpl(TestBase):
     def setUp(self, true=None) -> None:
         self.page_name = "/esf/village/pages/comment/publish/publish?blockId=8819&blockName=碧桂园凤凰城"
         self.switch = true
+        self.classname = self.__class__.__name__
         super(Testesfxqpl, self).setUp()
         print("Testesfxqpl setup")
 
@@ -46,6 +47,7 @@ class Testesfxqpl(TestBase):
         delay(1)
         star5 = self.page.get_element(f'view[class="star"][data-index="5"][data-starindex="{kwargs["wy"]}"]')
         star5.tap()
+        self.get_screenshot()
 
         """
         yz = self.page.element_is_exists('view[class="center identity active"][data-id="1"]')
@@ -119,10 +121,12 @@ class Testesfxqpl(TestBase):
         """
         sub = self.page.get_element('view[class="center submit"]')
         sub.tap()
+        self.get_screenshot()
 
     def test_click_guifan(self):
         e = self.page.get_element('text', inner_text="评论规范")
         e.tap()
+        self.get_screenshot()
 
 
 

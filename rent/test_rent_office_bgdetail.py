@@ -34,12 +34,10 @@ class Testrentofficebgdetail(TestBase):
         m = self.page.element_is_exists('view[class="map"][data-type="0"]')
         if m == True:
             self.page.get_element('view[class="map"][data-type="0"]').tap()
-            self.get_capture()
+            self.get_screenshot()
             delay(1)
         else:
             print('没有该模块')
-            self.get_capture()
-            delay(1)
 
     def test_click_prmap(self):
         """
@@ -52,7 +50,7 @@ class Testrentofficebgdetail(TestBase):
         if pr == True:
             m = self.page.get_element('view[class="pr map"][data-type="0"]')
             m.tap()
-            self.get_capture()
+            self.get_screenshot()
         else:
             print('没有周边配套模块')
 
@@ -67,7 +65,7 @@ class Testrentofficebgdetail(TestBase):
         if rmlp == True:
             e = self.page.get_element('view[class="center check"]')
             e.tap()
-            self.get_capture()
+            self.get_screenshot()
         else:
             print('没有附近楼盘')
 
@@ -89,6 +87,6 @@ class Testrentofficebgdetail(TestBase):
                 # 点击第一条房源
                 elms = elm_first_item.get_element('buildingitem').get_elements('view')
                 elms[0].tap()
-                self.get_capture()
+                self.get_screenshot()
         else:
             print('没有附近楼盘')

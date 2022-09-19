@@ -40,7 +40,7 @@ class Testrentlist(TestBase):
             obj = self.page.get_elements('view[class="quick-link"]')
             obj[value].tap()
             self.delay(3)
-            self.get_capture()
+            self.get_screenshot()
         else:
             print("无")
 
@@ -127,7 +127,7 @@ class Testrentlist(TestBase):
             self.delay(1)
 
         # 截图
-        self.get_capture()
+        self.get_screenshot()
 
     def pos_search(self, text_1, text_2, text_3):
         """
@@ -376,5 +376,6 @@ class Testrentlist(TestBase):
         """
         self.delay(1)
         self.page.get_element('image[class="icon-clear-filter"]').tap()
+        self.get_screenshot()
 
         return self

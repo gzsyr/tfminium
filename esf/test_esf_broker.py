@@ -36,8 +36,7 @@ class Testesfbroker(TestBase):
         """
         self.page.get_element('view[class="center btn msg"]').tap()
         delay(2)
-        self.get_capture()
-        delay(5)
+        self.get_screenshot()
 
     def test_btntel(self):
         """

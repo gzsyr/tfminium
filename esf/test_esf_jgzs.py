@@ -10,6 +10,7 @@ class Testesfjgzs(TestBase):
     def setUp(self, true=None) -> None:
         self.page_name = "/esf/village/pages/priceTrend/priceTrend?blockId=8819&city=nj"
         self.switch = true
+        self.classname = self.__class__.__name__
         super(Testesfjgzs, self).setUp()
         print("Testesfjgzs setup")
 
@@ -20,6 +21,7 @@ class Testesfjgzs(TestBase):
         """
         e = self.page.get_element('view[class="flex align_center villageName"]')
         e.tap()
+        self.get_screenshot()
 
     def test_click_collect(self):
         """
@@ -34,8 +36,10 @@ class Testesfjgzs(TestBase):
             collected = self.page.element_is_exists('view[class="center collected"]')
             if collected == True:
                 self.page.get_element('view[class="center collected"]').tap()
+                self.get_screenshot()
             else:
                 self.page.get_element('view[class="center collect"]').tap()
+                self.get_screenshot()
         else:
             self.page.get_element('view[class="center collected"]').tap()
 
@@ -48,9 +52,12 @@ class Testesfjgzs(TestBase):
         if june_pitchon == True:
             self.page.get_element('view[class="center pr timeSlot"][data-type="2"]').tap()
             delay(2)
+            self.get_screenshot()
             self.page.get_element('view[class="center pr timeSlot"][data-type="3"]').tap()
             delay(2)
+            self.get_screenshot()
             self.page.get_element('view[class="center pr timeSlot"][data-type="1"]').tap()
+            self.get_screenshot()
         else:
             print(0)
 
@@ -65,6 +72,7 @@ class Testesfjgzs(TestBase):
         elm_first_item = elm_items[0]
         elms = elm_first_item.get_element('sell_item').get_elements('view')
         elms[0].tap()
+        self.get_screenshot()
 
     def test_click_allhouse(self):
         """
@@ -75,6 +83,7 @@ class Testesfjgzs(TestBase):
         delay(1)
         e = self.page.get_element('view[class="center more"]')
         e.tap()
+        self.get_screenshot()
 
     def test_click_mfpg(self):
         """
@@ -85,6 +94,7 @@ class Testesfjgzs(TestBase):
         delay(1)
         e = self.page.get_element('view[class="center evaluate"]')
         e.tap()
+        self.get_screenshot()
 
     def test_click_bnzf(self):
         """
@@ -95,4 +105,5 @@ class Testesfjgzs(TestBase):
         delay(1)
         e = self.page.get_element('view[class="center help"]')
         e.tap()
+        self.get_screenshot()
 

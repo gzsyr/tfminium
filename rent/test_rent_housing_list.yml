@@ -1,0 +1,26 @@
+N1:
+  pos_text_1: '不限'
+  pos_text_2: ''
+  pos_text_3: ''
+
+N2:
+  pos_text_1: '区域'
+  pos_text_2: '玄武区'
+  pos_text_3: '珠江路|北京东路|丹凤街'
+
+N3:
+  pos_text_1: '地铁'
+  pos_text_2: '2号线'
+  pos_text_3: '元通站'
+
+N4:
+  share_type_text: '有房找室友'
+
+N5:
+  order_by_text: '价格（从低到高）'
+
+N6:
+  more_flag: ''
+  roommate_sex_text: '限女生'
+  publish_sex_text: '女'
+  special_tag: '一个人住|不吸烟|爱干净'

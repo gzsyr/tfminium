@@ -34,12 +34,10 @@ class Testrentofficelhdetail(TestBase):
         m = self.page.element_is_exists('view[class="map"][data-type="0"]')
         if m == True:
             self.page.get_element('view[class="map"][data-type="0"]').tap()
-            self.get_capture()
+            self.get_screenshot()
             delay(1)
         else:
             print('没有该模块')
-            self.get_capture()
-            delay(1)
 
     def test_click_bllp(self):
         """
@@ -50,7 +48,7 @@ class Testrentofficelhdetail(TestBase):
         if b == True:
             e = self.page.get_element('view[class="inline_middle house"]')
             e.tap()
-            self.get_capture()
+            self.get_screenshot()
         else:
             print('没有本楼盘房源模块')
 
@@ -66,10 +64,10 @@ class Testrentofficelhdetail(TestBase):
             t = self.page.element_is_exists('view[class="center toggle"]')
             if t == True:
                 self.page.get_element('text', inner_text='查看全部').tap()
-                self.get_capture()
+                self.get_screenshot()
                 delay(2)
                 self.page.get_element('text', inner_text='收起').tap()
-                self.get_capture()
+                self.get_screenshot()
                 delay(2)
             else:
                 print('没有更多')
@@ -87,7 +85,7 @@ class Testrentofficelhdetail(TestBase):
         if rmlp == True:
             flex = self.page.get_element('//view[@class="flex"]')
             flex.tap()
-            self.get_capture()
+            self.get_screenshot()
         else:
             print('没有写字楼信息')
 
@@ -102,6 +100,6 @@ class Testrentofficelhdetail(TestBase):
         if wd == True:
             elm_items = self.page.get_element('//view[@class="item"]/buildingItem/view')
             elm_items.tap()
-            self.get_capture()
+            self.get_screenshot()
         else:
             print('没有其他网点')

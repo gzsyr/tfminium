@@ -30,13 +30,13 @@ class Testesfmap(TestBase):
         tabs = self.page.get_element(f'view[class="center supportType"][data-type="{value}"]')
         tabs.tap()
         delay(3)
-        self.get_capture()
+        self.get_screenshot()
         delay(3)
         items = self.page.get_elements('view[class="between item"]')
         if len(items) > 0:
             items[0].tap()
             delay(3)
-            self.get_capture()
+            self.get_screenshot()
             delay(3)
         else:
             print("暂无内容")
@@ -45,9 +45,10 @@ class Testesfmap(TestBase):
         if act_tab == True:
             self.page.get_element(f'view[class="center supportType active"][data-type="{value}"]').tap()
             delay(3)
-            self.get_capture()
+            self.get_screenshot()
             delay(3)
         else:
             self.page.get_element(f'view[class="center supportType"][data-type="{value}"]').tap()
             delay(3)
+            self.get_screenshot()
 
