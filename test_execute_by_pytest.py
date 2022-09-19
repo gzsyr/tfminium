@@ -3,6 +3,8 @@
 # 2、pip install pytest-html
 # 3、pip install allure-pytest
 # 4、https://github.com/allure-framework/allure2/releases   下载allure设置环境变量path：D:\allure-2.19.0\bin
+# 失败重试
+# pip install pytest-rerunfailures
 
 import os
 import shutil
