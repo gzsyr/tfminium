@@ -33,14 +33,14 @@ class Testrentofficedetail(TestBase):
         """
         e = self.page.get_element('view[class="button collect"]')
         e.tap()
-        self.get_capture()
+        self.get_screenshot()
         delay(3)
         """
         取消收藏
         """
         e1 = self.page.get_element('view[class="button collect"]')
         e1.tap()
-        self.get_capture()
+        self.get_screenshot()
 
     def test_goto_share(self):
         """
@@ -61,12 +61,10 @@ class Testrentofficedetail(TestBase):
         m = self.page.element_is_exists('text[class="blockName"]')
         if m == True:
             self.page.get_element('text[class="blockName"]').tap()
-            self.get_capture()
+            self.get_screenshot()
             delay(1)
         else:
             print('没有该模块')
-            self.get_capture()
-            delay(1)
 
     def test_click_map(self):
         """
@@ -76,12 +74,10 @@ class Testrentofficedetail(TestBase):
         m = self.page.element_is_exists('view[class="map"][data-type="0"]')
         if m == True:
             self.page.get_element('view[class="map"][data-type="0"]').tap()
-            self.get_capture()
+            self.get_screenshot()
             delay(1)
         else:
             print('没有该模块')
-            self.get_capture()
-            delay(1)
 
     def test_click_fygk(self):
         """
@@ -92,7 +88,7 @@ class Testrentofficedetail(TestBase):
         if fygk == True:
             e = self.page.get_element('view[class="center msg"]')
             e.tap()
-            self.get_capture()
+            self.get_screenshot()
         else:
             print('没有房源概况模块')
 
@@ -106,7 +102,7 @@ class Testrentofficedetail(TestBase):
         msg = self.page.element_is_exists('view[class="msg"]')
         if msg == True:
             self.page.get_element('view[class="msg"]').tap()
-            self.get_capture()
+            self.get_screenshot()
         else:
             print('没有经纪人')
 
@@ -120,7 +116,7 @@ class Testrentofficedetail(TestBase):
         tel = self.page.element_is_exists('view[class="tel"]')
         if tel == True:
             self.page.get_element('view[class="tel"]').tap()
-            self.get_capture()
+            self.get_screenshot()
         else:
             print('没有经纪人')
 
@@ -136,17 +132,15 @@ class Testrentofficedetail(TestBase):
             tog = self.page.element_is_exists('text', inner_text='查看全部')
             if tog == True:
                 self.page.get_element('text', inner_text='查看全部').tap()
-                self.get_capture()
+                self.get_screenshot()
                 delay(1)
                 self.page.get_element('text', inner_text='收起').tap()
-                self.get_capture()
+                self.get_screenshot()
                 delay(1)
             else:
                 print('没有查看更多')
         else:
             print('没有房源描述模块')
-            self.get_capture()
-            delay(1)
 
     def test_click_loupanmore(self):
         """
@@ -158,10 +152,9 @@ class Testrentofficedetail(TestBase):
         loupan = self.page.element_is_exists('text', inner_text='所属楼盘')
         if loupan == True:
             self.page.get_element('text', inner_text='查看详情').tap()
-            self.get_capture()
+            self.get_screenshot()
         else:
             print('没有所属楼盘模块')
-            self.get_capture()
 
     def test_click_loupan(self):
         """
@@ -173,10 +166,9 @@ class Testrentofficedetail(TestBase):
         loupan = self.page.element_is_exists('text', inner_text='所属楼盘')
         if loupan == True:
             self.page.get_element('view[class="flex officeBlockInfo"]').tap()
-            self.get_capture()
+            self.get_screenshot()
         else:
             print('没有所属楼盘模块!')
-            self.get_capture()
 
     def test_click_prmap(self):
         """
@@ -189,7 +181,7 @@ class Testrentofficedetail(TestBase):
         if pr == True:
             m = self.page.get_element('view[class="pr map"][data-type="0"]')
             m.tap()
-            self.get_capture()
+            self.get_screenshot()
         else:
             print('没有周边配套模块')
 
@@ -213,7 +205,7 @@ class Testrentofficedetail(TestBase):
                 # 点击第一条房源
                 elms = elm_first_item.get_element('rentitem').get_elements('view')
                 elms[0].tap()
-                self.get_capture()
+                self.get_screenshot()
         else:
             if fujin == True:
                 elm_items = self.page.get_elements('//view[@class="houses"]/view[@class="house"]')
@@ -225,7 +217,7 @@ class Testrentofficedetail(TestBase):
                     # 点击第一条房源
                     elms = elm_first_item.get_element('officeItem').get_elements('view')
                     elms[0].tap()
-                    self.get_capture()
+                    self.get_screenshot()
             else:
                 print("无")
 
@@ -240,7 +232,7 @@ class Testrentofficedetail(TestBase):
         if m == True:
             more = self.page.get_element('view[class="center checkSame"]')
             more.tap()
-            self.get_capture()
+            self.get_screenshot()
         else:
             print('没有同小区*套房源')
 
@@ -253,7 +245,7 @@ class Testrentofficedetail(TestBase):
         delay(1)
         e = self.page.get_element('view[class="flex justify_flex_end report"]')
         e.tap()
-        self.get_capture()
+        self.get_screenshot()
 
     @ddt_case(
         0, 1, 2, 3, 4, 5
@@ -270,7 +262,7 @@ class Testrentofficedetail(TestBase):
             if len(elms) > value:
                 #print(value)
                 elms[value].tap()
-                self.get_capture()
+                self.get_screenshot()
 
     def test_goto_broker(self):
         """
@@ -280,7 +272,7 @@ class Testrentofficedetail(TestBase):
         # xpath定位
         elm = self.page.get_element('//view[@class="pf contact"]/contact/view/view/view[1]')
         elm.tap()
-        self.get_capture()
+        self.get_screenshot()
 
     def test_goto_zxmsg(self):
         """
@@ -290,7 +282,7 @@ class Testrentofficedetail(TestBase):
         # xpath定位
         elm = self.page.get_element('//view[@class="pf contact"]/contact/view/view/view[2]/view[1]')
         elm.tap()
-        self.get_capture()
+        self.get_screenshot()
 
     def test_goto_tel(self):
         """
@@ -300,4 +292,4 @@ class Testrentofficedetail(TestBase):
         # xpath定位
         elm = self.page.get_element('//view[@class="pf contact"]/contact/view/view/view[2]/view[2]')
         elm.tap()
-        self.get_capture()
+        self.get_screenshot()

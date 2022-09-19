@@ -67,7 +67,7 @@ class Testrentofficebangong(TestBase):
             self.delay(1)
 
         # 截图
-        self.get_capture()
+        self.get_screenshot()
 
     def pos_search(self, text_1, text_2, text_3):
         """
@@ -240,7 +240,7 @@ class Testrentofficebangong(TestBase):
         # 点击第一条房源
         elms = elm_first_item.get_element('buildingItem').get_elements('view')
         elms[0].tap()
-        self.get_capture()
+        self.get_screenshot()
 
     def test_click_pprz(self):
         """

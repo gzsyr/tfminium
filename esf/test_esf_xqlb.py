@@ -11,6 +11,7 @@ class Testesfxqlb(TestBase):
     def setUp(self, true=None) -> None:
         self.page_name = "/esf/village/pages/list/list"
         self.switch = true
+        self.classname = self.__class__.__name__
         super(Testesfxqlb, self).setUp()
         print("Testesfxqlb setup")
 
@@ -21,6 +22,8 @@ class Testesfxqlb(TestBase):
         """
         e = self.page.get_element('input[class="search--flex_1"]')
         e.tap()
+        self.verifyPageName('/esf/sell/pages/search/search', '搜索 ok')
+        delay(3)
 
     def test_click_yqtl(self):
         """
@@ -29,6 +32,7 @@ class Testesfxqlb(TestBase):
         """
         e = self.page.get_element('view[class="flex align_center titleText"]')
         e.tap()
+        self.get_screenshot()
 
     def test_click_jhpl(self):
         """
@@ -38,6 +42,7 @@ class Testesfxqlb(TestBase):
         comment_Item = self.page.get_element('swiper-item[class="flex align_center commentItem"]')
        # comment = comment_Item[0]
         comment_Item.tap()
+        self.get_screenshot()
 
     def test_show_wz(self):
         """
@@ -46,6 +51,7 @@ class Testesfxqlb(TestBase):
         """
         e = self.page.get_element("view", inner_text="位置")
         e.tap()
+        self.get_screenshot()
         delay(2)
 
     def test_show_jj(self):
@@ -55,6 +61,7 @@ class Testesfxqlb(TestBase):
         """
         e = self.page.get_element("view", inner_text="均价")
         e.tap()
+        self.get_screenshot()
         delay(2)
 
     def test_show_fl(self):
@@ -64,6 +71,7 @@ class Testesfxqlb(TestBase):
         """
         e = self.page.get_element("view", inner_text="房龄")
         e.tap()
+        self.get_screenshot()
         delay(2)
 
     def test_show_gd(self):
@@ -73,6 +81,7 @@ class Testesfxqlb(TestBase):
         """
         e = self.page.get_element("view", inner_text="更多")
         e.tap()
+        self.get_screenshot()
         delay(2)
 
     def test_show_px(self):
@@ -82,6 +91,7 @@ class Testesfxqlb(TestBase):
         """
         e = self.page.get_element("view", inner_text="排序")
         e.tap()
+        self.get_screenshot()
         delay(2)
 
     def test_show_delete(self):
@@ -91,6 +101,7 @@ class Testesfxqlb(TestBase):
         """
         e = self.page.get_element('image[class="img"]')
         e.tap()
+        self.get_screenshot()
         delay(2)
 
     def test_select_bx(self):
@@ -102,6 +113,7 @@ class Testesfxqlb(TestBase):
         e.tap()
         e1 = self.page.get_element("view", inner_text="不限")
         e1.tap()
+        self.get_screenshot()
 
     def test_select_qy(self):
         """
@@ -119,6 +131,7 @@ class Testesfxqlb(TestBase):
         delay(2)
         e4 = self.page.get_element('view[class="pa clear"]')
         e4.tap()
+        self.get_screenshot()
 
     def test_select_jj(self):
         """
@@ -132,6 +145,7 @@ class Testesfxqlb(TestBase):
         delay(2)
         e3 = self.page.get_element('view[class="pa clear"]')
         e3.tap()
+        self.get_screenshot()
 
     def test_select_jjzdy(self):
         """
@@ -147,6 +161,7 @@ class Testesfxqlb(TestBase):
         delay(2)
         e3 = self.page.get_element('view[class="pa clear"]')
         e3.tap()
+        self.get_screenshot()
 
     def test_select_fl(self):
         """
@@ -160,6 +175,7 @@ class Testesfxqlb(TestBase):
         delay(2)
         e3 = self.page.get_element('view[class="pa clear"]')
         e3.tap()
+        self.get_screenshot()
 
 
     def test_select_gdqd(self):
@@ -172,6 +188,7 @@ class Testesfxqlb(TestBase):
         self.page.get_element('text', inner_text="确定").tap()
         delay(2)
         self.page.get_element('view[class="pa clear"]').tap()
+        self.get_screenshot()
 
     def test_select_gdcz(self):
         """
@@ -183,6 +200,7 @@ class Testesfxqlb(TestBase):
         self.page.get_element('text', inner_text="重置").tap()
         delay(2)
         self.page.get_element('view[class="pa clear"]').tap()
+        self.get_screenshot()
 
     def test_select_px(self):
         """
@@ -193,6 +211,7 @@ class Testesfxqlb(TestBase):
         self.page.get_element("text", inner_text="涨幅从高到低").tap()
         delay(2)
         self.page.get_element('view[class="pa clear"]').tap()
+        self.get_screenshot()
 
 
     def test_select_vr(self):
@@ -204,6 +223,7 @@ class Testesfxqlb(TestBase):
         e.tap()
         delay(2)
         self.page.get_element('view[class="pa clear"]').tap()
+        self.get_screenshot()
 
     def test_select_xqjd(self):
         """
@@ -214,6 +234,7 @@ class Testesfxqlb(TestBase):
         e.tap()
         delay(2)
         self.page.get_element('view[class="pa clear"]').tap()
+        self.get_screenshot()
 
     def test_select_dxsq(self):
         """
@@ -224,6 +245,7 @@ class Testesfxqlb(TestBase):
         e.tap()
         delay(2)
         self.page.get_element('view[class="pa clear"]').tap()
+        self.get_screenshot()
 
     def test_select_list(self):
         """
@@ -232,6 +254,7 @@ class Testesfxqlb(TestBase):
         """
         elm = self.page.get_element('//villageitem/view')
         elm.tap()
+        self.get_screenshot()
 
     def test_select_listim(self):
         """
@@ -240,3 +263,4 @@ class Testesfxqlb(TestBase):
         """
         elm = self.page.get_element('//villageitem/view/view[3]')
         elm.tap()
+        self.get_screenshot()

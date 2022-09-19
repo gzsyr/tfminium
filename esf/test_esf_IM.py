@@ -23,7 +23,7 @@ class Testesfim(TestBase):
         :return:
         """
         self.page.get_element('view[class="chating-history"]').tap()
-        self.get_capture()
+        self.get_screenshot()
 
     def test_send(self):
         """
@@ -46,7 +46,7 @@ class Testesfim(TestBase):
             keyboard = self.page.get_element('image[class="chatinput-img"]')
             keyboard.tap()
             delay(2)
-            self.get_capture()
+            self.get_screenshot()
         else:
             mask = self.page.get_element('button[class="chatinput-voice-mask"]')
             mask.tap()
@@ -61,7 +61,7 @@ class Testesfim(TestBase):
             delay(2)
             voice = self.page.get_element('image[class="chatinput-img"]')
             voice.tap()
-            self.get_capture()
+            self.get_screenshot()
 
     def test_inputimg(self):
         """
@@ -69,7 +69,7 @@ class Testesfim(TestBase):
         :return:
         """
         self.page.get_element('image[class="chatinput-img fr"]').tap()
-        self.get_capture()
+        self.get_screenshot()
 
 
 

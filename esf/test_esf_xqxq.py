@@ -10,6 +10,7 @@ class Testesfxqxq(TestBase):
     def setUp(self, true=None) -> None:
         self.page_name = "/esf/village/pages/detail/detail?blockId=216416&city=nj"
         self.switch = true
+        self.classname = self.__class__.__name__
         super(Testesfxqxq, self).setUp()
         print("Testesfxqxq setup")
 
@@ -28,6 +29,7 @@ class Testesfxqxq(TestBase):
 
             if len(elms) > value:
                 elms[value].tap()
+                self.get_screenshot()
         else:
             print("没有标签")
 
@@ -38,6 +40,7 @@ class Testesfxqxq(TestBase):
         """
         e = self.page.get_element('//banner/view/swiper/swiper-item')
         e.tap()
+        self.get_screenshot()
 
     def test_goto_collect(self):
         """
@@ -46,6 +49,7 @@ class Testesfxqxq(TestBase):
         """
         e = self.page.get_element('view[class="button collect"]')
         e.tap()
+        self.get_screenshot()
 
     def test_goto_share(self):
         """
@@ -54,6 +58,7 @@ class Testesfxqxq(TestBase):
         """
         e = self.page.get_element('button[class="button"]')
         e.tap()
+        self.get_screenshot()
 
     def test_goto_zsell(self):
         """
@@ -62,6 +67,7 @@ class Testesfxqxq(TestBase):
         """
         e = self.page.get_element('view[class="onSell"][data-type="1"]')
         e.tap()
+        self.get_screenshot()
 
     def test_goto_zrent(self):
         """
@@ -70,6 +76,7 @@ class Testesfxqxq(TestBase):
         """
         e = self.page.get_element('view[class="onRent"][data-mark="1"][data-type="2"]')
         e.tap()
+        self.get_screenshot()
 
     def test_goto_jgzs(self):
         """
@@ -78,6 +85,7 @@ class Testesfxqxq(TestBase):
         """
         e = self.page.get_element('view[class="flex_1 priceCharts"]')
         e.tap()
+        self.get_screenshot()
 
     def test_goto_zxxq(self):
         """
@@ -86,6 +94,7 @@ class Testesfxqxq(TestBase):
         """
         e = self.page.get_element('view[class="consult"]')
         e.tap()
+        self.get_screenshot()
 
     def test_goto_qpg(self):
         """
@@ -94,6 +103,7 @@ class Testesfxqxq(TestBase):
         """
         e = self.page.get_element('view[class="center appraised"]')
         e.tap()
+        self.get_screenshot()
 
     def test_goto_wx(self):
         """
@@ -102,6 +112,7 @@ class Testesfxqxq(TestBase):
         """
         e = self.page.get_element('view[class="copy copyWX"][data-type="wechat"]')
         e.tap()
+        self.get_screenshot()
 
     def test_goto_qq(self):
         """
@@ -110,6 +121,7 @@ class Testesfxqxq(TestBase):
         """
         e = self.page.get_element('view[class="copy copyQQ"][data-type="qq"]')
         e.tap()
+        self.get_screenshot()
 
     def test_goto_jcxx(self):
         """
@@ -123,6 +135,7 @@ class Testesfxqxq(TestBase):
         e_base = self.page.element_is_exists('view[class="baseInfo"]')
         if e_base == True:
            self.page.get_element('view[class="baseInfo"]').tap()
+           self.get_screenshot()
         else:
             print("没有基础信息模块")
 
@@ -136,6 +149,7 @@ class Testesfxqxq(TestBase):
         e_map = self.page.element_is_exists('view[class="pr map"][data-type="0"]')
         if e_map == True:
             self.page.get_element('view[class="pr map"][data-type="0"]').tap()
+            self.get_screenshot()
         else:
             print("没有周边配套模块")
 
@@ -150,6 +164,7 @@ class Testesfxqxq(TestBase):
         houseTypes = self.page.element_is_exists('view[class="houseTypes"]')
         if houseTypes == True:
             self.page.get_element('view[class="houseTypes"]').tap()
+            self.get_screenshot()
         else:
             print("没有小区户型模块")
 
@@ -166,6 +181,7 @@ class Testesfxqxq(TestBase):
             #img = self.page.get_element('//view/view[7]/scroll-view/view/view')
             imgs = self.page.get_elements('view[class="typeImg"]')
             imgs[0].tap()
+            self.get_screenshot()
         else:
             print("没有小区户型模块")
 
@@ -181,6 +197,7 @@ class Testesfxqxq(TestBase):
         if house_msg == True:
             msg = self.page.get_element('//view[@class="typeMsg"]/view[@class="msg"]')
             msg.tap()
+            self.get_screenshot()
         else:
             print("没有小区户型模块")
 
@@ -196,6 +213,7 @@ class Testesfxqxq(TestBase):
         if house_com == True:
             comment = self.page.get_element('text', inner_text="全部评论")
             comment.tap()
+            self.get_screenshot()
         else:
             print("没有小区评论模块")
 
@@ -211,6 +229,7 @@ class Testesfxqxq(TestBase):
         if comxq == True:
             xq = self.page.get_elements('view[class="commentItem"]')
             xq[0].tap()
+            self.get_screenshot()
         else:
             print("没有小区评论模块")
 
@@ -228,6 +247,7 @@ class Testesfxqxq(TestBase):
 
             if len(plimg) > 0:
                 plimg[0].tap()
+                self.get_screenshot()
             else:
                 print("没有评论图片")
         else:
@@ -244,6 +264,7 @@ class Testesfxqxq(TestBase):
         if pldz == True:
             dz = self.page.get_elements('view[class="center"][data-index="0"][data-level="1"]')
             dz[0].tap()
+            self.get_screenshot()
         else:
             print("没有评论")
 
@@ -260,6 +281,7 @@ class Testesfxqxq(TestBase):
         if qxdz == True:
             qx = self.page.get_elements('view[class="center like"][data-index="0"][data-level="1"]')
             qx[0].tap()
+            self.get_screenshot()
         else:
             print("没有点赞")
 
@@ -273,6 +295,7 @@ class Testesfxqxq(TestBase):
 
         e = self.page.get_element('view[class="center iWant"]')
         e.tap()
+        self.get_screenshot()
 
     def test_goto_xqzj(self):
         """
@@ -285,6 +308,7 @@ class Testesfxqxq(TestBase):
         elms = self.page.get_elements('view[class="between expert"]')
         if len(elms) > 0:
             elms[0].tap()
+            self.get_screenshot()
         else:
             print("没有小区专家")
 
@@ -299,6 +323,7 @@ class Testesfxqxq(TestBase):
         elms = self.page.get_elements('view[class="msg"]')
         if len(elms) > 0:
             elms[0].tap()
+            self.get_screenshot()
         else:
             print("没有小区专家")
 
@@ -313,6 +338,7 @@ class Testesfxqxq(TestBase):
         elms = self.page.get_elements('view[class="tel"]')
         if len(elms) > 0:
             elms[0].tap()
+            self.get_screenshot()
         else:
             print("没有小区专家")
 
@@ -326,10 +352,12 @@ class Testesfxqxq(TestBase):
 
         e = self.page.get_element('view[class="pr typeI"][data-type="2"]')
         e.tap()
+        self.get_screenshot()
         delay(2)
 
         e = self.page.get_element('view[class="pr typeI"][data-type="1"]')
         e.tap()
+        self.get_screenshot()
 
     def test_goto_selltab(self):
         """
@@ -349,6 +377,7 @@ class Testesfxqxq(TestBase):
             # 点击
             elms = elm_first_item.get_element('sell_item').get_elements('view')
             elms[0].tap()
+            self.get_screenshot()
         else:
             print(0)
 
@@ -363,7 +392,7 @@ class Testesfxqxq(TestBase):
         e = self.page.get_element('view[class="pr typeI"][data-type="2"]')
         e.tap()
         delay(2)
-
+        self.get_screenshot()
         renttab = self.page.element_is_exists('view[class="pr typeI active"][data-type="2"]')
         if renttab == True:
             # 先获取所有item
@@ -373,6 +402,7 @@ class Testesfxqxq(TestBase):
             # 点击
             elms = elm_first_item.get_element('rent_item').get_elements('view')
             elms[0].tap()
+            self.get_screenshot()
         else:
             print(0)
 
@@ -395,6 +425,7 @@ class Testesfxqxq(TestBase):
             elms = elm_first_item.get_element('villageitem').get_elements('view')
             print(len(elms))
             elms[0].tap()
+            self.get_screenshot()
         else:
             print("没有周边小区")
 
@@ -406,6 +437,7 @@ class Testesfxqxq(TestBase):
         # xpath定位
         elm = self.page.get_element('//view[@class="pf contact"]/contact/view/view/view[1]')
         elm.tap()
+        self.get_screenshot()
 
     def test_goto_zxmsg(self):
         """
@@ -415,6 +447,7 @@ class Testesfxqxq(TestBase):
         # xpath定位
         elm = self.page.get_element('//view[@class="pf contact"]/contact/view/view/view[2]/view[1]')
         elm.tap()
+        self.get_screenshot()
 
     def test_goto_tel(self):
         """
@@ -424,3 +457,4 @@ class Testesfxqxq(TestBase):
         # xpath定位
         elm = self.page.get_element('//view[@class="pf contact"]/contact/view/view/view[2]/view[2]')
         elm.tap()
+        self.get_screenshot()

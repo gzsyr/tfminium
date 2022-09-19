@@ -71,7 +71,7 @@ class Testrenthouseinglist(TestBase):
             self.delay(1)
 
         # 截图
-        self.get_capture()
+        self.get_screenshot()
 
     def pos_search(self, text_1, text_2, text_3):
         """
@@ -281,9 +281,9 @@ class Testrenthouseinglist(TestBase):
         点击列表
         :return:
         """
-        elms = self.page.get_elements('//view[@class="rent-home-list"]/findRoommateItem/view')
+        elms = self.page.get_elements('//view[@class="rent-home-list grey"]/findRoommateItem/view')
         elms[0].tap()
-        self.get_capture()
+        self.get_screenshot()
 
     def test_click_sc(self):
         """
@@ -292,12 +292,12 @@ class Testrenthouseinglist(TestBase):
         """
         sc = self.page.get_elements('//view[@class="rent-home-list"]/findRoommateItem/view/view[5]/view[2]')
         sc[0].tap()
-        self.get_capture()
+        self.get_screenshot()
         self.delay(3)
 
         qxsc = self.page.get_elements('//view[@class="rent-home-list"]/findRoommateItem/view/view[5]/view[2]')
         qxsc[0].tap()
-        self.get_capture()
+        self.get_screenshot()
         self.delay(3)
 
     def test_click_zxim(self):
@@ -307,5 +307,5 @@ class Testrenthouseinglist(TestBase):
         """
         im = self.page.get_elements('//view[@class="rent-home-list"]/findRoommateItem/view/view[5]/view[3]')
         im[0].tap()
-        self.get_capture()
+        self.get_screenshot()
         self.delay(3)

@@ -32,7 +32,7 @@ class Testesfdetail(TestBase):
         e = self.page.get_element('view[class="pr between fangXinKan"]')
         e.tap()
         delay(2)
-        self.get_capture()
+        self.get_screenshot()
         delay(1)
 
     def test_goto_collect(self):
@@ -42,14 +42,13 @@ class Testesfdetail(TestBase):
         """
         e = self.page.get_element('view[class="button collect"]')
         e.tap()
-        self.get_capture()
-        delay(5)
+        self.get_screenshot()
         """
         取消收藏
         """
         e1 = self.page.get_element('view[class="button collect"]')
         e1.tap()
-        self.get_capture()
+        self.get_screenshot()
 
     def test_goto_share(self):
         """
@@ -69,6 +68,7 @@ class Testesfdetail(TestBase):
         """
         e = self.page.get_element('view[class="flex align_center check"]')
         e.tap()
+        self.get_screenshot()
 
     def test_goto_ygim(self):
         """
@@ -77,6 +77,7 @@ class Testesfdetail(TestBase):
         """
         e = self.page.get_element('text', inner_text="首付和月供咨询")
         e.tap()
+        self.get_screenshot()
 
     def test_goto_lcim(self):
         """
@@ -85,6 +86,7 @@ class Testesfdetail(TestBase):
         """
         e = self.page.get_element('text', inner_text="楼层咨询")
         e.tap()
+        self.get_screenshot()
 
     def test_goto_sfim(self):
         """
@@ -93,6 +95,7 @@ class Testesfdetail(TestBase):
         """
         e = self.page.get_element('text', inner_text="税费咨询")
         e.tap()
+        self.get_screenshot()
 
     def test_goto_qcj(self):
         """
@@ -101,6 +104,7 @@ class Testesfdetail(TestBase):
         """
         e = self.page.get_element('text', inner_text="去出价")
         e.tap()
+        self.get_screenshot()
 
     def test_goto_xqzx(self):
         """
@@ -109,6 +113,7 @@ class Testesfdetail(TestBase):
         """
         e = self.page.get_element('text', inner_text="房源详情咨询")
         e.tap()
+        self.get_screenshot()
 
     def test_goto_ckall(self):
         """
@@ -120,18 +125,15 @@ class Testesfdetail(TestBase):
             tog = self.page.element_is_exists('text', inner_text='查看全部')
             if tog == True:
                 self.page.get_element('text', inner_text='查看全部').tap()
-                self.get_capture()
+                self.get_screenshot()
                 delay(1)
                 self.page.get_element('text', inner_text='收起').tap()
-                self.get_capture()
+                self.get_screenshot()
                 delay(1)
             else:
                 print('没有查看更多')
         else:
             print('没有房源描述模块')
-            self.get_capture()
-            delay(1)
-
 
     @ddt_case(
         1, 2, 3, 4
@@ -145,7 +147,7 @@ class Testesfdetail(TestBase):
         align_msg = self.page.get_elements('view[class="flex align_center msg"]')
         msg_list = align_msg[value]
         msg_list.tap()
-        self.get_capture()
+        self.get_screenshot()
 
     def test_goto_xqckxq(self):
         """
@@ -154,7 +156,7 @@ class Testesfdetail(TestBase):
         """
         e = self.page.get_element('view[class="flex align_center checkDetail"]')
         e.tap()
-        self.get_capture()
+        self.get_screenshot()
 
     def test_goto_xqxq(self):
         """
@@ -163,7 +165,7 @@ class Testesfdetail(TestBase):
         """
         e = self.page.get_element('view[class="village"]')
         e.tap()
-        self.get_capture()
+        self.get_screenshot()
 
     def test_goto_cjmsg(self):
         """
@@ -172,7 +174,7 @@ class Testesfdetail(TestBase):
         """
         e = self.page.get_element('text', inner_text="咨询近期成交数据")
         e.tap()
-        self.get_capture()
+        self.get_screenshot()
 
     def test_goto_fjpg(self):
         """
@@ -181,7 +183,7 @@ class Testesfdetail(TestBase):
         """
         e = self.page.get_element('text', inner_text="房价评估")
         e.tap()
-        self.get_capture()
+        self.get_screenshot()
 
     def test_goto_fjzs(self):
         """
@@ -190,7 +192,7 @@ class Testesfdetail(TestBase):
         """
         e = self.page.get_element('view[class="trendCharts"]')
         e.tap()
-        self.get_capture()
+        self.get_screenshot()
 
     def test_goto_txqfy(self):
         """
@@ -212,7 +214,7 @@ class Testesfdetail(TestBase):
             # 点击第一条房源
             elms = elm_first_item.get_element('sell_item').get_elements('view')
             elms[0].tap()
-            self.get_capture()
+            self.get_screenshot()
 
     def test_click_prmap(self):
         """
@@ -225,7 +227,7 @@ class Testesfdetail(TestBase):
         if pr == True:
             m = self.page.get_element('view[class="pr map"][data-type="0"]')
             m.tap()
-            self.get_capture()
+            self.get_screenshot()
         else:
             print('没有周边配套模块')
 
@@ -236,7 +238,7 @@ class Testesfdetail(TestBase):
         """
         e = self.page.get_element('view[class="center moreHouses"][data-type="1"]')
         e.tap()
-        self.get_capture()
+        self.get_screenshot()
 
     def test_goto_cnxh(self):
         """
@@ -258,7 +260,7 @@ class Testesfdetail(TestBase):
             # 点击第一条房源
             elms = elm_first_item.get_element('sell_item').get_elements('view')
             elms[0].tap()
-            self.get_capture()
+            self.get_screenshot()
 
     def test_goto_moreesf(self):
         """
@@ -267,7 +269,7 @@ class Testesfdetail(TestBase):
         """
         e = self.page.get_element('view[class="center moreHouses"][data-type="2"]')
         e.tap()
-        self.get_capture()
+        self.get_screenshot()
 
     def test_goto_report(self):
         """
@@ -278,7 +280,7 @@ class Testesfdetail(TestBase):
         delay(1)
         e = self.page.get_element('view[class="flex justify_flex_end report"]')
         e.tap()
-        self.get_capture()
+        self.get_screenshot()
 
     def test_goto_ask(self):
         """
@@ -287,7 +289,7 @@ class Testesfdetail(TestBase):
         """
         e = self.page.get_element('view[class="center askBtn"]')
         e.tap()
-        self.get_capture()
+        self.get_screenshot()
 
     @ddt_case(
         1, 2, 3, 4
@@ -301,7 +303,7 @@ class Testesfdetail(TestBase):
         align_ask = self.page.get_elements('view[class="pa flex align_center question moveOut"]')
         ask_one = align_ask[value]
         ask_one.tap()
-        self.get_capture()
+        self.get_screenshot()
 
     def test_goto_broker(self):
         """
@@ -311,7 +313,7 @@ class Testesfdetail(TestBase):
         # xpath定位
         elm = self.page.get_element('//view[@class="pf contact"]/contact/view/view/view[1]')
         elm.tap()
-        self.get_capture()
+        self.get_screenshot()
 
     def test_goto_zxmsg(self):
         """
@@ -321,7 +323,7 @@ class Testesfdetail(TestBase):
         # xpath定位
         elm = self.page.get_element('//view[@class="pf contact"]/contact/view/view/view[2]/view[1]')
         elm.tap()
-        self.get_capture()
+        self.get_screenshot()
 
     def test_goto_tel(self):
         """
@@ -331,4 +333,4 @@ class Testesfdetail(TestBase):
         # xpath定位
         elm = self.page.get_element('//view[@class="pf contact"]/contact/view/view/view[2]/view[2]')
         elm.tap()
-        self.get_capture()
+        self.get_screenshot()
