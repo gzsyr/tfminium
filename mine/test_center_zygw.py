@@ -190,11 +190,11 @@ class TestCenterZygw(TestMine):
         置业顾问个人中心，我的客户页面，搜索后的第一个结果写跟进记录
         """
         self.page.get_element('view[class="tab-text"]', inner_text='我的客户').tap()
-        self.delay(2)
+        self.delay(3)
         # 我的客户页面
         # 搜索客户
         self.page.get_element('input[class="search-input"]').input('1122'+'\n')
-        self.delay(1)
+        self.delay(3)
         # 点击第一个搜索结果
         try:
             # self.page.get_element('image[class="btnIcon"]').tap()
