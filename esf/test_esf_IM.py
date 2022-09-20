@@ -22,7 +22,7 @@ class Testesfim(TestBase):
         点击历史消息
         :return:
         """
-        self.page.get_element('view[class="chating-history"]').tap()
+        self.page.get_element('//view[@class="chat-top flex tfAlignC"]/image').tap()
         self.get_screenshot()
 
     def test_send(self):
@@ -30,9 +30,9 @@ class Testesfim(TestBase):
         发送消息(输入和语音切换)
         :return:
         """
-        chat = self.page.element_is_exists('input[class="chatinput-input w500"]')
+        chat = self.page.element_is_exists('input[class="chatinput-input"]')
         if chat == True:
-            self.page.get_element('input[class="chatinput-input w500"]').input('你好ya')
+            self.page.get_element('input[class="chatinput-input"]').input('你好ya')
             delay(1)
             fasong = self.page.get_element('button[class="chatinput-sendbtn fr"]')
             fasong.tap()
@@ -54,7 +54,7 @@ class Testesfim(TestBase):
             keyboard = self.page.get_element('image[class="chatinput-img"]')
             keyboard.tap()
             delay(2)
-            self.page.get_element('input[class="chatinput-input w500"]').input('你好ya')
+            self.page.get_element('input[class="chatinput-input"]').input('你好ya')
             delay(1)
             fasong = self.page.get_element('button[class="chatinput-sendbtn fr"]')
             fasong.tap()
