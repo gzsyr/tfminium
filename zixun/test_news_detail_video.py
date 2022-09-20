@@ -43,7 +43,7 @@ class TestNewsdetailVideo(TestBase):
         """
         self.page.scroll_to(1500, 500)
         self.page.get_element('button[data-type="kf"]').tap()
-        self.delay(3)
+        self.delay(4)
         self.verifyByScreenshot('zixun/bmcg.png')
 
     def test_04_click_dy(self):
@@ -52,7 +52,7 @@ class TestNewsdetailVideo(TestBase):
         """
         self.page.scroll_to(1500, 500)
         self.page.get_element('button[data-type="dy"]').tap()
-        self.delay(3)
+        self.delay(4)
         self.verifyByScreenshot('zixun/365app.png')
 
     def test_05_click_yh(self):
@@ -61,7 +61,7 @@ class TestNewsdetailVideo(TestBase):
         """
         self.page.scroll_to(1500, 500)
         self.page.get_element('button[data-type="yh"]').tap()
-        self.delay(2)
+        self.delay(4)
         self.verifyByScreenshot('zixun/bmcg.png')
 
     def test_12_click_tel(self):

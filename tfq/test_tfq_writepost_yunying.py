@@ -42,7 +42,7 @@ class TestTfqYyWritePost(WritePost):
         self.wp_submit()
 
         self.goto_post_detail()
-        self.delay(1)
+        self.delay(3)
         TestBase.huatiid = self.page.query['postsid']
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
