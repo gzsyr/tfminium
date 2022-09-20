@@ -84,7 +84,7 @@ class TestTfqQuanZiDetail(TestBase):
         圈子详情页，点击置业顾问“在线咨询”
         """
         self.page.get_element('view[class="connect connectzygw"]').tap()
-        self.delay(2)
+        self.delay(3)
 
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
