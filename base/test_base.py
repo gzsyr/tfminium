@@ -4,6 +4,7 @@ import os
 import threading
 import time
 
+import allure
 import minium
 import pyautogui
 
@@ -116,7 +117,7 @@ class TestBase(minium.MiniTest):
         """
         path = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), png)
         print(path)
-        btm = pyautogui.locateOnScreen(path)
+        btm = pyautogui.locateOnScreen(path, confidence=0.9)
         # btm = pyautogui.locateCenterOnScreen(path)
         print(btm)
 
@@ -173,6 +174,11 @@ class TestBase(minium.MiniTest):
         if not os.path.exists(screen_dir):
             os.makedirs(screen_dir)
         pyautogui.screenshot(path)
+
+        with open(path, "rb") as f:
+            content = f.read()
+        allure.attach(content, name=name, attachment_type=allure.attachment_type.PNG)
+
         return
 
     def verifyContainsStr(self, member, container, msg=None, capture=True):
