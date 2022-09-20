@@ -187,11 +187,9 @@ class Testesflist(TestBase):
         """
 
         self.delay(1)
-        flag = self.page.element_is_exists('view[class="line_1 screenTabText"]',
-                                           inner_text='总价')
+        flag = self.page.element_is_exists('view[class="line_1 screenTabText"]', inner_text='总价')
         if flag:
-            e = self.page.get_element('view[class="line_1 screenTabText"]',
-                                      inner_text="总价")
+            e = self.page.get_element('view[class="line_1 screenTabText"]', inner_text="总价")
             e.tap()
             self.delay(1)
 
@@ -302,7 +300,7 @@ class Testesflist(TestBase):
             e.tap()
             self.delay(1)
 
-            e = self.page.get_element("//sort/view/view/view/text", inner_text=order_by_text)
+            e = self.page.get_element("//sort/view/scroll-view/view/text", inner_text=order_by_text)
             e.tap()
             self.delay(1)
         else:

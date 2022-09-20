@@ -58,7 +58,7 @@ class Testrenthouseingdetail(TestBase):
         点击举报
         :return:
         """
-        e = self.page.get_element('view[class="center report"]')
+        e = self.page.get_element('view[class="center button report"]')
         e.tap()
         # self.get_capture()
         self.get_screenshot()

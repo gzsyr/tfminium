@@ -22,7 +22,7 @@ class Testesfxqlb(TestBase):
         """
         e = self.page.get_element('input[class="search--flex_1"]')
         e.tap()
-        self.verifyPageName('/esf/sell/pages/search/search', '搜索 ok')
+        self.verifyPageName('/esf/village/pages/search/search', '搜索 ok')
         delay(3)
 
     def test_click_yqtl(self):

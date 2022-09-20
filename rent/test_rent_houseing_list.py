@@ -123,7 +123,7 @@ class Testrenthouseinglist(TestBase):
                     else:
                         verify_text = text_2
 
-            e = self.page.get_element('//location/view/view[2]/view', inner_text="确定")
+            e = self.page.get_element('//location/view/view[3]/view[2]', inner_text="确定")
             e.tap()
             self.delay(1)
 
@@ -281,7 +281,7 @@ class Testrenthouseinglist(TestBase):
         点击列表
         :return:
         """
-        elms = self.page.get_elements('//view[@class="rent-home-list grey"]/findRoommateItem/view')
+        elms = self.page.get_elements('//view[@class="rent-home-list grey"]/view/findRoommateItem/view')
         elms[0].tap()
         self.get_screenshot()
 
@@ -290,12 +290,12 @@ class Testrenthouseinglist(TestBase):
         点击列表-收藏-取消收藏
         :return:
         """
-        sc = self.page.get_elements('//view[@class="rent-home-list"]/findRoommateItem/view/view[5]/view[2]')
+        sc = self.page.get_elements('//view[@class="rent-home-list grey"]/view/findRoommateItem/view/view[5]/view[2]')
         sc[0].tap()
         self.get_screenshot()
         self.delay(3)
 
-        qxsc = self.page.get_elements('//view[@class="rent-home-list"]/findRoommateItem/view/view[5]/view[2]')
+        qxsc = self.page.get_elements('//view[@class="rent-home-list grey"]/view/findRoommateItem/view/view[5]/view[2]')
         qxsc[0].tap()
         self.get_screenshot()
         self.delay(3)
@@ -305,7 +305,7 @@ class Testrenthouseinglist(TestBase):
         点击列表-在线聊
         :return:
         """
-        im = self.page.get_elements('//view[@class="rent-home-list"]/findRoommateItem/view/view[5]/view[3]')
+        im = self.page.get_elements('//view[@class="rent-home-list grey"]/view/findRoommateItem/view/view[5]/view[3]')
         im[0].tap()
         self.get_screenshot()
         self.delay(3)

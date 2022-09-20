@@ -10,7 +10,7 @@ class Testrentdetail(TestBase):
     租房详情页
     """
     def setUp(self, true=None) -> None:
-        self.page_name = "/esf/sell/rent/detail/detail?rentId=106727255&city=nj"
+        self.page_name = "/esf/sell/rent/detail/detail?rentId=106520189&city=nj"
         self.switch = true
         self.classname = self.__class__.__name__
         super(Testrentdetail, self).setUp()
@@ -289,17 +289,8 @@ class Testrentdetail(TestBase):
         e.tap()
         self.get_screenshot()
 
-    def test_goto_ask(self):
-        """
-        点击提问
-        :return:
-        """
-        e = self.page.get_element('view[class="center askBtn"]')
-        e.tap()
-        self.get_screenshot()
-
     @ddt_case(
-        1, 2, 3, 4
+        0, 1, 2, 3
     )
     def test_goto_asklayer(self, value):
         """
@@ -307,10 +298,13 @@ class Testrentdetail(TestBase):
         :param value:
         :return:
         """
-        align_ask = self.page.get_elements('view[class="pa flex align_center question moveOut"]')
-        ask_one = align_ask[value]
-        ask_one.tap()
-        self.get_screenshot()
+        self.page.get_element('view[class="center askBtn"]').tap()
+        if self.page.wait_for('//view[@class="pa questions"]/view'):
+            elms = self.page.get_elements('//view[@class="pa questions"]/view/text')
+            if len(elms) > value:
+                #print(value)
+                elms[value].tap()
+                self.get_screenshot()
 
     def test_goto_broker(self):
         """

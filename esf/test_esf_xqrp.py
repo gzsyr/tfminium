@@ -21,7 +21,7 @@ class Testesfxqrp(TestBase):
         """
         e = self.page.get_element('view[class="flex align_center search"]')
         e.tap()
-        self.verifyPageName('/esf/sell/pages/search/search', '搜索 ok')
+        self.verifyPageName('/esf/village/pages/comment/search/search', '搜索 ok')
         delay(3)
 
     def test_click_todo(self):
@@ -147,6 +147,6 @@ class Testesfxqrp(TestBase):
         """
         self.page.scroll_to(500, 500)
         delay(1)
-        e = self.page.get_element('//view[@class="hover_button_wrapper"]')
+        e = self.page.get_element('//hoverbutton/view/view')
         e.tap()
         self.get_screenshot()

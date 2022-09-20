@@ -179,7 +179,7 @@ class Testrentlist(TestBase):
                     else:
                         verify_text = text_2
 
-            e = self.page.get_element('//location/view/view[2]/view', inner_text="确定")
+            e = self.page.get_element('//location/view/view[3]/view[2]', inner_text="确定")
             e.tap()
             self.delay(1)
 
