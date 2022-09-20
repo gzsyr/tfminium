@@ -117,7 +117,7 @@ class TestBase(minium.MiniTest):
         """
         path = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), png)
         print(path)
-        btm = pyautogui.locateOnScreen(path, confidence=0.8)
+        btm = pyautogui.locateOnScreen(path, confidence=0.9)
         # btm = pyautogui.locateCenterOnScreen(path)
         print(btm)
 
