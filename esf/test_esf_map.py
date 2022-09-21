@@ -1,9 +1,7 @@
 from ddt import file_data
 from minium import ddt_class, ddt_case
 
-from base.common import delay
 from base.test_base import TestBase
-
 
 @ddt_class()
 class Testesfmap(TestBase):
@@ -21,7 +19,7 @@ class Testesfmap(TestBase):
     @ddt_case(
         1, 2, 3, 4, 5, 6
     )
-    def test_click_tab(self, value):
+    def test_click_tab_点击地图tab(self, value):
         """
         点击地图tab（公交、地铁、学校等）
         :param value:
@@ -29,26 +27,26 @@ class Testesfmap(TestBase):
         """
         tabs = self.page.get_element(f'view[class="center supportType"][data-type="{value}"]')
         tabs.tap()
-        delay(3)
+        self.delay(3)
         self.get_screenshot()
-        delay(3)
+        self.delay(3)
         items = self.page.get_elements('view[class="between item"]')
         if len(items) > 0:
             items[0].tap()
-            delay(3)
+            self.delay(3)
             self.get_screenshot()
-            delay(3)
+            self.delay(3)
         else:
             print("暂无内容")
-            delay(3)
+            self.delay(3)
         act_tab = self.page.element_is_exists(f'view[class="center supportType active"][data-type="{value}"]')
         if act_tab == True:
             self.page.get_element(f'view[class="center supportType active"][data-type="{value}"]').tap()
-            delay(3)
+            self.delay(3)
             self.get_screenshot()
-            delay(3)
+            self.delay(3)
         else:
             self.page.get_element(f'view[class="center supportType"][data-type="{value}"]').tap()
-            delay(3)
+            self.delay(3)
             self.get_screenshot()
 

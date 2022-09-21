@@ -1,9 +1,6 @@
 from ddt import file_data
 from minium import ddt_class, ddt_case
-
-from base.common import delay
 from base.test_base import TestBase
-
 
 @ddt_class()
 class Testesfim(TestBase):
@@ -17,15 +14,16 @@ class Testesfim(TestBase):
         super(Testesfim, self).setUp()
         print("Testesfim setup")
 
-    def test_click_history(self):
+    def test_click_history_点击历史消息(self):
         """
         点击历史消息
         :return:
         """
         self.page.get_element('//view[@class="chat-top flex tfAlignC"]/image').tap()
+        self.delay(3)
         self.get_screenshot()
 
-    def test_send(self):
+    def test_send_发送消息(self):
         """
         发送消息(输入和语音切换)
         :return:
@@ -33,37 +31,38 @@ class Testesfim(TestBase):
         chat = self.page.element_is_exists('input[class="chatinput-input"]')
         if chat == True:
             self.page.get_element('input[class="chatinput-input"]').input('你好ya')
-            delay(1)
+            self.delay(1)
             fasong = self.page.get_element('button[class="chatinput-sendbtn fr"]')
             fasong.tap()
-            delay(2)
+            self.delay(2)
             voice = self.page.get_element('image[class="chatinput-img"]')
             voice.tap()
-            delay(2)
+            self.delay(2)
             mask = self.page.get_element('button[class="chatinput-voice-mask"]')
             mask.tap()
-            delay(2)
+            self.delay(2)
             keyboard = self.page.get_element('image[class="chatinput-img"]')
             keyboard.tap()
-            delay(2)
+            self.delay(2)
             self.get_screenshot()
         else:
             mask = self.page.get_element('button[class="chatinput-voice-mask"]')
             mask.tap()
-            delay(2)
+            self.delay(2)
             keyboard = self.page.get_element('image[class="chatinput-img"]')
             keyboard.tap()
-            delay(2)
+            self.delay(2)
             self.page.get_element('input[class="chatinput-input"]').input('你好ya')
-            delay(1)
+            self.delay(1)
             fasong = self.page.get_element('button[class="chatinput-sendbtn fr"]')
             fasong.tap()
-            delay(2)
+            self.delay(2)
             voice = self.page.get_element('image[class="chatinput-img"]')
             voice.tap()
+            self.delay(2)
             self.get_screenshot()
 
-    def test_inputimg(self):
+    def test_inputimg_点击上传图片(self):
         """
         点击上传图片
         :return:

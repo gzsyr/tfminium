@@ -1,5 +1,4 @@
 from minium import ddt_class, ddt_case
-from base.common import delay
 from base.test_base import TestBase
 @ddt_class()
 class Testesffjpg(TestBase):
@@ -13,7 +12,7 @@ class Testesffjpg(TestBase):
         super(Testesffjpg, self).setUp()
         print("Testesffjpg setup")
 
-    def test_input_flo(self):
+    def test_input_flo_输入楼层大于总楼层(self):
         """
         输入楼层大于总楼层
         :return:
@@ -21,9 +20,10 @@ class Testesffjpg(TestBase):
         e = self.page.get_element("input", inner_text="请输入").input('10')
         e_butt = self.page.get_element('view[class="center submit"]')
         e_butt.tap()
+        self.delay(3)
         self.get_screenshot()
 
-    def test_input_floor(self):
+    def test_input_floor_输入楼层(self):
         """
         输入楼层
         :return:
@@ -31,6 +31,7 @@ class Testesffjpg(TestBase):
         e = self.page.get_element("input", inner_text="请输入").input('5')
         e_butt = self.page.get_element('view[class="center submit"]')
         e_butt.tap()
+        self.delay(3)
         self.get_screenshot()
 
 

@@ -1,6 +1,4 @@
 from minium import ddt_class, ddt_case
-from base.common import delay
-
 from base.test_base import TestBase
 @ddt_class()
 class Testesfxqxq(TestBase):
@@ -17,7 +15,7 @@ class Testesfxqxq(TestBase):
     @ddt_case(
         0, 1, 2, 3
     )
-    def test_goto_tag(self, value):
+    def test_goto_tag_房源相册标签(self, value):
         """
         点击房源相册标签
         :param value:
@@ -29,83 +27,92 @@ class Testesfxqxq(TestBase):
 
             if len(elms) > value:
                 elms[value].tap()
+                self.delay(3)
                 self.get_screenshot()
         else:
             print("没有标签")
 
-    def test_goto_pic(self):
+    def test_goto_pic_点击相册(self):
         """
         点击相册
         :return:
         """
         e = self.page.get_element('//banner/view/swiper/swiper-item')
         e.tap()
+        self.delay(3)
         self.get_screenshot()
 
-    def test_goto_collect(self):
+    def test_goto_collec_点击收藏(self):
         """
         点击收藏
         :return:
         """
         e = self.page.get_element('view[class="button collect"]')
         e.tap()
+        self.delay(3)
         self.get_screenshot()
 
-    def test_goto_share(self):
+    def test_goto_share_点击分享(self):
         """
         点击分享
         :return:
         """
         e = self.page.get_element('button[class="button"]')
         e.tap()
+        self.delay(3)
         self.get_screenshot()
 
-    def test_goto_zsell(self):
+    def test_goto_zsell_点击在售房源(self):
         """
         点击在售房源
         :return:
         """
         e = self.page.get_element('view[class="onSell"][data-type="1"]')
         e.tap()
+        self.delay(3)
         self.get_screenshot()
 
-    def test_goto_zrent(self):
+    def test_goto_zrent_点击在租房源(self):
         """
         点击在租房源
         :return:
         """
         e = self.page.get_element('view[class="onRent"][data-mark="1"][data-type="2"]')
         e.tap()
+        self.delay(3)
         self.get_screenshot()
 
-    def test_goto_jgzs(self):
+    def test_goto_jgzs_点击价格走势图(self):
         """
         点击价格走势图
         :return:
         """
         e = self.page.get_element('view[class="flex_1 priceCharts"]')
         e.tap()
+        self.delay(3)
         self.get_screenshot()
 
-    def test_goto_zxxq(self):
+    def test_goto_zxxq_点击咨询详情(self):
         """
         点击咨询详情
         :return:
         """
         e = self.page.get_element('view[class="consult"]')
         e.tap()
+        self.delay(3)
         self.get_screenshot()
 
-    def test_goto_qpg(self):
+    def test_goto_qpg_点击去评估(self):
         """
         点击去评估
         :return:
         """
         e = self.page.get_element('view[class="center appraised"]')
         e.tap()
+        self.delay(3)
         self.get_screenshot()
 
-    def test_goto_wx(self):
+    def test_goto_wx_点击复制微信(self):
         """
         点击复制微信
         :return:

@@ -1,9 +1,6 @@
 from ddt import file_data
 from minium import ddt_class, ddt_case
-
-from base.common import delay
 from base.test_base import TestBase
-
 
 @ddt_class()
 class Testesflist(TestBase):
@@ -17,7 +14,7 @@ class Testesflist(TestBase):
         super(Testesflist, self).setUp()
         print("Testesflist setup")
 
-    def test_click_search(self):
+    def test_click_search_搜索(self):
         """
         搜索
         :return:
@@ -25,12 +22,12 @@ class Testesflist(TestBase):
         e = self.page.get_element('input[class="search--flex_1"]')
         e.tap()
         self.verifyPageName('/esf/sell/pages/search/search', '搜索 ok')
-        delay(3)
+        self.delay(3)
 
     @ddt_case(
         0, 1, 2, 3, 4
     )
-    def test_click_func_entry(self, value):
+    def test_func_entry_五个banner(self, value):
         """
         二手房首页五个banner
         :param value:
@@ -38,12 +35,12 @@ class Testesflist(TestBase):
         """
         self.page.get_element(f'view[class="text_center tile"][data-index="{value}"]').tap()
         self.get_screenshot()
-        delay(3)
+        self.delay(3)
 
     @ddt_case(
         0, 1, 2
     )
-    def test_click_func_adv(self, value):
+    def test_func_adv_首页广告(self, value):
         """
         二手房首页广告
         :param value:
@@ -53,9 +50,9 @@ class Testesflist(TestBase):
                               f'[data-index="{value}"]').tap()
         # self.get_capture()
         self.get_screenshot()
-        delay(5)
+        self.delay(5)
 
-    def test_click_gg(self):
+    def test_click_gg_广告位(self):
         """
         广告位
         :return:
@@ -64,12 +61,13 @@ class Testesflist(TestBase):
         if b_l:
             e = self.page.get_element('swiper-item[class="img"]')
             e.tap()
+            self.delay(3)
             self.get_screenshot()
         else:
             print("没有配置广告")
 
     @file_data('./test_esf_list.yml')
-    def test_search(self, **kwargs):
+    def test_search_筛选(self, **kwargs):
         """
         二手房筛选
         :return:
@@ -234,7 +232,7 @@ class Testesflist(TestBase):
 
         return self
 
-    def house_type_search(self, hx_text):
+    def house_type_search_房型筛选(self, hx_text):
         """
         房型筛选
         """
@@ -286,7 +284,7 @@ class Testesflist(TestBase):
 
         return self
 
-    def search_order_by(self, order_by_text):
+    def search_order_by_筛选排序(self, order_by_text):
         """
         筛选排序
         """
@@ -308,7 +306,7 @@ class Testesflist(TestBase):
 
         return self
 
-    def more_search(self, ary_more_text):
+    def more_search_更多筛选(self, ary_more_text):
         """
         更多筛选
         """
@@ -362,7 +360,7 @@ class Testesflist(TestBase):
 
         return self
 
-    def clear_search(self):
+    def clear_search_清空筛选条件(self):
         """
         清空筛选条件
         """
@@ -374,7 +372,7 @@ class Testesflist(TestBase):
     @ddt_case(
         0, 1, 2, 3, 4
     )
-    def test_click_func_bqsx(self, value):
+    def test_click_func_bqsx_标签筛选(self, value):
         """
         标签筛选
         :param value:
@@ -383,9 +381,9 @@ class Testesflist(TestBase):
         self.page.get_element('view[class="pa clear"]').tap()
         self.page.get_element(f'view[class="text_center screenQuickItem"][data-index="{value}"]').tap()
         self.get_screenshot()
-        delay(5)
+        self.delay(5)
 
-    def test_click_housedetail(self):
+    def test_click_housedetail_点击列表进入详情页(self):
         """
         进入二手房详情页
         :return:
@@ -401,4 +399,4 @@ class Testesflist(TestBase):
         elms = elm_first_item.get_element('sellitem').get_elements('view')
         elms[0].tap()
         self.verifyPageName('/esf/sell/pages/detail/detail', '房源详情 ok')
-        delay(5)
+        self.delay(5)
