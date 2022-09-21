@@ -1,8 +1,6 @@
 from ddt import file_data
 from minium import ddt_class, ddt_case
-
 from base.test_base import TestBase
-
 
 @ddt_class()
 class Testrentlist(TestBase):
@@ -17,7 +15,7 @@ class Testrentlist(TestBase):
         super(Testrentlist, self).setUp()
         print("Testrentlist setup")
 
-    def test_click_search(self):
+    def test_click_search_搜索(self):
         """
         搜索
         :return:
@@ -30,7 +28,7 @@ class Testrentlist(TestBase):
     @ddt_case(
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9
     )
-    def test_click_king(self, value):
+    def test_click_king_点击金刚区10个(self, value):
         """
         点击金刚区（整租、合租等）
         :return:
@@ -44,7 +42,7 @@ class Testrentlist(TestBase):
         else:
             print("无")
 
-    def test_click_rentdetail(self):
+    def test_click_rentdetail_进入租房详情页(self):
         """
         进入租房详情页
         :return:
@@ -58,11 +56,12 @@ class Testrentlist(TestBase):
         # 点击
         elms = elm_first_item.get_element('rentItem').get_elements('view')
         elms[0].tap()
+        self.delay(5)
         self.verifyPageName('/esf/sell/rent/detail/detail', '房源详情 ok')
         self.delay(5)
 
     @file_data('./test_rent_list.yml')
-    def test_search(self, **kwargs):
+    def test_search_租房筛选(self, **kwargs):
         """
         租房筛选
         :return:
@@ -129,7 +128,7 @@ class Testrentlist(TestBase):
         # 截图
         self.get_screenshot()
 
-    def pos_search(self, text_1, text_2, text_3):
+    def pos_search_位置筛选(self, text_1, text_2, text_3):
         """
         位置筛选
         """
@@ -194,7 +193,7 @@ class Testrentlist(TestBase):
 
         return self
 
-    def price_search(self, price_text, min_val, max_val):
+    def price_search_租金筛选(self, price_text, min_val, max_val):
         """
         租金筛选
         """
@@ -252,7 +251,7 @@ class Testrentlist(TestBase):
 
         return self
 
-    def house_type_search(self, hx_text):
+    def house_type_search_户型筛选(self, hx_text):
         """
         户型筛选
         """
@@ -285,7 +284,7 @@ class Testrentlist(TestBase):
 
         return self
 
-    def search_order_by(self, order_by_text):
+    def search_order_by_筛选排序(self, order_by_text):
         """
         筛选排序
         """
@@ -317,7 +316,7 @@ class Testrentlist(TestBase):
 
         return self
 
-    def more_search(self, ary_more_text):
+    def more_search_更多筛选(self, ary_more_text):
         """
         更多筛选
         """
@@ -370,7 +369,7 @@ class Testrentlist(TestBase):
 
         return self
 
-    def clear_search(self):
+    def clear_search_清空筛选条件(self):
         """
         清空筛选条件
         """

@@ -1,8 +1,6 @@
 from ddt import file_data
 from minium import ddt_class
-
 from base.test_base import TestBase
-
 
 @ddt_class()
 class Testrenthouseinglist(TestBase):
@@ -17,7 +15,7 @@ class Testrenthouseinglist(TestBase):
         print("Testrenthouseinglist setup")
 
     @file_data('./test_rent_housing_list.yml')
-    def test_click_search(self, **kwargs):
+    def test_click_search_找室友筛选(self, **kwargs):
         """
         找室友筛选
         :return:
@@ -138,7 +136,7 @@ class Testrenthouseinglist(TestBase):
 
         return self
 
-    def share_type_search(self, share_type_text):
+    def share_type_search_有房无房筛选(self, share_type_text):
         """
         有房无房筛选
         """
@@ -171,7 +169,7 @@ class Testrenthouseinglist(TestBase):
 
         return self
 
-    def search_order_by(self, order_by_text):
+    def search_order_by_筛选排序(self, order_by_text):
         """
         筛选排序
         """
@@ -203,7 +201,7 @@ class Testrenthouseinglist(TestBase):
 
         return self
 
-    def more_search(self, ary_more_text):
+    def more_search_更多筛选(self, ary_more_text):
         """
         更多筛选
         """
@@ -267,7 +265,7 @@ class Testrenthouseinglist(TestBase):
 
         return self
 
-    def clear_search(self):
+    def clear_search_清空筛选条件(self):
         """
         清空筛选条件
         """
@@ -276,36 +274,41 @@ class Testrenthouseinglist(TestBase):
 
         return self
 
-    def test_click_homelist(self):
+    def test_click_homelist_点击列表(self):
         """
         点击列表
         :return:
         """
         elms = self.page.get_elements('//view[@class="rent-home-list grey"]/view/findRoommateItem/view')
         elms[0].tap()
+        self.delay(3)
         self.get_screenshot()
+        self.delay(1)
 
-    def test_click_sc(self):
+    def test_click_sc_点击收藏取消收藏(self):
         """
         点击列表-收藏-取消收藏
         :return:
         """
         sc = self.page.get_elements('//view[@class="rent-home-list grey"]/view/findRoommateItem/view/view[5]/view[2]')
         sc[0].tap()
+        self.delay(3)
         self.get_screenshot()
         self.delay(3)
 
         qxsc = self.page.get_elements('//view[@class="rent-home-list grey"]/view/findRoommateItem/view/view[5]/view[2]')
         qxsc[0].tap()
+        self.delay(3)
         self.get_screenshot()
         self.delay(3)
 
-    def test_click_zxim(self):
+    def test_click_zxim_点击列表在线聊(self):
         """
         点击列表-在线聊
         :return:
         """
         im = self.page.get_elements('//view[@class="rent-home-list grey"]/view/findRoommateItem/view/view[5]/view[3]')
         im[0].tap()
+        self.delay(3)
         self.get_screenshot()
         self.delay(3)

@@ -1,8 +1,6 @@
 from ddt import file_data
 from minium import ddt_class
-
 from base.test_base import TestBase
-
 
 @ddt_class()
 class Testrentofficebangong(TestBase):
@@ -16,7 +14,7 @@ class Testrentofficebangong(TestBase):
         super(Testrentofficebangong, self).setUp()
         print("Testrentofficebangong setup")
 
-    def test_click_keyword_search(self):
+    def test_click_keyword_search_关键词搜索(self):
         """
         关键词搜索
         :return:
@@ -25,9 +23,10 @@ class Testrentofficebangong(TestBase):
         e.tap()
         self.verifyPageName('/esf/sell/rent/office/search/search', '搜索 ok')
         self.delay(3)
+        self.get_screenshot()
 
     @file_data('./test_rent_office_bg.yml')
-    def test_click_search(self, **kwargs):
+    def test_click_search_办公楼盘筛选(self, **kwargs):
         """
         办公楼盘筛选
         :return:
@@ -69,7 +68,7 @@ class Testrentofficebangong(TestBase):
         # 截图
         self.get_screenshot()
 
-    def pos_search(self, text_1, text_2, text_3):
+    def pos_search_位置筛选(self, text_1, text_2, text_3):
         """
         位置筛选
         """
@@ -130,7 +129,7 @@ class Testrentofficebangong(TestBase):
 
         return self
 
-    def build_search(self, build_text):
+    def build_search_类别筛选(self, build_text):
         """
         类别筛选
         """
@@ -163,7 +162,7 @@ class Testrentofficebangong(TestBase):
 
         return self
 
-    def price_search(self, price_text):
+    def price_search_租金筛选(self, price_text):
         """
         租金筛选
         """
@@ -196,7 +195,7 @@ class Testrentofficebangong(TestBase):
 
         return self
 
-    def search_order_by(self, order_by_text):
+    def search_order_by_筛选排序(self, order_by_text):
         """
         筛选排序
         """
@@ -228,21 +227,22 @@ class Testrentofficebangong(TestBase):
 
         return self
 
-    def test_click_officedetail(self):
+    def test_click_officedetail_列表进入详情(self):
         """
         点击列表进入详情页
         :return:
         """
-
         elm_items = self.page.get_elements('//view[@class="list"]')
         # 第一个item
         elm_first_item = elm_items[0]
         # 点击第一条房源
         elms = elm_first_item.get_element('buildingItem').get_elements('view')
         elms[0].tap()
+        self.delay(3)
         self.get_screenshot()
+        self.delay(3)
 
-    def test_click_pprz(self):
+    def test_click_pprz_点击品牌入驻(self):
         """
         点击品牌入驻
         :return:

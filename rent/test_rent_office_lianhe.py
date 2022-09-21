@@ -1,8 +1,6 @@
 from ddt import file_data
 from minium import ddt_class
-
 from base.test_base import TestBase
-
 
 @ddt_class()
 class Testrentofficelianhe(TestBase):
@@ -16,7 +14,7 @@ class Testrentofficelianhe(TestBase):
         super(Testrentofficelianhe, self).setUp()
         print("Testrentofficelianhe setup")
 
-    def test_click_keyword_search(self):
+    def test_click_keyword_search_关键词搜索(self):
         """
         关键词搜索
         :return:
@@ -27,7 +25,7 @@ class Testrentofficelianhe(TestBase):
         self.delay(3)
 
     @file_data('./test_rent_office_lh.yml')
-    def test_click_search(self, **kwargs):
+    def test_click_search_联合办公筛选(self, **kwargs):
         """
         联合办公筛选
         :return:
@@ -130,7 +128,7 @@ class Testrentofficelianhe(TestBase):
 
         return self
 
-    def build_search(self, build_text):
+    def build_search_类别筛选(self, build_text):
         """
         类别筛选
         """
@@ -163,7 +161,7 @@ class Testrentofficelianhe(TestBase):
 
         return self
 
-    def price_search(self, price_text):
+    def price_search_租金筛选(self, price_text):
         """
         租金筛选
         """
@@ -196,7 +194,7 @@ class Testrentofficelianhe(TestBase):
 
         return self
 
-    def search_order_by(self, order_by_text):
+    def search_order_by_筛选排序(self, order_by_text):
         """
         筛选排序
         """
@@ -228,7 +226,7 @@ class Testrentofficelianhe(TestBase):
 
         return self
 
-    def test_click_officedetail(self):
+    def test_click_officedetail_列表进入详情(self):
         """
         点击列表进入详情页
         :return:
@@ -239,9 +237,11 @@ class Testrentofficelianhe(TestBase):
         # 点击第一条房源
         elms = elm_first_item.get_element('buildingItem').get_elements('view')
         elms[0].tap()
+        self.delay(3)
         self.get_screenshot()
+        self.delay(3)
 
-    def test_click_pprz(self):
+    def test_click_pprz_点击品牌入驻(self):
         """
         点击品牌入驻
         :return:

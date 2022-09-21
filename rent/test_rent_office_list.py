@@ -1,8 +1,6 @@
 from ddt import file_data
 from minium import ddt_class
-
 from base.test_base import TestBase
-
 
 @ddt_class()
 class Testrentofficelist(TestBase):
@@ -16,7 +14,7 @@ class Testrentofficelist(TestBase):
         super(Testrentofficelist, self).setUp()
         print("Testrentofficelist setup")
 
-    def test_click_keyword_search(self):
+    def test_click_keyword_searc_关键词搜索(self):
         """
         关键词搜索
         :return:
@@ -27,7 +25,7 @@ class Testrentofficelist(TestBase):
         self.delay(3)
 
     @file_data('./test_rent_office_list.yml')
-    def test_click_search(self, **kwargs):
+    def test_click_search_租写字楼筛选(self, **kwargs):
         """
         租写字楼筛选
         :return:
@@ -87,7 +85,7 @@ class Testrentofficelist(TestBase):
         # 截图
         self.get_screenshot()
 
-    def pos_search(self, text_1, text_2, text_3):
+    def pos_search_位置筛选(self, text_1, text_2, text_3):
         """
         位置筛选
         """
@@ -148,7 +146,7 @@ class Testrentofficelist(TestBase):
 
         return self
 
-    def area_search(self, area_text):
+    def area_search_面积筛选(self, area_text):
         """
         面积筛选
         """
@@ -181,7 +179,7 @@ class Testrentofficelist(TestBase):
 
         return self
 
-    def price_search(self, price_text):
+    def price_search_租金筛选(self, price_text):
         """
         租金筛选
         """
@@ -214,7 +212,7 @@ class Testrentofficelist(TestBase):
 
         return self
 
-    def more_search(self, ary_more_text):
+    def more_search_更多筛选(self, ary_more_text):
         """
         更多筛选
         """
@@ -266,7 +264,7 @@ class Testrentofficelist(TestBase):
 
         return self
 
-    def search_order_by(self, order_by_text):
+    def search_order_by_筛选排序(self, order_by_text):
         """
         筛选排序
         """
@@ -298,7 +296,7 @@ class Testrentofficelist(TestBase):
 
         return self
 
-    def test_click_office_detail(self):
+    def test_click_office_detail_写字楼列表进入详情页(self):
         """
         点击租写字楼列表进入详情页
         :return:
@@ -309,4 +307,6 @@ class Testrentofficelist(TestBase):
         # 点击第一条房源
         elms = elm_first_item.get_element('officeItem').get_elements('view')
         elms[0].tap()
+        self.delay(3)
         self.get_screenshot()
+        self.delay(3)
