@@ -28,6 +28,7 @@ class Testesfbroker(TestBase):
         elms[0].tap()
         self.verifyPageName('/esf/sell/pages/detail/detail', '房源详情 ok')
         delay(5)
+        self.get_screenshot()
 
     def test_btnmsg(self):
         """
@@ -35,7 +36,7 @@ class Testesfbroker(TestBase):
         :return:
         """
         self.page.get_element('view[class="center btn msg"]').tap()
-        delay(2)
+        delay(5)
         self.get_screenshot()
 
     def test_btntel(self):

@@ -102,10 +102,14 @@ class Testrenthouseingdetail(TestBase):
         delay(1)
         mo = self.page.element_is_exists('//view[@class="relevant"]')
         if mo == True:
-            m = self.page.get_element('view[class="center checkMore"]')
-            m.tap()
-            self.get_screenshot()
-            delay(2)
+            e = self.page.element_is_exists('view[class="center checkMore"]')
+            if e == True:
+                m = self.page.get_element('view[class="center checkMore"]')
+                m.tap()
+                self.get_screenshot()
+                delay(2)
+            else:
+                print('没有更多')
         else:
             print('没有相关推荐')
 
