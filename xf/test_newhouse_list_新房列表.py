@@ -24,7 +24,7 @@ class TestNewsHouseList(TestBase):
             print("无弹窗广告")
         print("TestNewsHouseList setup")
 
-    def test_click_1_search_and_select_and_clear(self):
+    def test_click_1_search_and_select_and_clear_搜索并清除(self):
         """
         新房列表页面，点击搜索框，输入关键词，点击搜索结果第一条，展示带关键字的列表，点击搜索框的“清空”按钮
         """
@@ -42,7 +42,7 @@ class TestNewsHouseList(TestBase):
 
         self.get_screenshot()
 
-    def test_click_map(self):
+    def test_click_map_地图(self):
         """
         新房列表页面，点击地图
         """
@@ -51,7 +51,7 @@ class TestNewsHouseList(TestBase):
         self.verifyPageName('/page/newhouse/mapzf/mapzf')
         self.get_screenshot()
 
-    def test_click_ads(self):
+    def test_click_ads_联板广告(self):
         """
         新房列表页面，点击联板广告
         """
@@ -60,7 +60,7 @@ class TestNewsHouseList(TestBase):
         self.get_screenshot()
 
     @file_data('./test_newhouse_list_func.yml')
-    def test_click_yldc(self, **kwargs):
+    def test_click_yldc_功能入口(self, **kwargs):
         """
         新房列表页面，联板广告下面，点击功能入口
         """
@@ -71,7 +71,7 @@ class TestNewsHouseList(TestBase):
         self.get_screenshot()
 
     @data(1, 2, 3, 4)
-    def test_click_dgmk(self, num):
+    def test_click_dgmk_导购模块(self, num):
         """
         新房列表页面，功能入口下方，点击导购模块
         """
@@ -79,7 +79,7 @@ class TestNewsHouseList(TestBase):
 
         self.get_screenshot()
 
-    def test_click_zx(self):
+    def test_click_zx_咨询(self):
         """
         新房列表页面，点击咨询
         """
@@ -91,7 +91,7 @@ class TestNewsHouseList(TestBase):
         # self.verifyByScreenshot('xf/IM.png')
         self.get_screenshot()
 
-    def test_click_housedetail(self):
+    def test_click_housedetail_新房详情(self):
         """
         新房列表页面，进入新房详情页
         """
@@ -101,7 +101,7 @@ class TestNewsHouseList(TestBase):
         self.get_screenshot()
 
     @data('洛江')
-    def test_select_wz(self, qy='洛江'):
+    def test_select_wz_筛选区域(self, qy='洛江'):
         """
         新房列表页面，筛选区域
         """
@@ -114,7 +114,7 @@ class TestNewsHouseList(TestBase):
         self.get_screenshot()
 
     @data('8000-10000元/㎡')
-    def test_select_jg(self, jg):
+    def test_select_jg_筛选价格(self, jg):
         """
         新房列表页面，筛选价格
         """
@@ -125,8 +125,8 @@ class TestNewsHouseList(TestBase):
                        '筛选价格正确')
         self.get_screenshot()
 
-    # @data('二室')
-    def test_select_hx(self, hx='二室'):
+    @data('二室')
+    def test_select_hx_筛选户型(self, hx='二室'):
         """
         新房列表页面，筛选户型
         """
@@ -138,7 +138,7 @@ class TestNewsHouseList(TestBase):
         self.get_screenshot()
 
     @file_data('./test_newhouse_list_sx.yml')
-    def test_select_sx(self, **kwargs):
+    def test_select_sx_筛选更多(self, **kwargs):
         """
         筛选
         """
@@ -159,7 +159,7 @@ class TestNewsHouseList(TestBase):
         self.get_screenshot()
 
     @data('开盘时间由近到远')
-    def test_select_px(self, px):
+    def test_select_px_筛选排序(self, px):
         """
         新房列表页面，筛选排序
         """
@@ -168,7 +168,7 @@ class TestNewsHouseList(TestBase):
 
         self.get_screenshot()
 
-    def test_z_click_fx(self):
+    def test_z_click_fx_分享(self):
         """
         新房列表页面，点击分享
         """

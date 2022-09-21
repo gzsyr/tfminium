@@ -13,7 +13,7 @@ class TestKFT(TestBase):
         self.classname = self.__class__.__name__
         super(TestKFT, self).setUp()
         
-    def test_click_kfxq(self):
+    def test_01_click_kfxq_看房需求(self):
         """
         前置条件是登录，
         手机号是登录之后自动获取，
@@ -42,7 +42,7 @@ class TestKFT(TestBase):
         self.verifyStr(True, self.getShowToast(tap), '发布看房需求ok')
         self.get_screenshot()
 
-    def test_click_route1(self):
+    def test_02_click_route1_看房线路(self):
         """
         点击第一条路线
         """
@@ -51,7 +51,7 @@ class TestKFT(TestBase):
         self.verifyPageName('/page/houseteam/detail')
         self.get_screenshot()
 
-    def test_click_zphone(self):
+    def test_05_click_zphone_电话咨询(self):
         """
         点击电话咨询
         """
@@ -59,7 +59,7 @@ class TestKFT(TestBase):
         self.delay(1)
         self.verifyByScreenshot('xf/call.png')
 
-    def test_click_signup(self):
+    def test_03_click_signup_我要报名(self):
         """
         点击我要报名,点击我已阅读小√，输入手机号，点击获取验证码
         """
@@ -82,7 +82,7 @@ class TestKFT(TestBase):
     #     self.page.get_element('add-group[is="component/addgroup"]').get_element('image[role="img"]').tap()
     #     self.delay(1)
 
-    def test_click_zallroutes(self):
+    def test_04_click_zallroutes_全部线路(self):
         """
         点击全部路线下拉箭头
         """

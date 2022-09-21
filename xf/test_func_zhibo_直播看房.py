@@ -17,7 +17,7 @@ class TestFuncZhiBo(TestBase):
         print('TestFuncZhiBo setup')
 
     @file_data('./test_func_zhibo.yml')
-    def test_search(self, **kwargs):
+    def test_01_search_搜索(self, **kwargs):
         """
         直播看房页面，搜索 直播人的名字，并进入搜索结果第一条
         """
@@ -30,7 +30,7 @@ class TestFuncZhiBo(TestBase):
         self.get_screenshot()
 
     @file_data('./test_func_zhibo.yml')
-    def test_select_city(self, **kwargs):
+    def test_02_select_city_选城市(self, **kwargs):
         """
         直播看房页面，选择城市
         """

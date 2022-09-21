@@ -15,7 +15,7 @@ class TestNewhouseYhcx(TestBase):
         self.classname = self.__class__.__name__
         super(TestNewhouseYhcx, self).setUp()
 
-    def test_click_house_name(self):
+    def test_01_click_house_name_进入楼盘详情(self):
         """
         摇号结果查询页，点击楼盘名称，进入楼盘详情页
         """
@@ -24,7 +24,7 @@ class TestNewhouseYhcx(TestBase):
         self.verifyPageName('/page/newhouse/detail')
         self.get_screenshot()
 
-    def test_click_yhlc(self):
+    def test_02_click_yhlc_摇号流程(self):
         """
         摇号结果查询页，点击“摇号流程”
         """
@@ -34,7 +34,7 @@ class TestNewhouseYhcx(TestBase):
         self.get_screenshot()
 
     @file_data('./test_newhouse_yhcx_final.yml')
-    def test_result_final_search(self, kw='洪叶', ret=True):
+    def test_03_result_final_search_结果查询(self, kw='洪叶', ret=True):
         """
         摇号结果查询页，摇号最终结果tab，输入姓名/证明号查询
         """
@@ -48,7 +48,7 @@ class TestNewhouseYhcx(TestBase):
         self.get_screenshot()
 
     @file_data('./test_newhouse_yhcx_round.yml')
-    def test_result_round_search(self, rn=0, round='第一轮', kw='洪叶', ret=True):
+    def test_04_result_round_search_轮次查询(self, rn=0, round='第一轮', kw='洪叶', ret=True):
         """
         摇号结果查询页，摇号轮次结果tab，输入姓名查询
         """
@@ -65,3 +65,4 @@ class TestNewhouseYhcx(TestBase):
             self.delay(1)
             self.verifyContainsStr(kw, self.page.get_element('view[class="disflex-flexgrow-1"]').inner_wxml, f'摇号结果 最终结果 {kw}ok')
         self.get_screenshot()
+

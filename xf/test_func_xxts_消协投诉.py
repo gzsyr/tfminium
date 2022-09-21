@@ -17,7 +17,7 @@ class TestFuncXxts(TestBase):
         super(TestFuncXxts, self).setUp()
         print('TestFuncXxts setup test')
 
-    def test_submit(self):
+    def test_03_submit_提交投诉(self):
         """
         消协投诉页面，提交投诉内容
         """
@@ -40,7 +40,7 @@ class TestFuncXxts(TestBase):
         self.verifyStr(True, is_called, "toast called ")
         self.get_screenshot()
 
-    def test_fbs_im(self):
+    def test_02_fbs_im_在线咨询(self):
         """
         消协投诉页，点击房博士咨询im
         """
@@ -50,7 +50,7 @@ class TestFuncXxts(TestBase):
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
-    def test_fbs_call(self):
+    def test_01_fbs_call_拨打电话(self):
         """
         消协投诉页，点击房博士 拨打电话按钮
         """

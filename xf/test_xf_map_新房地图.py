@@ -15,7 +15,7 @@ class TestXfMap(TestBase):
         super(TestXfMap, self).setUp()
 
     @file_data('./test_xf_map_sx.yml')
-    def test_xf_map_sx(self, **kwargs):
+    def test_xf_map_sx_地图筛选(self, **kwargs):
         """
         地图找房页面，通过筛选项筛选地图数据(先清空筛选项)
         """
@@ -43,7 +43,7 @@ class TestXfMap(TestBase):
         self.get_screenshot()
 
     @file_data('./test_xf_map_search.yml')
-    def test_xf_map_search(self, lpname="万科雨悦光年"):
+    def test_xf_map_search_地图搜索(self, lpname="万科雨悦光年"):
         """
         地图找房页面，通过关键词搜索
         """

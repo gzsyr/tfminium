@@ -17,7 +17,7 @@ class TestFuncGfbk(TestBase):
         print('TestFuncGfbk setup test')
 
     @file_data('./test_func_gfbk.yml')
-    def test_click_icon(self, **kwargs):
+    def test_02_click_icon_功能入口(self, **kwargs):
         """
         购房百科页面，点击功能入口
         """
@@ -27,7 +27,7 @@ class TestFuncGfbk(TestBase):
         self.verifyPageName(kwargs['targetp'])
         self.get_screenshot()
 
-    def test_click_first_hot(self):
+    def test_01_click_first_hot_热门百科(self):
         """
         购房百科页面，点击第一条热门百科
         """

@@ -38,7 +38,7 @@ class TestFuncBangDan(TestBase):
             self.page.get_element('view[class="item xfxq_bd_lp"]').click()
 
     @file_data('./test_func_bangdan.yml')
-    def test_goto_detail(self, **kwargs):
+    def test_goto_detail_点击楼盘(self, **kwargs):
         """
         楼盘榜单页，”热搜榜“，选择区域后，点击第一个楼盘
         """

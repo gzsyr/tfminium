@@ -13,7 +13,7 @@ class TestFuncVR(TestBase):
         super(TestFuncVR, self).setUp()
         print("TestFuncVR setup atest")
 
-    def test_filter_area(self):
+    def test_03_filter_area_筛选区域(self):
         """
         VR看房页面，点击筛选项“区域”选择
         """
@@ -23,7 +23,7 @@ class TestFuncVR(TestBase):
         self.verifyStr(ele[0].inner_text, '丰泽', "VR看房页面，点击筛选项“区域”选择 丰泽 ok")
         self.get_screenshot()
 
-    def test_filter_price(self):
+    def test_05_filter_price_筛选价格(self):
         """
         VR看房页面，点击筛选项“价格”选择
         """
@@ -33,7 +33,7 @@ class TestFuncVR(TestBase):
         self.verifyStr(ele[1].inner_text, '4000-5000元/㎡', "VR看房页面，点击筛选项“价格”选择 4000-5000元/㎡ ok")
         self.get_screenshot()
 
-    def test_filter_huxing(self):
+    def test_04_filter_huxing_筛选户型(self):
         """
         VR看房页面，点击筛选项“户型”选择
         """
@@ -43,7 +43,7 @@ class TestFuncVR(TestBase):
         self.verifyStr(ele[2].inner_text, '三室', "VR看房页面，点击筛选项“户型”选择 三室 ok")
         self.get_screenshot()
 
-    def test_goto_housedetail(self):
+    def test_06_goto_housedetail_进入楼盘(self):
         """
         VR看房页面，点击列表项第一个标题，进入新房详情页
         """
@@ -52,7 +52,7 @@ class TestFuncVR(TestBase):
         self.verifyPageName("/page/newhouse/detail")
         self.get_screenshot()
 
-    def test_VRname_goto_detail(self):
+    def test_02_VRname_goto_detail_VR名称进入VR(self):
         """
         VR看房页面，点击列表项第一个VR名称
         """
@@ -61,7 +61,7 @@ class TestFuncVR(TestBase):
         self.verifyPageName("/page/vr/vrdetail")
         self.get_screenshot()
 
-    def test_VRbtn_goto_detail(self):
+    def test_01_VRbtn_goto_detail_看房按钮进入VR(self):
         """
         VR看房页面，点击列表项第一个VR看房 按钮
         """

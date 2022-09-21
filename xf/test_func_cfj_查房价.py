@@ -16,7 +16,7 @@ class TestFuncCfj(TestBase):
         super(TestFuncCfj, self).setUp()
 
     @file_data('./test_func_cfj.yml')
-    def test_fast_evaluation(self, name='测试正式小区2', area='234'):
+    def test_01_fast_evaluation_快速评估(self, name='测试正式小区2', area='234'):
         """
         查房价页面，搜索小区，面积，点击“快速评估”
         """
@@ -34,7 +34,7 @@ class TestFuncCfj(TestBase):
         self.verifyPageName('/page/checkprices/result')
         self.get_screenshot()
 
-    def test_result_goto_esf_detail(self):
+    def test_02_result_goto_esf_detail_评估结果页点击二手房(self):
         self.goto_search(). \
             search_select('测试正式小区'). \
             delay(1). \

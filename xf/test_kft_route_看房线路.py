@@ -11,7 +11,7 @@ class TestKFTRoute(TestBase):
         self.classname = self.__class__.__name__
         super(TestKFTRoute, self).setUp()
 
-    def test_click_list(self):
+    def test_04_click_list_进入楼盘详情(self):
         """
         看房团路线页面，点击第一个楼盘，进入楼盘详情页
         """
@@ -20,7 +20,7 @@ class TestKFTRoute(TestBase):
         self.verifyPageName('/page/newhouse/detail')
         self.get_screenshot()
 
-    def test_click_first(self):
+    def test_03_click_first_回首页(self):
         """
         看房团路线页面，点击首页
         """
@@ -29,7 +29,7 @@ class TestKFTRoute(TestBase):
         self.verifyPageName('/page/index/index')
         self.get_screenshot()
 
-    def test_click_signup(self):
+    def test_05_click_signup_立即报名(self):
         """
         看房团路线页面，点击立即报名,点击我已阅读小√，输入手机号，点击获取验证码
         """
@@ -38,7 +38,7 @@ class TestKFTRoute(TestBase):
         self.verifyPageName('/page/houseteam/apply')
         self.get_screenshot()
 
-    def test_click_activity(self):
+    def test_01_click_activity_活动流程(self):
         """
         看房团路线页面，点击活动流程
         """
@@ -47,7 +47,7 @@ class TestKFTRoute(TestBase):
         self.verifyPageName('/page/houseteam/activity')
         self.get_screenshot()
 
-    def test_click_declare(self):
+    def test_02_click_declare_免责声明(self):
         """
         看房团路线页面，点击免责声明
         """
@@ -56,7 +56,7 @@ class TestKFTRoute(TestBase):
         self.verifyPageName('/page/houseteam/declare')
         self.get_screenshot()
 
-    def test_click_zphone(self):
+    def test_06_click_zphone_电话咨询(self):
         """
         看房团路线页面，点击电话咨询图标
         """

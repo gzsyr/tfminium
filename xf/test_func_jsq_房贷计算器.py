@@ -74,7 +74,7 @@ class TestFuncJsq(TestBase):
 
     # 以下 商业贷款 的测试用例
     @file_data('./test_func_jsq.yml')
-    def test_sydk_dben_total(self, **kargs):
+    def test_sydk_dben_total_商贷等本按总(self, **kargs):
         """
         房贷计算器页面，“商业贷款”，等额本金-按贷款总额
         """
@@ -90,7 +90,7 @@ class TestFuncJsq(TestBase):
         self.get_screenshot()
 
     @file_data('./test_func_jsq.yml')
-    def test_sydk_dxi_total(self, **kargs):
+    def test_sydk_dxi_total_商贷等息按总(self, **kargs):
         """
         房贷计算器页面，“商业贷款”，等额本息-按贷款总额
         """
@@ -106,7 +106,7 @@ class TestFuncJsq(TestBase):
         self.get_screenshot()
 
     @file_data('./test_func_jsq.yml')
-    def test_sydk_dben_price(self, **kargs):
+    def test_sydk_dben_price_商贷等本按单(self, **kargs):
         """
         房贷计算器页面，“商业贷款”，等额本金-按单价
         """
@@ -126,7 +126,7 @@ class TestFuncJsq(TestBase):
         self.get_screenshot()
 
     @file_data('./test_func_jsq.yml')
-    def test_sydk_dxi_price(self, **kargs):
+    def test_sydk_dxi_price_商贷等息按单(self, **kargs):
         """
         房贷计算器页面，“商业贷款”，等额本息-按单价
         """
@@ -146,7 +146,7 @@ class TestFuncJsq(TestBase):
 
     # 以下 公积金贷款 的测试用例
     @file_data('./test_func_jsq.yml')
-    def test_gjj_2dben(self, **kwargs):
+    def test_gjj_2dben_公积金等本(self, **kwargs):
         """
         “公积金”，等额本金、贷款总额、贷款期限
         """
@@ -163,7 +163,7 @@ class TestFuncJsq(TestBase):
         self.get_screenshot()
 
     @file_data('./test_func_jsq.yml')
-    def test_gjj_1dxi(self, **kwargs):
+    def test_gjj_1dxi_公积金等息(self, **kwargs):
         """
         “公积金”，等额本金、贷款总额、贷款期限
         """
@@ -187,7 +187,7 @@ class TestFuncJsq(TestBase):
 
     # 以下 组合贷款 的测试用例
     @file_data('./test_func_jsq.yml')
-    def test_zhdk_dxi(self, **kwargs):
+    def test_zhdk_dxi_组合贷款等息(self, **kwargs):
         """
         “组合贷款”，等额本金
         """
@@ -212,7 +212,7 @@ class TestFuncJsq(TestBase):
         self.get_screenshot()
 
     @file_data('./test_func_jsq.yml')
-    def test_zhdk_dben(self, **kwargs):
+    def test_zhdk_dben_组合贷款等本(self, **kwargs):
         """
         “组合贷款”，等额本金
         """

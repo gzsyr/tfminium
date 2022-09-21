@@ -14,7 +14,7 @@ class TestNewhouseDianping(TestBase):
         self.classname = self.__class__.__name__
         super(TestNewhouseDianping, self).setUp()
         
-    def test_click_first_pinglun(self):
+    def test_click_first_pinglun_点击评论(self):
         """
         楼盘点评页面，点击第一条点评
         """
@@ -23,7 +23,7 @@ class TestNewhouseDianping(TestBase):
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
 
-    def test_click_lpquanzi(self):
+    def test_click_lpquanzi_楼盘圈子(self):
         """
         楼盘点评页面，点击楼盘圈子，进入圈子详情页
         """
@@ -32,7 +32,7 @@ class TestNewhouseDianping(TestBase):
         self.verifyPageName('/page/taofangquan/huati/huatiDetail')
         self.get_screenshot()
 
-    def test_click_hot_post(self):
+    def test_click_hot_post_热点聚集(self):
         """
         楼盘点评页面，点击综合评分下面的热点聚焦，进入帖子详情页
         """
@@ -42,7 +42,7 @@ class TestNewhouseDianping(TestBase):
         self.get_screenshot()
 
     @file_data('./test_newhouse_dianping.yml')
-    def test_submit_pinglun(self, **kwargs):
+    def test_submit_pinglun_发布评论(self, **kwargs):
         """
         楼盘点评页面，点击评论入口，在评论页面，发布评论
         """
@@ -107,7 +107,7 @@ class TestNewhouseDianping(TestBase):
         self.verifyStr(True, self.getShowToast(tap), '提交楼盘评论ok')
         self.get_screenshot()
 
-    def test_click_first_dianzan(self):
+    def test_click_first_dianzan_点赞评论(self):
         """
         楼盘点评页面，点击第一条评论的点赞按钮
         """
@@ -115,7 +115,7 @@ class TestNewhouseDianping(TestBase):
         self.verifyStr(True, self.getShowToast(tap), '点赞成功')
         self.get_screenshot()
 
-    def test_click_first_reply(self):
+    def test_click_first_reply_点击评论回复(self):
         """
         楼盘点评页面，点击第一条评论的回复按钮
         """
@@ -124,7 +124,7 @@ class TestNewhouseDianping(TestBase):
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
 
-    def test_z_click_call(self):
+    def test_z_click_call_拨打电话(self):
         """
         楼盘点评页面，点击“致电淘房顾问”
         """
@@ -133,7 +133,7 @@ class TestNewhouseDianping(TestBase):
         self.delay(1)
         self.verifyByScreenshot('xf/call.png')
 
-    def test_z_click_share(self):
+    def test_z_click_share_分享(self):
         """
         楼盘点评页面，点击“分享”
         """

@@ -13,7 +13,7 @@ class TestNewHouseYhqc(TestBase):
         self.classname = self.__class__.__name__
         super(TestNewHouseYhqc, self).setUp()
 
-    def test_click_qkboxR(self):
+    def test_03_click_qkboxR_顶部删除按(self):
         """
         摇号清册页面，点击顶部说明栏“删除”按钮
         """
@@ -21,7 +21,7 @@ class TestNewHouseYhqc(TestBase):
 
         self.get_screenshot()
 
-    def test_click_yhlc(self):
+    def test_07_click_yhlc_摇号流程(self):
         """
         摇号清册页面，点击顶部“摇号流程”按钮
         """
@@ -29,7 +29,7 @@ class TestNewHouseYhqc(TestBase):
 
         self.get_screenshot()
 
-    def test_click_jinqun(self):
+    def test_02_click_jinqun_进群按钮(self):
         """
         摇号清册页面，点击开盘时间右侧的进群按钮
         """
@@ -40,7 +40,7 @@ class TestNewHouseYhqc(TestBase):
             print("没有配置进群广告")
         self.get_screenshot()
 
-    def test_search(self,name="岳小勇"):
+    def test_08_search_清册搜索(self,name="岳小勇"):
         """
         摇号清册页面，摇号清册列表，输入姓名搜索
         """
@@ -50,7 +50,7 @@ class TestNewHouseYhqc(TestBase):
 
         self.get_screenshot()
 
-    def test_click_tab1(self):
+    def test_04_click_tab1_清册第一个tab(self):
         """
         摇号清册页面，摇号清册列表，点击第一个tab
         """
@@ -58,7 +58,7 @@ class TestNewHouseYhqc(TestBase):
 
         self.get_screenshot()
 
-    def test_click_tab2(self):
+    def test_05_click_tab2_清册第二个tab(self):
         """
         摇号清册页面，摇号清册列表，点击第二个tab
         """
@@ -66,7 +66,7 @@ class TestNewHouseYhqc(TestBase):
 
         self.get_screenshot()
 
-    def test_click_tab3(self):
+    def test_06_click_tab3_清册第三个tab(self):
         """
         摇号清册页面，摇号清册列表，点击第三个tab
         """
@@ -74,7 +74,7 @@ class TestNewHouseYhqc(TestBase):
 
         self.get_screenshot()
 
-    def test_click_add(self):
+    def test_01_click_add_添加(self):
         """
         摇号清册页面，摇号清册列表。点击“添加”按钮
         """
@@ -89,7 +89,7 @@ class TestNewHouseYhqc(TestBase):
 
         self.get_screenshot()
 
-    def test_z_click_share(self):
+    def test_09_z_click_share_分享(self):
         """
         摇号清册页面，摇号清册列表，点击分享按钮
         """

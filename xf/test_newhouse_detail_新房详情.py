@@ -14,7 +14,7 @@ class TestNewhouseDetail(TestBase):
         super(TestNewhouseDetail, self).setUp()
         self.delay(2)
 
-    def test_goto_photo(self):
+    def test_goto_photo_相册(self):
         """
         新房详情页页面，点击相册
         """
@@ -23,7 +23,7 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/newhouse/xcny/xcnylist')
         self.get_screenshot()
 
-    def test_goto_pk(self):
+    def test_goto_pk_PK页面(self):
         """
         新房详情页页面，点击PK
         """
@@ -32,7 +32,7 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/newhouse/loupanPk/loupanPk')
         self.get_screenshot()
 
-    def test_goto_dy(self):
+    def test_goto_dy_订阅(self):
         """
         新房详情页页面，点击订阅（爱心按钮）
         """
@@ -49,7 +49,7 @@ class TestNewhouseDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_goto_fdjsq(self):
+    def test_goto_fdjsq_房贷计算器(self):
         """
         新房详情页页面，点击房贷计算器
         """
@@ -58,7 +58,7 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/tools/fdjsq/sd/index')
         self.get_screenshot()
 
-    def test_goto_addr(self):
+    def test_goto_addr_地址(self):
         """
         新房详情页页面，点击地址右箭头
         """
@@ -91,7 +91,7 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/taofangquan/lpdp/lpdp')
         self.get_screenshot()
 
-    def test_goto_zxdt(self):
+    def test_goto_zxdt_最新动态(self):
         """
         新房详情页页面，点击最新动态
         """
@@ -100,7 +100,7 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/newhouse/zxdt/zxdt')
         self.get_screenshot()
 
-    def test_goto_hxjx(self):
+    def test_goto_hxjx_户型解析(self):
         """
         新房详情页页面，点击户型解析
         """
@@ -109,7 +109,7 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/newhouse/hx/hxlist')
         self.get_screenshot()
 
-    def test_goto_lpxq(self):
+    def test_goto_lpxq_更多楼盘详情(self):
         """
         新房详情页页面，点击楼盘详情
         """
@@ -118,7 +118,7 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/newhouse/lpxx/lpxx')
         self.get_screenshot()
 
-    def test_goto_yfyj(self):
+    def test_goto_yfyj_一房一价(self):
         """
         新房详情页页面，点击一房一价
         """
@@ -127,7 +127,7 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/newhouse/fd/xkb')
         self.get_screenshot()
 
-    def test_goto_lpdp(self):
+    def test_goto_lpdp_楼盘点评(self):
         """
         新房详情页页面，点击楼盘点评
         """
@@ -136,7 +136,7 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/taofangquan/lpdp/lpdp')
         self.get_screenshot()
 
-    def test_goto_msbm(self):
+    def test_goto_msbm_马上报名(self):
         """
         新房详情页页面，点击马上报名(后台配置的）
         """
@@ -144,7 +144,7 @@ class TestNewhouseDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_goto_bmqc(self):
+    def test_goto_bmqc_摇号报名清册(self):
         """
         新房详情页页面，点击报名清册
         """
@@ -153,7 +153,7 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/yaohao/publicity')
         self.get_screenshot()
 
-    def test_goto_bmxh(self):
+    def test_goto_bmxh_摇号报名序号(self):
         """
         新房详情页页面，点击报名序号
         """
@@ -162,7 +162,7 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/mine/myLottery/myLottery')
         self.get_screenshot()
 
-    def test_goto_bmyfyj(self):
+    def test_goto_bmyfyj_摇号一房一价(self):
         """
         新房详情页页面，点击最新摇号下方的一房一价
         """
@@ -171,7 +171,7 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/newhouse/fd/xkb')
         self.get_screenshot()
 
-    def test_goto_bmgfzl(self):
+    def test_goto_bmgfzl_摇号购房资料(self):
         """
         新房详情页页面，点击最新摇号下方的购房资料
         """
@@ -179,7 +179,7 @@ class TestNewhouseDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_goto_lpdt_more(self):
+    def test_goto_lpdt_more_更多楼盘动态(self):
         """
         新房详情页页面，点击楼盘动态更多
         """
@@ -188,7 +188,7 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/newhouse/zxdt/zxdt')
         self.get_screenshot()
 
-    def test_goto_xxxx_more(self):
+    def test_goto_xxxx_more_楼盘详细信息(self):
         """
         新房详情页页面，点击楼盘详细信息
         """
@@ -197,7 +197,7 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/newhouse/lpxx/lpxx')
         self.get_screenshot()
 
-    def test_goto_wzzb_dt(self):
+    def test_goto_wzzb_dt_地图页(self):
         """
         新房详情页页面，点击位置周边下的地图
         """
@@ -209,7 +209,7 @@ class TestNewhouseDetail(TestBase):
         self.get_screenshot()
         self.input_value_by_mk('xf/mapreturn.png')
 
-    def test_goto_jgfx(self):
+    def test_goto_jgfx_价格分析(self):
         """
         新房详情页，点击价格分析
         """
@@ -220,7 +220,7 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/newhouse/priceAnalyse/priceAnalyse')
         self.get_screenshot()
 
-    def test_goto_kpjl(self):
+    def test_goto_kpjl_开盘记录(self):
         """
         新房详情页，点击开盘记录
         """
@@ -231,7 +231,7 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/newhouse/historyLp/historyLp')
         self.get_screenshot()
 
-    def test_goto_dianping(self):
+    def test_goto_dianping_全部点评(self):
         """
         新房详情页，点击楼盘评论楼层的“全部点评”
         """
@@ -253,7 +253,7 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/taofangquan/writePingjia/writePingjia')
         self.get_screenshot()
 
-    def test_goto_commenthouse(self):
+    def test_goto_commenthouse_热门楼盘(self):
         """
         新房详情页，点击热门楼盘楼层的第一个楼盘，进新房详情页
         """
@@ -263,7 +263,7 @@ class TestNewhouseDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_goto_buttom_im(self):
+    def test_goto_buttom_im_在线咨询(self):
         """
         新房详情页面，点击底部的“在线咨询”
         """
@@ -273,7 +273,7 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
-    def test_z_click_buttom_call(self):
+    def test_z_click_buttom_call_拨打电话(self):
         """
         新房详情页面，点击底部的“拨打电话”
         """
@@ -281,7 +281,7 @@ class TestNewhouseDetail(TestBase):
         self.delay(1)
         self.verifyByScreenshot('xf/call.png')
 
-    def test_click_buttom_yaohao(self):
+    def test_click_buttom_yaohao_底部摇号按钮(self):
         """
         新房详情页面，点击底部的“摇号”
         """

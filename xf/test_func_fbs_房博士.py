@@ -17,7 +17,7 @@ class TestFuncFbs(TestBase):
         super(TestFuncFbs, self).setUp()
         print('TestFuncFbs setup test')
 
-    def test_fbs_ask_and_submit(self):
+    def test_05_fbs_ask_and_submit_房博士页提问(self):
         """
         房博士页面，点击“向xxx提问”，提交问题“用例名称年-月-日”后，点击“提交”
         """
@@ -27,7 +27,7 @@ class TestFuncFbs(TestBase):
         self.verifyPageName('/fbs/detail/detail')
         self.get_screenshot()
 
-    def test_fbs_to_shouye(self):
+    def test_07_fbs_to_shouye_房博士页回首页(self):
         """
         房博士页面，点击悬浮按钮“回到首页”
         """
@@ -37,7 +37,7 @@ class TestFuncFbs(TestBase):
         self.verifyPageName('/page/index/index')
         self.get_screenshot()
 
-    def test_fbs_click_label(self):
+    def test_06_fbs_click_label_房博士页标签(self):
         """
         房博士页面，点击第一个问答的 标签
         """
@@ -46,7 +46,7 @@ class TestFuncFbs(TestBase):
         self.verifyPageName('/fbs/questionList/questionList')
         self.get_screenshot()
 
-    def test_detail_click_label(self):
+    def test_02_detail_click_label_问答详情标签(self):
         """
         房博士页面，点击第一个问答进入 问答详情，在问答详情页点击 标签
         """
@@ -57,7 +57,7 @@ class TestFuncFbs(TestBase):
         self.verifyPageName('/fbs/questionList/questionList')
         self.get_screenshot()
 
-    def test_detail_ask_and_submit(self):
+    def test_01_detail_ask_and_submit_提问(self):
         """
         房博士页面，点击热门问答列表第一个 进入问答详情，点击“向xx提问”并提交问题
         """
@@ -70,7 +70,7 @@ class TestFuncFbs(TestBase):
         self.verifyPageName('/fbs/detail/detail')
         self.get_screenshot()
 
-    def test_detail_goto_shouye(self):
+    def test_04_detail_goto_shouye_问答详情回首页(self):
         """
         房博士页面，点击热门问答列表第一个 进入问答详情，点击“回首页”
         """
@@ -80,7 +80,7 @@ class TestFuncFbs(TestBase):
         self.verifyPageName('/page/index/index')
         self.get_screenshot()
 
-    def test_detail_goto_newhouse(self):
+    def test_03_detail_goto_newhouse_问答详情推荐楼盘(self):
         """
         房博士页面，点击热门问答列表第一个 进入问答详情，点击推荐楼盘列表第一个
         """
@@ -90,7 +90,7 @@ class TestFuncFbs(TestBase):
         self.verifyPageName('/page/newhouse/detail')
         self.get_screenshot()
 
-    def test_z_detail_call(self):
+    def test_08_z_detail_call_问答详情电话(self):
         """
         房博士页面，点击热门问答列表第一个 进入问答详情，推荐楼盘列表第一个，点击电话按钮
         """

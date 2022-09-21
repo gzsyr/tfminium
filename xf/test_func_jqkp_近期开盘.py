@@ -13,7 +13,7 @@ class TestFuncJqkp(TestBase):
         super(TestFuncJqkp, self).setUp()
         print('TestFuncJqkp setup test')
 
-    def test_goto_first_newhouse(self):
+    def test_01_goto_first_newhouse_点击楼盘(self):
         """
         近期开盘页面，点击第一个楼盘进入楼盘详情页
         """

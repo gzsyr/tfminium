@@ -13,7 +13,7 @@ class TestFuncZhiMai(TestBase):
         super(TestFuncZhiMai, self).setUp()
         print("TestFuncZhiMai setup atest")
 
-    def test_search(self):
+    def test_08_search_搜索(self):
         """
         直卖频道页，输入搜索框“苏宁测试11”搜索
         """
@@ -22,7 +22,7 @@ class TestFuncZhiMai(TestBase):
         self.verifyStr(True, self.page.element_is_exists('view[class="item"]'))
         self.get_screenshot()
 
-    def test_filter_area(self):
+    def test_01_filter_area_选择区域(self):
         """
         直卖频道页，点击筛选项“区域”选择
         """
@@ -32,7 +32,7 @@ class TestFuncZhiMai(TestBase):
         self.verifyStr(ele[0].inner_text, '丰泽', "直卖频道页，点击筛选项“区域”选择 丰泽 ok")
         self.get_screenshot()
 
-    def test_filter_price(self):
+    def test_03_filter_price_选择价格(self):
         """
         直卖频道页，点击筛选项“价格”选择
         """
@@ -42,7 +42,7 @@ class TestFuncZhiMai(TestBase):
         self.verifyStr(ele[1].inner_text, '4000-5000元/㎡', "直卖频道页，点击筛选项“价格”选择 4000-5000元/㎡ ok")
         self.get_screenshot()
 
-    def test_filter_huxing(self):
+    def test_02_filter_huxing_选择户型(self):
         """
         直卖频道页，点击筛选项“户型”选择
         """
@@ -52,7 +52,7 @@ class TestFuncZhiMai(TestBase):
         self.verifyStr(ele[2].inner_text, '三室', "直卖频道页，点击筛选项“户型”选择 三室 ok")
         self.get_screenshot()
 
-    def test_goto_housedetail(self):
+    def test_04_goto_housedetail_进入新房详情(self):
         """
         直卖频道页，点击列表项第一个，进入详情页
         """
@@ -61,7 +61,7 @@ class TestFuncZhiMai(TestBase):
         self.verifyPageName('/page/newhouse/detail')
         self.get_screenshot()
 
-    def test_goto_im(self):
+    def test_06_goto_im_在线咨询(self):
         """
         直卖频道页，点击列表第一个“咨询我”
         """
@@ -71,7 +71,7 @@ class TestFuncZhiMai(TestBase):
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
-    def test_unfold_hxlist(self):
+    def test_09_unfold_hxlist_展开户型(self):
         """
         直卖频道页，点击列表项第一个“展开户型”
         """
@@ -80,7 +80,7 @@ class TestFuncZhiMai(TestBase):
         self.verifyStr(True, self.page.element_is_exists('view[class="arr open"]'))
         self.get_screenshot()
 
-    def test_goto_hxdetail(self):
+    def test_05_goto_hxdetail_进入户型(self):
         """
         直卖频道页，点击列表项第一个“展开户型”的第一个户型
         """
@@ -89,7 +89,7 @@ class TestFuncZhiMai(TestBase):
         self.verifyPageName('/page/newhouse/hx/hxdetail')
         self.get_screenshot()
 
-    def test_goto_morehx(self):
+    def test_07_goto_morehx_更多户型(self):
         """
         直卖频道页，点击列表项第一个“展开户型”的“更多户型”
         """

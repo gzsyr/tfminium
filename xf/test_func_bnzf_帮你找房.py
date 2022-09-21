@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- 
 # @Time : 2022/6/6 10:34 
 # @Author : zcm 
-# @File : test_func_bnzf.py
+# @File : test_func_bnzf_帮你找房.py
 # @desc:
 from ddt import ddt, file_data
 
@@ -21,7 +21,7 @@ class TestFuncBnzf(TestBase):
         super(TestFuncBnzf, self).setUp()
 
     @file_data('./test_func_bnzf_01_xf.yml')
-    def test_02_click_bnzf_xf(self, **kwargs):
+    def test_02_click_bnzf_xf_新房一键找房(self, **kwargs):
         """
         点击新房，选择住宅，丰泽，10000以上，120-140㎡，140-160㎡，点击一键找房
         """
@@ -51,7 +51,7 @@ class TestFuncBnzf(TestBase):
         self.get_screenshot()
 
     @file_data('./test_func_bnzf_02_esf.yml')
-    def test_01_click_bnzf_esf(self, **kwargs):
+    def test_01_click_bnzf_esf_二手房一键找房(self, **kwargs):
         """
         点击二手房，选择丰泽区，二室，20-30万
         """
@@ -75,7 +75,7 @@ class TestFuncBnzf(TestBase):
         self.verifyPageName('/page/newhouse/bnzf_result/bnzf_result')
         self.get_screenshot()
 
-    def test_03_click_change(self):
+    def test_03_click_change_修改意向(self):
         """
         新房，一键找房结果页面，点击修改意向
         """
@@ -86,7 +86,7 @@ class TestFuncBnzf(TestBase):
         self.verifyPageName('/page/newhouse/bnzf/bnzf')
         self.get_screenshot()
 
-    def test_04_click_remen(self):
+    def test_04_click_remen_热门楼盘(self):
         """
         新房，一键找房结果页面，点击第一个热门楼盘
         """
@@ -97,7 +97,7 @@ class TestFuncBnzf(TestBase):
         self.verifyPageName('/page/newhouse/detail')
         self.get_screenshot()
 
-    def test_05_click_callim(self):
+    def test_05_click_callim_IM咨询(self):
         """
         点击一键找房，点击在线咨询，点击输入框，输入测试，点击发送，点击语音按钮，长按语音输入5s，再点击语音按钮，点击+按钮，点击历史消息
         """
@@ -130,7 +130,7 @@ class TestFuncBnzf(TestBase):
         # self.page.get_element('text[class="chating-history-left"]').tap()
         # self.delay(1)
 
-    def test_06_click_callphone(self):
+    def test_06_click_callphone_拨打电话(self):
         """
         点击一键找房，点击拨打电话
         :return:
