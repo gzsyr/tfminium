@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- 
 # @Time : 2022/5/31 15:03
 # @Author : zcm
-# @File : test_news_detail_audio.py
+# @File : test_news_detail_audio_音频资讯.py
 # @desc:
 import time
 
@@ -19,7 +19,7 @@ class TestNewsDetailAudio(TestBase):
         self.classname = self.__class__.__name__
         super(TestNewsDetailAudio, self).setUp()
 
-    def test_01_click_dingyue(self):
+    def test_01_click_dingyue_订阅(self):
         """
         资讯音频详情页，点击栏目关注组件订阅
         """
@@ -28,7 +28,7 @@ class TestNewsDetailAudio(TestBase):
 
         self.verifyByScreenshot('zixun/dy.png')
 
-    def test_02_click_audio(self):
+    def test_02_click_audio_播放(self):
         """
         资讯音频详情页，点击音频组件播放
         """
@@ -36,7 +36,7 @@ class TestNewsDetailAudio(TestBase):
 
         self.get_screenshot()
 
-    def test_03_click_morepl(self):
+    def test_03_click_morepl_更多评论(self):
         """
         资讯音频详情页，点击更多评论
         """
@@ -45,25 +45,27 @@ class TestNewsDetailAudio(TestBase):
         self.verifyPageName('/page/news/pllist')
         self.get_screenshot()
 
-    def test_04_click_bnzf(self):
+    def test_04_click_bnzf_帮你找房(self):
         """
         资讯详情页，点击帮你找房
         """
+        self.delay(1)
         self.page.get_element('button[class="fixBR-btn zf"]').tap()
 
         self.verifyPageName('/page/newhouse/bnzf/bnzf')
         self.get_screenshot()
 
-    def test_07_click_firsttjlp(self):
+    def test_07_click_firsttjlp_推荐楼盘(self):
         """
         资讯音频详情页，点击第一个推荐楼盘
         """
+        self.delay(1)
         self.page.get_element('//view[@class="tjlplist-rl"]').tap()
 
         self.verifyPageName('/page/newhouse/detail')
         self.get_screenshot()
 
-    def test_13_click_firsttjlp_tel(self):
+    def test_13_click_firsttjlp_tel_楼盘电话(self):
         """
         资讯音频详情页，点击推荐楼盘第一个电话图标
         """
@@ -72,7 +74,7 @@ class TestNewsDetailAudio(TestBase):
 
         self.verifyByScreenshot('xf/call.png')
 
-    def test_08_click_backindex(self):
+    def test_08_click_backindex_回到首页(self):
         """
         资讯音频详情页，点击首页
         """
@@ -81,7 +83,7 @@ class TestNewsDetailAudio(TestBase):
         self.verifyPageName('/page/index/index')
         self.get_screenshot()
 
-    def test_15_click_share(self):
+    def test_15_click_share_分享(self):
         """
         资讯音频详情页，点击分享
         """
@@ -89,7 +91,7 @@ class TestNewsDetailAudio(TestBase):
 
         self.get_screenshot()
 
-    def test_09_click_writecomment(self):
+    def test_09_click_writecomment_直接评论(self):
         """
         资讯音频详情页，点击写评论，直接通过trigger发布
         """
@@ -100,7 +102,7 @@ class TestNewsDetailAudio(TestBase):
 
         self.get_screenshot()
 
-    def test_10_click_comments(self):
+    def test_10_click_comments_全部评论页面评论(self):
         """
         资讯音频详情页，进入全部评论页面，点击评论输入框，直接通过trigger发布,并点赞
         """
@@ -122,7 +124,7 @@ class TestNewsDetailAudio(TestBase):
 
         self.get_screenshot()
 
-    def test_11_click_dianzan(self):
+    def test_11_click_dianzan_直接点赞(self):
         """
         资讯音频详情页，点击点赞图标
         """
@@ -131,7 +133,7 @@ class TestNewsDetailAudio(TestBase):
 
         self.get_screenshot()
 
-    def test_14_click_wyzx(self):
+    def test_14_click_wyzx_我要咨询(self):
         """
         资讯音频详情页，点击我要咨询
         """
@@ -139,7 +141,7 @@ class TestNewsDetailAudio(TestBase):
 
         self.verifyByScreenshot('xf/call.png')
 
-    def test_00_click_firstyd(self):
+    def test_00_click_firstyd_推荐阅读(self):
         """
         资讯音频详情页，点击推荐阅读
         """

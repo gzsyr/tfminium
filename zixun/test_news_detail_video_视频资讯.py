@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- 
 # @Time : 2022/5/31 10:02 
 # @Author : zcm 
-# @File : test_news_detail_video.py
+# @File : test_news_detail_video_视频资讯.py
 # @desc:
 import time
 
@@ -19,7 +19,7 @@ class TestNewsdetailVideo(TestBase):
         self.classname = self.__class__.__name__
         super(TestNewsdetailVideo, self).setUp()
 
-    def test_01_click_video(self):
+    def test_01_click_video_播放(self):
         """
         资讯详情页视频稿件，点击视频播放
         """
@@ -27,7 +27,7 @@ class TestNewsdetailVideo(TestBase):
 
         self.get_screenshot()
 
-    def test_02_click_firstloupan(self):
+    def test_02_click_firstloupan_楼盘名片(self):
         """
         资讯详情页视频稿件，点击楼盘名片组件
         """
@@ -37,7 +37,7 @@ class TestNewsdetailVideo(TestBase):
         self.verifyPageName('/page/newhouse/detail')
         self.get_screenshot()
 
-    def test_03_click_kfbm(self):
+    def test_03_click_kfbm_看房报名(self):
         """
         资讯详情页视频稿件，点击楼盘名片的看房报名
         """
@@ -46,7 +46,7 @@ class TestNewsdetailVideo(TestBase):
         self.delay(4)
         self.verifyByScreenshot('zixun/bmcg.png')
 
-    def test_04_click_dy(self):
+    def test_04_click_dy_楼盘名片订阅(self):
         """
         资讯详情页视频稿件，点击楼盘名片的订阅
         """
@@ -55,7 +55,7 @@ class TestNewsdetailVideo(TestBase):
         self.delay(4)
         self.verifyByScreenshot('zixun/365app.png')
 
-    def test_05_click_yh(self):
+    def test_05_click_yh_楼盘名片优惠(self):
         """
         资讯详情页视频稿件，点击楼盘名片的优惠
         """
@@ -64,7 +64,7 @@ class TestNewsdetailVideo(TestBase):
         self.delay(4)
         self.verifyByScreenshot('zixun/bmcg.png')
 
-    def test_12_click_tel(self):
+    def test_12_click_tel_楼盘名片电话(self):
         """
         资讯详情页视频稿件，点击楼盘名片的拨打电话
         """
@@ -73,7 +73,7 @@ class TestNewsdetailVideo(TestBase):
         self.delay(1)
         self.verifyByScreenshot('xf/call.png')
 
-    def test_07_click_firsttjlp(self):
+    def test_07_click_firsttjlp_推荐楼盘(self):
         """
         资讯详情页视频稿件，点击第一个推荐楼盘
         """
@@ -82,7 +82,7 @@ class TestNewsdetailVideo(TestBase):
         self.verifyPageName('/page/newhouse/detail')
         self.get_screenshot()
 
-    def test_13_click_firsttjlp_tel(self):
+    def test_13_click_firsttjlp_tel_推荐楼盘电话(self):
         """
         资讯详情页视频稿件，点击第一个推荐楼盘的电话
         """
@@ -90,7 +90,7 @@ class TestNewsdetailVideo(TestBase):
 
         self.verifyByScreenshot('xf/call.png')
 
-    def test_08_click_backindex(self):
+    def test_08_click_backindex_回到首页(self):
         """
         资讯详情页视频稿件，点击首页
         """
@@ -99,7 +99,7 @@ class TestNewsdetailVideo(TestBase):
         self.verifyPageName('/page/index/index')
         self.get_screenshot()
 
-    def test_15_click_share(self):
+    def test_15_click_share_分享(self):
         """
         资讯详情页视频稿件，点击分享
         """
@@ -107,7 +107,7 @@ class TestNewsdetailVideo(TestBase):
 
         self.get_screenshot()
 
-    def test_09_click_writecomment(self):
+    def test_09_click_writecomment_直接评论(self):
         """
         资讯详情页视频稿件，点击写评论，直接通过trigger发布
         """
@@ -116,7 +116,7 @@ class TestNewsdetailVideo(TestBase):
         tap = 'self.page.get_element(\'input.fixBIntB-input\').trigger("confirm", {"value": "'+tm+'"})'
         self.verifyStr(True, self.getShowToast(tap), '发布评论ok')
 
-    def test_10_click_comments(self):
+    def test_10_click_comments_全部评论页面评论(self):
         """
         资讯详情页视频稿件，进入全部评论页面，点击评论输入框，直接通过trigger发布,并点赞
         """
@@ -138,21 +138,21 @@ class TestNewsdetailVideo(TestBase):
 
         self.get_screenshot()
 
-    def test_11_click_dianzan(self):
+    def test_11_click_dianzan_直接点赞(self):
         """
         资讯详情页视频稿件，点击点赞图标
         """
         tap = 'self.page.get_element(\'button[class="pllist-zan"]\').tap()'
         self.verifyStr(True, self.getShowToast(tap), '点赞成功')
 
-    def test_14_click_wyzx(self):
+    def test_14_click_wyzx_咨询(self):
         """
         资讯详情页视频稿件，点击我要咨询
         """
         self.page.get_element('button[class="fixBR-btn zx"]').tap()
         self.verifyByScreenshot('xf/call.png')
 
-    def test_00_click_firstyd(self):
+    def test_00_click_firstyd_推荐阅读(self):
         """
         资讯详情页视频稿件，点击推荐阅读
         """

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- 
 # @Time : 2022/5/30 9:58 
 # @Author : zcm 
-# @File : test_news_list.py
+# @File : test_news_list_资讯列表.py
 # @desc:
 from base.test_base import TestBase
 
@@ -17,7 +17,7 @@ class TestNewsList(TestBase):
         self.classname = self.__class__.__name__
         super(TestNewsList, self).setUp()
 
-    def test_click_firstnews(self):
+    def test_click_firstnews_热门资讯(self):
         """
         资讯列表页，点击第一条资讯
         """
@@ -26,7 +26,7 @@ class TestNewsList(TestBase):
         self.verifyPageName('/page/news/detail')
         self.get_screenshot()
 
-    def test_click_loupandaogou(self):
+    def test_click_loupandaogou_楼盘导购资讯(self):
         """
         资讯列表页，点击楼盘导购，点击第一条资讯
         """
@@ -37,7 +37,7 @@ class TestNewsList(TestBase):
         self.verifyPageName('/page/news/detail')
         self.get_screenshot()
 
-    def test_click_adv(self):
+    def test_click_adv_横幅广告(self):
         """
         资讯列表页，点击横幅广告
         """
@@ -47,3 +47,4 @@ class TestNewsList(TestBase):
             print('资讯列表页面无广告')
 
         self.get_screenshot()
+
