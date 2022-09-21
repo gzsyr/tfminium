@@ -1,0 +1,18 @@
+# 摇号查询结果页面 用例参数
+# 输入： rn-轮次（0），round-轮次中文，kw-搜索词
+# 输出： ret-True:有结果 False:无结果
+hy:
+  rn: 0
+  round: '第一轮'
+  kw: '洪叶'
+  ret: true
+wu:
+  rn: 0
+  round: '第一轮'
+  kw: 'zzz'
+  ret: false
+zmh:
+  rn: 2
+  round: '第三轮'
+  kw: '张三'
+  ret: true
