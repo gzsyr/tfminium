@@ -50,13 +50,16 @@ if __name__ == '__main__':
                  # "-rs",
                  # "--show-capture=all",
                  "--html=pytestReport.html",  # html的报告
-                 # "--co",  # 仅收集用例
+                 "--co",  # 仅收集用例
                  "--alluredir", allure_result_path,   # 使用allure报告
-                 "./xf/test_newhouse_list.py::TestNewsHouseList::test_click_zx",   # 运行指定文件
-                 # "./zixun",
-                 # "./tfq",
-                 # "./xf",
-                 # "./mine",
+                 "./city/test_index_allcity_城市.py::TestAllcity::test_select_qz_选择泉州",   # 先切换到泉州站测新房相关
+                 "./zixun",
+                 "./tfq",
+                 "./xf",
+                 "./mine",
+                 "./city/test_index_allcity_城市.py::TestAllcity::test_select_nj_选择南京",   # 后切换到南京站测二手房相关
+                 "./esf",
+                 "./rent",
                  "--reruns", '3',
                  "--reruns-delay", '2'
                  ])
@@ -65,6 +68,6 @@ if __name__ == '__main__':
 
     command_allure_generate = f"allure generate --clean {allure_result_path} -o {a_report_path}"
     os.system(command_allure_generate)  # 生成测试报告
-
-    command_allure_open = f'allure open {a_report_path}'
-    os.system(command_allure_open)  # 打开测试报告
+    #
+    # command_allure_open = f'allure open {a_report_path}'
+    # os.system(command_allure_open)  # 打开测试报告
