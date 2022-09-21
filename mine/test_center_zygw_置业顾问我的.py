@@ -23,7 +23,7 @@ class TestCenterZygw(TestMine):
         self.classname = self.__class__.__name__
         super(TestCenterZygw, self).setUp()
 
-    def test_click_huoyuedu(self):
+    def test_01_click_huoyuedu_活跃度(self):
         """
         置业顾问个人中心页面，点击活跃度
         """
@@ -32,7 +32,7 @@ class TestCenterZygw(TestMine):
         self.verifyPageName('/page/newhouse/zygw/detail')
         self.get_screenshot()
 
-    def test_click_jifen(self):
+    def test_02_click_jifen_积分(self):
         """
         置业顾问个人中心页面，点击积分
         """
@@ -41,7 +41,7 @@ class TestCenterZygw(TestMine):
         self.verifyPageName('/page/mine/myscores/myscores')
         self.get_screenshot()
 
-    def test_click_quanyiquan(self):
+    def test_13_click_quanyiquan_权益券(self):
         """
         置业顾问个人中心页面，点击权益券
         """
@@ -50,7 +50,7 @@ class TestCenterZygw(TestMine):
         self.verifyPageName('/page/mine/myscores/mycoupons')
         self.get_screenshot()
 
-    def test_click_my_jifen(self):
+    def test_09_click_my_jifen_我的积分(self):
         """
         置业顾问个人中心页面，点击我的积分
         """
@@ -59,7 +59,7 @@ class TestCenterZygw(TestMine):
         self.verifyPageName('/page/mine/myscores/myscores')
         self.get_screenshot()
 
-    def test_click_my_customer(self):
+    def test_04_click_my_customer_我的客户(self):
         """
         置业顾问个人中心页面，点击我的客户
         """
@@ -68,7 +68,7 @@ class TestCenterZygw(TestMine):
         self.verifyPageName('/page/business/infoManage/customerList')
         self.get_screenshot()
 
-    def test_click_my_card(self):
+    def test_03_click_my_card_我的名片(self):
         """
         置业顾问个人中心页面，点击我的名片
         """
@@ -77,7 +77,7 @@ class TestCenterZygw(TestMine):
         self.verifyPageName('/page/newhouse/zygw/detail')
         self.get_screenshot()
 
-    def test_click_my_house(self):
+    def test_07_click_my_house_来电记录(self):
         """
         置业顾问个人中心页面，点击来电记录
         """
@@ -86,7 +86,7 @@ class TestCenterZygw(TestMine):
         self.verifyPageName('/page/message/phoneList')
         self.get_screenshot()
 
-    def test_click_my_fuwuhao(self):
+    def test_06_click_my_fuwuhao_关注服务号(self):
         """
         置业顾问个人中心页面，点击关注服务号
         """
@@ -95,7 +95,7 @@ class TestCenterZygw(TestMine):
         self.verifyPageName('/page/mine/gzService/gzService')
         self.get_screenshot()
 
-    def test_click_my_quanzi(self):
+    def test_11_click_my_quanzi_我的圈子(self):
         """
         置业顾问个人中心页面，点击我的圈子
         """
@@ -104,7 +104,7 @@ class TestCenterZygw(TestMine):
         self.verifyPageName('/page/mine/myQuanzi/myQuanzi')
         self.get_screenshot()
 
-    def test_click_my_huati(self):
+    def test_08_click_my_huati_我的话题(self):
         """
         置业顾问个人中心页面，点击我的话题
         """
@@ -113,7 +113,7 @@ class TestCenterZygw(TestMine):
         self.verifyPageName('/page/mine/myHuati/myHuati')
         self.get_screenshot()
 
-    def test_click_my_tiezi(self):
+    def test_12_click_my_tiezi_我的帖子(self):
         """
         置业顾问个人中心页面，点击我的帖子
         """
@@ -122,7 +122,7 @@ class TestCenterZygw(TestMine):
         self.verifyPageName('/page/mine/myTopic/myTopic')
         self.get_screenshot()
 
-    def test_click_my_pinglun(self):
+    def test_10_click_my_pinglun_我的评论(self):
         """
         置业顾问个人中心页面，点击我的评论
         """
@@ -131,7 +131,7 @@ class TestCenterZygw(TestMine):
         self.verifyPageName('/page/mine/myComment/myComment')
         self.get_screenshot()
 
-    def test_click_my_draftbox(self):
+    def test_05_click_my_draftbox_草稿箱(self):
         """
         置业顾问个人中心页面，点击草稿箱
         """
@@ -141,7 +141,7 @@ class TestCenterZygw(TestMine):
         self.get_screenshot()
 
     @data(0, 1, 2, 3, 4)
-    def test_click_tools(self, index):
+    def test_14_click_tools_常用工具(self, index):
         """
         置业顾问个人中心页面，点击常用工具
         """
@@ -149,7 +149,7 @@ class TestCenterZygw(TestMine):
 
         self.get_screenshot()
 
-    def test_goto_setting(self):
+    def test_22_goto_setting_个人设置(self):
         """
         置业顾问个人中心页面，点击个人设置
         """
@@ -158,7 +158,7 @@ class TestCenterZygw(TestMine):
         self.verifyPageName('/page/business/setting')
         self.get_screenshot()
 
-    def test_goto_policy(self):
+    def test_21_goto_policy_隐私政策(self):
         """
         置业顾问个人中心页面，点击隐私权政策
         """
@@ -167,7 +167,7 @@ class TestCenterZygw(TestMine):
         self.verifyPageName('/page/index/notice')
         self.get_screenshot()
 
-    def test_goto_feedback(self):
+    def test_19_goto_feedback_意见反馈(self):
         """
         置业顾问个人中心页面，点击意见反馈
         """
@@ -176,7 +176,7 @@ class TestCenterZygw(TestMine):
         self.verifyPageName('/page/mine/wtfk/wtfk')
         self.get_screenshot()
 
-    def test_goto_packet(self):
+    def test_20_goto_packet_我的红包(self):
         """
         置业顾问个人中心页面，点击我的红包
         """
@@ -185,7 +185,7 @@ class TestCenterZygw(TestMine):
         self.verifyPageName('/page/mine/wdhb/wdhb')
         self.get_screenshot()
 
-    def test_mycustomer_search_comment(self):
+    def test_23_mycustomer_search_comment_搜客户写跟进(self):
         """
         置业顾问个人中心，我的客户页面，搜索后的第一个结果写跟进记录
         """

@@ -12,7 +12,7 @@ class TestMineFbs(TestBase):
         self.classname = self.__class__.__name__
         super(TestMineFbs, self).setUp()
 
-    def test_goto_ask_detail(self):
+    def test_goto_ask_detail_进入问答详情(self):
         """
         我的问答页面，点击第一个问答，进入问答详情页
         """

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- 
 # @Time : 2022/7/21 13:44 
 # @Author : zcm 
-# @File : test_center_c.py 
+# @File : center_fbs.py
 # @desc:
 
 from base.test_mine import TestMine

@@ -12,7 +12,7 @@ class TestMineFav(TestBase):
         self.classname = self.__class__.__name__
         super(TestMineFav, self).setUp()
 
-    def test_goto_first_post(self):
+    def test_goto_first_post_进入帖子详情(self):
         """
         我的收藏页，点击帖子进入帖子详情
         """
@@ -22,7 +22,7 @@ class TestMineFav(TestBase):
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
 
-    def test_goto_fav_first_house(self):
+    def test_goto_fav_first_house_进入楼盘详情(self):
         """
         我的收藏页，点击楼盘tab，点击第一个楼盘进入楼盘详情页
         """

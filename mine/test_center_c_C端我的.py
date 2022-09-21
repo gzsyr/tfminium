@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- 
 # @Time : 2022/7/21 13:44 
 # @Author : zcm 
-# @File : test_center_c.py 
+# @File : test_center_c_C端我的.py
 # @desc:
 from ddt import data, ddt
 
@@ -31,7 +31,7 @@ class TestCenterC(TestMine):
         self.classname = self.__class__.__name__
         super(TestCenterC, self).setUp()
 
-    def test_01_C_click_avatar(self):
+    def test_01_C_click_avatar_头像(self):
         """
         C端用户个人中心页面，点击头像
         """
@@ -40,7 +40,7 @@ class TestCenterC(TestMine):
         self.verifyPageName('/page/mine/myinfo/myinfo')
         self.get_screenshot()
 
-    def test_02_C_click_yaohao(self):
+    def test_02_C_click_yaohao_我的摇号(self):
         """
         C端用户个人中心页面，点击我的摇号
         """
@@ -49,7 +49,7 @@ class TestCenterC(TestMine):
         self.verifyPageName('/page/mine/myLottery/myLottery')
         self.get_screenshot()
 
-    def test_03_C_click_zuji(self):
+    def test_03_C_click_zuji_我的足迹(self):
         """
         C端用户个人中心页面，点击我的足迹
         """
@@ -58,7 +58,7 @@ class TestCenterC(TestMine):
         self.verifyPageName('/page/mine/myFootPrint/myFootPrint')
         self.get_screenshot()
 
-    def test_04_C_click_shoucang(self):
+    def test_04_C_click_shoucang_我的收藏(self):
         """
         C端用户个人中心页面，点击我的收藏
         """
@@ -67,7 +67,7 @@ class TestCenterC(TestMine):
         self.verifyPageName('/page/mine/myCollect/myCollect')
         self.get_screenshot()
 
-    def test_05_C_click_wenda(self):
+    def test_05_C_click_wenda_我的问答(self):
         """
         C端用户个人中心页面，点击我的问答
         """
@@ -76,7 +76,7 @@ class TestCenterC(TestMine):
         self.verifyPageName('/fbs/mine/mine')
         self.get_screenshot()
 
-    def test_06_C_click_tfq_qz(self):
+    def test_06_C_click_tfq_qz_我的圈子(self):
         """
         C端用户个人中心页面，点击我的圈子
         """
@@ -85,7 +85,7 @@ class TestCenterC(TestMine):
         self.verifyPageName('/page/mine/myQuanzi/myQuanzi')
         self.get_screenshot()
 
-    def test_07_C_click_tfq_ht(self):
+    def test_07_C_click_tfq_ht_我的话题(self):
         """
         C端用户个人中心页面，点击我的话题
         """
@@ -94,7 +94,7 @@ class TestCenterC(TestMine):
         self.verifyPageName('/page/mine/myHuati/myHuati')
         self.get_screenshot()
 
-    def test_08_C_click_tfq_tz(self):
+    def test_08_C_click_tfq_tz_我的帖子(self):
         """
         C端用户个人中心页面，点击我的帖子
         """
@@ -103,7 +103,7 @@ class TestCenterC(TestMine):
         self.verifyPageName('/page/mine/myTopic/myTopic')
         self.get_screenshot()
 
-    def test_09_C_click_tfq_pl(self):
+    def test_09_C_click_tfq_pl_我的评论(self):
         """
         C端用户个人中心页面，点击我的评论
         """
@@ -112,7 +112,7 @@ class TestCenterC(TestMine):
         self.verifyPageName('/page/mine/myComment/myComment')
         self.get_screenshot()
 
-    def test_10_C_click_ad(self):
+    def test_10_C_click_ad_横幅广告(self):
         """
         C端用户个人中心页面，C端用户点击广告
         """
@@ -122,7 +122,7 @@ class TestCenterC(TestMine):
         self.get_screenshot()
 
     @data(0, 1, 2, 3, 4)
-    def test_11_C_click_tool_icon(self, index=1):
+    def test_11_C_click_tool_icon_常用工具(self, index=1):
         """
         C端用户个人中心页面，C端用户点击常用工具
         """
@@ -130,7 +130,7 @@ class TestCenterC(TestMine):
         self.delay(1)
         self.get_screenshot()
 
-    def test_16_C_click_more_rz(self):
+    def test_16_C_click_more_rz_置业顾问入驻(self):
         """
         C端用户个人中心页面，C端用户点击置业顾问入驻
         """
@@ -139,7 +139,7 @@ class TestCenterC(TestMine):
         self.verifyPageName('/page/business/checkzygw')
         self.get_screenshot()
 
-    def test_17_C_click_more_ys(self):
+    def test_17_C_click_more_ys_隐私政策(self):
         """
         C端用户个人中心页面，C端用户点击隐私权政策
         """
@@ -148,7 +148,7 @@ class TestCenterC(TestMine):
         self.verifyPageName('/page/index/notice')
         self.get_screenshot()
 
-    def test_18_C_click_more_fk(self):
+    def test_18_C_click_more_fk_意见反馈(self):
         """
         C端用户个人中心页面，C端用户点击意见反馈
         """
@@ -157,7 +157,7 @@ class TestCenterC(TestMine):
         self.verifyPageName('/page/mine/wtfk/wtfk')
         self.get_screenshot()
 
-    def test_19_C_click_more_icon4(self):
+    def test_19_C_click_more_icon4_我的红包(self):
         """
         C端用户个人中心页面，C端用户点击我的红包
         """
@@ -166,7 +166,7 @@ class TestCenterC(TestMine):
         self.verifyPageName('/page/mine/wdhb/wdhb')
         self.get_screenshot()
 
-    def test_20_C_click_notice(self):
+    def test_20_C_click_notice_服务协议(self):
         """
         C端用户点击365淘房用户服务协议
         """

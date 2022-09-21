@@ -12,7 +12,7 @@ class TestMineTrack(TestBase):
         self.classname = self.__class__.__name__
         super(TestMineTrack, self).setUp()
 
-    def test_goto_first_house(self):
+    def test_goto_first_house_进入楼盘详情(self):
         """
         点击足迹的第一个楼盘
         """
