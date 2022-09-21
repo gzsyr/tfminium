@@ -278,6 +278,14 @@ class TestBase(minium.MiniTest):
         else:
             return 'C端用户'
 
+    def get_newcity(self):
+        """
+        获取当前登录用户所在城市
+        """
+        result = self.app.call_wx_method('getStorageSync', 'newcity').get('result').get('result').get('cname')
+        print('当前城市：', result)
+        return result
+
     def element_is_exist(self, selector=None, inner_text=None):
         """
         查找是否存在某个元素，参数目前就只支持selector和inner_text，后期慢慢增加
