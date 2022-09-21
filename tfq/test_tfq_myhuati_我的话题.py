@@ -13,7 +13,7 @@ class TestTfqMyHuaTi(TestBase):
         super(TestTfqMyHuaTi, self).setUp()
         print("TestTfqMyHuaTi setup")
 
-    def test_click(self):
+    def test_click_点击话题(self):
         """
         我的话题页面，点击话题
         """

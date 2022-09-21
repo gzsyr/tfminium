@@ -13,7 +13,7 @@ class TestTfqCommentDetail(TestBase):
         super(TestTfqCommentDetail, self).setUp()
         print("TestTfqCommentDetail setup atest")
 
-    def test_click_open_arrow(self):
+    def test_05_click_open_arrow_展示全部内容(self):
         """
         帖子的评论详情页，点击向下箭头，展示全部内容
         """
@@ -21,14 +21,14 @@ class TestTfqCommentDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_click_tiezi_dianzan(self):
+    def test_08_click_tiezi_dianzan_帖子点赞(self):
         """
         帖子的评论详情页，帖子的点赞操作
         """
         tap = 'self.page.get_element(\'view[class="laud-btn"]\').tap()'
         self.verifyStr(True, self.getShowToast(tap), '点赞OK')
 
-    def test_click_comments_avator(self):
+    def test_03_click_comments_avator_主评论头像(self):
         """
         帖子的评论详情页，点击主评论的头像
         """
@@ -37,7 +37,7 @@ class TestTfqCommentDetail(TestBase):
         self.verifyPageName('/page/newhouse/zygw/detail')
         self.get_screenshot()
 
-    def test_click_comments_dianzai(self):
+    def test_04_click_comments_dianzai_主评论点赞(self):
         """
         帖子的评论详情页，主评论的点赞操作
         """
@@ -45,7 +45,7 @@ class TestTfqCommentDetail(TestBase):
         self.verifyStr(True, self.getShowToast(tap), '点赞Ok')
         self.get_screenshot()
 
-    def test_click_addgroupimg(self):
+    def test_01_click_addgroupimg_加群(self):
         """
         帖子的评论详情页，点击左下角的“加群”icon
         """
@@ -53,7 +53,7 @@ class TestTfqCommentDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_click_share(self):
+    def test_07_click_share_分享(self):
         """
         帖子的评论详情页，点击左下角“分享”icon帖子的评论详情页，
         """
@@ -61,7 +61,7 @@ class TestTfqCommentDetail(TestBase):
         self.delay(1)
         self.verifyByScreenshot('tfq/test_click_post_share.png')
 
-    def test_click_returnPl(self):
+    def test_06_click_returnPl_返回评论(self):
         """
         帖子的评论详情页，点击悬浮“返回评论”icon
         """
@@ -70,7 +70,7 @@ class TestTfqCommentDetail(TestBase):
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
 
-    def test_click_commention(self):
+    def test_02_click_commention_评论入口(self):
         """
         帖子的评论详情页，点击最下面一行的评论入口
         """
@@ -78,7 +78,7 @@ class TestTfqCommentDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_z_click_allpicture(self):
+    def test_09_z_click_allpicture_查看完整图片(self):
         """
         帖子的评论详情页，帖子评论详情页，点击“查看完整图片”按钮
         """

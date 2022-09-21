@@ -13,7 +13,7 @@ class TestTfqBangDan(TestBase):
         super(TestTfqBangDan, self).setUp()
         print("TestTfqBangDan setup")
 
-    def test_click_tiezi(self):
+    def test_05_click_tiezi_点击帖子(self):
         """
         淘房圈-榜单页面，点击帖子
         """
@@ -22,7 +22,7 @@ class TestTfqBangDan(TestBase):
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
 
-    def test_click_post(self):
+    def test_02_click_post_发帖按钮(self):
         """
         淘房圈-榜单页面，点击”发帖“
         """
@@ -31,7 +31,7 @@ class TestTfqBangDan(TestBase):
         self.verifyPageName('/page/taofangquan/writePost/writePost')
         self.get_screenshot()
 
-    def test_click_more(self):
+    def test_01_click_more_推荐榜单(self):
         """
         淘房圈-榜单页面，点击”推荐榜单“
         """
@@ -39,7 +39,7 @@ class TestTfqBangDan(TestBase):
 
         self.get_screenshot()
 
-    def test_click_share(self):
+    def test_03_click_share_分享(self):
         """
         淘房圈-榜单页面，点击”分享“
         """
@@ -47,7 +47,7 @@ class TestTfqBangDan(TestBase):
 
         self.get_screenshot()
 
-    def test_click_share_hb(self):
+    def test_04_click_share_hb_分享海报(self):
         """
         淘房圈-榜单页面，点击”分享“，生成海报
         """
@@ -60,7 +60,7 @@ class TestTfqBangDan(TestBase):
                        '生成海报页 ok')
         self.get_screenshot()
 
-    def test_z_click_share_hy(self):
+    def test_06_z_click_share_hy_分享好友(self):
         """
         淘房圈-榜单页面，点击”分享“，分享好友
         """

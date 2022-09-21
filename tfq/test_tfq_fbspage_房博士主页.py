@@ -13,7 +13,7 @@ class TestTfqFbsPage(TestBase):
         super(TestTfqFbsPage, self).setUp()
         print("TestFbsPage setup")
 
-    def test_z_click_call(self):
+    def test_14_z_click_call_拨打电话(self):
         """
         房博士主页，点击下方“拨打电话”
         """
@@ -21,7 +21,7 @@ class TestTfqFbsPage(TestBase):
         self.delay(1)
         self.verifyByScreenshot('xf/call.png')
 
-    def test_click_shidikanpan(self):
+    def test_05_click_shidikanpan_实地看盘(self):
         """
         房博士主页，点击“实地看盘“
         """
@@ -29,7 +29,7 @@ class TestTfqFbsPage(TestBase):
 
         self.get_screenshot()
 
-    def test_click_huxingjiexi(self):
+    def test_02_click_huxingjiexi_户型解析(self):
         """
         房博士主页，点击“户型解析”
         """
@@ -37,7 +37,7 @@ class TestTfqFbsPage(TestBase):
 
         self.get_screenshot()
 
-    def test_click_jiaotongpeitao(self):
+    def test_03_click_jiaotongpeitao_交通配套(self):
         """
         房博士主页，点击“交通配套”
         """
@@ -45,7 +45,7 @@ class TestTfqFbsPage(TestBase):
 
         self.get_screenshot()
 
-    def test_click_loupanpinglun(self):
+    def test_04_click_loupanpinglun_楼盘评论(self):
         """
         房博士主页，点击“楼盘评论”
         """
@@ -60,7 +60,7 @@ class TestTfqFbsPage(TestBase):
         self.page.get_element('view[data-eventid="2955"]').tap()
         return self
 
-    def test_click_huati(self):
+    def test_01_click_huati_话题(self):
         """
         房博士主页，点击“话题“
         """
@@ -68,7 +68,7 @@ class TestTfqFbsPage(TestBase):
 
         self.get_screenshot()
 
-    def test_goto_loupanpinglun(self):
+    def test_07_goto_loupanpinglun_楼盘评论详情(self):
         """
         房博士主页，点击楼盘评论，进入楼盘评论详情页
         """
@@ -77,7 +77,7 @@ class TestTfqFbsPage(TestBase):
         self.verifyPageName('/page/taofangquan/commentDetail/commentDetail')
         self.get_screenshot()
 
-    def test_loupanpinglun_dianzan(self):
+    def test_11_loupanpinglun_dianzan_楼盘评论点赞(self):
         """
         房博士主页，点击楼盘评论的“点赞”icon
         """
@@ -85,7 +85,7 @@ class TestTfqFbsPage(TestBase):
         self.verifyStr(True, self.getShowToast(tap), '点赞Ok')
         self.get_screenshot()
 
-    def test_loupanpinglun_reply(self):
+    def test_13_loupanpinglun_reply_楼盘评论回复(self):
         """
         房博士主页，点击楼盘评论的“回复”icon
         """
@@ -94,7 +94,7 @@ class TestTfqFbsPage(TestBase):
         self.verifyPageName('/page/taofangquan/commentDetail/commentDetail')
         self.get_screenshot()
 
-    def test_loupanpinglun_quanzi(self):
+    def test_12_loupanpinglun_quanzi_楼盘评论圈子(self):
         """
         房博士主页，点击楼盘评论的圈子，进入圈子页面
         """
@@ -103,7 +103,7 @@ class TestTfqFbsPage(TestBase):
         self.verifyPageName('/page/taofangquan/huati/huatiDetail')
         self.get_screenshot()
 
-    def test_huati_dianzan(self):
+    def test_08_huati_dianzan_话题点赞(self):
         """
         房博士主页，点击话题tab下第一条的“点赞”icon
         """
@@ -112,7 +112,7 @@ class TestTfqFbsPage(TestBase):
         self.verifyStr(True, self.getShowToast(tap), '点赞Ok')
         self.get_screenshot()
 
-    def test_huati_reply(self):
+    def test_10_huati_reply_话题回复(self):
         """
         房博士主页，点击话题tab下的第一条的“回复”icon
         """
@@ -122,7 +122,7 @@ class TestTfqFbsPage(TestBase):
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
 
-    def test_goto_huatidetail(self):
+    def test_06_goto_huatidetail_话题详情(self):
         """
         房博士主页，点击话题tab下的第一条，进入详情页
         """
@@ -133,7 +133,7 @@ class TestTfqFbsPage(TestBase):
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
 
-    def test_huati_quanzi(self):
+    def test_09_huati_quanzi_话题圈子(self):
         """
         房博士主页，点击话题tab下的第一条带圈子的内容，进入对应圈子详情
         """

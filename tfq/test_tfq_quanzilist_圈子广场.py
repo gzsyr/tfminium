@@ -13,7 +13,7 @@ class TestTfqQuanZi(TestBase):
         super(TestTfqQuanZi, self).setUp()
         print("TestQuanZi  Setup")
 
-    def test_click_quanzi(self):
+    def test_click_quanzi_圈子详情(self):
         """
         圈子广场，点击圈子，进入圈子详情页
         """
@@ -22,7 +22,7 @@ class TestTfqQuanZi(TestBase):
         self.verifyPageName('/page/taofangquan/huati/huatiDetail')
         self.get_screenshot()
 
-    def test_click_fav(self):
+    def test_click_fav_关注按钮(self):
         """
         圈子广场，点击圈子列表第一条，点击”关注“按钮变为“已关注”，或（“已关注”）点击后进入圈子详情页
         """

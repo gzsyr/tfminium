@@ -30,7 +30,7 @@ class TestTfqMyPost(TestBase):
         self.page.get_element('view[class="item more-ctr"]', text_contains='更多').tap()
         return self
 
-    def test_my_goto_postdetail_01_edit(self):
+    def test_02_my_goto_postdetail_01_edit_编辑帖子(self):
         """
         我的帖子页面，对当前身份刚刚发的贴，选择对应帖子，进入帖子详情，进行编辑，保存
         :return:
@@ -53,7 +53,7 @@ class TestTfqMyPost(TestBase):
                        '编辑标题ok')
         self.get_screenshot()
 
-    def test_my_goto_postdetail_02_delete(self):
+    def test_03_my_goto_postdetail_02_delete_删除帖子(self):
         """
         我的帖子页面，对当前身份刚刚发布编辑的贴，根据当前身份，选择对应帖子，进入帖子详情，点击更多  删除
         """
@@ -66,7 +66,7 @@ class TestTfqMyPost(TestBase):
 
         self.get_screenshot()
 
-    def test_my_click_quanzi(self):
+    def test_01_my_click_quanzi_点击圈子(self):
         """
         我的帖子页面，点击我的帖子，进入点击圈子名称，进入圈子详情
         :return:

@@ -16,7 +16,7 @@ class TestTfqPostDetail(TestBase):
         super(TestTfqPostDetail, self).setUp()
         print("TestPostDetail  Setup")
 
-    def test_click_content_and_reply(self):
+    def test_09_click_content_and_reply_帖子评论(self):
         """
         帖子详情页，点击帖子正文，输入评论，发布成功，并点击该评论，进入评论详情页
         """
@@ -41,7 +41,7 @@ class TestTfqPostDetail(TestBase):
         self.verifyPageName('/page/taofangquan/tieziCommentDetail/tieziCommentDetail')
         self.get_screenshot()
 
-    def test_click_laud(self):
+    def test_13_click_laud_帖子点赞(self):
         """
         帖子详情页，点击帖子点赞
         """
@@ -49,7 +49,7 @@ class TestTfqPostDetail(TestBase):
         self.verifyStr(True, self.getShowToast(tap), 'show toast')
         self.get_screenshot()
 
-    def test_click_tipoff(self):
+    def test_28_click_tipoff_举报(self):
         """
         帖子详情页，点击帖子"更多"-“举报”按钮，输入“其他”点击提交
         """
@@ -70,7 +70,7 @@ class TestTfqPostDetail(TestBase):
         self.verifyStr(True, self.getShowToast('self.page.get_element(\'view[class="report-submit"]\').tap()'), '举报成功弹框')
         self.get_screenshot()
 
-    def test_click_newpost(self):
+    def test_15_click_newpost_最新热帖(self):
         """
         帖子详情页，点击帖子"最新热帖"按钮，进入帖子详情页
         :return:
@@ -81,7 +81,7 @@ class TestTfqPostDetail(TestBase):
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
 
-    def test_click_moren(self):
+    def test_14_click_moren_默认排序(self):
         """
         帖子详情页，点击帖子"默认"按钮
         """
@@ -95,7 +95,7 @@ class TestTfqPostDetail(TestBase):
         """
         self.page.get_element('view[class="new_sort"]').tap()
 
-    def test_click_fbsavator(self):
+    def test_10_click_fbsavator_房博士头像(self):
         """
         帖子详情页，点击房博士评论的头像，进入房博士主页
         """
@@ -104,7 +104,7 @@ class TestTfqPostDetail(TestBase):
         self.verifyPageName('/page/taofangquan/personalDetails/fbs/fbs')
         self.get_screenshot()
 
-    def test_click_fbscontact(self):
+    def test_11_click_fbscontact_房博士联系(self):
         """
         帖子详情页，点击评论第一个房博士的“点击联系”按钮
         """
@@ -112,7 +112,7 @@ class TestTfqPostDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_click_zygwavator(self):
+    def test_29_click_zygwavator_置业顾问头像(self):
         """
         帖子详情页，点击置业顾问评论的头像，进入置业顾问主页
         """
@@ -121,7 +121,7 @@ class TestTfqPostDetail(TestBase):
         self.verifyPageName('/page/newhouse/zygw/detail')
         self.get_screenshot()
 
-    def test_click_zygwcontact(self):
+    def test_30_click_zygwcontact_置业顾问IM(self):
         """
         帖子详情页，点击评论第一个置业顾问的“点击联系”按钮，进IM聊天
         """
@@ -137,7 +137,7 @@ class TestTfqPostDetail(TestBase):
         """
         self.page.get_element('navigator[class="commentList--content-rich-text"]').tap()
 
-    def test_click_commentlist_laud(self):
+    def test_07click_commentlist_laud_评论点赞(self):
         """
         帖子详情页，点击第一个评论的点赞
         """
@@ -147,7 +147,7 @@ class TestTfqPostDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_click_commentlist_reply(self):
+    def test_08_click_commentlist_reply_回复按钮评论(self):
         """
         帖子详情页，点击第一个评论的“回复”按钮，弹出回复框，回复内容，并发布
         :return:
@@ -170,7 +170,7 @@ class TestTfqPostDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_click_replycontent(self):
+    def test_22_click_replycontent_发布评论回复(self):
         """
         帖子详情页，点击第一个评论的回复内容，弹出“回复、删除”框，点击“回复”，输入“test_click_replydelete”并发布
         """
@@ -191,7 +191,7 @@ class TestTfqPostDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_click_replydelete(self):
+    def test_23_click_replydelete_删除评论回复(self):
         """
         帖子详情页，点击第一个评论的回复内容，弹出“回复、删除”框，点击“删除”，确认删除
         """
@@ -209,7 +209,7 @@ class TestTfqPostDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_click_reply_more(self):
+    def test_19_click_reply_more_评论全部回复(self):
         """
         帖子详情页，点击评论的"查看全部X条回复"，弹出全部回复
         """
@@ -218,7 +218,7 @@ class TestTfqPostDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_click_reply_more_laud(self):
+    def test_21_click_reply_more_laud_全部回复点赞(self):
         """
         帖子详情页，点击评论的“查看全部x条回复”，如有，弹出全部回复，点击第一条的点赞
         """
@@ -230,7 +230,7 @@ class TestTfqPostDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_click_replay_more_content_reply(self):
+    def test_17_click_replay_more_content_reply_全部回复框(self):
         """
         帖子详情页，点击评论的“查看全部x条回复”，如有，弹出全部回复，点击第一条内容，弹出回复框
         """
@@ -243,7 +243,7 @@ class TestTfqPostDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_click_reply_more_fabu(self):
+    def test_20_click_reply_more_fabu_全部回复按钮(self):
         """
         帖子详情页，点击评论的“查看全部x条回复”，如有，弹出全部回复，点击下方回复按钮，弹出回复框
         """
@@ -255,7 +255,7 @@ class TestTfqPostDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_click_reply_laud(self):
+    def test_18_click_reply_laud_回复点赞(self):
         """
          帖子详情页，点击第一个评论的回复的点赞按钮\
         """
@@ -263,7 +263,7 @@ class TestTfqPostDetail(TestBase):
         self.verifyStr(True, self.getShowToast(tap), '第一个评论的第一个回复点赞ok')
         self.get_screenshot()
 
-    def test_click_returnPl(self):
+    def test_24_click_returnPl_更多热帖(self):
         """
         帖子详情页，点击“更多热帖”按钮
         :return:
@@ -273,7 +273,7 @@ class TestTfqPostDetail(TestBase):
         self.verifyPageName('/page/find/find')
         self.get_screenshot()
 
-    def test_goto_housedetail(self):
+    def test_33_goto_housedetail_楼盘卡片(self):
         """
         帖子详情页，点击楼盘卡片，进入楼盘详情页
         :return:
@@ -288,7 +288,7 @@ class TestTfqPostDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_click_add(self):
+    def test_01_click_add_加入群聊(self):
         """
         帖子详情页，点击“加入群聊”入口，进入配置的页面
         """
@@ -296,7 +296,7 @@ class TestTfqPostDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_click_add_close(self):
+    def test_02_click_add_close_关闭群聊入口(self):
         """
         帖子详情页，点击“加入群聊”入口的关闭按钮
         """
@@ -304,7 +304,7 @@ class TestTfqPostDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_click_fix_input(self):
+    def test_12_click_fix_input_发布评论入口(self):
         """
         帖子详情页，点击底部发布评论入口，弹出回复框
         """
@@ -312,7 +312,7 @@ class TestTfqPostDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_click_addgroup(self):
+    def test_03_click_addgroup_购房群(self):
         """
         帖子详情页，点击底部“购房群”按钮
         :return:
@@ -321,7 +321,7 @@ class TestTfqPostDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_click_collect(self):
+    def test_06_click_collect_底部收藏(self):
         """
         帖子详情页，点击底部“收藏”按钮
         """
@@ -332,7 +332,7 @@ class TestTfqPostDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_click_bottom_laud(self):
+    def test_04_click_bottom_laud_底部点赞(self):
         """
         帖子详情页，点击底部“点赞”按钮
         :return:
@@ -341,7 +341,7 @@ class TestTfqPostDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_click_bottom_zygwim(self):
+    def test_05_click_bottom_zygwim_置业顾问IM(self):
         """
         帖子详情页，点击底部“置业顾问在线咨询”按钮，如无，则通过
         """
@@ -354,7 +354,7 @@ class TestTfqPostDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_click_share(self):
+    def test_25_click_share_分享(self):
         """
         帖子详情页，点击”分享“按钮
         """
@@ -363,7 +363,7 @@ class TestTfqPostDetail(TestBase):
 
         self.verifyByScreenshot('tfq/test_click_post_share.png')
 
-    def test_click_share_close(self):
+    def test_26_click_share_close_分享后取消(self):
         """
         帖子详情页，点击”分享“按钮，点击取消按钮
         :return:
@@ -374,7 +374,7 @@ class TestTfqPostDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_click_share_hb(self):
+    def test_27_click_share_hb_分享海报(self):
         """
         帖子详情页，点击”分享“按钮，点击海报
         :return:
@@ -388,7 +388,7 @@ class TestTfqPostDetail(TestBase):
                        '生成海报页 ok')
         self.get_screenshot()
 
-    def test_z_click_share_hy(self):
+    def test_35_z_click_share_hy_分享好友(self):
         """
         帖子详情页，点击”分享“按钮，点击分享给好友
         """
@@ -398,7 +398,7 @@ class TestTfqPostDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_click_newpost_more(self):
+    def test_16_click_newpost_more_最新热帖更多(self):
         """
         帖子详情页，点击最新热帖的，“更多”按钮\
         """
@@ -407,7 +407,7 @@ class TestTfqPostDetail(TestBase):
         self.verifyPageName('/page/taofangquan/tieziList/tieziList')
         self.get_screenshot()
 
-    def test_z_click_allpicture(self):
+    def test_34_z_click_allpicture_查看完整图片(self):
         """
         帖子详情页，点击“查看完整图片”按钮
         """
@@ -415,7 +415,7 @@ class TestTfqPostDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_goto_command_house(self):
+    def test_31_goto_command_house_热门新房(self):
         """
         帖子详情页，点击热门新房模块 第一个
         """
@@ -424,7 +424,7 @@ class TestTfqPostDetail(TestBase):
         self.verifyPageName('/page/newhouse/detail')
         self.get_screenshot()
 
-    def test_goto_command_post(self):
+    def test_32_goto_command_post_相关推荐(self):
         """
         帖子详情页，点击 相关推荐 第一条帖子
         """

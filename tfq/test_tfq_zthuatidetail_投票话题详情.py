@@ -15,7 +15,7 @@ class TestTfqHuaTiDetail(TestBase):
         super(TestTfqHuaTiDetail, self).setUp()
         print("TestHuaTiDetail setup")
 
-    def test_toupiao(self):
+    def test_toupiao_投票(self):
         """
         投票话题详情页，对运营刚刚发的投票，进行选项投票
         """

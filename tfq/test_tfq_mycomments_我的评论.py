@@ -21,7 +21,7 @@ class TestTfqMyComments(TestBase):
         """
         return self.page.element_is_exists('view[class="post_cont"]')
 
-    def test_goto_more_post(self):
+    def test_06_goto_more_post_更多话题(self):
         """
         我的评论页面，点击“更多话题“，这个用例在没有评论的时候有效
         """
@@ -32,7 +32,7 @@ class TestTfqMyComments(TestBase):
 
         self.get_screenshot()
 
-    def test_goto_first_post(self):
+    def test_04_goto_first_post_帖子详情(self):
         """
         我的评论页面，点击第一个帖子，这个用例在没有评论的时候有效
         """
@@ -43,7 +43,7 @@ class TestTfqMyComments(TestBase):
 
         self.get_screenshot()
 
-    def test_click_zanicon(self):
+    def test_02_click_zanicon_评论点赞(self):
         """
         我的评论页面，点击第一个评论的点赞图标
         """
@@ -54,7 +54,7 @@ class TestTfqMyComments(TestBase):
 
         self.get_screenshot()
 
-    def test_click_replyBtn(self):
+    def test_01_click_replyBtn_评论回复按钮(self):
         """
         我的评论页面，点击第一个评论的回复按钮
         """
@@ -65,7 +65,7 @@ class TestTfqMyComments(TestBase):
         else:
             print("页面无评论数据，此用例直接pass")
 
-    def test_goto_commentdetail(self):
+    def test_03_goto_commentdetail_评论详情(self):
         """
         我的评论页面，点击第一个评论内容，进入详情
         """
@@ -78,7 +78,7 @@ class TestTfqMyComments(TestBase):
 
         self.get_screenshot()
 
-    def test_goto_housedetail(self):
+    def test_05_goto_housedetail_楼盘详情(self):
         """
         我的评论页面，点击第一个评论内容的楼盘名称右边箭头，进入新房详情页
         """

@@ -25,7 +25,7 @@ class TestTfqFbsWritePost(WritePost):
         super(TestTfqFbsWritePost, self).setUp()
         print("TestFbsWritePost setup")
 
-    def test_fbs_save_draft(self):
+    def test_fbs_02_save_draft_保存草稿(self):
         """
         房博士身份，发帖页面，点击“保存草稿”按钮
         """
@@ -48,7 +48,7 @@ class TestTfqFbsWritePost(WritePost):
         self.verifyStr(True, is_called, "toast called ")
         self.get_screenshot()
 
-    def test_fbs_quanzi_show_my_fav(self):
+    def test_fbs_01_quanzi_show_my_fav_我关注的(self):
         """
         房博士身份，发帖页面，点击同步到圈子，展示“我关注的”内容列表
         """
@@ -57,7 +57,7 @@ class TestTfqFbsWritePost(WritePost):
         self.verifyByScreenshot('tfq/test_yy_quanzi_show_my_fav.png')
 
     @file_data('./test_tfq_writepost_fbs.yml')
-    def test_fbs_write_post(self, **kwargs):
+    def test_fbs_03_write_post_发布帖子(self, **kwargs):
         """
         房博士身份，发帖页面，输入标题，内容，选择关联板块，关联楼盘，同步到圈子，点击“发布”按钮
         """

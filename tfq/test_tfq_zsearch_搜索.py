@@ -16,7 +16,7 @@ class TestTfqSearch(TestBase):
         super(TestTfqSearch, self).setUp()
         print("TestTfqSearch  Setup")
 
-    def test_input_clear_and_search_result_select(self):
+    def test_03_input_clear_and_search_result_select_输入内容搜索(self):
         """
         淘房圈搜索页面，输入内容“测试”，搜索，点击搜索框内的清除按钮，再次搜索当天日期，选择第一条结果，进详情页
         """
@@ -36,7 +36,7 @@ class TestTfqSearch(TestBase):
             self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
 
-    def test_keywords_to_delete(self):
+    def test_05_keywords_to_delete_删除历史(self):
         """
         淘房圈搜索页面，点击搜索历史删除按钮
         """
@@ -55,7 +55,7 @@ class TestTfqSearch(TestBase):
 
         self.get_screenshot()
 
-    def test_keywords_search(self):
+    def test_04_keywords_search_历史搜索(self):
         """
         淘房圈搜索页面,有搜索历史，点击搜索历史搜索，选择结果的第一条，进详情页
         """
@@ -72,7 +72,7 @@ class TestTfqSearch(TestBase):
 
         self.get_screenshot()
 
-    def test_click_title(self):
+    def test_02_click_title_点击热帖标题(self):
         """
         淘房圈搜索页面，点击热帖墙标题
         """
@@ -81,7 +81,7 @@ class TestTfqSearch(TestBase):
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
 
-    def test_click_more(self):
+    def test_01_click_more_更多热帖(self):
         """
         淘房圈搜索页面，点击更多热帖
         """

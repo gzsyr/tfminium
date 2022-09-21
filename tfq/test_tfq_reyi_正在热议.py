@@ -14,7 +14,7 @@ class TestTfqReYi(TestBase):
         super(TestTfqReYi, self).setUp()
         print("TestReYi  Setup")
 
-    def test_click_title(self):
+    def test_click_title_点击帖子标题(self):
         """
         正在热议页面，点击帖子标题
         """
@@ -23,7 +23,7 @@ class TestTfqReYi(TestBase):
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
 
-    def test_click_postbt(self):
+    def test_click_postbt_点击发帖入口(self):
         """
         正在热议页面，点击底部发帖入口
         """
@@ -32,7 +32,7 @@ class TestTfqReYi(TestBase):
         self.verifyPageName('/page/taofangquan/writePost/writePost')
         self.get_screenshot()
 
-    def test_click_wpbtn(self):
+    def test_click_wpbtn_点击发布按钮(self):
         """
         正在热议页面，点击底部“发布”按钮
         """

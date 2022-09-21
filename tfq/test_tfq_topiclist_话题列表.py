@@ -15,7 +15,7 @@ class TestTfqTopicList(TestBase):
         super(TestTfqTopicList, self).setUp()
         print("TestTopicList  Setup")
 
-    def test_click_topictitle(self):
+    def test_04_click_topictitle_话题详情(self):
         """
         话题列表，点击话题标题
         :return:
@@ -25,7 +25,7 @@ class TestTfqTopicList(TestBase):
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
 
-    def test_click_PK(self):
+    def test_01_click_PK_话题PK按钮(self):
         """
         话题列表，点击pk话题pk按钮
         :return:
@@ -38,7 +38,7 @@ class TestTfqTopicList(TestBase):
 
         self.get_screenshot()
 
-    def test_click_join(self):
+    def test_02_click_join_普通话题查看(self):
         """
         话题列表，点击普通话题“查看详情”按钮
         :return:
@@ -48,7 +48,7 @@ class TestTfqTopicList(TestBase):
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
 
-    def test_click_share(self):
+    def test_03_click_share_分享(self):
         """
         话题列表，点击分享按钮
         :return:

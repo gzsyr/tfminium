@@ -13,7 +13,7 @@ class TestTfqDrafBox(TestBase):
         super(TestTfqDrafBox, self).setUp()
         print("TestTfqDrafBox setup")
 
-    def test_click_draftitle(self):
+    def test_02_click_draftitle_点击帖子标题(self):
         """
         草稿箱页面，点击帖子草稿标题
         """
@@ -22,7 +22,7 @@ class TestTfqDrafBox(TestBase):
         self.verifyPageName('/page/taofangquan/writePost/writePost')
         self.get_screenshot()
 
-    def test_click_delete(self):
+    def test_01_click_delete_删除草稿(self):
         """
         草稿箱页面，点击帖子草稿删除按钮，二次确定点击删除
         """
@@ -41,7 +41,7 @@ class TestTfqDrafBox(TestBase):
 
         self.get_screenshot()
 
-    def test_click_lptab(self):
+    def test_04_click_lptab_楼盘评论(self):
         """
         草稿箱页面，切换至楼盘评论tab
         """
@@ -49,7 +49,7 @@ class TestTfqDrafBox(TestBase):
 
         self.get_screenshot()
 
-    def test_click_lptitle(self):
+    def test_05_click_lptitle_楼盘评论标题(self):
         """
         草稿箱页面，切换至楼盘评论tab，点击楼盘评论标题
         """
@@ -64,7 +64,7 @@ class TestTfqDrafBox(TestBase):
 
         self.get_screenshot()
 
-    def test_click_lpdelete_confirm(self):
+    def test_03_click_lpdelete_confirm_删除楼盘评论(self):
         """
         草稿箱页面，切换至楼盘评论tab，点击楼盘评论删除按钮，二次确认点击取消
         """

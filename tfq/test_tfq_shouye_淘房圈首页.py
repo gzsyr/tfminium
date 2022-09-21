@@ -17,7 +17,7 @@ class TestTfqShouYe(TestBase):
         super(TestTfqShouYe, self).setUp()
         print("TestTfqShouYe  Setup")
 
-    def test_goto_huati_list(self):
+    def test_22_goto_huati_list_话题列表(self):
         """
         跳转至话题
         """
@@ -26,7 +26,7 @@ class TestTfqShouYe(TestBase):
         self.verifyPageName('/page/taofangquan/huati/huatiList')
         self.get_screenshot()
 
-    def test_click_mustread(self):
+    def test_08_click_mustread_必读(self):
         """
         淘房圈首页点击必读
         """
@@ -35,7 +35,7 @@ class TestTfqShouYe(TestBase):
         self.verifyPageName('/page/index/webview')
         self.get_screenshot()
 
-    def test_click_search(self):
+    def test_17_click_search_搜索(self):
         """
         淘房圈首页，点击搜索框
         """
@@ -53,7 +53,7 @@ class TestTfqShouYe(TestBase):
     #     e = self.page.get_element("view[class='tfq--sharetxt']")
     #     e.tap()
 
-    def test_click_banner(self):
+    def test_02_click_banner_联板广告(self):
         """
         淘房圈首页，如果有点击顶部第一张banner
         """
@@ -65,7 +65,7 @@ class TestTfqShouYe(TestBase):
 
         self.get_screenshot()
 
-    def test_click_topic1(self):
+    def test_18_click_topic1_圈子模块一(self):
         """
         淘房圈首页，点击圈子模块第一个圈子
         """
@@ -74,7 +74,7 @@ class TestTfqShouYe(TestBase):
         self.verifyPageName('/page/taofangquan/huati/huatiDetail')
         self.get_screenshot()
 
-    def test_click_topic2(self):
+    def test_19_click_topic2_圈子模块二(self):
         """
         淘房圈首页，点击圈子模块第二个圈子
         """
@@ -83,7 +83,7 @@ class TestTfqShouYe(TestBase):
         self.verifyPageName('/page/taofangquan/huati/huatiDetail')
         self.get_screenshot()
 
-    def test_click_topic3(self):
+    def test_20_click_topic3_圈子模块三(self):
         """
         淘房圈首页，点击圈子模块第三个圈子
         """
@@ -92,7 +92,7 @@ class TestTfqShouYe(TestBase):
         self.verifyPageName('/page/taofangquan/huati/huatiDetail')
         self.get_screenshot()
 
-    def test_click_topic4(self):
+    def test_21_click_topic4_圈子模块四(self):
         """
         淘房圈首页，点击圈子模块第四个圈子
         """
@@ -101,7 +101,7 @@ class TestTfqShouYe(TestBase):
         self.verifyPageName('/page/taofangquan/huati/huatiDetail')
         self.get_screenshot()
 
-    def test_click_qzSquare(self):
+    def test_16_click_qzSquare_圈子广场(self):
         """
         淘房圈首页，点击圈子模块圈子广场
         """
@@ -111,7 +111,7 @@ class TestTfqShouYe(TestBase):
         self.verifyPageName('/page/taofangquan/huati/huatiSquare')
         self.get_screenshot()
 
-    def test_click_active(self):
+    def test_01_click_active_活动(self):
         """
         淘房圈首页，点击活动
         """
@@ -125,7 +125,7 @@ class TestTfqShouYe(TestBase):
         self.get_screenshot()
 
 
-    def test_click_newpost_more(self):
+    def test_10_click_newpost_more_最新热帖更多(self):
         """
         淘房圈首页，点击最新热帖更多
         """
@@ -134,7 +134,7 @@ class TestTfqShouYe(TestBase):
         self.verifyPageName('/page/taofangquan/tieziList/tieziList')
         self.get_screenshot()
 
-    def test_click_newpost(self):
+    def test_09_click_newpost_最新热帖(self):
         """
         淘房圈首页，点击最新热帖第一条
         """
@@ -144,7 +144,7 @@ class TestTfqShouYe(TestBase):
         self.get_screenshot()
 
 
-    def test_click_hotQuanzi_more(self):
+    def test_07_click_hotQuanzi_more_更多圈子(self):
         """
         淘房圈首页，热门圈子，点击“更多圈子”
         """
@@ -153,7 +153,7 @@ class TestTfqShouYe(TestBase):
         self.verifyPageName('/page/taofangquan/huati/huatiSquare')
         self.get_screenshot()
 
-    def test_click_hotQuanZi1(self):
+    def test_03_click_hotQuanZi1_热门圈子一(self):
         """
         淘房圈首页，热门圈子，点击第一个圈子
         """
@@ -162,7 +162,7 @@ class TestTfqShouYe(TestBase):
         self.verifyPageName('/page/taofangquan/huati/huatiDetail')
         self.get_screenshot()
 
-    def test_click_hotQuanZi2(self):
+    def test_04_click_hotQuanZi2_热门圈子二(self):
         """
         淘房圈首页，热门圈子，点击第二个圈子
         """
@@ -171,7 +171,7 @@ class TestTfqShouYe(TestBase):
         self.verifyPageName('/page/taofangquan/huati/huatiDetail')
         self.get_screenshot()
 
-    def test_click_hotQuanZi3(self):
+    def test_05_click_hotQuanZi3_热门圈子三(self):
         """
         淘房圈首页，热门圈子，点击第三个圈子
         """
@@ -180,7 +180,7 @@ class TestTfqShouYe(TestBase):
         self.verifyPageName('/page/taofangquan/huati/huatiDetail')
         self.get_screenshot()
 
-    def test_click_hotQuanZi4(self):
+    def test_06_click_hotQuanZi4_热门圈子四(self):
         """
         淘房圈首页，热门圈子，点击第四个圈子
         """
@@ -189,7 +189,7 @@ class TestTfqShouYe(TestBase):
         self.verifyPageName('/page/taofangquan/huati/huatiDetail')
         self.get_screenshot()
 
-    def test_click_post_content(self):
+    def test_11_click_post_content_点击帖子正文(self):
         """
         淘房圈首页-好帖推荐，第一个帖子，点击正文内容
         """
@@ -198,7 +198,7 @@ class TestTfqShouYe(TestBase):
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
 
-    def test_click_post_quanzi(self):
+    def test_13_click_post_quanzi_点击圈子(self):
         """
         淘房圈首页-好帖推荐，第一个帖子，点击帖子圈子
         """
@@ -207,7 +207,7 @@ class TestTfqShouYe(TestBase):
         self.verifyPageName('/page/taofangquan/huati/huatiDetail')
         self.get_screenshot()
 
-    def test_z_click_post_share(self):
+    def test_23_z_click_post_share_分享(self):
         """
         淘房圈首页-好帖推荐，第一个帖子，点击分享按钮
         """
@@ -215,7 +215,7 @@ class TestTfqShouYe(TestBase):
         self.delay(1)
         self.verifyByScreenshot('tfq/sharemodal.png')
 
-    def test_click_post_reply(self):
+    def test_14_click_post_reply_帖子回复按钮(self):
         """
         淘房圈首页-好帖推荐，第一个帖子，点击回复的按钮
         """
@@ -224,7 +224,7 @@ class TestTfqShouYe(TestBase):
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
 
-    def test_click_post_laud(self):
+    def test_12_click_post_laud_帖子点赞(self):
         """
         淘房圈首页-好帖推荐，第一个帖子，点击点赞的按钮
         :return:
@@ -256,7 +256,7 @@ class TestTfqShouYe(TestBase):
     #     e.tap()
 
 
-    def test_click_postbtn(self):
+    def test_15_click_postbtn_发帖按钮(self):
         """
         淘房圈首页 ，点击右下角“发帖”按钮
         :return:

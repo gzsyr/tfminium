@@ -13,7 +13,7 @@ class TestTfqLinkedBangdan(TestBase):
         super(TestTfqLinkedBangdan, self).setUp()
         print("TestLinkedBangdan setup")
 
-    def test_click_tab1(self):
+    def test_04_click_tab1_推荐第一个tab(self):
         """
         淘房圈-推荐榜单页面,点击第一个tab
         """
@@ -21,7 +21,7 @@ class TestTfqLinkedBangdan(TestBase):
 
         self.get_screenshot()
 
-    def test_click_tab2(self):
+    def test_05_click_tab2_推荐第二个tab(self):
         """
         淘房圈-推荐榜单页面,点击第二个tab
         """
@@ -29,7 +29,7 @@ class TestTfqLinkedBangdan(TestBase):
 
         self.get_screenshot()
 
-    def test_click_tiezi(self):
+    def test_06_click_tiezi_点击帖子(self):
         """
         淘房圈-推荐榜单页面，点击帖子
         """
@@ -38,7 +38,7 @@ class TestTfqLinkedBangdan(TestBase):
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
 
-    def test_click_post(self):
+    def test_01_click_post_点击发帖(self):
         """
         淘房圈-推荐榜单页面，点击”发帖“
         """
@@ -47,7 +47,7 @@ class TestTfqLinkedBangdan(TestBase):
         self.verifyPageName('/page/taofangquan/writePost/writePost')
         self.get_screenshot()
 
-    def test_click_share(self):
+    def test_02_click_share_分享(self):
         """
         淘房圈-推荐榜单页面，点击”分享“
         """
@@ -55,7 +55,7 @@ class TestTfqLinkedBangdan(TestBase):
 
         self.get_screenshot()
 
-    def test_click_share_hb(self):
+    def test_03_click_share_hb_分享海报(self):
         """
         淘房圈-推荐榜单页面，点击”分享“，生成海报
         """
@@ -68,7 +68,7 @@ class TestTfqLinkedBangdan(TestBase):
                        '生成海报页 ok')
         self.get_screenshot()
 
-    def test_z_click_share_hy(self):
+    def test_07_z_click_share_hy_分享好友(self):
         """
         淘房圈-推荐榜单页面，点击”分享“，分享好友
         """

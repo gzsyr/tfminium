@@ -29,7 +29,7 @@ class TestTfqYyWritePost(WritePost):
         print("TestYyWritePost setup")
 
     @file_data('./test_tfq_writepost_yunying_vote.yml')
-    def test_yy_write_vote_post(self, **kwargs):
+    def test_yy_04_write_vote_post_发布投票(self, **kwargs):
         """
         运营，发帖页面，输入标题，内容，新增投票，点击“发布”按钮
         """
@@ -48,7 +48,7 @@ class TestTfqYyWritePost(WritePost):
         self.get_screenshot()
 
     @file_data('./test_tfq_writepost_yunying.yml')
-    def test_yy_write_vest_post(self, **kwargs):
+    def test_yy_03_write_vest_post_发布帖子(self, **kwargs):
         """
         运营，选择马甲发帖，输入标题、内容，选择关联板块、关联楼盘、同步到圈子，点击“发布”按钮
         """
@@ -66,7 +66,7 @@ class TestTfqYyWritePost(WritePost):
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
 
-    def test_yy_quanzi_show_my_fav(self):
+    def test_yy_01_quanzi_show_my_fav_我关注的(self):
         """
         运营身份，发帖页面，点击同步到圈子，展示“我关注的”内容列表
         """
@@ -75,7 +75,7 @@ class TestTfqYyWritePost(WritePost):
 
         self.verifyByScreenshot('tfq/test_yy_quanzi_show_my_fav.png')
 
-    def test_yy_save_draft(self):
+    def test_yy_02_save_draft_保存草稿(self):
         """
         运营身份，发帖页面，点击“保存草稿”按钮
         """

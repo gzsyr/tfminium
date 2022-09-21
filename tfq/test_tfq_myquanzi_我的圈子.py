@@ -15,7 +15,7 @@ class TestTfqMyQuzi(TestBase):
         super(TestTfqMyQuzi, self).setUp()
         print("TestMyQuzi setup")
 
-    def test_click(self):
+    def test_click_点击圈子(self):
         """
         我的圈子页面，点击圈子
         """
