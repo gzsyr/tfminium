@@ -163,7 +163,7 @@ class TestIndexShouye(TestBase):
         首页，点击找房模块“帮你卖房”的“发布房源”按钮
         :return:
         """
-        self.test_click_maifang()
+        self.test_07_click_maifang_帮你卖房()
         self.page.get_element('navigator[class="link-btn"]', inner_text="发布房源").click()
         self.get_screenshot()
 
