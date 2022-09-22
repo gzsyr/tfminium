@@ -136,7 +136,7 @@ class Testrenthouseinglist(TestBase):
 
         return self
 
-    def share_type_search_有房无房筛选(self, share_type_text):
+    def share_type_search(self, share_type_text):
         """
         有房无房筛选
         """
@@ -169,7 +169,7 @@ class Testrenthouseinglist(TestBase):
 
         return self
 
-    def search_order_by_筛选排序(self, order_by_text):
+    def search_order_by(self, order_by_text):
         """
         筛选排序
         """
@@ -201,7 +201,7 @@ class Testrenthouseinglist(TestBase):
 
         return self
 
-    def more_search_更多筛选(self, ary_more_text):
+    def more_search(self, ary_more_text):
         """
         更多筛选
         """
@@ -265,7 +265,7 @@ class Testrenthouseinglist(TestBase):
 
         return self
 
-    def clear_search_清空筛选条件(self):
+    def clear_search(self):
         """
         清空筛选条件
         """

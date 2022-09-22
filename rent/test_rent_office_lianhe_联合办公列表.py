@@ -128,7 +128,7 @@ class Testrentofficelianhe(TestBase):
 
         return self
 
-    def build_search_类别筛选(self, build_text):
+    def build_search(self, build_text):
         """
         类别筛选
         """
@@ -161,7 +161,7 @@ class Testrentofficelianhe(TestBase):
 
         return self
 
-    def price_search_租金筛选(self, price_text):
+    def price_search(self, price_text):
         """
         租金筛选
         """
@@ -194,7 +194,7 @@ class Testrentofficelianhe(TestBase):
 
         return self
 
-    def search_order_by_筛选排序(self, order_by_text):
+    def search_order_by(self, order_by_text):
         """
         筛选排序
         """

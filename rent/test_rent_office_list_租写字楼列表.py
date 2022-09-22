@@ -85,7 +85,7 @@ class Testrentofficelist(TestBase):
         # 截图
         self.get_screenshot()
 
-    def pos_search_位置筛选(self, text_1, text_2, text_3):
+    def pos_search(self, text_1, text_2, text_3):
         """
         位置筛选
         """
@@ -146,7 +146,7 @@ class Testrentofficelist(TestBase):
 
         return self
 
-    def area_search_面积筛选(self, area_text):
+    def area_search(self, area_text):
         """
         面积筛选
         """
@@ -179,7 +179,7 @@ class Testrentofficelist(TestBase):
 
         return self
 
-    def price_search_租金筛选(self, price_text):
+    def price_search(self, price_text):
         """
         租金筛选
         """
@@ -212,7 +212,7 @@ class Testrentofficelist(TestBase):
 
         return self
 
-    def more_search_更多筛选(self, ary_more_text):
+    def more_search(self, ary_more_text):
         """
         更多筛选
         """
@@ -264,7 +264,7 @@ class Testrentofficelist(TestBase):
 
         return self
 
-    def search_order_by_筛选排序(self, order_by_text):
+    def search_order_by(self, order_by_text):
         """
         筛选排序
         """

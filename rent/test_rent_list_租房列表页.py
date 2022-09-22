@@ -128,7 +128,7 @@ class Testrentlist(TestBase):
         # 截图
         self.get_screenshot()
 
-    def pos_search_位置筛选(self, text_1, text_2, text_3):
+    def pos_search(self, text_1, text_2, text_3):
         """
         位置筛选
         """
@@ -193,7 +193,7 @@ class Testrentlist(TestBase):
 
         return self
 
-    def price_search_租金筛选(self, price_text, min_val, max_val):
+    def price_search(self, price_text, min_val, max_val):
         """
         租金筛选
         """
@@ -251,7 +251,7 @@ class Testrentlist(TestBase):
 
         return self
 
-    def house_type_search_户型筛选(self, hx_text):
+    def house_type_search(self, hx_text):
         """
         户型筛选
         """
@@ -284,7 +284,7 @@ class Testrentlist(TestBase):
 
         return self
 
-    def search_order_by_筛选排序(self, order_by_text):
+    def search_order_by(self, order_by_text):
         """
         筛选排序
         """
@@ -316,7 +316,7 @@ class Testrentlist(TestBase):
 
         return self
 
-    def more_search_更多筛选(self, ary_more_text):
+    def more_search(self, ary_more_text):
         """
         更多筛选
         """
@@ -369,7 +369,7 @@ class Testrentlist(TestBase):
 
         return self
 
-    def clear_search_清空筛选条件(self):
+    def clear_search(self):
         """
         清空筛选条件
         """

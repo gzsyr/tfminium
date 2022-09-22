@@ -232,7 +232,7 @@ class Testesflist(TestBase):
 
         return self
 
-    def house_type_search_房型筛选(self, hx_text):
+    def house_type_search(self, hx_text):
         """
         房型筛选
         """
@@ -284,7 +284,7 @@ class Testesflist(TestBase):
 
         return self
 
-    def search_order_by_筛选排序(self, order_by_text):
+    def search_order_by(self, order_by_text):
         """
         筛选排序
         """
@@ -306,7 +306,7 @@ class Testesflist(TestBase):
 
         return self
 
-    def more_search_更多筛选(self, ary_more_text):
+    def more_search(self, ary_more_text):
         """
         更多筛选
         """
@@ -360,7 +360,7 @@ class Testesflist(TestBase):
 
         return self
 
-    def clear_search_清空筛选条件(self):
+    def clear_search(self):
         """
         清空筛选条件
         """

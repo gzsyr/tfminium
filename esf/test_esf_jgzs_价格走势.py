@@ -95,10 +95,10 @@ class Testesfjgzs(TestBase):
         :return:
         """
         self.page.scroll_to(1550, 500)
-        self.elay(1)
+        self.delay(1)
         e = self.page.get_element('view[class="center evaluate"]')
         e.tap()
-        self.elay(3)
+        self.delay(3)
         self.get_screenshot()
 
     def test_click_bnzf_点击帮你找房(self):
