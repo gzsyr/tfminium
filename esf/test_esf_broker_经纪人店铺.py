@@ -10,7 +10,7 @@ class Testesfbroker(TestBase):
     """
 
     def setUp(self, true=None) -> None:
-        self.page_name = "/esf/sell/pages/broker/broker?uid=892737"
+        self.page_name = "/esf/sell/pages/broker/broker?uid=912407"
         self.switch = true
         self.classname = self.__class__.__name__
         super(Testesfbroker, self).setUp()

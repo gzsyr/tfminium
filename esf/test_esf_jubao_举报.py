@@ -9,7 +9,7 @@ class Testesfjubao(TestBase):
     """
 
     def setUp(self, true=None) -> None:
-        self.page_name = "/esf/sell/pages/report/report?sellId=336640153&real=1"
+        self.page_name = "/esf/sell/pages/report/report?sellId=337038019&real=1"
         self.switch = true
         self.classname = self.__class__.__name__
         super(Testesfjubao, self).setUp()
