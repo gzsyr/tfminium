@@ -14,7 +14,7 @@ class Testrenthouseingdetail(TestBase):
         super(Testrenthouseingdetail, self).setUp()
         print("Testrenthouseingdetail setup")
 
-    def test_goto_photo_点击相册(self):
+    def test_07_goto_photo_点击相册(self):
         """
         点击相册
         """
@@ -24,7 +24,7 @@ class Testrenthouseingdetail(TestBase):
         self.get_screenshot()
         self.delay(2)
 
-    def test_goto_collect_点击收藏取消收藏(self):
+    def test_01_goto_collect_点击收藏取消收藏(self):
         """
         点击收藏
         :return:
@@ -43,7 +43,7 @@ class Testrenthouseingdetail(TestBase):
         self.get_screenshot()
         self.delay(2)
 
-    def test_goto_share_点击分享(self):
+    def test_08_goto_share_点击分享(self):
         """
         点击分享
         :return:
@@ -55,7 +55,7 @@ class Testrenthouseingdetail(TestBase):
         self.get_screenshot()
         self.delay(1)
 
-    def test_goto_report_点击举报(self):
+    def test_02_goto_report_点击举报(self):
         """
         点击举报
         :return:
@@ -67,7 +67,7 @@ class Testrenthouseingdetail(TestBase):
         self.get_screenshot()
         self.delay(1)
 
-    def test_click_map_点击地图图标(self):
+    def test_03_click_map_点击地图图标(self):
         """
         点击地图图标
         :return:
@@ -81,7 +81,7 @@ class Testrenthouseingdetail(TestBase):
         else:
             print('没有该模块')
 
-    def test_click_module_点击相关推荐列表进入详情(self):
+    def test_04_click_module_点击相关推荐列表进入详情(self):
         """
         点击相关推荐列表进入详情
         :return:
@@ -98,7 +98,7 @@ class Testrenthouseingdetail(TestBase):
         else:
             print('没有相关推荐')
 
-    def test_click_more_点击相关推荐列表查看更多(self):
+    def test_05_click_more_点击相关推荐列表查看更多(self):
         """
         点击相关推荐列表-查看更多
         :return:
@@ -119,7 +119,7 @@ class Testrenthouseingdetail(TestBase):
         else:
             print('没有相关推荐')
 
-    def test_click_msg_点击在线聊(self):
+    def test_06_click_msg_点击在线聊(self):
         """
         点击在线聊
         :return:

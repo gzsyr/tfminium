@@ -14,7 +14,7 @@ class Testrentofficelhdetail(TestBase):
         super(Testrentofficelhdetail, self).setUp()
         print("Testrentofficelhdetail setup")
 
-    def test_goto_photo_点击相册(self):
+    def test_06_goto_photo_点击相册(self):
         """
         点击相册
         """
@@ -24,7 +24,7 @@ class Testrentofficelhdetail(TestBase):
         self.get_screenshot()
         self.delay(3)
 
-    def test_click_map_点击地图图标(self):
+    def test_01_click_map_点击地图图标(self):
         """
         点击地图图标
         :return:
@@ -38,7 +38,7 @@ class Testrentofficelhdetail(TestBase):
         else:
             print('没有该模块')
 
-    def test_click_bllp_本楼盘房源进入详情页(self):
+    def test_02_click_bllp_本楼盘房源进入详情页(self):
         """
         点击本楼盘房源进入详情页
         :return:
@@ -52,7 +52,7 @@ class Testrentofficelhdetail(TestBase):
         else:
             print('没有本楼盘房源模块')
 
-    def test_click_shadow_品牌介绍点击查看更多收起(self):
+    def test_03_click_shadow_品牌介绍点击查看更多收起(self):
         """
         品牌介绍-点击查看更多-收起
         :return:
@@ -74,7 +74,7 @@ class Testrentofficelhdetail(TestBase):
         else:
             print('没有品牌介绍模块')
 
-    def test_click_xzldetail_写字楼信息列表进入详情(self):
+    def test_04_click_xzldetail_写字楼信息列表进入详情(self):
         """
         点击写字楼信息列表进入详情页
         :return:
@@ -90,7 +90,7 @@ class Testrentofficelhdetail(TestBase):
         else:
             print('没有写字楼信息')
 
-    def test_click_wddetail_写字楼信息列表进入详情(self):
+    def test_05_click_wddetail_写字楼信息列表进入详情(self):
         """
         点击写字楼信息列表进入详情页
         :return:

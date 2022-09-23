@@ -12,7 +12,7 @@ class Testesfxqrp(TestBase):
         super(Testesfxqrp, self).setUp()
         print("Testesfxqrp setup")
 
-    def test_click_search_搜索(self):
+    def test_01_click_search_搜索(self):
         """
         搜索
         :return:
@@ -23,7 +23,7 @@ class Testesfxqrp(TestBase):
         self.delay(3)
         self.get_screenshot()
 
-    def test_click_todo_点击去搜索(self):
+    def test_02_click_todo_点击去搜索(self):
         """
         热评小区-点击去搜索
         :return:
@@ -33,7 +33,7 @@ class Testesfxqrp(TestBase):
         self.delay(3)
         self.get_screenshot()
 
-    def test_click_hotcomment_列表进详情(self):
+    def test_03_click_hotcomment_列表进详情(self):
         """
         热评小区列表点击进详情
         :return:
@@ -43,7 +43,7 @@ class Testesfxqrp(TestBase):
         self.delay(3)
         self.get_screenshot()
 
-    def test_click_commentim_全部评论点击im(self):
+    def test_04_click_commentim_全部评论点击im(self):
         """
         全部评论点击im
         :return:
@@ -56,7 +56,7 @@ class Testesfxqrp(TestBase):
         else:
             print("没有评论")
 
-    def test_click_commenttel_全部评论点击电话(self):
+    def test_10_click_commenttel_全部评论点击电话(self):
         """
         全部评论点击电话
         :return:
@@ -69,7 +69,7 @@ class Testesfxqrp(TestBase):
         else:
             print("没有评论")
 
-    def test_click_commentlist_点击全部评论列表(self):
+    def test_05_click_commentlist_点击全部评论列表(self):
         """
         点击全部评论列表
         :return:
@@ -82,7 +82,7 @@ class Testesfxqrp(TestBase):
         else:
             print("没有评论")
 
-    def test_goto_plimg_点击评论图片(self):
+    def test_11_goto_plimg_点击评论图片(self):
         """
         点击评论图片
         :return:
@@ -100,7 +100,7 @@ class Testesfxqrp(TestBase):
         else:
             print("没有评论")
 
-    def test_goto_pldz_评论点赞(self):
+    def test_06_goto_pldz_评论点赞(self):
         """
         评论点赞
         :return:
@@ -116,7 +116,7 @@ class Testesfxqrp(TestBase):
         else:
             print("没有评论")
 
-    def test_goto_qxdz_取消点赞(self):
+    def test_07_goto_qxdz_取消点赞(self):
         """
         取消点赞
         :return:
@@ -133,7 +133,7 @@ class Testesfxqrp(TestBase):
         else:
             print("没有点赞")
 
-    def test_click_pllp_全部评论点击楼盘链接(self):
+    def test_08_click_pllp_全部评论点击楼盘链接(self):
         """
         全部评论点击楼盘链接
         :return:
@@ -148,7 +148,7 @@ class Testesfxqrp(TestBase):
         else:
             print("没有评论")
 
-    def test_click_hover_点击顶部(self):
+    def test_09_click_hover_点击顶部(self):
         """
         点击顶部
         :return:

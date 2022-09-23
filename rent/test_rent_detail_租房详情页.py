@@ -14,7 +14,7 @@ class Testrentdetail(TestBase):
         super(Testrentdetail, self).setUp()
         print("Testrentdetail setup")
 
-    def test_goto_photo_点击相册(self):
+    def test_20_goto_photo_点击相册(self):
         """
         点击相册
         """
@@ -24,7 +24,7 @@ class Testrentdetail(TestBase):
         self.get_screenshot()
         self.delay(3)
 
-    def test_goto_collect_点击收藏取消收藏(self):
+    def test_01_goto_collect_点击收藏取消收藏(self):
         """
         点击收藏
         :return:
@@ -42,7 +42,7 @@ class Testrentdetail(TestBase):
         self.delay(3)
         self.get_screenshot()
 
-    def test_goto_share_点击分享(self):
+    def test_21_goto_share_点击分享(self):
         """
         点击分享
         :return:
@@ -54,7 +54,7 @@ class Testrentdetail(TestBase):
         self.get_screenshot()
         self.delay(1)
 
-    def test_click_mapadd_标题下坐标地址(self):
+    def test_02_click_mapadd_标题下坐标地址(self):
         """
         点击标题下坐标地址
         :return:
@@ -67,7 +67,7 @@ class Testrentdetail(TestBase):
         else:
             print('没有该模块')
 
-    def test_click_map_地图坐标(self):
+    def test_03_click_map_地图坐标(self):
         """
         点击地图图标
         :return:
@@ -81,7 +81,7 @@ class Testrentdetail(TestBase):
         else:
             print('没有该模块')
 
-    def test_click_xiaoqu_点击小区(self):
+    def test_04_click_xiaoqu_点击小区(self):
         """
         点击小区
         :return:
@@ -97,7 +97,7 @@ class Testrentdetail(TestBase):
         else:
             print('没有小区')
 
-    def test_click_ditie_点击地铁地图(self):
+    def test_05_click_ditie_点击地铁地图(self):
         """
         点击地铁地图
         :return:
@@ -113,7 +113,7 @@ class Testrentdetail(TestBase):
         else:
             print('没有地铁')
 
-    def test_click_fyim_点击房源详情咨询(self):
+    def test_06_click_fyim_点击房源详情咨询(self):
         """
         点击房源详情咨询
         :return:
@@ -129,7 +129,7 @@ class Testrentdetail(TestBase):
         else:
             print('没有房源详情咨询')
 
-    def test_click_descmsg_点击房源描述中的经纪人Im(self):
+    def test_07_click_descmsg_点击房源描述中的经纪人Im(self):
         """
         点击房源描述中的经纪人Im
         :return:
@@ -144,7 +144,7 @@ class Testrentdetail(TestBase):
         else:
             print('没有经纪人')
 
-    def test_click_desctel_点击房源描述中的经纪人电话(self):
+    def test_18_click_desctel_点击房源描述中的经纪人电话(self):
         """
         点击房源描述中的经纪人电话
         :return:
@@ -159,7 +159,7 @@ class Testrentdetail(TestBase):
         else:
             print('没有经纪人')
 
-    def test_click_descShowAll_点击房源描述查看全部收起(self):
+    def test_08_click_descShowAll_点击房源描述查看全部收起(self):
         """
         点击房源描述-查看全部-收起
         :return:
@@ -183,7 +183,7 @@ class Testrentdetail(TestBase):
         else:
             print('没有房源描述模块')
 
-    def test_click_loupanmore_所属楼盘点击查看详情(self):
+    def test_09_click_loupanmore_所属楼盘点击查看详情(self):
         """
         所属楼盘-点击查看详情
         :return:
@@ -198,7 +198,7 @@ class Testrentdetail(TestBase):
         else:
             print('没有所属楼盘模块')
 
-    def test_click_loupan_点击所属楼盘(self):
+    def test_10_click_loupan_点击所属楼盘(self):
         """
         点击所属楼盘
         :return:
@@ -213,7 +213,7 @@ class Testrentdetail(TestBase):
         else:
             print('没有所属楼盘模块!')
 
-    def test_click_prmap_点击周边配套(self):
+    def test_11_click_prmap_点击周边配套(self):
         """
         点击周边配套
         :return:
@@ -229,7 +229,7 @@ class Testrentdetail(TestBase):
         else:
             print('没有周边配套模块')
 
-    def test_goto_tongxiaoqu_同小区房源附近写字楼进入房源详情页(self):
+    def test_12_goto_tongxiaoqu_同小区房源附近写字楼进入房源详情页(self):
         """
         同小区房源/附近写字楼，进入房源详情页
         :return:
@@ -267,7 +267,7 @@ class Testrentdetail(TestBase):
             else:
                 print("无")
 
-    def test_click_tognxiaoqumore_点击同小区套房源(self):
+    def test_13_click_tognxiaoqumore_点击同小区套房源(self):
         """
         点击同小区*套房源
         :return:
@@ -283,7 +283,7 @@ class Testrentdetail(TestBase):
         else:
             print('没有同小区*套房源')
 
-    def test_goto_report_点击我要举报(self):
+    def test_14_goto_report_点击我要举报(self):
         """
         点击我要举报
         :return:
@@ -298,7 +298,7 @@ class Testrentdetail(TestBase):
     @ddt_case(
         0, 1, 2, 3
     )
-    def test_goto_asklayer(self, value):
+    def test_15_goto_asklayer(self, value):
         """
         提问弹层()
         :param value:
@@ -313,7 +313,7 @@ class Testrentdetail(TestBase):
                 self.delay(3)
                 self.get_screenshot()
 
-    def test_goto_broker_点击经纪人(self):
+    def test_16_goto_broker_点击经纪人(self):
         """
         点击经纪人
         :return:
@@ -324,7 +324,7 @@ class Testrentdetail(TestBase):
         self.delay(2)
         self.get_screenshot()
 
-    def test_goto_zxmsg_点击在线咨询(self):
+    def test_17_goto_zxmsg_点击在线咨询(self):
         """
         点击在线咨询
         :return:
@@ -335,7 +335,7 @@ class Testrentdetail(TestBase):
         self.delay(2)
         self.get_screenshot()
 
-    def test_goto_tel_点击拨打电话(self):
+    def test_19_goto_tel_点击拨打电话(self):
         """
         点击拨打电话
         :return:

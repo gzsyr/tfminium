@@ -12,7 +12,7 @@ class Testesfdetail(TestBase):
         super(Testesfdetail, self).setUp()
         print("Testesfdetail setup")
 
-    def test_goto_photo_点击相册(self):
+    def test_26_goto_photo_点击相册(self):
         """
         点击相册
         """
@@ -22,7 +22,7 @@ class Testesfdetail(TestBase):
         self.get_screenshot()
         self.delay(5)
 
-    def test_goto_fxk_点击放心看(self):
+    def test_01_goto_fxk_点击放心看(self):
         """
         点击放心看
         :return:
@@ -33,7 +33,7 @@ class Testesfdetail(TestBase):
         self.get_screenshot()
         self.delay(1)
 
-    def test_goto_collect_点击取消收藏(self):
+    def test_02_goto_collect_点击取消收藏(self):
         """
         点击收藏
         :return:
@@ -48,7 +48,7 @@ class Testesfdetail(TestBase):
         e1.tap()
         self.get_screenshot()
 
-    def test_goto_share_点击分享(self):
+    def test_27_goto_share_点击分享(self):
         """
         点击分享
         :return:
@@ -60,7 +60,7 @@ class Testesfdetail(TestBase):
         self.get_screenshot()
         self.delay(3)
 
-    def test_goto_ckxq_点击查看详情(self):
+    def test_03_goto_ckxq_点击查看详情(self):
         """
         点击查看详情
         :return:
@@ -69,7 +69,7 @@ class Testesfdetail(TestBase):
         e.tap()
         self.get_screenshot()
 
-    def test_goto_ygim_首付和月供咨询(self):
+    def test_04_goto_ygim_首付和月供咨询(self):
         """
         点击首付和月供咨询
         :return:
@@ -78,7 +78,7 @@ class Testesfdetail(TestBase):
         e.tap()
         self.get_screenshot()
 
-    def test_goto_lcim_点击楼层咨询(self):
+    def test_05_goto_lcim_点击楼层咨询(self):
         """
         点击楼层咨询
         :return:
@@ -87,7 +87,7 @@ class Testesfdetail(TestBase):
         e.tap()
         self.get_screenshot()
 
-    def test_goto_sfim_点击税费咨询(self):
+    def test_06_goto_sfim_点击税费咨询(self):
         """
         点击税费咨询
         :return:
@@ -97,7 +97,7 @@ class Testesfdetail(TestBase):
         self.delay(3)
         self.get_screenshot()
 
-    def test_goto_qcj_点击去出价(self):
+    def test_07_goto_qcj_点击去出价(self):
         """
         点击去出价
         :return:
@@ -107,7 +107,7 @@ class Testesfdetail(TestBase):
         self.delay(3)
         self.get_screenshot()
 
-    def test_goto_xqzx_房源详情咨询(self):
+    def test_08_goto_xqzx_房源详情咨询(self):
         """
         点击房源详情咨询
         :return:
@@ -116,7 +116,7 @@ class Testesfdetail(TestBase):
         e.tap()
         self.get_screenshot()
 
-    def test_goto_ckall_房源描述查看详情(self):
+    def test_09_goto_ckall_房源描述查看详情(self):
         """
         房源描述-查看详情
         :return:
@@ -141,7 +141,7 @@ class Testesfdetail(TestBase):
     @ddt_case(
         1, 2, 3, 4
     )
-    def test_goto_rmim_点击热门咨询tab(self, value):
+    def test_10_goto_rmim_点击热门咨询tab(self, value):
         """
         热门咨询(小区有停车位吗？,小区楼间距如何？,价格可以再优惠吗？,房子满五唯一吗？)
         :param value:
@@ -154,7 +154,7 @@ class Testesfdetail(TestBase):
         self.get_screenshot()
         self.delay(2)
 
-    def test_goto_xqckxq_小区查看详情(self):
+    def test_11_goto_xqckxq_小区查看详情(self):
         """
         点击小区-查看详情
         :return:
@@ -165,7 +165,7 @@ class Testesfdetail(TestBase):
         self.get_screenshot()
         self.delay(5)
 
-    def test_goto_xqxq_点击小区进入详情页(self):
+    def test_12_goto_xqxq_点击小区进入详情页(self):
         """
         点击小区，进入小区详情页
         :return:
@@ -176,7 +176,7 @@ class Testesfdetail(TestBase):
         self.get_screenshot()
         self.delay(5)
 
-    def test_goto_cjmsg_咨询近期成交数据(self):
+    def test_13_goto_cjmsg_咨询近期成交数据(self):
         """
         点击咨询近期成交数据
         :return:
@@ -185,7 +185,7 @@ class Testesfdetail(TestBase):
         e.tap()
         self.get_screenshot()
 
-    def test_goto_fjpg_点击房价评估(self):
+    def test_14_goto_fjpg_点击房价评估(self):
         """
         点击房价评估
         :return:
@@ -194,7 +194,7 @@ class Testesfdetail(TestBase):
         e.tap()
         self.get_screenshot()
 
-    def test_goto_fjzs_点击房价走势图(self):
+    def test_15_goto_fjzs_点击房价走势图(self):
         """
         点击房价走势图
         :return:
@@ -205,7 +205,7 @@ class Testesfdetail(TestBase):
         self.get_screenshot()
         self.delay(3)
 
-    def test_goto_txqfy_点击同小区房源详情页(self):
+    def test_16_goto_txqfy_点击同小区房源详情页(self):
         """
         点击同小区房源，进入房源详情页
         :return:
@@ -227,7 +227,7 @@ class Testesfdetail(TestBase):
             elms[0].tap()
             self.get_screenshot()
 
-    def test_click_prmap_点击周边配套(self):
+    def test_17_click_prmap_点击周边配套(self):
         """
         点击周边配套
         :return:
@@ -243,7 +243,7 @@ class Testesfdetail(TestBase):
         else:
             print('没有周边配套模块')
 
-    def test_goto_txq_全部同小区房源(self):
+    def test_18_goto_txq_全部同小区房源(self):
         """
         点击全部同小区房源
         :return:
@@ -253,7 +253,7 @@ class Testesfdetail(TestBase):
         self.delay(3)
         self.get_screenshot()
 
-    def test_goto_cnxh_猜你喜欢进入房源详情页(self):
+    def test_19_goto_cnxh_猜你喜欢进入房源详情页(self):
         """
         猜你喜欢，进入房源详情页
         :return:
@@ -277,7 +277,7 @@ class Testesfdetail(TestBase):
             self.get_screenshot()
             self.delay(3)
 
-    def test_goto_moreesf_点击更多二手房(self):
+    def test_20_goto_moreesf_点击更多二手房(self):
         """
         点击更多二手房
         :return:
@@ -288,7 +288,7 @@ class Testesfdetail(TestBase):
         self.get_screenshot()
         self.delay(3)
 
-    def test_goto_report_点击我要举报(self):
+    def test_21_goto_report_点击我要举报(self):
         """
         点击我要举报
         :return:
@@ -302,7 +302,7 @@ class Testesfdetail(TestBase):
     @ddt_case(
         0, 1, 2, 3
     )
-    def test_goto_asklayer_点击提问弹层及tab(self, value):
+    def test_22_goto_asklayer_点击提问弹层及tab(self, value):
         """
         提问弹层()
         :param value:
@@ -317,7 +317,7 @@ class Testesfdetail(TestBase):
                 self.delay(3)
                 self.get_screenshot()
 
-    def test_goto_broker_点击经纪人(self):
+    def test_23_goto_broker_点击经纪人(self):
         """
         点击经纪人
         :return:
@@ -328,7 +328,7 @@ class Testesfdetail(TestBase):
         self.delay(5)
         self.get_screenshot()
 
-    def test_goto_zxmsg_点击在线咨询(self):
+    def test_24_goto_zxmsg_点击在线咨询(self):
         """
         点击在线咨询
         :return:
@@ -339,7 +339,7 @@ class Testesfdetail(TestBase):
         self.delay(2)
         self.get_screenshot()
 
-    def test_goto_tel_点击拨打电话(self):
+    def test_25_goto_tel_点击拨打电话(self):
         """
         点击拨打电话
         :return:

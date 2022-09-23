@@ -15,7 +15,7 @@ class Testrenthouseinglist(TestBase):
         print("Testrenthouseinglist setup")
 
     @file_data('./test_rent_housing_list.yml')
-    def test_click_search_找室友筛选(self, **kwargs):
+    def test_01_click_search_找室友筛选(self, **kwargs):
         """
         找室友筛选
         :return:
@@ -274,7 +274,7 @@ class Testrenthouseinglist(TestBase):
 
         return self
 
-    def test_click_homelist_点击列表(self):
+    def test_02_click_homelist_点击列表(self):
         """
         点击列表
         :return:
@@ -285,7 +285,7 @@ class Testrenthouseinglist(TestBase):
         self.get_screenshot()
         self.delay(1)
 
-    def test_click_sc_点击收藏取消收藏(self):
+    def test_03_click_sc_点击收藏取消收藏(self):
         """
         点击列表-收藏-取消收藏
         :return:
@@ -302,7 +302,7 @@ class Testrenthouseinglist(TestBase):
         self.get_screenshot()
         self.delay(3)
 
-    def test_click_zxim_点击列表在线聊(self):
+    def test_04_click_zxim_点击列表在线聊(self):
         """
         点击列表-在线聊
         :return:
