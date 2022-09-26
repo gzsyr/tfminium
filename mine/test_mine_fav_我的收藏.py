@@ -28,8 +28,12 @@ class TestMineFav(TestBase):
         """
         self.page.get_element('view[data-index="1"]').tap()
         self.delay(2)
-        self.page.get_element('image[class="commonNewHouseLi-l-img"]').tap()
+        try:
+            self.page.get_element('image[class="commonNewHouseLi-l-img"]').tap()
 
-        self.verifyPageName('/page/newhouse/detail')
+            self.verifyPageName('/page/newhouse/detail')
+        except:
+            print('没有收藏的楼盘')
+
         self.get_screenshot()
 
