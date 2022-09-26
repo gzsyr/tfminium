@@ -27,11 +27,15 @@ class Testesfdetail(TestBase):
         点击放心看
         :return:
         """
-        e = self.page.get_element('view[class="pr between fangXinKan"]')
-        e.tap()
-        self.delay(2)
-        self.get_screenshot()
-        self.delay(1)
+        fxk = self.page.element_is_exists('view[class="pr between fangXinKan"]')
+        if fxk == True:
+            e = self.page.get_element('view[class="pr between fangXinKan"]')
+            e.tap()
+            self.delay(2)
+            self.get_screenshot()
+            self.delay(1)
+        else:
+            print('没有放心看标签')
 
     def test_02_goto_collect_点击取消收藏(self):
         """

@@ -306,16 +306,33 @@ class Testesfxqxq(TestBase):
 
     def test_goto_wypl_点击我要评论(self):
         """
-        点击我要评论
+        点击我要评论（有评论时）
         :return:
         """
         self.page.scroll_to(1400, 500)
         self.delay(1)
+        iwant = self.page.element_is_exists('view[class="center iWant"]')
+        if iwant == True:
+            e = self.page.get_element('view[class="center iWant"]')
+            e.tap()
+            self.delay(3)
+            self.get_screenshot()
+        else:
+            """
+            点击抢沙发我要评论(没有评论时)
+            :return:
+            """
+            self.page.scroll_to(1000, 500)
+            self.delay(1)
+            nocomment = self.page.element_is_exists('//noComment/view/view[3]')
+            if nocomment == True:
+                e = self.page.get_element('//noComment/view/view[3]')
+                e.tap()
+                self.delay(3)
+                self.get_screenshot()
+            else:
+                print("没有抢沙发我要评论")
 
-        e = self.page.get_element('view[class="center iWant"]')
-        e.tap()
-        self.delay(3)
-        self.get_screenshot()
 
     def test_goto_xqzj_点击小区专家(self):
         """
@@ -347,7 +364,7 @@ class Testesfxqxq(TestBase):
             self.delay(3)
             self.get_screenshot()
         else:
-            print("没有小区专家")
+            print("没有小区专家IM")
 
     def test_goto_zjtel_点击小区专家tel(self):
         """
@@ -370,7 +387,7 @@ class Testesfxqxq(TestBase):
         在售房源和在租房源tab切换
         :return:
         """
-        self.page.scroll_to(1700, 500)
+        self.page.scroll_to(1300, 500)
         self.delay(1)
 
         e = self.page.get_element('view[class="pr typeI"][data-type="2"]')
@@ -388,14 +405,14 @@ class Testesfxqxq(TestBase):
         在售房源tab
         :return:
         """
-        self.page.scroll_to(1700, 500)
+        self.page.scroll_to(1300, 500)
         self.delay(1)
 
         selltab = self.page.element_is_exists('view[class="pr typeI active"][data-type="1"]')
         if selltab == True:
             # 先获取所有item
             elm_items = self.page.get_elements('view[class="item"]')
-            print(len(elm_items))
+            #print(len(elm_items))
             # 第一个item
             elm_first_item = elm_items[0]
             # 点击
@@ -404,14 +421,14 @@ class Testesfxqxq(TestBase):
             self.delay(3)
             self.get_screenshot()
         else:
-            print(0)
+            print("没有在售房源")
 
-    def test_goto_rentta_在租房源tab(self):
+    def test_goto_renttab_在租房源tab(self):
         """
         在租房源tab
         :return:
         """
-        self.page.scroll_to(1700, 500)
+        self.page.scroll_to(1300, 500)
         self.delay(1)
 
         e = self.page.get_element('view[class="pr typeI"][data-type="2"]')
@@ -426,11 +443,11 @@ class Testesfxqxq(TestBase):
             elm_first_item = elm_items[0]
             # 点击
             elms = elm_first_item.get_element('rent_item').get_elements('view')
-            elms[0].tap()
+            elms[7].tap()
             self.delay(2)
             self.get_screenshot()
         else:
-            print(0)
+            print("没有在租房源")
 
     def test_goto_zbxq_周边小区(self):
         """
