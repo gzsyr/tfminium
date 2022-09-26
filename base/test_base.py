@@ -197,6 +197,7 @@ class TestBase(minium.MiniTest):
             if capture:
                 # self.capture(inspect.stack()[1].function)
                 self.get_capture(verifyerr=True, fname=inspect.stack()[1].function)
+                self.get_screenshot(pname=inspect.stack()[1].function)
             raise e
 
     def verifyStr(self, first, second, msg=None, capture=True):
@@ -218,6 +219,7 @@ class TestBase(minium.MiniTest):
             if capture:
                 # self.capture(inspect.stack()[1].function)
                 self.get_capture(verifyerr=True, fname=inspect.stack()[1].function)
+                self.get_screenshot(pname=inspect.stack()[1].function)
             raise e
 
     def verifyPageName(self, pagename, capture=True):
@@ -236,6 +238,7 @@ class TestBase(minium.MiniTest):
             if capture:
                 # self.capture(inspect.stack()[1].function)
                 self.get_capture(verifyerr=True, fname=inspect.stack()[1].function)
+                self.get_screenshot(pname=inspect.stack()[1].function)
             raise e
 
     def get_capture(self, verifyerr=False, fname=None):
@@ -282,8 +285,58 @@ class TestBase(minium.MiniTest):
         """
         获取当前登录用户所在城市
         """
-        result = self.app.call_wx_method('getStorageSync', 'newcity').get('result').get('result').get('cname')
-        print('当前城市：', result)
+        try:
+            result = self.app.call_wx_method('getStorageSync', 'newcity').get('result').get('result').get('cname')
+        except AttributeError:
+            result = False
+        print('登录城市：', result)
+        return result
+
+    def get_newcomergift(self):
+        """
+        获取新人有礼的缓存数据
+        """
+        try:
+            result = self.app.call_wx_method('getStorageSync', 'newcomergift').get('result').get('result')
+        except:
+            result = False
+        print('新人有礼：', result)
+        return result
+
+    def remove_newcomergift(self):
+        """
+        删除storage中newcomergift的数值  新人有礼
+        """
+        self.app.call_wx_method('removeStorageSync', 'newcomergift')
+
+    def get_wxBackgroundFetchData(self):
+        """
+        获取帖子脱敏的标识
+        1-脱敏
+        """
+        try:
+            result = self.app.call_wx_method('getStorageSync', 'wxBackgroundFetchData').\
+                get('result').get('result').get('switch').get('show_phone').get('qz')
+        except:
+            result = False
+        print('是否脱敏：', result)
+        return result
+
+    def set_fetch(self):
+        """
+        暂时不会写，待补充
+        {'fetch':{'code': 'city_code', 'cname': 'city_name'}}
+        """
+        self.app.call_wx_method('setStorageSync', [{'test': '777'}])
+
+    def get_userinfo(self):
+        """
+        获取wx.getUserInfo信息
+        结果：
+        {'nickName': '微信用户', 'gender': 0, 'language': '', 'city': '', 'province': '', 'country': '', 'avatarUrl': 'https://thirdwx.qlogo.cn/mmopen/vi_32/POgEwh4mIHO4nibH0KlMECNjjGxQUq24ZEaGT4poC6icRiccVGKSyXwibcPq4BWmiaIGuG1icwxaQX6grC9VemZoJ8rg/132'}
+        """
+        result = self.app.call_wx_method('getUserInfo').get('result').get('result').get('userInfo')
+        print('用户信息：', result)
         return result
 
     def element_is_exist(self, selector=None, inner_text=None):
