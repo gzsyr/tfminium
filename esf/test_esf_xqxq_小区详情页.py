@@ -6,7 +6,7 @@ class Testesfxqxq(TestBase):
     小区详情页
     """
     def setUp(self, true=None) -> None:
-        self.page_name = "/esf/village/pages/detail/detail?blockId=216416&city=nj"
+        self.page_name = "/esf/village/pages/detail/detail?blockId=3982&city=nj"
         self.switch = true
         self.classname = self.__class__.__name__
         super(Testesfxqxq, self).setUp()

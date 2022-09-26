@@ -6,7 +6,7 @@ class Testesffjpg(TestBase):
     房价评估
     """
     def setUp(self, true=None) -> None:
-        self.page_name = "/esf/village/pages/evaluate/evaluate?blockId=3223&blockName=长营村小区&buildArea=45&orientation=南北&room=2&hall=2&totalFloor=6"
+        self.page_name = "/esf/village/pages/evaluate/evaluate?blockId=3982&blockName=水佑岗小区&buildArea=36.98&orientation=南&room=1&hall=1&totalFloor=6"
         self.switch = true
         self.classname = self.__class__.__name__
         super(Testesffjpg, self).setUp()

@@ -1,9 +1,6 @@
 from ddt import file_data
 from minium import ddt_class, ddt_case
-
-from base.common import delay
 from base.test_base import TestBase
-
 
 @ddt_class()
 class Testesfvr(TestBase):

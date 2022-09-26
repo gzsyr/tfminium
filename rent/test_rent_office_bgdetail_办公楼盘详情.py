@@ -14,7 +14,7 @@ class Testrentofficebgdetail(TestBase):
         super(Testrentofficebgdetail, self).setUp()
         print("Testrentofficebgdetail setup")
 
-    def test_goto_photo_点击相册(self):
+    def test_05_goto_photo_点击相册(self):
         """
         点击相册
         """
@@ -24,7 +24,7 @@ class Testrentofficebgdetail(TestBase):
         self.get_screenshot()
         self.delay(3)
 
-    def test_click_map_点击地图图标(self):
+    def test_01_click_map_点击地图图标(self):
         """
         点击地图图标
         :return:
@@ -38,7 +38,7 @@ class Testrentofficebgdetail(TestBase):
         else:
             print('没有该模块')
 
-    def test_click_prmap_点击周边配套(self):
+    def test_02_click_prmap_点击周边配套(self):
         """
         点击周边配套
         :return:
@@ -54,7 +54,7 @@ class Testrentofficebgdetail(TestBase):
         else:
             print('没有周边配套模块')
 
-    def test_click_fjall_附近楼盘查看更多(self):
+    def test_03_click_fjall_附近楼盘查看更多(self):
         """
         附近楼盘-点击查看更多
         :return:
@@ -70,7 +70,7 @@ class Testrentofficebgdetail(TestBase):
         else:
             print('没有附近楼盘')
 
-    def test_click_fjdetail_附近楼盘进入详情页(self):
+    def test_04_click_fjdetail_附近楼盘进入详情页(self):
         """
         点击附近楼盘进入详情页
         :return:

@@ -8,7 +8,7 @@ class Testesfim(TestBase):
     IM聊天页
     """
     def setUp(self, true=None) -> None:
-        self.page_name = "/im/pages/chating/chating?chatTo=slwkgj_9021&city=nj"
+        self.page_name = "/im/pages/chating/chating?chatTo=zsb_nj_912407&city=nj"
         self.switch = true
         self.classname = self.__class__.__name__
         super(Testesfim, self).setUp()

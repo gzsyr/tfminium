@@ -7,7 +7,7 @@ class Testesfjgzs(TestBase):
     价格走势
     """
     def setUp(self, true=None) -> None:
-        self.page_name = "/esf/village/pages/priceTrend/priceTrend?blockId=8819&city=nj"
+        self.page_name = "/esf/village/pages/priceTrend/priceTrend?blockId=3982&city=nj"
         self.switch = true
         self.classname = self.__class__.__name__
         super(Testesfjgzs, self).setUp()
