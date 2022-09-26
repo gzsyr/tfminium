@@ -14,6 +14,30 @@ class TestNewhouseDetail(TestBase):
         super(TestNewhouseDetail, self).setUp()
         self.delay(2)
 
+    # 以下是登录的所有用例
+    def test_check_baoming_优惠活动一(self):
+        """
+        V6.19.x: 第一个优惠活动的立即报名按钮
+        """
+        self.page.scroll_to(1400, 500)
+
+        tap = 'self.page.get_elements(\'image[class= "promotions_btn"]\')[0].tap()'
+        self.verifyStr(True, self.getShowToast(tap), '报名成功')
+
+        self.get_screenshot()
+
+    def test_check_baoming_优惠活动二(self):
+        """
+        V6.19.x: 第二个优惠活动的立即报名按钮
+        """
+        self.page.scroll_to(1400, 500)
+
+        tap = 'self.page.get_elements(\'image[class= "promotions_btn"]\')[1].tap()'
+
+        self.verifyStr(True, self.getShowToast(tap), '报名成功')
+
+        self.get_screenshot()
+
     def test_goto_photo_相册(self):
         """
         新房详情页页面，点击相册
@@ -159,7 +183,6 @@ class TestNewhouseDetail(TestBase):
         """
         self.page.get_element("view[class='disflex tfAlignC xf_xh_title']").tap()
 
-        self.verifyPageName('/page/mine/myLottery/myLottery')
         self.get_screenshot()
 
     def test_goto_bmyfyj_摇号一房一价(self):
@@ -242,7 +265,7 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/taofangquan/lpdp/lpdp')
         self.get_screenshot()
 
-    def test_goto_dianping_and_pinglun(self):
+    def test_goto_dianping_and_pinglun_我要评论(self):
         """
         新房详情页，点击楼盘评论楼层的“我要评论”，并且发布评论
         """

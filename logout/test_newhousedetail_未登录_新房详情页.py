@@ -1,0 +1,83 @@
+# -*-coding:utf-8-*-
+from base.test_base import TestBase
+
+
+class TestLogoutNewhouseDetail(TestBase):
+    """
+    未登录  新房详情页相关用例
+    """
+
+    def setUp(self) -> None:
+        self.page_name = "/page/newhouse/detail?pinyin=shanhaiguojixzl&city=qz"
+        self.switch = False
+        self.classname = self.__class__.__name__
+        super(TestLogoutNewhouseDetail, self).setUp()
+        self.delay(2)
+
+    def test_01_未登录_点击最新动态(self):
+        """
+        V6.19.x: 点击新房详情页的最新动态按钮
+        """
+        self.page.get_elements("button[class='logincomponent--loginBtn']")[0].tap()
+
+        self.get_screenshot()
+
+    def test_02_未登录_点击户型解析(self):
+        """
+        V6.19.x: 点击新房详情页的户型解析按钮
+        """
+        self.page.get_elements("button[class='logincomponent--loginBtn']")[1].tap()
+
+        self.get_screenshot()
+
+    def test_03_未登录_点击楼盘详情(self):
+        """
+        V6.19.x: 点击新房详情页的楼盘详情按钮
+        """
+        self.page.get_elements("button[class='logincomponent--loginBtn']")[2].tap()
+
+        self.get_screenshot()
+
+    def test_04_未登录_点击一房一价(self):
+        """
+        V6.19.x: 点击新房详情页的一房一价按钮
+        """
+        self.page.get_elements("button[class='logincomponent--loginBtn']")[3].tap()
+
+        self.get_screenshot()
+
+    def test_05_未登录_点击楼盘点评(self):
+        """
+        V6.19.x: 未登录，点击新房详情页的楼盘点评按钮
+        """
+        self.page.get_elements("button[class='logincomponent--loginBtn']")[4].tap()
+
+        self.get_screenshot()
+
+    def test_06_未登录_点击主力户型(self):
+        """
+        V6.19.X: 未登录，点击新房详情页主力户型
+        """
+        self.page.scroll_to(2600, 500)
+        self.page.get_elements("button[class='logincomponent--loginBtn']")[5].tap()
+
+        self.get_screenshot()
+
+    def test_07_未登录_点击位置及周边查看更多(self):
+        """
+        V6.19.x: 未登录，点击新房详情页的位置及周边的查看更多
+        """
+        self.page.scroll_to(3000, 500)
+        self.page.get_elements("button[class='logincomponent--loginBtn']")[6].tap()
+
+        self.get_screenshot()
+
+    def test_08_未登录_点击地图(self):
+        """
+        V6.19.x: 未登录，点击新房详情页的地图
+        """
+        self.page.scroll_to(3000, 500)
+        self.page.get_elements("button[class='logincomponent--loginBtn']")[7].tap()
+
+        self.get_screenshot()
+

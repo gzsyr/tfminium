@@ -24,6 +24,25 @@ class TestNewsHouseList(TestBase):
             print("无弹窗广告")
         print("TestNewsHouseList setup")
 
+    def test_click_zygw_置业顾问头像(self):
+        """
+        V6.20.X: 点击新房列表项下第五个的置业顾问头像
+        """
+        self.delay(2)
+        self.page.get_element('image[class="kgjavatar"]').tap()
+
+        self.verifyPageName('/page/newhouse/zygw/detail')
+        self.get_screenshot()
+
+    def test_click_zygw_置业顾问咨询(self):
+        """
+        V6.20.X: 点击新房列表项下第五个的置业顾问咨询
+        """
+        self.delay(2)
+        self.page.get_element('view[class="kgjzixun"]').tap()
+        self.delay(3)
+        self.get_screenshot()
+
     def test_click_1_search_and_select_and_clear_搜索并清除(self):
         """
         新房列表页面，点击搜索框，输入关键词，点击搜索结果第一条，展示带关键字的列表，点击搜索框的“清空”按钮
