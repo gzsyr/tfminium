@@ -50,7 +50,7 @@ if __name__ == '__main__':
                  # "-rs",
                  # "--show-capture=all",
                  "--html=pytestReport.html",  # html的报告
-                 "--co",  # 仅收集用例
+                 # "--co",  # 仅收集用例
                  "--alluredir", allure_result_path,   # 使用allure报告
                  "./city/test_index_allcity_城市.py::TestAllcity::test_select_qz_选择泉州",   # 先切换到泉州站测新房相关
                  "./zixun",
@@ -60,6 +60,7 @@ if __name__ == '__main__':
                  "./city/test_index_allcity_城市.py::TestAllcity::test_select_nj_选择南京",   # 后切换到南京站测二手房相关
                  "./esf",
                  "./rent",
+                 "./logout",
                  "--reruns", '3',
                  "--reruns-delay", '2'
                  ])
