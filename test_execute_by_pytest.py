@@ -57,10 +57,11 @@ if __name__ == '__main__':
                  "./tfq",
                  "./xf",
                  "./mine",
+                 "./logout",
                  "./city/test_index_allcity_城市.py::TestAllcity::test_select_nj_选择南京",   # 后切换到南京站测二手房相关
                  "./esf",
                  "./rent",
-                 "./logout",
+                 "./mine_esf",
                  "--reruns", '3',
                  "--reruns-delay", '2'
                  ])
