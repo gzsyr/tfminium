@@ -1,3 +1,5 @@
+import time
+
 from ddt import ddt, file_data
 
 from base.test_base import TestBase
@@ -39,6 +41,21 @@ class TestNewhouseDianping(TestBase):
         self.page.get_element('view[class="toutiao-swiper-item tfLine1"]').tap()
 
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
+        self.get_screenshot()
+
+    def test_submit_pinglun_存入草稿(self):
+        """
+        楼盘点评页面，点击评论入口，在评论页面，写入内容后，保存草稿
+        """
+        # 点击进入写点评页面
+        self.page.get_element('view[class="detail-fix-input"]').tap()
+        self.app.wait_for_page('/page/taofangquan/writePingjia/writePingjia')
+
+        # 输入评论内容
+        self.page.get_element('textarea[class="tip_pl"]').input('输入草稿内容' + time.strftime('%Y-%m-%d--%H:%M:%S'))
+        # 点击 保存草稿
+        self.page.get_element('image[class="save_draft"]').tap()
+
         self.get_screenshot()
 
     @file_data('./test_newhouse_dianping.yml')
