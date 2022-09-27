@@ -1,7 +1,7 @@
 /outputs/
 /report/
 /base/outputs/
-config.json
-suite.json
+/config.json
+/suite.json
 /.idea
 br_report.html
