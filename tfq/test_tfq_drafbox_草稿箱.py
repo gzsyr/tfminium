@@ -30,12 +30,9 @@ class TestTfqDrafBox(TestBase):
         if b_l:
             result = {"confirm": True}
             self.app.mock_wx_method("showModal", result=result)
-            e = self.page.get_element('view[class="draft_delete"]')
-            e.tap()
+            self.page.get_element('view[class="draft_delete"]').tap()
             self.app.restore_wx_method("showModal")
             self.delay(2)
-            self.capture("删除")
-            self.native.handle_modal("取消", "删除")
         else:
             print("没有帖子草稿")
 
@@ -72,14 +69,11 @@ class TestTfqDrafBox(TestBase):
         self.delay(3)
         b_l = self.page.element_is_exists('view[class="draft_delete"]')
         if b_l:
-            result = {"confirm": False}
+            result = {"confirm": True}
             self.app.mock_wx_method("showModal", result=result)
-            e = self.page.get_element('view[class="draft_delete"]')
-            e.tap()
+            self.page.get_element('view[class="draft_delete"]').tap()
             self.app.restore_wx_method("showModal")
             self.delay(2)
-            self.capture("删除")
-            self.native.handle_modal("取消", "删除")
         else:
             print("没有楼盘评论草稿，直接pass")
 
