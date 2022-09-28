@@ -387,10 +387,11 @@ class TestTfqPostDetail(TestBase):
         帖子详情页，点击”分享“按钮，点击海报
         :return:
         """
+        self.delay(2)
         self.page.get_element('button[class="newHouseRfixed-share"]').tap()
         self.delay(1)
         self.page.get_element('button[class="share-btn pyq"]').tap()
-
+        self.delay(2)
         self.verifyStr(True,
                        self.page.element_is_exists('button[class="canvasToImage--saveToAlbumButton"]'),
                        '生成海报页 ok')
