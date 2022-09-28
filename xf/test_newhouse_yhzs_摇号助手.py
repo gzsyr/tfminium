@@ -69,3 +69,12 @@ class TestNewHouseYhzs(TestBase):
             print('没有搜索结果')
             self.get_screenshot('test_search_没有摇号楼盘')
 
+    def test_click_IM_在线咨询(self):
+        """
+        V6.21.X: 1003947   摇号助手页，点击咨询
+        """
+        self.page.get_element('view[class="consultEntrance--consultBtn"]').tap()
+
+        self.delay(3)
+        self.get_screenshot()
+
