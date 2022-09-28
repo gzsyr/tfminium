@@ -15,7 +15,16 @@ class TestNewhouseDianping(TestBase):
         self.switch = False
         self.classname = self.__class__.__name__
         super(TestNewhouseDianping, self).setUp()
-        
+
+    def test_click_IM_在线咨询(self):
+        """
+        V6.21.X: 1003947   楼盘点评页，点击咨询
+        """
+        self.page.get_element('view[class="consultEntrance--consultBtn"]').tap()
+
+        self.delay(3)
+        self.get_screenshot()
+
     def test_click_first_pinglun_点击评论(self):
         """
         楼盘点评页面，点击第一条点评
@@ -141,14 +150,15 @@ class TestNewhouseDianping(TestBase):
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
 
-    def test_z_click_call_拨打电话(self):
-        """
-        楼盘点评页面，点击“致电淘房顾问”
-        """
-        self.page.wait_for('view[class="call"]')
-        self.page.get_element('view[class="call"]').tap()
-        self.delay(1)
-        self.verifyByScreenshot('xf/call.png')
+    # V6.21.X: 已删除
+    # def test_z_click_call_拨打电话(self):
+    #     """
+    #     楼盘点评页面，点击“致电淘房顾问”
+    #     """
+    #     self.page.wait_for('view[class="call"]')
+    #     self.page.get_element('view[class="call"]').tap()
+    #     self.delay(1)
+    #     self.verifyByScreenshot('xf/call.png')
 
     def test_z_click_share_分享(self):
         """
