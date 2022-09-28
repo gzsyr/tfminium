@@ -225,7 +225,7 @@ class TestNewhouseDetail(TestBase):
         新房详情页页面，点击位置周边下的地图
         """
         self.page.scroll_to(3000, 500)
-        self.delay(2)
+        self.delay(4)
 
         # self.page.get_element('view[class="newHouseTitle-r xfxq_qbhx"][data-eventid="2648"]').tap()
         self.page.get_element('view[data-eventid="2648"]').tap()
@@ -237,7 +237,7 @@ class TestNewhouseDetail(TestBase):
         新房详情页，点击价格分析
         """
         self.page.scroll_to(3000, 500)
-        self.delay(2)
+        self.delay(4)
         self.page.get_element('view[class="newHouseTitle-l"]', inner_text='价格分析').tap()
 
         self.verifyPageName('/page/newhouse/priceAnalyse/priceAnalyse')
@@ -248,7 +248,7 @@ class TestNewhouseDetail(TestBase):
         新房详情页，点击开盘记录
         """
         self.page.scroll_to(3000, 500)
-        self.delay(2)
+        self.delay(4)
         self.page.get_element('view[class="newHouseTitle-l"]', inner_text='开盘记录').tap()
 
         self.verifyPageName('/page/newhouse/historyLp/historyLp')
@@ -259,7 +259,7 @@ class TestNewhouseDetail(TestBase):
         新房详情页，点击楼盘评论楼层的“全部点评”
         """
         self.page.scroll_to(3000, 500)
-        self.delay(2)
+        self.delay(4)
         self.page.get_element('view[class="more newHouseTitle-r-sj"]', inner_text='全部点评').tap()
 
         self.verifyPageName('/page/taofangquan/lpdp/lpdp')
@@ -270,7 +270,7 @@ class TestNewhouseDetail(TestBase):
         新房详情页，点击楼盘评论楼层的“我要评论”，并且发布评论
         """
         self.page.scroll_to(3000, 500)
-        self.delay(2)
+        self.delay(4)
         self.page.get_element('view[class="iwantdpT"]', inner_text='我要评论').tap()
 
         self.verifyPageName('/page/taofangquan/writePingjia/writePingjia')
@@ -281,7 +281,7 @@ class TestNewhouseDetail(TestBase):
         新房详情页，点击热门楼盘楼层的第一个楼盘，进新房详情页
         """
         self.page.scroll_to(3000, 500)
-        self.delay(2)
+        self.delay(4)
         self.page.get_element('image[class="commonNewHouseLi-l-img"]').tap()
 
         self.get_screenshot()
@@ -293,7 +293,6 @@ class TestNewhouseDetail(TestBase):
         self.page.get_element('view[class="comBottomBar--link-button comBottomBar--im"]').tap()
         self.delay(3)
 
-        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_z_click_buttom_call_拨打电话(self):
