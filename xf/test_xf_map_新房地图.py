@@ -48,7 +48,7 @@ class TestXfMap(TestBase):
         地图找房页面，通过关键词搜索
         """
         self.page.get_element('cover-image[class="map_search_btn"]').click()
-
+        self.delay(3)
         self.verifyPageName('/page/search/index')
         # 到搜索页面
         self.page.get_element('input[class="searchTR-input"]').input(lpname+'\n')
