@@ -153,6 +153,7 @@ class TestNewhouseDetail(TestBase):
         # 到户型解析页面
         self.delay(3)
         self.page.get_element('view[class="consult_txt"]').tap()
+        self.delay(3)
         self.get_screenshot()
 
     def test_goto_lpxq_更多楼盘详情(self):
