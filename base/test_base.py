@@ -109,6 +109,32 @@ class TestBase(minium.MiniTest):
         ele.pick(value)
         return self
 
+    def input_select_image(self, png='xf\\test.png'):
+        """
+        通过键盘鼠标实现选择图片
+        png: 需要上传的图片，文件放在xf里面，则为: xf\\xxx.png
+        """
+        pwd = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+        path = os.path.join(pwd, png) + '\n'
+        print('选择的图片路径: ', path)
+        pyautogui.typewrite(path)
+        self.delay(1)
+        pyautogui.press('enter')
+
+        # 同时检查下，选择文件窗口是否关闭，没有的话，点击取消
+        self.delay(2)
+        path = os.path.join(pwd, 'base\windows-cancel.png')
+        print(path)
+        btm = pyautogui.locateOnScreen(path, confidence=0.9)
+        print(btm)
+
+        if btm is None:
+            print('windows上传文件窗口已关闭')
+            return
+        else:
+            pyautogui.click(btm[0], btm[1])
+
+
     def input_value_by_mk(self, png, value=None, direction=0):
         """
         通过键盘鼠标来输入内容
