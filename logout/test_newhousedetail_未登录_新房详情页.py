@@ -21,6 +21,7 @@ class TestLogoutNewhouseDetail(TestBase):
         self.page.get_elements("button[class='logincomponent--loginBtn']")[0].tap()
 
         self.get_screenshot()
+        self.input_value_by_mk('logout/phone_refuse.png')
 
     def test_02_未登录_点击户型解析(self):
         """
@@ -29,6 +30,7 @@ class TestLogoutNewhouseDetail(TestBase):
         self.page.get_elements("button[class='logincomponent--loginBtn']")[1].tap()
 
         self.get_screenshot()
+        self.input_value_by_mk('logout/phone_refuse.png')
 
     def test_03_未登录_点击楼盘详情(self):
         """
@@ -37,6 +39,7 @@ class TestLogoutNewhouseDetail(TestBase):
         self.page.get_elements("button[class='logincomponent--loginBtn']")[2].tap()
 
         self.get_screenshot()
+        self.input_value_by_mk('logout/phone_refuse.png')
 
     def test_04_未登录_点击一房一价(self):
         """
@@ -45,6 +48,7 @@ class TestLogoutNewhouseDetail(TestBase):
         self.page.get_elements("button[class='logincomponent--loginBtn']")[3].tap()
 
         self.get_screenshot()
+        self.input_value_by_mk('logout/phone_refuse.png')
 
     def test_05_未登录_点击楼盘点评(self):
         """
@@ -53,6 +57,7 @@ class TestLogoutNewhouseDetail(TestBase):
         self.page.get_elements("button[class='logincomponent--loginBtn']")[4].tap()
 
         self.get_screenshot()
+        self.input_value_by_mk('logout/phone_refuse.png')
 
     def test_06_未登录_点击主力户型(self):
         """
@@ -62,6 +67,7 @@ class TestLogoutNewhouseDetail(TestBase):
         self.page.get_elements("button[class='logincomponent--loginBtn']")[5].tap()
 
         self.get_screenshot()
+        self.input_value_by_mk('logout/phone_refuse.png')
 
     def test_07_未登录_点击位置及周边查看更多(self):
         """
@@ -71,6 +77,9 @@ class TestLogoutNewhouseDetail(TestBase):
         self.page.get_elements("button[class='logincomponent--loginBtn']")[6].tap()
 
         self.get_screenshot()
+        self.input_value_by_mk('logout/phone_refuse.png')
+        self.delay(1)
+        self.input_value_by_mk('xf/mapreturn.png')
 
     def test_08_未登录_点击地图(self):
         """
@@ -80,4 +89,7 @@ class TestLogoutNewhouseDetail(TestBase):
         self.page.get_elements("button[class='logincomponent--loginBtn']")[7].tap()
 
         self.get_screenshot()
+        self.input_value_by_mk('logout/phone_refuse.png')
+        self.delay(1)
+        self.input_value_by_mk('xf/mapreturn.png')
 

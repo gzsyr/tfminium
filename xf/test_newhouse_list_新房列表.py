@@ -98,15 +98,14 @@ class TestNewsHouseList(TestBase):
 
         self.get_screenshot()
 
-    def test_click_zx_咨询(self):
+    def test_click_zj_足迹(self):
         """
-        新房列表页面，点击咨询
+        V6.21.x：更新 新房列表页面，点击足迹
         """
-        self.page.get_element('view[class="newHouseRfixed-wyzx xflb_fx"]').tap()
-        self.delay(5)
+        self.page.get_element('view[class="footprint"]').tap()
+        self.delay(2)
 
-        self.verifyStr(True, self.page.element_is_exists('image[class="historychat"]'),
-                       '进入im页面正确')
+        self.verifyPageName('/page/mine/myFootPrint/myFootPrint')
         # self.verifyByScreenshot('xf/IM.png')
         self.get_screenshot()
 

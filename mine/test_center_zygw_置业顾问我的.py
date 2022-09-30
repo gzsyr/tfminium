@@ -1,6 +1,7 @@
 # add by zsy
 import time
 
+import minium
 from ddt import ddt, data
 
 from base.test_mine import TestMine
@@ -204,7 +205,12 @@ class TestCenterZygw(TestMine):
             self.get_screenshot()
             return
 
-        self.add_comment(bz=time.strftime('%Y-%m-%d %H:%M:%S'))
+        try:
+            self.delay(2)
+            self.add_comment(bz=time.strftime('%Y-%m-%d %H:%M:%S'))
+        except minium.MiniElementNotFoundError as e:
+            self.get_screenshot()
+            raise e
 
         self.get_screenshot()
 

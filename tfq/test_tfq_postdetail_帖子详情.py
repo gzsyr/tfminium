@@ -16,6 +16,15 @@ class TestTfqPostDetail(TestBase):
         super(TestTfqPostDetail, self).setUp()
         print("TestPostDetail  Setup")
 
+    def test_34_check_tuomin_脱敏号码(self):
+        """
+        V6.20.X: 查看详情页包含手机号码的正文
+        """
+        if self.get_wxBackgroundFetchData() == '1':
+            self.get_screenshot()
+        else:
+            self.get_screenshot('test_34_check_tuomin_无脱敏号码')
+
     def test_09_click_content_and_reply_帖子评论(self):
         """
         帖子详情页，点击帖子正文，输入评论，发布成功，并点击该评论，进入评论详情页
@@ -126,9 +135,8 @@ class TestTfqPostDetail(TestBase):
         帖子详情页，点击评论第一个置业顾问的“点击联系”按钮，进IM聊天
         """
         self.page.get_element('view[class="commentList--contact-fbs commentList--connectzygw"]').tap()
-        self.delay(2)
+        self.delay(3)
 
-        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def click_content_text(self):
@@ -379,16 +387,17 @@ class TestTfqPostDetail(TestBase):
         帖子详情页，点击”分享“按钮，点击海报
         :return:
         """
+        self.delay(2)
         self.page.get_element('button[class="newHouseRfixed-share"]').tap()
         self.delay(1)
         self.page.get_element('button[class="share-btn pyq"]').tap()
-
+        self.delay(2)
         self.verifyStr(True,
                        self.page.element_is_exists('button[class="canvasToImage--saveToAlbumButton"]'),
                        '生成海报页 ok')
         self.get_screenshot()
 
-    def test_35_z_click_share_hy_分享好友(self):
+    def test_98_z_click_share_hy_分享好友(self):
         """
         帖子详情页，点击”分享“按钮，点击分享给好友
         """
@@ -407,7 +416,7 @@ class TestTfqPostDetail(TestBase):
         self.verifyPageName('/page/taofangquan/tieziList/tieziList')
         self.get_screenshot()
 
-    def test_34_z_click_allpicture_查看完整图片(self):
+    def test_99_z_click_allpicture_查看完整图片(self):
         """
         帖子详情页，点击“查看完整图片”按钮
         """

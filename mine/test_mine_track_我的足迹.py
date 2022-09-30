@@ -21,3 +21,21 @@ class TestMineTrack(TestBase):
         # 校验
         self.verifyPageName('/page/newhouse/detail')
         self.get_screenshot()
+
+    def test_click_IM_在线咨询(self):
+        """
+        V6.21.X: 1003947   我的足迹页楼盘对应的【在线咨询】按钮
+        """
+        self.page.get_element('view[data-pinyin="liuyijun"]', inner_text='在线咨询').tap()
+        self.delay(3)
+
+        self.get_screenshot()
+
+    def test_click_call_拨打电话(self):
+        """
+        V6.21.X: 1003947   我的足迹页楼盘对应的【拨打电话】按钮
+        """
+        self.page.get_element('view[data-pinyin="liuyijun"]', inner_text='拨打电话').tap()
+        self.delay(3)
+
+        self.get_screenshot()

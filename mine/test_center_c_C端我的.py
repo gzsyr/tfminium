@@ -126,6 +126,7 @@ class TestCenterC(TestMine):
         """
         C端用户个人中心页面，C端用户点击常用工具
         """
+        self.delay(1)
         self.page.get_element(f'view[class="tab-item"][data-index="{index}"]').tap()
         self.delay(1)
         self.get_screenshot()

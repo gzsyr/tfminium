@@ -25,9 +25,10 @@ class TestTfqMyPost(TestBase):
         """
         self.page.get_element('view[class="list-desc disflex-flex-shrink-0 flex-1"]',
                               text_contains=text_contains).tap()
-        self.delay(1)
+        self.delay(4)
         # 点击 更多
         self.page.get_element('view[class="item more-ctr"]', text_contains='更多').tap()
+        self.delay(1)
         return self
 
     def test_02_my_goto_postdetail_01_edit_编辑帖子(self):

@@ -124,6 +124,17 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/newhouse/zxdt/zxdt')
         self.get_screenshot()
 
+    def test_goto_zxdt_click_最新动态提问(self):
+        """
+        V6.21.X: 1003947   新房详情页页面，点击最新动态，点击提问
+        """
+        self.page.get_element("view[class='newHouseIconInLi-b']", inner_text="最新动态").tap()
+
+        # 到最新动态页面
+        self.delay(3)
+        self.page.get_element('image[class="consultQuestion--askquestion_icon"]').tap()
+        self.get_screenshot()
+
     def test_goto_hxjx_户型解析(self):
         """
         新房详情页页面，点击户型解析
@@ -131,6 +142,18 @@ class TestNewhouseDetail(TestBase):
         self.page.get_element("view[class='newHouseIconInLi-b']", inner_text="户型解析").tap()
 
         self.verifyPageName('/page/newhouse/hx/hxlist')
+        self.get_screenshot()
+
+    def test_goto_hxjx_click_IM_户型解析咨询(self):
+        """
+        V6.21.X: 1003947   新房详情页页面，点击户型解析，点击咨询
+        """
+        self.page.get_element("view[class='newHouseIconInLi-b']", inner_text="户型解析").tap()
+
+        # 到户型解析页面
+        self.delay(3)
+        self.page.get_element('view[class="consult_txt"]').tap()
+        self.delay(3)
         self.get_screenshot()
 
     def test_goto_lpxq_更多楼盘详情(self):
@@ -150,6 +173,18 @@ class TestNewhouseDetail(TestBase):
 
         self.verifyPageName('/page/newhouse/fd/xkb')
         self.get_screenshot()
+
+    def test_goto_yfyj_click_一房一价提问(self):
+        """
+        V6.21.X: 1003947   新房详情页页面，点击一房一价，点击提问
+        """
+        self.page.get_element("view[class='newHouseIconInLi-b']", inner_text="一房一价").tap()
+
+        # 到一房一价页面
+        self.delay(3)
+        self.page.get_element('image[class="consultQuestion--askquestion_icon"]').tap()
+        self.get_screenshot()
+
 
     def test_goto_lpdp_楼盘点评(self):
         """
@@ -220,12 +255,57 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/newhouse/lpxx/lpxx')
         self.get_screenshot()
 
+    def test_goto_xxxx_more_IM_详细信息咨询(self):
+        """
+        V6.21.X: 1003947   新房详情页页面，详情详细信息位置，点击【咨询更多楼盘信息】按钮
+        """
+        self.page.get_element("view[class='iwantdpT']", inner_text="咨询更多楼盘信息").tap()
+
+        self.delay(3)
+        self.get_screenshot()
+
+    def test_goto_zlhx_IM_主力户型咨询(self):
+        """
+        V6.21.X: 1003947   新房详情页页面，主力户型位置，点击【咨询低价】按钮
+        """
+        self.page.scroll_to(3000, 500)
+        self.delay(4)
+        self.page.get_element('view[class="consult_txt_hx"]', inner_text="咨询底价").tap()
+
+        self.delay(3)
+        self.get_screenshot()
+
+    def test_goto_ldxq_楼栋详情提问(self):
+        """
+        V6.21.X: 1003947   新房详情页页面，分栋鸟瞰图点击更多，点击【提问】按钮
+        """
+        self.page.scroll_to(3000, 500)
+        self.delay(4)
+        self.page.get_element("view[class='newHouseTitle-l']", inner_text='分栋鸟瞰图').tap()
+
+        # 进入分栋页面
+        self.delay(3)
+        self.page.get_element('image[class="consultQuestion--askquestion_icon"]').tap()
+
+        self.get_screenshot()
+
+    def test_goto_ldxq_IM_楼栋详情咨询(self):
+        """
+        V6.21.X: 1003947   新房详情页页面，分栋鸟瞰图位置，点击【咨询楼栋详情】按钮
+        """
+        self.page.scroll_to(3000, 500)
+        self.delay(4)
+        self.page.get_element("view[class='iwantdpT']", inner_text="咨询楼栋详情").tap()
+
+        self.delay(3)
+        self.get_screenshot()
+
     def test_goto_wzzb_dt_地图页(self):
         """
         新房详情页页面，点击位置周边下的地图
         """
-        self.page.scroll_to(3000, 500)
-        self.delay(2)
+        self.page.scroll_to(3500, 500)
+        self.delay(4)
 
         # self.page.get_element('view[class="newHouseTitle-r xfxq_qbhx"][data-eventid="2648"]').tap()
         self.page.get_element('view[data-eventid="2648"]').tap()
@@ -236,8 +316,8 @@ class TestNewhouseDetail(TestBase):
         """
         新房详情页，点击价格分析
         """
-        self.page.scroll_to(3000, 500)
-        self.delay(2)
+        self.page.scroll_to(3500, 500)
+        self.delay(4)
         self.page.get_element('view[class="newHouseTitle-l"]', inner_text='价格分析').tap()
 
         self.verifyPageName('/page/newhouse/priceAnalyse/priceAnalyse')
@@ -247,8 +327,8 @@ class TestNewhouseDetail(TestBase):
         """
         新房详情页，点击开盘记录
         """
-        self.page.scroll_to(3000, 500)
-        self.delay(2)
+        self.page.scroll_to(3500, 500)
+        self.delay(4)
         self.page.get_element('view[class="newHouseTitle-l"]', inner_text='开盘记录').tap()
 
         self.verifyPageName('/page/newhouse/historyLp/historyLp')
@@ -258,8 +338,8 @@ class TestNewhouseDetail(TestBase):
         """
         新房详情页，点击楼盘评论楼层的“全部点评”
         """
-        self.page.scroll_to(3000, 500)
-        self.delay(2)
+        self.page.scroll_to(3500, 500)
+        self.delay(4)
         self.page.get_element('view[class="more newHouseTitle-r-sj"]', inner_text='全部点评').tap()
 
         self.verifyPageName('/page/taofangquan/lpdp/lpdp')
@@ -269,8 +349,8 @@ class TestNewhouseDetail(TestBase):
         """
         新房详情页，点击楼盘评论楼层的“我要评论”，并且发布评论
         """
-        self.page.scroll_to(3000, 500)
-        self.delay(2)
+        self.page.scroll_to(3500, 500)
+        self.delay(4)
         self.page.get_element('view[class="iwantdpT"]', inner_text='我要评论').tap()
 
         self.verifyPageName('/page/taofangquan/writePingjia/writePingjia')
@@ -280,8 +360,8 @@ class TestNewhouseDetail(TestBase):
         """
         新房详情页，点击热门楼盘楼层的第一个楼盘，进新房详情页
         """
-        self.page.scroll_to(3000, 500)
-        self.delay(2)
+        self.page.scroll_to(3500, 500)
+        self.delay(4)
         self.page.get_element('image[class="commonNewHouseLi-l-img"]').tap()
 
         self.get_screenshot()
@@ -293,7 +373,6 @@ class TestNewhouseDetail(TestBase):
         self.page.get_element('view[class="comBottomBar--link-button comBottomBar--im"]').tap()
         self.delay(3)
 
-        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_z_click_buttom_call_拨打电话(self):
