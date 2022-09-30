@@ -121,6 +121,7 @@ class TestBase(minium.MiniTest):
         self.delay(1)
         pyautogui.press('enter')
 
+        # 同时检查下，选择文件窗口是否关闭，没有的话，点击取消
         self.delay(2)
         path = os.path.join(pwd, 'base\windows-cancel.png')
         print(path)
