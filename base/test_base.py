@@ -109,7 +109,7 @@ class TestBase(minium.MiniTest):
         ele.pick(value)
         return self
 
-    def input_value_by_mk(self, png, value=None):
+    def input_value_by_mk(self, png, value=None, direction=0):
         """
         通过键盘鼠标来输入内容
         png: 需要比对的截图，文件放在xf里面，则为: xf/xxx.png
@@ -131,7 +131,10 @@ class TestBase(minium.MiniTest):
         # if self.m is None:
         #     self.m = PyMouse()
         # self.m.click(btm[0], btm[1])
-        pyautogui.click(btm[0], btm[1])
+        if direction == 0:
+            pyautogui.click(btm[0], btm[1])
+        else:
+            pyautogui.click(btm[0] + btm[2], btm[1] + btm[3])
 
         # self.delay(1)
         # from pykeyboard import PyKeyboard
