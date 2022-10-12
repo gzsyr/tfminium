@@ -118,7 +118,7 @@ class TestBase(minium.MiniTest):
         path = os.path.join(pwd, png) + '\n'
         print('选择的图片路径: ', path)
         pyautogui.typewrite(path)
-        self.delay(1)
+        self.delay(10)
         pyautogui.press('enter')
 
         # 同时检查下，选择文件窗口是否关闭，没有的话，点击取消
@@ -158,9 +158,9 @@ class TestBase(minium.MiniTest):
         #     self.m = PyMouse()
         # self.m.click(btm[0], btm[1])
         if direction == 0:
-            pyautogui.click(btm[0], btm[1])
+            pyautogui.click(btm[0], btm[1] + btm[3] / 2)
         else:
-            pyautogui.click(btm[0] + btm[2], btm[1] + btm[3])
+            pyautogui.click(btm[0] + btm[2], btm[1] + btm[3] / 2)
 
         # self.delay(1)
         # from pykeyboard import PyKeyboard
