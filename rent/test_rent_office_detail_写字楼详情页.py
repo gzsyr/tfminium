@@ -129,14 +129,14 @@ class Testrentofficedetail(TestBase):
         """
         self.page.scroll_to(800, 500)
         self.delay(1)
-        des = self.page.element_is_exists('text', inner_text='房源描述')
+        des = self.page.element_is_exists('view[class="between module"]', inner_text='房源描述')
         if des == True:
-            tog = self.page.element_is_exists('text', inner_text='查看全部')
+            tog = self.page.element_is_exists('view[class="center toggle"]', inner_text='查看全部')
             if tog == True:
-                self.page.get_element('text', inner_text='查看全部').tap()
+                self.page.get_element('view[class="center toggle"]', inner_text='查看全部').tap()
                 self.get_screenshot()
                 self.delay(1)
-                self.page.get_element('text', inner_text='收起').tap()
+                self.page.get_element('view[class="center toggle"]', inner_text='收起').tap()
                 self.get_screenshot()
                 self.delay(1)
             else:
@@ -151,9 +151,9 @@ class Testrentofficedetail(TestBase):
         """
         self.page.scroll_to(800, 500)
         self.delay(1)
-        loupan = self.page.element_is_exists('text', inner_text='所属楼盘')
+        loupan = self.page.element_is_exists('view[class="module"]', inner_text='所属楼盘')
         if loupan == True:
-            self.page.get_element('text', inner_text='查看详情').tap()
+            self.page.get_element('view[class="center checkDetail"]', inner_text='查看详情').tap()
             self.delay(1)
             self.get_screenshot()
         else:
@@ -166,7 +166,7 @@ class Testrentofficedetail(TestBase):
         """
         self.page.scroll_to(800, 500)
         self.delay(1)
-        loupan = self.page.element_is_exists('text', inner_text='所属楼盘')
+        loupan = self.page.element_is_exists('view[class="module"]', inner_text='所属楼盘')
         if loupan == True:
             self.page.get_element('view[class="flex officeBlockInfo"]').tap()
             self.delay(1)
@@ -181,7 +181,7 @@ class Testrentofficedetail(TestBase):
         """
         self.page.scroll_to(1350, 500)
         self.delay(1)
-        pr = self.page.element_is_exists('text', inner_text='周边配套')
+        pr = self.page.element_is_exists('view[class="module"]', inner_text='周边配套')
         if pr == True:
             m = self.page.get_element('view[class="pr map"][data-type="0"]')
             m.tap()
@@ -198,8 +198,8 @@ class Testrentofficedetail(TestBase):
         # 页面滚动
         self.page.scroll_to(1550, 500)
         self.delay(1)
-        fujin = self.page.element_is_exists('text', inner_text='附近写字楼')
-        tongxiaoqu = self.page.element_is_exists('text', inner_text='同小区房源')
+        fujin = self.page.element_is_exists('text[class="moduleName"]', inner_text='附近写字楼')
+        tongxiaoqu = self.page.element_is_exists('text[class="moduleName"]', inner_text='同小区房源')
         if tongxiaoqu == True:
             elm_items = self.page.get_elements('//view[@class="houses"]/view[@class="house"]')
             if len(elm_items) == 0:

@@ -126,13 +126,16 @@ class Testesfxqlb(TestBase):
         筛选位置-区域
         :return:
         """
-        e = self.page.get_element("view", inner_text="位置")
+        e = self.page.get_element('view[class="line_1 screenTabText"]', inner_text="位置")
         e.tap()
-        e1 = self.page.get_element("view", inner_text="区域")
+        self.delay(3)
+        e1 = self.page.get_element('//location/view/view/view[3]')
         e1.tap()
-        e2 = self.page.get_element("view", inner_text="玄武区")
+        self.delay(3)
+        e2 = self.page.get_element('//location/view/scroll-view/view[3]')
         e2.tap()
-        e3 = self.page.get_element("view", inner_text="丹凤街")
+        self.delay(3)
+        e3 = self.page.get_element('//location/view/scroll-view[2]/view[3]')
         e3.tap()
         self.delay(3)
         self.get_screenshot()
