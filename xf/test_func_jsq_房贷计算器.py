@@ -74,12 +74,12 @@ class TestFuncJsq(TestBase):
 
     # 以下 商业贷款 的测试用例
     @file_data('./test_func_jsq.yml')
-    def test_sydk_dben_total_商贷等本按总(self, **kargs):
+    def test_07_sydk_dben_total_商贷等本按总(self, **kargs):
         """
         房贷计算器页面，“商业贷款”，等额本金-按贷款总额
         """
         self.sydk_click_hkfs_debj().\
-            input_value_by_mk(png='xf/pricetotal.png', value=kargs['total']).\
+            input_value_by_mk(png='xf\pricetotal.png', value=kargs['total']).\
             sydk_slider_years(kargs['years']).\
             sydk_input_Lpr(kargs['lpr']).\
             sydk_input_lprbp(kargs['lprbp']).\
@@ -90,11 +90,11 @@ class TestFuncJsq(TestBase):
         self.get_screenshot()
 
     @file_data('./test_func_jsq.yml')
-    def test_sydk_dxi_total_商贷等息按总(self, **kargs):
+    def test_03_sydk_dxi_total_商贷等息按总(self, **kargs):
         """
         房贷计算器页面，“商业贷款”，等额本息-按贷款总额
         """
-        self.input_value_by_mk(png='xf/pricetotal.png', value=kargs['total']). \
+        self.input_value_by_mk(png='xf\pricetotal.png', value=kargs['total']). \
             sydk_slider_years(kargs['years']). \
             sydk_input_Lpr(kargs['lpr']). \
             sydk_input_lprbp(kargs['lprbp']). \
@@ -106,14 +106,14 @@ class TestFuncJsq(TestBase):
         self.get_screenshot()
 
     @file_data('./test_func_jsq.yml')
-    def test_sydk_dben_price_商贷等本按单(self, **kargs):
+    def test_06_sydk_dben_price_商贷等本按单(self, **kargs):
         """
         房贷计算器页面，“商业贷款”，等额本金-按单价
         """
         self.sydk_click_hkfs_debj().\
             sydk_click_jsfs_adj().\
-            input_value_by_mk(png='xf/price.png', value=kargs['price']).\
-            input_value_by_mk(png='xf/area.png', value=kargs['area']).\
+            input_value_by_mk(png='xf\price.png', value=kargs['price']).\
+            input_value_by_mk(png='xf\\area.png', value=kargs['area']).\
             sydk_slider_years(kargs['years']).\
             sydk_input_Lpr(kargs['lpr']).\
             sydk_input_lprbp(kargs['lprbp']).\
@@ -126,13 +126,13 @@ class TestFuncJsq(TestBase):
         self.get_screenshot()
 
     @file_data('./test_func_jsq.yml')
-    def test_sydk_dxi_price_商贷等息按单(self, **kargs):
+    def test_02_sydk_dxi_price_商贷等息按单(self, **kargs):
         """
         房贷计算器页面，“商业贷款”，等额本息-按单价
         """
         self.sydk_click_jsfs_adj(). \
-            input_value_by_mk(png='xf/price.png', value=kargs['price']). \
-            input_value_by_mk(png='xf/area.png', value=kargs['area']). \
+            input_value_by_mk(png='xf\price.png', value=kargs['price']). \
+            input_value_by_mk(png='xf\\area.png', value=kargs['area']). \
             sydk_slider_years(kargs['years']).\
             sydk_input_Lpr(kargs['lpr']).\
             sydk_input_lprbp(kargs['lprbp']).\
@@ -146,12 +146,12 @@ class TestFuncJsq(TestBase):
 
     # 以下 公积金贷款 的测试用例
     @file_data('./test_func_jsq.yml')
-    def test_gjj_2dben_公积金等本(self, **kwargs):
+    def test_05_gjj_2dben_公积金等本(self, **kwargs):
         """
         “公积金”，等额本金、贷款总额、贷款期限
         """
         self.click_gjjtab().delay(1).gjj_click_debj().delay(1).\
-            input_value_by_mk(png='xf/pricetotal.png', value=kwargs['gjjtotal']).\
+            input_value_by_mk(png='xf\pricetotal.png', value=kwargs['gjjtotal']).\
             gjj_slider_years(kwargs['gjjyears']).\
             delay(1).\
             click_submitbtn().delay(1)
@@ -163,12 +163,12 @@ class TestFuncJsq(TestBase):
         self.get_screenshot()
 
     @file_data('./test_func_jsq.yml')
-    def test_gjj_1dxi_公积金等息(self, **kwargs):
+    def test_01_gjj_dxi_公积金等息(self, **kwargs):
         """
         “公积金”，等额本金、贷款总额、贷款期限
         """
         self.click_gjjtab().delay(1).\
-            input_value_by_mk(png='xf/pricetotal.png', value=kwargs['gjjtotal']).\
+            input_value_by_mk(png='xf\pricetotal.png', value=kwargs['gjjtotal']).\
             delay(1).\
             gjj_slider_years(kwargs['gjjyears']).\
             delay(1).\
@@ -187,18 +187,19 @@ class TestFuncJsq(TestBase):
 
     # 以下 组合贷款 的测试用例
     @file_data('./test_func_jsq.yml')
-    def test_zhdk_dxi_组合贷款等息(self, **kwargs):
+    def test_04_zhdk_dxi_组合贷款等息(self, **kwargs):
         """
         “组合贷款”，等额本金
         """
         self.click_zhtab().\
-            input_value_by_mk(png='xf/pricetotal.png', value=kwargs['total']).\
+            delay(1).\
+            input_value_by_mk(png='xf\sd-pricetotal.png', value=kwargs['total'], direction=1).\
             delay(1).\
             sydk_slider_years(kwargs['years']).\
             sydk_input_Lpr(kwargs['lpr']).\
             sydk_input_lprbp(kwargs['lprbp']). \
             delay(1). \
-            input_value_by_mk(png='xf/pricetotal.png', value=kwargs['gjjtotal']).\
+            input_value_by_mk(png='xf\gjj-pricetotal.png', value=kwargs['gjjtotal'], direction=1).\
             gjj_slider_years(kwargs['years']).\
             click_submitbtn()
 
@@ -212,17 +213,17 @@ class TestFuncJsq(TestBase):
         self.get_screenshot()
 
     @file_data('./test_func_jsq.yml')
-    def test_zhdk_dben_组合贷款等本(self, **kwargs):
+    def test_08_zhdk_dben_组合贷款等本(self, **kwargs):
         """
         “组合贷款”，等额本金
         """
         self.click_zhtab().\
             sydk_click_hkfs_debj().\
-            input_value_by_mk(png='xf/pricetotal.png', value=kwargs['total']).\
+            input_value_by_mk(png='xf\sd-pricetotal.png', value=kwargs['total'], direction=1).\
             sydk_slider_years(kwargs['years']).\
             sydk_input_Lpr(kwargs['lpr']).\
             sydk_input_lprbp(kwargs['lprbp']).\
-            input_value_by_mk(png='xf/pricetotal.png', value=kwargs['gjjtotal']).\
+            input_value_by_mk(png='xf\gjj-pricetotal.png', value=kwargs['gjjtotal'], direction=1).\
             gjj_slider_years(kwargs['years']).\
             click_submitbtn()
 
@@ -384,6 +385,7 @@ class TestFuncJsq(TestBase):
         """
         “公积金贷款”，滑动贷款期限
         """
+        self.delay(2)
         element_slider = self.page.get_element('slider[id="gjj_qishu"]')
         element_slider.slide_to(years)
         return self
