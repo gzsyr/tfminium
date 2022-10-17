@@ -377,16 +377,36 @@ class TestBase(minium.MiniTest):
         """
         return self.page.element_is_exists(selector=selector, inner_text=inner_text)
 
-    def find_element(self, selector=None, inner_text=None):
+    def find_element(self, selector=None, inner_text=None, text_contains=None, value=None, max_timeout=0, xpath=None):
         """
         查找某个元素，参数目前就只支持selector和inner_text，后期慢慢增加
         :param selector: 查找元素的selector
         :param inner_text:  包含的text
         :return:
         """
-        print("start: find_element")
-        ele = self.page.get_element(selector=selector, inner_text=inner_text)
-        print("end: find_element")
+        try:
+            ele = self.page.get_element(selector=selector, inner_text=inner_text, text_contains=text_contains,
+                                        value=value, max_timeout=max_timeout, xpath=xpath)
+        except minium.MiniElementNotFoundError as e:
+
+            self.get_screenshot('NOfind-'+self._testMethodName)
+            raise e
+        return ele
+
+    def find_elements(self, selector=None, inner_text=None, text_contains=None, value=None, max_timeout=0, index=-1, xpath=None):
+        """
+        查找某个元素，参数目前就只支持selector和inner_text，后期慢慢增加
+        :param selector: 查找元素的selector
+        :param inner_text:  包含的text
+        :return:
+        """
+        try:
+            ele = self.page.get_elements(selector=selector, inner_text=inner_text, text_contains=text_contains,
+                                        value=value, max_timeout=max_timeout, index=index, xpath=xpath)
+        except minium.MiniElementNotFoundError as e:
+
+            self.get_screenshot('NOfind-'+self._testMethodName)
+            raise e
         return ele
 
     def tearDown(self) -> None:
