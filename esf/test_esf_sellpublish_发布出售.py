@@ -11,16 +11,73 @@ class Testesfsellfb(TestBase):
     """
 
     def setUp(self, true=None) -> None:
-        self.page_name = "/esf/village/publish/sell/first/first?infoType=1&city=nj"
+        # self.page_name = "/esf/village/publish/sell/first/first?infoType=1&city=nj"
+        self.page_name = "/esf/village/publish/index/index?publishType=sell&city=nj"
         self.switch = true
         self.classname = self.__class__.__name__
         super(Testesfsellfb, self).setUp()
         print("Testesfsellfb setup")
 
+    def test_01_set_xqmc_小区名称自定义(self):
+        """
+        小区名称（自定义）
+        :return:
+        """
+        self.page.get_element(f'view[class="between houseType"][data-type="1"]').tap()
+        self.delay(3)
+        self.page.get_element('/view[2]/view[2]/view/view/view[2]').tap()
+        self.delay(3)
+        self.page.get_element('input[class="flex_1 input"]').input('自定义')
+        self.delay(3)
+        # 点击去添加
+        self.page.get_element('view[class="flex justify_between align_center add-block"]').tap()
+        self.delay(3)
+        # 添加页
+        # 自定义小区名称
+        pyperclip.copy('自定义')
+        self.delay(5)
+        self.input_value_by_mk(png='esf/zdyxqmc.png', value='自定义', direction=1)
+        self.delay(5)
+        pyautogui.hotkey('Ctrl', 'V')
+        self.delay(3)
+        #区属板块
+        self.page.get_element('/view[3]/view[2]').tap()
+        self.delay(5)
+        e = self.page.get_element('picker-view[class="picker-view"]')
+        e.trigger("change", {"value": [1, 1]})
+        self.delay(3)
+        self.page.get_element('view[class="confirm"]' ,inner_text='确定').tap()
+        # 地址
+        pyperclip.copy('测试勿扰啊')
+        self.delay(5)
+        self.input_value_by_mk(png='esf/zdydz.png', value='测试勿扰啊', direction=1)
+        self.delay(5)
+        pyautogui.hotkey('Ctrl', 'V')
+        self.delay(3)
+        # 提交
+        self.page.get_element('view[class="submit"]', inner_text='提交').tap()
+        self.delay(5)
+        self.get_screenshot()
+        self.delay(3)
+
     @file_data('./test_esf_fabu.yml')
     def test_publish_sell_发布出售(self, **kwargs):
         """
         发布出售
+        :param kwargs:
+        :return:
+        """
+        self.page.get_element(f'view[class="between houseType"][data-type="{kwargs["datatype"]}"]').tap()
+        self.delay(3)
+        self.sell_content(kwargs)
+        self.delay(3)
+        self.get_screenshot()
+        self.delay(3)
+
+
+    def sell_content(self, kwargs):
+        """
+        填写发布内容
         :param kwargs:
         :return:
         """
@@ -74,7 +131,7 @@ class Testesfsellfb(TestBase):
         self.get_screenshot()
         self.delay(3)
         # 个人中心
-        self.set_grzx()
+        # self.set_grzx()
 
     def set_img(self):
         # 上传图片
@@ -93,7 +150,7 @@ class Testesfsellfb(TestBase):
         self.page.get_element('view[class="center noMorePics"]').tap()
         return self
 
-    def test_set_xqmc(self, xqmc='测试'):
+    def set_xqmc(self, xqmc='测试'):
         # 小区名称
         self.page.get_element('/view[2]/view[2]/view/view/view[2]').tap()
         self.delay(3)
@@ -181,7 +238,7 @@ class Testesfsellfb(TestBase):
         self.delay(1)
         return  self
 
-    def set_year(self, year="300"):
+    def set_year(self, year="2001"):
         self.page.scroll_to(800, 500)
         self.delay(1)
         # 建筑年代
@@ -217,7 +274,7 @@ class Testesfsellfb(TestBase):
         self.delay(1)
         self.page.get_element('view[class="feat-item"][data-index="8"]').tap()
         self.delay(1)
-        self.page.get_element('view[class="feat-item"][data-index="15"]').tap()
+       # self.page.get_element('view[class="feat-item"][data-index="15"]').tap()
         self.delay(1)
         return self
 
@@ -259,8 +316,8 @@ class Testesfsellfb(TestBase):
         e.trigger("change", {"value": zjlx})
         self.delay(5)
         self.page.get_element('//view[@class="pa picker"]/view/view[2]').tap()
-        # 证件号码
         self.delay(5)
+        # 证件号码
         self.input_value_by_mk(png='esf/zjhm.png', value=zjhm, direction=1)
         self.delay(6)
         # 产权人姓名
@@ -270,7 +327,7 @@ class Testesfsellfb(TestBase):
         self.delay(5)
         pyautogui.hotkey('Ctrl', 'V')
         self.delay(5)
-        # 产权人身份证号
+        # 产权人身份证号 授权身份后 身份证号码已默认
         # self.input_value_by_mk(png='esf/cqrsfzh.png', value=cqrsfzh, direction=1)
         # self.delay(5)
         # 证件照上传

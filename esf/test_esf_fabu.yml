@@ -1,4 +1,5 @@
-N1:
+住宅:
+  datatype: '1'
   xqmc: '测试'
   huxing: [3,2,1]
   chaoxiang: [1]
@@ -12,9 +13,141 @@ N1:
   year: '2010'
   title: '测试小区好房出售'
   heyanma: 'NJS220929123456'
-  fyms: '房源描述好房好房好房好房房源描述'
+  fyms: '房源描述好房好房好房好房房源描述住宅'
   name: '赵测试'
   zjlx: [2]
+  zjhm: '0000000000'
+  cqrxm: '赵赵'
+  cqrsfzh: '111111111111111'
+
+别墅:
+  datatype: '2'
+  xqmc: '花语'
+  huxing: [ 3,2,1 ]
+  chaoxiang: [ 1 ]
+  louceng: [ 6,0 ]
+  loudong: '1'
+  danyuan: '2'
+  shi: '3'
+  zhuangxiu: [ 2 ]
+  area: '90'
+  price: '100'
+  year: '2010'
+  title: '测试小区好房出售别墅'
+  heyanma: 'NJS220929123456'
+  fyms: '房源描述好房好房好房好房房源描述别墅'
+  name: '赵测试'
+  zjlx: [ 2 ]
+  zjhm: '0000000000'
+  cqrxm: '赵赵'
+  cqrsfzh: '111111111111111'
+
+商铺:
+  datatype: '4'
+  xqmc: '1872'
+  huxing: [ 3,2,1 ]
+  chaoxiang: [ 1 ]
+  louceng: [ 6,0 ]
+  loudong: '1'
+  danyuan: '2'
+  shi: '3'
+  zhuangxiu: [ 2 ]
+  area: '90'
+  price: '100'
+  year: '2010'
+  title: '测试小区好房出售'
+  heyanma: 'NJS220929123456'
+  fyms: '房源描述好房好房好房好房房源描述商铺测试'
+  name: '赵测试'
+  zjlx: [ 2 ]
+  zjhm: '0000000000'
+  cqrxm: '赵赵'
+  cqrsfzh: '111111111111111'
+
+写字楼:
+  datatype: '3'
+  xqmc: '绿博园'
+  huxing: [ 3,2,1 ]
+  chaoxiang: [ 1 ]
+  louceng: [ 6,0 ]
+  loudong: '1'
+  danyuan: '2'
+  shi: '3'
+  zhuangxiu: [ 2 ]
+  area: '90'
+  price: '100'
+  year: '2010'
+  title: '测试小区好房出售'
+  heyanma: 'NJS220929123456'
+  fyms: '房源描述好房好房好房好房房源描述写字楼'
+  name: '赵测试'
+  zjlx: [ 2 ]
+  zjhm: '0000000000'
+  cqrxm: '赵赵'
+  cqrsfzh: '111111111111111'
+
+厂房仓库:
+  datatype: '5'
+  xqmc: '厂房'
+  huxing: [ 3,2,1 ]
+  chaoxiang: [ 1 ]
+  louceng: [ 6,0 ]
+  loudong: '1'
+  danyuan: '2'
+  shi: '3'
+  zhuangxiu: [ 2 ]
+  area: '90'
+  price: '100'
+  year: '2010'
+  title: '测试小区好房出售'
+  heyanma: 'NJS220929123456'
+  fyms: '房源描述好房好房好房好房房源描述厂房仓库'
+  name: '赵测试'
+  zjlx: [ 2 ]
+  zjhm: '0000000000'
+  cqrxm: '赵赵'
+  cqrsfzh: '111111111111111'
+
+车库车位:
+  datatype: '6'
+  xqmc: '龙潭车站'
+  huxing: [ 3,2,1 ]
+  chaoxiang: [ 1 ]
+  louceng: [ 6,0 ]
+  loudong: '1'
+  danyuan: '2'
+  shi: '3'
+  zhuangxiu: [ 2 ]
+  area: '90'
+  price: '100'
+  year: '2010'
+  title: '测试小区好房出售'
+  heyanma: 'NJS220929123456'
+  fyms: '房源描述好房好房好房好房房源描述车库车位'
+  name: '赵测试'
+  zjlx: [ 2 ]
+  zjhm: '0000000000'
+  cqrxm: '赵赵'
+  cqrsfzh: '111111111111111'
+
+公寓:
+  datatype: '7'
+  xqmc: '万达茂公寓'
+  huxing: [ 3,2,1 ]
+  chaoxiang: [ 1 ]
+  louceng: [ 6,0 ]
+  loudong: '1'
+  danyuan: '2'
+  shi: '3'
+  zhuangxiu: [ 2 ]
+  area: '90'
+  price: '100'
+  year: '2010'
+  title: '测试小区好房出售公寓'
+  heyanma: 'NJS220929123456'
+  fyms: '房源描述好房好房好房好房房源描述公寓'
+  name: '赵测试'
+  zjlx: [ 2 ]
   zjhm: '0000000000'
   cqrxm: '赵赵'
   cqrsfzh: '111111111111111'
