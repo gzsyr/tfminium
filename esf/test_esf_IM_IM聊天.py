@@ -14,7 +14,7 @@ class Testesfim(TestBase):
         super(Testesfim, self).setUp()
         print("Testesfim setup")
 
-    def test_click_history_点击历史消息(self):
+    def click_history_点击历史消息(self):
         """
         点击历史消息
         :return:
@@ -23,7 +23,7 @@ class Testesfim(TestBase):
         self.delay(3)
         self.get_screenshot()
 
-    def test_send_发送消息(self):
+    def send_发送消息(self):
         """
         发送消息(输入和语音切换)
         :return:
@@ -62,7 +62,7 @@ class Testesfim(TestBase):
             self.delay(2)
             self.get_screenshot()
 
-    def test_inputimg_点击上传图片(self):
+    def inputimg_点击上传图片(self):
         """
         点击上传图片
         :return:
