@@ -1,4 +1,6 @@
 # add by zsy
+import minium
+
 from base.test_base import TestBase
 
 
@@ -49,7 +51,10 @@ class TestTfqCommentDetail(TestBase):
         """
         帖子的评论详情页，点击左下角的“加群”icon
         """
-        self.page.get_element('image[class="addgroupimg"]').tap()
+        try:
+            self.page.get_element('image[class="addgroupimg"]').tap()
+        except minium.MiniElementNotFoundError:
+            print('没有加群广告')
 
         self.get_screenshot()
 
