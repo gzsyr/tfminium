@@ -149,7 +149,7 @@ class TestBase(minium.MiniTest):
 
         if btm is None:
             # 如果比对的图没有在屏幕上面找到 assert
-            pyautogui.screenshot(png[(png.find('/')+1):-4]+'-assert.png')
+            # pyautogui.screenshot(png[(png.find('/')+1):-4]+'-assert.png')
             self.verifyStr(True, False, f'获取pyautogui.locateOnScreen {png} is None')
             return self
 
