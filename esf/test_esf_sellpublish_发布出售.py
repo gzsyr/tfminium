@@ -93,7 +93,7 @@ class Testesfsellfb(TestBase):
         self.page.get_element('view[class="center noMorePics"]').tap()
         return self
 
-    def set_xqmc(self, xqmc='测试'):
+    def test_set_xqmc(self, xqmc='测试'):
         # 小区名称
         self.page.get_element('/view[2]/view[2]/view/view/view[2]').tap()
         self.delay(3)
