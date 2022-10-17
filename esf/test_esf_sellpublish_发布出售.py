@@ -74,7 +74,6 @@ class Testesfsellfb(TestBase):
         self.get_screenshot()
         self.delay(3)
 
-
     def sell_content(self, kwargs):
         """
         填写发布内容
