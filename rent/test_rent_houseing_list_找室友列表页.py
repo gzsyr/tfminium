@@ -83,11 +83,11 @@ class Testrenthouseinglist(TestBase):
         if flag:
             e = self.page.get_element(self.tab_class, text_contains=verify_text)
             e.tap()
-            self.delay(1)
+            self.delay(3)
 
             e = self.page.get_element("//location/view/view/view", text_contains=text_1)
             e.tap()
-            self.delay(1)
+            self.delay(3)
 
             if text_1 != '不限':
                 if text_2 != '不限' and text_2 != '':
@@ -123,7 +123,7 @@ class Testrenthouseinglist(TestBase):
 
             e = self.page.get_element('//location/view/view[3]/view[2]', inner_text="确定")
             e.tap()
-            self.delay(1)
+            self.delay(3)
 
             if is_selected:
                 verify_flag = self.page.element_is_exists(self.tab_class_selected, text_contains=verify_text)
@@ -148,7 +148,7 @@ class Testrenthouseinglist(TestBase):
         if flag:
             e = self.page.get_element(self.tab_class, text_contains=verify_text)
             e.tap()
-            self.delay(1)
+            self.delay(3)
 
             if share_type_text != '有房/无房':
                 is_selected = True
@@ -156,7 +156,7 @@ class Testrenthouseinglist(TestBase):
 
             e = self.page.get_element("//share-type/scroll-view/view", text_contains=share_type_text)
             e.tap()
-            self.delay(1)
+            self.delay(3)
 
             if is_selected:
                 verify_flag = self.page.element_is_exists(self.tab_class_selected, text_contains=verify_text)
@@ -181,14 +181,14 @@ class Testrenthouseinglist(TestBase):
         if flag:
             e = self.page.get_element(self.tab_class, text_contains=verify_text)
             e.tap()
-            self.delay(1)
+            self.delay(3)
 
             if order_by_text != '默认':
                 is_selected = True
 
             e = self.page.get_element("//order/scroll-view/view", text_contains=order_by_text)
             e.tap()
-            self.delay(1)
+            self.delay(3)
 
             if is_selected:
                 verify_flag = self.page.element_is_exists(self.tab_class_selected, text_contains=verify_text)
@@ -213,7 +213,7 @@ class Testrenthouseinglist(TestBase):
         if flag:
             e = self.page.get_element(self.tab_class, text_contains=verify_text)
             e.tap()
-            self.delay(1)
+            self.delay(3)
 
             dict_more_height = {'roommate_sex_text': 0,
                                 'publish_sex_text': 72,
@@ -236,7 +236,7 @@ class Testrenthouseinglist(TestBase):
 
                     if more_height != 0:
                         scroll_view.scroll_to(y=more_height)
-                        self.delay(1)
+                        self.delay(3)
 
                     ary_texts = more_text.split("|")
 
@@ -248,11 +248,11 @@ class Testrenthouseinglist(TestBase):
                                                   text_contains=k)
                         e.tap()
 
-                    self.delay(1)
+                    self.delay(3)
 
             e = self.page.get_element('//roommate/view/view/view', inner_text="确定")
             e.tap()
-            self.delay(1)
+            self.delay(3)
 
             if is_selected:
                 verify_flag = self.page.element_is_exists(self.tab_class_selected, text_contains=verify_text)

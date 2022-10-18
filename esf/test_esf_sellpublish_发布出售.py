@@ -69,6 +69,8 @@ class Testesfsellfb(TestBase):
         """
         self.page.get_element(f'view[class="between houseType"][data-type="{kwargs["datatype"]}"]').tap()
         self.delay(3)
+        self.page.get_element('view[class="reset"]').tap()
+        self.delay(3)
         self.sell_content(kwargs)
         self.delay(3)
         self.get_screenshot()
@@ -249,6 +251,8 @@ class Testesfsellfb(TestBase):
     def set_xiayibu(self):
         # 下一步
         self.page.get_element('view[class="next"]').tap()
+        self.delay(3)
+        self.page.get_element('view[class="reset"]').tap()
         self.delay(3)
         return self
 
