@@ -128,6 +128,7 @@ class TestNewsDetailAudio(TestBase):
         """
         资讯音频详情页，点击点赞图标
         """
+        self.delay(2)
         tap = 'self.page.get_element(\'button[class="pllist-zan"]\').tap()'
         self.verifyStr(True, self.getShowToast(tap), '点赞成功')
 
