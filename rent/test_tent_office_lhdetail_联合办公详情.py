@@ -43,7 +43,7 @@ class Testrentofficelhdetail(TestBase):
         点击本楼盘房源进入详情页
         :return:
         """
-        b = self.page.element_is_exists('text', inner_text='本楼盘房源')
+        b = self.page.element_is_exists('text[class="moduleName"]', inner_text='本楼盘房源')
         if b == True:
             e = self.page.get_element('view[class="inline_middle house"]')
             e.tap()
@@ -59,14 +59,14 @@ class Testrentofficelhdetail(TestBase):
         """
         self.page.scroll_to(700, 500)
         self.delay(1)
-        b = self.page.element_is_exists('text', inner_text='品牌介绍')
+        b = self.page.element_is_exists('text[class="moduleName"]', inner_text='品牌介绍')
         if b == True:
             t = self.page.element_is_exists('view[class="center toggle"]')
             if t == True:
-                self.page.get_element('text', inner_text='查看全部').tap()
+                self.page.get_element('view[class="center toggle"]', inner_text='查看全部').tap()
                 self.get_screenshot()
                 self.delay(2)
-                self.page.get_element('text', inner_text='收起').tap()
+                self.page.get_element('view[class="center toggle"]', inner_text='收起').tap()
                 self.get_screenshot()
                 self.delay(2)
             else:
@@ -81,7 +81,7 @@ class Testrentofficelhdetail(TestBase):
         """
         self.page.scroll_to(900, 500)
         self.delay(1)
-        rmlp = self.page.element_is_exists('text', inner_text='写字楼信息')
+        rmlp = self.page.element_is_exists('text[class="moduleName"]', inner_text='写字楼信息')
         if rmlp == True:
             flex = self.page.get_element('//view[@class="flex"]')
             flex.tap()
@@ -97,7 +97,7 @@ class Testrentofficelhdetail(TestBase):
         """
         self.page.scroll_to(1000, 500)
         self.delay(1)
-        wd = self.page.element_is_exists('text', inner_text='其他网点')
+        wd = self.page.element_is_exists('text[class="moduleName"]', inner_text='其他网点')
         if wd == True:
             elm_items = self.page.get_element('//view[@class="item"]/buildingItem/view')
             elm_items.tap()

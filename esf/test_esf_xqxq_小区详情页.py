@@ -223,9 +223,9 @@ class Testesfxqxq(TestBase):
         self.page.scroll_to(1180, 500)
         self.delay(1)
 
-        house_com = self.page.element_is_exists('text', inner_text="全部评论")
+        house_com = self.page.element_is_exists('view[class="center check"]', inner_text="全部评论")
         if house_com == True:
-            comment = self.page.get_element('text', inner_text="全部评论")
+            comment = self.page.get_element('view[class="center check"]', inner_text="全部评论")
             comment.tap()
             self.delay(2)
             self.get_screenshot()

@@ -83,7 +83,7 @@ class Testrentofficedetail(TestBase):
         点击房源概况-房源详情咨询
         :return:
         """
-        fygk = self.page.element_is_exists('text', inner_text='房源概况')
+        fygk = self.page.element_is_exists('text[class="moduleName"]', inner_text='房源概况')
         if fygk == True:
             e = self.page.get_element('view[class="center msg"]')
             e.tap()

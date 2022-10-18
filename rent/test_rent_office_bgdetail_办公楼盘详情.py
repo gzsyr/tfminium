@@ -45,7 +45,7 @@ class Testrentofficebgdetail(TestBase):
         """
         self.page.scroll_to(1350, 500)
         self.delay(1)
-        pr = self.page.element_is_exists('text', inner_text='周边配套')
+        pr = self.page.element_is_exists('text[class="moduleName"]', inner_text='周边配套')
         if pr == True:
             m = self.page.get_element('view[class="pr map"][data-type="0"]')
             m.tap()
@@ -61,7 +61,7 @@ class Testrentofficebgdetail(TestBase):
         """
         self.page.scroll_to(900, 500)
         self.delay(1)
-        rmlp = self.page.element_is_exists('text', inner_text='附近楼盘')
+        rmlp = self.page.element_is_exists('text[class="moduleName"]', inner_text='附近楼盘')
         if rmlp == True:
             e = self.page.get_element('view[class="center check"]')
             e.tap()
@@ -77,7 +77,7 @@ class Testrentofficebgdetail(TestBase):
         """
         self.page.scroll_to(900, 500)
         self.delay(1)
-        rmlp = self.page.element_is_exists('text', inner_text='附近楼盘')
+        rmlp = self.page.element_is_exists('text[class="moduleName"]', inner_text='附近楼盘')
         if rmlp == True:
             elm_items = self.page.get_elements('//view[@class="item"]')
             if len(elm_items) == 0:
