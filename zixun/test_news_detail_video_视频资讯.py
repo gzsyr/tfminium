@@ -143,7 +143,7 @@ class TestNewsdetailVideo(TestBase):
         资讯详情页视频稿件，点击点赞图标
         """
         self.delay(2)
-        tap = 'self.page.get_element(\'button[class="pllist-zan"]\').tap()'
+        tap = 'self.find_element(\'button[data-type="pl_zan"]\').tap()'
         self.verifyStr(True, self.getShowToast(tap), '点赞成功')
 
     def test_14_click_wyzx_咨询(self):
