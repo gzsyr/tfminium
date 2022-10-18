@@ -52,7 +52,7 @@ class TestNewhouseDetail(TestBase):
         V6.22.X: 1004113 新房楼盘详情页下  进入楼盘相册，点击页面底部的【咨询】按钮
         """
         self.find_element("image[class='newHouseBanner-img xfxq_xc']").tap()
-        self.delay(4)
+        self.delay(10)
 
         self.find_element('view[class="consultEntrance--consultIcon"]').tap()
         self.get_screenshot()
@@ -141,7 +141,7 @@ class TestNewhouseDetail(TestBase):
         self.find_element("view[class='newHouseIconInLi-b']", inner_text="最新动态").tap()
 
         # 到最新动态页面
-        self.delay(5)
+        self.delay(10)
         self.find_element('image[class="consultQuestion--askquestion_icon"]').tap()
         self.get_screenshot()
 
@@ -161,7 +161,7 @@ class TestNewhouseDetail(TestBase):
         self.find_element("view[class='newHouseIconInLi-b']", inner_text="户型解析").tap()
 
         # 到户型解析页面
-        self.delay(5)
+        self.delay(10)
         self.find_element('view[class="consult_txt"]').tap()
         self.delay(3)
         self.get_screenshot()
@@ -290,7 +290,7 @@ class TestNewhouseDetail(TestBase):
         V6.21.X: 1003947   新房详情页页面，分栋鸟瞰图点击更多，点击【提问】按钮
         """
         self.page.scroll_to(3000, 500)
-        self.delay(4)
+        self.delay(10)
         self.find_element("view[class='newHouseTitle-l']", inner_text='分栋鸟瞰图').tap()
 
         # 进入分栋页面
@@ -304,7 +304,7 @@ class TestNewhouseDetail(TestBase):
         V6.21.X: 1003947   新房详情页页面，分栋鸟瞰图位置，点击【咨询楼栋详情】按钮
         """
         self.page.scroll_to(3000, 500)
-        self.delay(4)
+        self.delay(10)
         self.find_element("view[class='iwantdpT']", inner_text="咨询楼栋详情").tap()
 
         self.delay(3)
@@ -327,11 +327,11 @@ class TestNewhouseDetail(TestBase):
         V6.22.X: 1004113 新房楼盘详情页下的位置及周边下的地图  进入周边配套地图，点击页面底部的【导航】按钮
         """
         self.page.scroll_to(3500, 500)
-        self.delay(4)
+        self.delay(6)
 
         # self.page.get_element('view[class="newHouseTitle-r xfxq_qbhx"][data-eventid="2648"]').tap()
         self.find_element('view[data-eventid="2648"]').tap()
-        self.delay(2)
+        self.delay(10)
 
         self.find_element('view[class="mapnav"]').tap()
         self.get_screenshot()
@@ -342,11 +342,11 @@ class TestNewhouseDetail(TestBase):
         V6.22.X: 1004113 新房楼盘详情页下的位置及周边下的地图  进入周边配套地图，点击页面底部的【咨询】按钮
         """
         self.page.scroll_to(3500, 500)
-        self.delay(4)
+        self.delay(6)
 
         # self.page.get_element('view[class="newHouseTitle-r xfxq_qbhx"][data-eventid="2648"]').tap()
         self.find_element('view[data-eventid="2648"]').tap()
-        self.delay(3)
+        self.delay(10)
 
         self.find_element('view[class="consultEntrance--consultBtn consultEntrance--'
                               'consultBtn2"]').tap()
@@ -370,7 +370,7 @@ class TestNewhouseDetail(TestBase):
         新房详情页，点击价格分析
         """
         self.page.scroll_to(3500, 500)
-        self.delay(4)
+        self.delay(10)
         self.find_element('view[class="newHouseTitle-l"]', inner_text='价格分析').tap()
 
         self.verifyPageName('/page/newhouse/priceAnalyse/priceAnalyse')
