@@ -306,11 +306,13 @@ class Testesfsellfb(TestBase):
         self.delay(3)
         return self
 
-    def set_renzheng(self, zjlx=[2], zjhm='0000000000', cqrxm='赵赵赵', cqrsfzh='111111111111111'):
+    def set_renzheng(self, zjlx=[2], zjhm='0000000000', cqrxm='赵赵赵', cqrsfzh='320520199001021111'):
         self.page.scroll_to(800, 500)
         self.delay(1)
         # 房屋权属信息-去认证
         self.page.get_element('/view[2]/view[5]/view[2]').tap()
+        self.delay(3)
+        self.page.get_element('view[class="reset"]').tap()
         self.delay(3)
         # 证件类型
         self.page.get_element('/view/view[2]').tap()
@@ -331,8 +333,8 @@ class Testesfsellfb(TestBase):
         pyautogui.hotkey('Ctrl', 'V')
         self.delay(5)
         # 产权人身份证号 授权身份后 身份证号码已默认
-        # self.input_value_by_mk(png='esf/cqrsfzh.png', value=cqrsfzh, direction=1)
-        # self.delay(5)
+        self.input_value_by_mk(png='esf/cqrsfzh.png', value=cqrsfzh, direction=1)
+        self.delay(5)
         # 证件照上传
         # 房屋证件
         self.page.get_element('view[class="add-pic"][data-type="house_credit_image"]').tap()
