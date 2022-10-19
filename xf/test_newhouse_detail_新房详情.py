@@ -191,7 +191,7 @@ class TestNewhouseDetail(TestBase):
         self.find_element("view[class='newHouseIconInLi-b']", inner_text="一房一价").tap()
 
         # 到一房一价页面
-        self.delay(5)
+        self.delay(6)
         self.find_element('image[class="consultQuestion--askquestion_icon"]').tap()
         self.get_screenshot()
 
@@ -358,7 +358,7 @@ class TestNewhouseDetail(TestBase):
         V6.22.X: 1004113  新房楼盘详情页下的位置及周边 点击【咨询周边配套及规划】按钮
         """
         self.page.scroll_to(3500, 500)
-        self.delay(4)
+        self.delay(6)
 
         self.find_element("view[class='iwantdpT']", inner_text="咨询周边配套及规划").tap()
 
@@ -381,7 +381,7 @@ class TestNewhouseDetail(TestBase):
         新房详情页，点击开盘记录
         """
         self.page.scroll_to(3500, 500)
-        self.delay(4)
+        self.delay(6)
         self.find_element('view[class="newHouseTitle-l"]', inner_text='开盘记录').tap()
 
         self.verifyPageName('/page/newhouse/historyLp/historyLp')
@@ -392,7 +392,7 @@ class TestNewhouseDetail(TestBase):
         新房详情页，点击楼盘评论楼层的“全部点评”
         """
         self.page.scroll_to(3500, 500)
-        self.delay(4)
+        self.delay(6)
         self.find_element('view[class="more newHouseTitle-r-sj"]', inner_text='全部点评').tap()
 
         self.verifyPageName('/page/taofangquan/lpdp/lpdp')
@@ -403,7 +403,7 @@ class TestNewhouseDetail(TestBase):
         新房详情页，点击楼盘评论楼层的“我要评论”，并且发布评论
         """
         self.page.scroll_to(3500, 500)
-        self.delay(4)
+        self.delay(6)
         self.find_element('view[class="iwantdpT"]', inner_text='我要评论').tap()
 
         self.verifyPageName('/page/taofangquan/writePingjia/writePingjia')
@@ -414,7 +414,7 @@ class TestNewhouseDetail(TestBase):
         新房详情页，点击热门楼盘楼层的第一个楼盘，进新房详情页
         """
         self.page.scroll_to(3500, 500)
-        self.delay(4)
+        self.delay(6)
         self.find_element('image[class="commonNewHouseLi-l-img"]').tap()
 
         self.get_screenshot()
