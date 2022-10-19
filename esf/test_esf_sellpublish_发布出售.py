@@ -9,7 +9,6 @@ class Testesfsellfb(TestBase):
     """
     发布出售
     """
-
     def setUp(self, true=None) -> None:
         # self.page_name = "/esf/village/publish/sell/first/first?infoType=1&city=nj"
         self.page_name = "/esf/village/publish/index/index?publishType=sell&city=nj"
@@ -24,9 +23,9 @@ class Testesfsellfb(TestBase):
         :return:
         """
         self.page.get_element(f'view[class="between houseType"][data-type="1"]').tap()
-        self.delay(3)
+        self.delay(4)
         self.page.get_element('/view[2]/view[2]/view/view/view[2]').tap()
-        self.delay(3)
+        self.delay(4)
         self.page.get_element('input[class="flex_1 input"]').input('自定义')
         self.delay(3)
         # 点击去添加
@@ -273,17 +272,20 @@ class Testesfsellfb(TestBase):
 
     def set_fyts(self):
         # 房源特色
-        self.page.get_element('view[class="feat-item"][data-index="0"]').tap()
-        self.delay(1)
-        self.page.get_element('view[class="feat-item"][data-index="8"]').tap()
-        self.delay(1)
-       # self.page.get_element('view[class="feat-item"][data-index="15"]').tap()
-        self.delay(1)
+        try:
+            self.page.get_element('view[class="feat-item"][data-index="0"]').tap()
+            self.delay(1)
+            self.page.get_element('view[class="feat-item"][data-index="8"]').tap()
+            self.delay(1)
+        except:
+            self.delay(1)
+
         return self
 
     def set_desc(self, fyms='房源描述好房好房好房好房房源描述'):
         # 房源描述
-        self.page.get_element('/view[2]/view[2]/view[7]/text').tap()
+        # self.page.get_element('/view[2]/view[2]/view[7]/text').tap()
+        self.page.get_element('view[class="pr textarea"]').tap()
         self.delay(3)
         pyperclip.copy(fyms)
         self.delay(3)
@@ -310,7 +312,8 @@ class Testesfsellfb(TestBase):
         self.page.scroll_to(800, 500)
         self.delay(1)
         # 房屋权属信息-去认证
-        self.page.get_element('/view[2]/view[5]/view[2]').tap()
+        # self.page.get_element('/view[2]/view[5]/view[2]').tap()
+        self.page.get_element('view[class="arrow"]').tap()
         self.delay(3)
         self.page.get_element('view[class="reset"]').tap()
         self.delay(3)
