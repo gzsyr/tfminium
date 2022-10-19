@@ -356,7 +356,7 @@ class TestTfqPostDetail(TestBase):
         exist = self.page.element_is_exists('image[class="bottom-connect-avatar"]')
         if exist:
             self.page.get_element('image[class="bottom-connect-avatar"]').tap()
-            self.delay(2)
+            self.delay(4)
         else:
             print("本帖子没有配置关联置业顾问，该用例直接pass")
 
