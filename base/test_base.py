@@ -46,6 +46,9 @@ class TestBase(minium.MiniTest):
     fbs_uid = 3403749
     fbs_roleid = 1081
 
+    # 非当前身份的置业顾问手机号（用于直接查看其他置业顾问名片）
+    other_zygw = '15871673313'
+
     @classmethod
     def setUpClass(cls) -> None:
         super(TestBase, cls).setUpClass()
@@ -310,6 +313,15 @@ class TestBase(minium.MiniTest):
         else:
             return 'C端用户'
 
+    def get_phone(self):
+        """
+        获取当前登录用户的手机号
+        """
+        result = self.app.call_wx_method('getStorageSync', 'userInfoNew'). \
+            get('result').get('result')
+        phone = result['passport_phone']
+        return phone
+
     def get_newcity(self):
         """
         获取当前登录用户所在城市
@@ -408,6 +420,19 @@ class TestBase(minium.MiniTest):
             self.get_screenshot('NOfind-'+self._testMethodName)
             raise e
         return ele
+
+    def get_page_name(self):
+        """
+        获取页面路径+参数
+        """
+        path = self.page.path + "?"
+        for k, v in self.page.query.items():
+            if path[-1] != '?':
+                path = path + '&'
+            path = path + k + '='
+            path = path + v
+        print(path)
+        return path
 
     def tearDown(self) -> None:
         self.delay(1)
