@@ -32,6 +32,6 @@ class Testesfgosellfb(TestBase):
 
         # 点击立刻找房
         self.page.get_element('view[class="submit"]', inner_text='立刻找房').tap()
-
+        self.delay(1)
         self.get_screenshot()
         self.delay(3)

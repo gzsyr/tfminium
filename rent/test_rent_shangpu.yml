@@ -1,0 +1,23 @@
+商铺:
+  datatype: '4'
+  xqmc: '测试'
+  spxz: [ 1 ]
+  splx: [ 2 ]
+  louceng: [ 3,3 ]
+  loudong: '4'
+  danyuan: '2'
+  shi: '5'
+  area: '90'
+  price: '3000'
+  zhuanrangfei: '5000'
+  wuyefei: '1.9'
+  zhuangxiu: [2]
+  linjie: [1]
+  title: '测试小区好商铺出租测试勿通过'
+  fyms: '出租房源描述好房好房好房好房房源描述商铺'
+  name: '赵测试商铺'
+  zjlx: [2]
+  zjhm: '0000000000'
+  qqh: '1111111111'
+  cqrxm: '赵赵的商铺'
+  cqrsfzh: '320520199001021111'
