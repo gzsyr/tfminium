@@ -168,7 +168,7 @@ class TestBase(minium.MiniTest):
         #     self.k = PyKeyboard()
         if value is not None:
         #     self.k.type_string(value)
-              pyautogui.write(value)
+            pyautogui.write(value, interval=0.25)
         return self
 
     def verifyByScreenshot(self, png):

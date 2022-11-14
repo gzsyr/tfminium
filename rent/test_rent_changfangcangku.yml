@@ -1,0 +1,43 @@
+厂房仓库:
+  datatype: '5'
+  xqmc: '测试'
+  chaoxiang: [ 2 ]
+  louceng: [ 3,3 ]
+  ckcwloudong: '0'
+  loudong: '4'
+  ckcwdanyuan: '0'
+  danyuan: '2'
+  ckcwshi: '0'
+  shi: '5'
+  area: '90'
+  price: '3000'
+  title: '测试小区好厂房仓库出租测试勿通过'
+  fyms: '出租房源描述好房好房好房好房房源描述厂房仓库'
+  name: '赵厂房仓库'
+  zjlx: [2]
+  zjhm: '0000000000'
+  qqh: '1111111111'
+  cqrxm: '赵赵的厂房仓库'
+  cqrsfzh: '320520199001021111'
+
+车库车位:
+  datatype: '6'
+  xqmc: '测试'
+  chaoxiang: ''
+  louceng: ''
+  ckcwloudong: '1'
+  loudong: '1'
+  ckcwdanyuan: '1'
+  danyuan: '2'
+  ckcwshi: '1'
+  shi: '3'
+  area: '100'
+  price: '5000'
+  title: '测试小区好车库车位出租测试勿通过'
+  fyms: '出租房源描述好房好房好房好房房源描述车库车位'
+  name: '赵车库车位'
+  zjlx: [2]
+  zjhm: '0000000000'
+  qqh: '1111111111'
+  cqrxm: '赵赵的车库车位'
+  cqrsfzh: '320520199001021111'

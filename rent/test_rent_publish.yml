@@ -1,4 +1,5 @@
-N1:
+住宅:
+  datatype: '1'
   xqmc: '测试'
   huxing: [ 1,2,5 ]
   chaoxiang: [ 2 ]
@@ -9,7 +10,7 @@ N1:
   zhuangxiu: [2]
   area: '90'
   price: '3000'
-  title: '测试小区好房出租'
+  title: '测试小区好房出租测试勿通过'
   fyms: '出租房源描述好房好房好房好房房源描述'
   heyanma: 'NJZ220929123456'
   kanfangtime: [ 2 ]
@@ -18,5 +19,29 @@ N1:
   zjlx: [2]
   zjhm: '0000000000'
   qqh: '1111111111'
-  cqrxm: '赵赵'
-  cqrsfzh: '111111111111111'
+  cqrxm: '赵赵的住宅'
+  cqrsfzh: '320520199001021111'
+
+别墅:
+  datatype: '2'
+  xqmc: '花语'
+  huxing: [ 1,2,5 ]
+  chaoxiang: [ 2 ]
+  louceng: [ 3,3 ]
+  loudong: '4'
+  danyuan: '2'
+  shi: '5'
+  zhuangxiu: [2]
+  area: '90'
+  price: '3000'
+  title: '别墅别墅好房出租测试勿通过'
+  fyms: '出租房源描述好房好房好房好房房源描述'
+  heyanma: 'NJZ220929123456'
+  kanfangtime: [ 2 ]
+  ruzhutime: [ 1,2,3 ]
+  name: '赵测试'
+  zjlx: [2]
+  zjhm: '0000000000'
+  qqh: '1111111111'
+  cqrxm: '赵赵的别墅'
+  cqrsfzh: '320520199001021111'

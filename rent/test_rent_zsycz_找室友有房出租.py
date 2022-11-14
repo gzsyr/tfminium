@@ -12,9 +12,7 @@ class Testrentzsycz(TestBase):
 
     def setUp(self, true=None) -> None:
         self.page_name = "/esf/village/publish/roommate/step_1?city=nj"
-
         # self.page_name = "/esf/village/publish/roommate/roommateType&city=nj"
-
         self.switch = true
         self.classname = self.__class__.__name__
         super(Testrentzsycz, self).setUp()
@@ -175,6 +173,7 @@ class Testrentzsycz(TestBase):
         # 室友性别
         self.page.get_element('view[class="center option"][data-id="2"]', inner_text='限女生').tap()
         self.delay(3)
+        return self
 
     def set_roomexpect(self):
         # 室友期望
@@ -186,6 +185,7 @@ class Testrentzsycz(TestBase):
         self.delay(2)
         self.page.get_element('view[class="center option"][data-id="6"]', inner_text='爱干净').tap()
         self.delay(2)
+        return self
 
     def set_fwld(self):
         # 房屋亮点
@@ -197,11 +197,13 @@ class Testrentzsycz(TestBase):
         self.delay(2)
         self.page.get_element('view[class="center option"][data-id="7"]', inner_text='可短租').tap()
         self.delay(2)
+        return self
 
     def set_xiayibu(self):
         # 下一步
         self.page.get_element('//resetconfirm/view/view/view[2]').tap()
         self.delay(3)
+        return self
 
     def set_jiaju(self):
         # self.set_xiayibu()
@@ -211,6 +213,7 @@ class Testrentzsycz(TestBase):
         self.delay(3)
         self.page.get_element('view[class="center option"][data-id="2"]', inner_text='衣柜').tap()
         self.delay(3)
+        return self
 
     def set_jiadian(self):
         # self.set_xiayibu()
@@ -222,6 +225,7 @@ class Testrentzsycz(TestBase):
         self.delay(3)
         self.page.get_element('view[class="center option"][data-id="13"]', inner_text='微波炉').tap()
         self.delay(3)
+        return self
 
     def set_qita(self):
         # self.set_xiayibu()
@@ -231,6 +235,7 @@ class Testrentzsycz(TestBase):
         self.delay(3)
         self.page.get_element('view[class="center option"][data-id="16"]', inner_text='独立卫生间').tap()
         self.delay(3)
+        return self
 
     def set_desc(self, fyms= '找室友房源描述好房好房好房好房房源描述'):
         # self.set_xiayibu()
@@ -257,6 +262,7 @@ class Testrentzsycz(TestBase):
         self.delay(3)
         self.page.get_element('view[class="center identity"][data-id="1"]').tap()
         self.delay(3)
+        return self
 
     def set_name(self, name='赵赵赵测试'):
         # self.set_xiayibu()
@@ -277,6 +283,7 @@ class Testrentzsycz(TestBase):
         # 点击我已阅读并同意
         self.page.get_element('view[class="center checkTap"]').tap()
         self.delay(3)
+        return self
 
         # 确认发布
         self.page.get_element('view[class="resetConfirm--flex_1 resetConfirm--center resetConfirm--confirm"]').tap()
