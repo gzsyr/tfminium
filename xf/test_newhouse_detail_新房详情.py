@@ -14,7 +14,36 @@ class TestNewhouseDetail(TestBase):
         super(TestNewhouseDetail, self).setUp()
         self.delay(2)
 
-    # 以下是登录的所有用例
+    def test_goto_hotim_点击热门咨询(self):
+        """
+        V6.23.X: 点击“热门咨询”模块提问
+        """
+        self.page.scroll_to(2500, 500)
+        self.delay(4)
+
+        ele = self.find_element('view[class="hotConsult_content flex tfAlignC mb20"]')
+
+        question = ele.attribute('data-question')
+        ele.tap()
+
+        self.delay(4)
+        self.verifyPageName('/im/pages/chating/chating')
+        imquestion = self.find_elements('view[class="record-chatting-item self"]')[-1].inner_wxml
+        self.verifyContainsStr(question[0], imquestion)
+        self.get_screenshot()
+
+    def test_goto_xxxx_map_详细信息地图(self):
+        """
+        V6.23.X: 详细信息-楼盘区属点击“地图找房”
+        """
+        self.page.scroll_to(2500, 500)
+        self.delay(4)
+
+        self.find_element('view[class="newHouseXxxxLimap_icon"]').tap()
+
+        self.verifyPageName('/page/newhouse/mapzf/mapzf')
+        self.get_screenshot()
+
     def test_check_baoming_优惠活动一(self):
         """
         V6.19.x: 第一个优惠活动的立即报名按钮
