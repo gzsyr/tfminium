@@ -4,8 +4,11 @@
   huxing: [ 1,2,5 ]
   chaoxiang: [ 2 ]
   louceng: [ 3,3 ]
+  ckcwloudong: '0'
   loudong: '4'
+  ckcwdanyuan: '0'
   danyuan: '2'
+  ckcwshi: '0'
   shi: '5'
   zhuangxiu: [2]
   area: '90'
@@ -28,8 +31,11 @@
   huxing: [ 1,2,5 ]
   chaoxiang: [ 2 ]
   louceng: [ 3,3 ]
+  ckcwloudong: '0'
   loudong: '4'
+  ckcwdanyuan: '0'
   danyuan: '2'
+  ckcwshi: '0'
   shi: '5'
   zhuangxiu: [2]
   area: '90'
