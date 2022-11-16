@@ -290,3 +290,21 @@ class TestEsfMypublish(TestBase):
         self.page.get_element('view[data-id="4"]', inner_text='求租').tap()
         self.delay(1)
         self.page.get_element('view[class="pf center flex_column float"]').tap()
+
+    def test_18_click_esf_点击出售列表查看原因(self):
+        """
+        点击出售列表-点击查看原因（审核不通过）
+        :return:
+        """
+        self.page.get_element('view[data-id="1"]', inner_text='出售').tap()
+        self.delay(1)
+        yuanyin = self.page.element_is_exists('view[class="center button"]', inner_text='查看原因')
+        if yuanyin == True:
+            result = {"confirm": True}
+            self.app.mock_wx_method("showModal", result=result)
+            e = self.page.get_element('view[class="center button"]', inner_text='查看原因')
+            e.tap()
+            self.app.restore_wx_method("showModal")
+            self.delay(1)
+        else:
+            print('没有审核不通过的房源')
