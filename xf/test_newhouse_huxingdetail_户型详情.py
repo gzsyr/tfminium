@@ -1,0 +1,72 @@
+# -*-coding:utf-8-*-
+from base.test_base import TestBase
+
+
+class TestNewhouseHuxingDetail(TestBase):
+    """
+    户型详情页(苏宁测试11）
+    """
+    def setUp(self) -> None:
+        self.page_name = '/page/newhouse/hx/hxdetail?picid=3127301&pinyin=sjcs1&city=qz'
+        self.switch = False
+        self.classname = self.__class__.__name__
+        super(TestNewhouseHuxingDetail, self).setUp()
+
+    def test_001_click_zygw_more_置业顾问更多(self):
+        """
+        V6.23.X: -置业顾问楼层，点击“查看更多”
+        """
+        self.find_element('view[class="newHouseTitle-r-sj"]').tap()
+
+        self.verifyPageName('/page/newhouse/zygw/list')
+        self.get_screenshot()
+
+    def test_002_click_zygw_im_置业顾问咨询(self):
+        """
+        V6.23.X: 置业顾问楼层，点击IM按钮
+        """
+        self.find_element('button[class="zyList_li_r_im"]').tap()
+
+        self.delay(4)
+        self.get_screenshot()
+
+    def test_003_goto_zygw_进置业顾问名片(self):
+        """
+        V6.23.X: 置业顾问楼层，点击置业顾问头像，进置业顾问名片页
+        """
+        self.find_element('image[class="zyList_li_l-img"]').tap()
+
+        self.verifyPageName('/page/newhouse/zygw/detail')
+        self.get_screenshot()
+
+    def test_004_click_申请入驻(self):
+        """
+        V6.23.X: 置业顾问楼层，点击“申请入驻”
+        """
+        self.find_element('navigator[class="notification"]').tap()
+
+        self.verifyPageName('/page/index/mine')
+        self.get_screenshot()
+
+    def test_005_hotim_热门咨询(self):
+        """
+        V6.23.X: 点击热门咨询模块提问
+        """
+        ele = self.find_element('view[class="hotConsult_content flex tfAlignC mb20"]')
+
+        question = ele.attribute('data-question')
+        ele.tap()
+
+        self.delay(4)
+        self.verifyPageName('/im/pages/chating/chating')
+        imquestion = self.find_elements('view[class="record-chatting-item self"]')[-1].inner_wxml
+        self.verifyContainsStr(question[0], imquestion)
+        self.get_screenshot()
+
+    def test_010_click_zygw_call_置业顾问电话(self):
+        """
+        V6.23.X: 置业顾问楼层，点击电话
+        """
+        self.find_element('button[class="zyList_li_r_tel"]').tap()
+
+        self.get_screenshot()

@@ -20,6 +20,27 @@ class TestFuncBnzf(TestBase):
         self.classname = self.__class__.__name__
         super(TestFuncBnzf, self).setUp()
 
+    def test_06_wait_click_im_咨询房博士(self):
+        """
+        V6.23.X: 进入页面5S后展示咨询入口, 点击咨询按钮
+        """
+        self.delay(5)
+
+        self.find_element('view[class="consult_btn"]').tap()
+        self.delay(4)
+        self.get_screenshot()
+
+    def test_07_result_click_im_结果页咨询房博士(self):
+        """
+        V6.23.X: 找房结果页面，进入页面5S后展示咨询入口、点击咨询按钮
+        """
+        self.page.get_element('button[class="find bnzf_yjzf"]').tap()
+        self.delay(8)
+
+        self.find_element('view[class="consult_btn"]').tap()
+        self.delay(4)
+        self.get_screenshot()
+
     @file_data('./test_func_bnzf_01_xf.yml')
     def test_02_click_bnzf_xf_新房一键找房(self, **kwargs):
         """
@@ -99,7 +120,8 @@ class TestFuncBnzf(TestBase):
 
     def test_05_click_callim_IM咨询(self):
         """
-        点击一键找房，点击在线咨询，点击输入框，输入测试，点击发送，点击语音按钮，长按语音输入5s，再点击语音按钮，点击+按钮，点击历史消息
+        点击一键找房，点击在线咨询
+        # ，点击输入框，输入测试，点击发送，点击语音按钮，长按语音输入5s，再点击语音按钮，点击+按钮，点击历史消息
         """
         self.page.get_element('button[class="find bnzf_yjzf"]').tap()
         self.delay(2)
@@ -130,7 +152,7 @@ class TestFuncBnzf(TestBase):
         # self.page.get_element('text[class="chating-history-left"]').tap()
         # self.delay(1)
 
-    def test_06_click_callphone_拨打电话(self):
+    def test_10_click_callphone_拨打电话(self):
         """
         点击一键找房，点击拨打电话
         :return:

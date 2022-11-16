@@ -13,8 +13,12 @@ class TestFuncJsq(TestBase):
     """
     房贷计算器页
     """
+    result_page = None
     def setUp(self) -> None:
-        self.page_name = '/page/tools/fdjsq/sd/index?city=qz'
+        if self.result_page is None:
+            self.page_name = '/page/tools/fdjsq/sd/index?city=qz'
+        else:
+            self.page_name = self.result_page
         self.switch = False
         self.classname = self.__class__.__name__
         super(TestFuncJsq, self).setUp()
@@ -235,6 +239,25 @@ class TestFuncJsq(TestBase):
         self.verifyContainsStr(kwargs['gjjbjret'], self.page.get_elements('view[class="monthly-num-black pl30"]')[1].inner_text,
                                'result ok')
         self.get_screenshot()
+
+        TestFuncJsq.result_page = self.get_page_name()
+
+    def test_09_result_im_结果页咨询(self):
+        """
+        V6.23.X: 房贷计算器结果页面，热门咨询模块, 点击“咨询”按钮
+        """
+        ele = self.find_element('view[class="hotConsult_content flex tfAlignC mb20"]')
+
+        question = ele.attribute('data-question')
+        ele.tap()
+
+        self.delay(5)
+        self.verifyPageName('/im/pages/chating/chating')
+        imquestion = self.find_elements('view[class="record-chatting-item self"]')[-1].inner_wxml
+        self.verifyContainsStr(question[0], imquestion)
+        self.get_screenshot()
+
+        TestFuncJsq.result_page = None
 
     # 以下是页面相关元素的点击
     def click_gjjtab(self):

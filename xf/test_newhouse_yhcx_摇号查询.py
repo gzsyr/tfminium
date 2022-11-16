@@ -66,3 +66,17 @@ class TestNewhouseYhcx(TestBase):
             self.verifyContainsStr(kw, self.page.get_element('view[class="disflex-flexgrow-1"]').inner_wxml, f'摇号结果 最终结果 {kw}ok')
         self.get_screenshot()
 
+    def test_05_hotim_热门咨询(self):
+        """
+        V6.23.V: 热门咨询模块，点击提问
+        """
+        ele = self.find_element('view[class="scrollitem"]')
+
+        question = ele.attribute('data-question')
+        ele.tap()
+
+        self.delay(4)
+        self.verifyPageName('/im/pages/chating/chating')
+        imquestion = self.find_elements('view[class="record-chatting-item self"]')[-1].inner_wxml
+        self.verifyContainsStr(question[0], imquestion)
+        self.get_screenshot()
