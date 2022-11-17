@@ -172,10 +172,10 @@ class ZufangContent(TestBase):
         self.page.scroll_to(800, 500)
         self.delay(1)
         self.page.get_element('view[class="between infoItem"][data-picker="3"]').tap()
-        self.delay(5)
+        self.delay(3)
         e = self.page.get_element('picker-view')
         e.trigger("change", {"value": zhuangxiu})
-        self.delay(5)
+        self.delay(3)
         self.page.get_element('view[class="selector--center selector--confirm"]').tap()
         return self
 
@@ -271,6 +271,18 @@ class ZufangContent(TestBase):
         e.trigger("change", {"value": kefenge})
         self.delay(2)
         self.page.get_element('view[class="selector--center selector--confirm"]').tap()
+
+    def set_linjie(self, linjie=[1]):
+        # 临街
+        self.page.scroll_to(800, 500)
+        self.delay(1)
+        self.page.get_element('view[class="between infoItem"][data-picker="14"]').tap()
+        self.delay(5)
+        e = self.page.get_element('picker-view')
+        e.trigger("change", {"value": linjie})
+        self.delay(5)
+        self.page.get_element('view[class="selector--center selector--confirm"]').tap()
+        return self
 
     def set_xiayibu(self):
         # 下一步

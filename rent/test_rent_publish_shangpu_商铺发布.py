@@ -49,11 +49,11 @@ class Testrentshangpu(ZufangContent):
         # 楼层
         self.set_louceng(kwargs['louceng'])
         # 楼栋号
-        self.set_loudonghao(kwargs['loudong'])
+        self.set_loudonghao(kwargs['loudong'], ckcwloudong=kwargs['ckcwloudong'])
         # 单元号
-        self.set_danyuan(kwargs['danyuan'])
+        self.set_danyuan(kwargs['danyuan'], ckcwdanyuan=kwargs['ckcwdanyuan'])
         # 室号
-        self.set_shihao(kwargs['shi'])
+        self.set_shihao(kwargs['shi'], ckcwshi=kwargs['ckcwshi'])
         # 面积
         self.set_area(kwargs['area'])
         # 租金
