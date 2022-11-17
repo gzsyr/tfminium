@@ -24,6 +24,14 @@ class TestCenterZygw(TestMine):
         self.classname = self.__class__.__name__
         super(TestCenterZygw, self).setUp()
 
+    def test_15_去视频号(self):
+        """
+        V6.24.X: 点击更多服务下视频号入口的【去观看】
+        """
+        self.find_element('view[class="toVideo"]').tap()
+
+        self.get_screenshot()
+
     def test_01_click_huoyuedu_活跃度(self):
         """
         置业顾问个人中心页面，点击活跃度
