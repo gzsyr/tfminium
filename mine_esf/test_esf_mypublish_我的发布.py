@@ -34,7 +34,8 @@ class TestEsfMypublish(TestBase):
         self.delay(1)
         list = self.page.get_elements('view[class="flex flex_wrap item"]')
         list[0].tap()
-        self.delay(1)
+        self.delay(3)
+        self.get_screenshot()
 
     def test_03_click_esf_点击出售列表修改(self):
         """
@@ -58,6 +59,8 @@ class TestEsfMypublish(TestBase):
             self.page.get_element('view[class="unchecked"]').tap()
             self.delay(2)
             self.page.get_element('view[class="confirm"]', inner_text='确认发布').tap()
+            self.delay(3)
+            self.get_screenshot()
         else:
             print('没有显示中的房源')
 
@@ -78,6 +81,8 @@ class TestEsfMypublish(TestBase):
             e.trigger("change", {"value": xiaojia})
             self.delay(3)
             self.page.get_element('view[class="class="confirm"]', inner_text='确定').tap()
+            self.delay(3)
+            self.get_screenshot()
         else:
             print('没有显示中的房源')
 
@@ -94,8 +99,9 @@ class TestEsfMypublish(TestBase):
             self.app.mock_wx_method("showModal", result=result)
             e = self.page.get_element('view[class="center button"]', inner_text='重新发布')
             e.tap()
-            self.delay(3)
             self.app.restore_wx_method("showModal")
+            self.delay(3)
+            self.get_screenshot()
         else:
             print('没有个人下架的房源')
 
@@ -114,8 +120,9 @@ class TestEsfMypublish(TestBase):
             self.app.mock_wx_method("showModal", result=result)
             e = self.page.get_element('view[class="center button"]', inner_text='删除')
             e.tap()
-            self.delay(3)
             self.app.restore_wx_method("showModal")
+            self.delay(3)
+            self.get_screenshot()
         else:
             print('没有个人下架的房源')
 
@@ -127,6 +134,8 @@ class TestEsfMypublish(TestBase):
         self.page.get_element('view[data-id="1"]', inner_text='出售').tap()
         self.delay(1)
         self.page.get_element('view[class="pf center flex_column float"]').tap()
+        self.delay(3)
+        self.get_screenshot()
 
     # 出租
     def test_08_click_rent_点击出租列表进入详情(self):
@@ -138,7 +147,8 @@ class TestEsfMypublish(TestBase):
         self.delay(1)
         list = self.page.get_elements('view[class="flex flex_wrap item"]')
         list[0].tap()
-        self.delay(1)
+        self.delay(3)
+        self.get_screenshot()
 
     def test_09_click_rent_点击出租列表修改(self):
         """
@@ -167,6 +177,8 @@ class TestEsfMypublish(TestBase):
             self.page.get_element('view[class="check"]').tap()
             self.delay(2)
             self.page.get_element('view[flex_1 center confirm]', inner_text='确认发布').tap()
+            self.delay(3)
+            self.get_screenshot()
         else:
             print('没有显示中的房源')
 
@@ -187,6 +199,8 @@ class TestEsfMypublish(TestBase):
             e.trigger("change", {"value": xiaojia})
             self.delay(3)
             self.page.get_element('view[class="class="confirm"]', inner_text='确定').tap()
+            self.delay(3)
+            self.get_screenshot()
         else:
             print('没有显示中的房源')
 
@@ -203,8 +217,9 @@ class TestEsfMypublish(TestBase):
             self.app.mock_wx_method("showModal", result=result)
             e = self.page.get_element('view[class="center button"]', inner_text='重新发布')
             e.tap()
-            self.delay(3)
             self.app.restore_wx_method("showModal")
+            self.delay(3)
+            self.get_screenshot()
         else:
             print('没有个人下架的房源')
 
@@ -223,8 +238,9 @@ class TestEsfMypublish(TestBase):
             self.app.mock_wx_method("showModal", result=result)
             e = self.page.get_element('view[class="center button"]', inner_text='删除')
             e.tap()
-            self.delay(3)
             self.app.restore_wx_method("showModal")
+            self.delay(3)
+            self.get_screenshot()
         else:
             print('没有个人下架的房源')
 
@@ -236,6 +252,8 @@ class TestEsfMypublish(TestBase):
         self.page.get_element('view[data-id="2"]', inner_text='出租').tap()
         self.delay(1)
         self.page.get_element('view[class="pf center flex_column float"]').tap()
+        self.delay(3)
+        self.get_screenshot()
 
     # 求购
     def test_14_click_esf_点击求购列表删除(self):
@@ -251,7 +269,8 @@ class TestEsfMypublish(TestBase):
             self.app.mock_wx_method("showModal", result=result)
             self.page.get_element('view[class="center del"]').tap()
             self.app.restore_wx_method("showModal")
-            self.delay(1)
+            self.delay(3)
+            self.get_screenshot()
         else:
             print('没有审核通过的房源')
 
@@ -263,6 +282,8 @@ class TestEsfMypublish(TestBase):
         self.page.get_element('view[data-id="3"]', inner_text='求购').tap()
         self.delay(1)
         self.page.get_element('view[class="pf center flex_column float"]').tap()
+        self.delay(3)
+        self.get_screenshot()
 
     # 求租
     def test_16_click_rent_点击求租列表删除(self):
@@ -278,7 +299,8 @@ class TestEsfMypublish(TestBase):
             self.app.mock_wx_method("showModal", result=result)
             self.page.get_element('view[class="center del"]').tap()
             self.app.restore_wx_method("showModal")
-            self.delay(1)
+            self.delay(3)
+            self.get_screenshot()
         else:
             print('没有房源')
 
@@ -290,6 +312,8 @@ class TestEsfMypublish(TestBase):
         self.page.get_element('view[data-id="4"]', inner_text='求租').tap()
         self.delay(1)
         self.page.get_element('view[class="pf center flex_column float"]').tap()
+        self.delay(3)
+        self.get_screenshot()
 
     def test_18_click_esf_点击出售列表查看原因(self):
         """
@@ -305,6 +329,7 @@ class TestEsfMypublish(TestBase):
             e = self.page.get_element('view[class="center button"]', inner_text='查看原因')
             e.tap()
             self.app.restore_wx_method("showModal")
-            self.delay(1)
+            self.delay(3)
+            self.get_screenshot()
         else:
             print('没有审核不通过的房源')
