@@ -38,6 +38,9 @@ class TestBase(minium.MiniTest):
     huatiid = 11536 # online
     # huatiid = 3393 # dev
 
+    # 楼盘投票id
+    lptoupiaoid = 3724
+
     # 圈子的id
     quanzi = 751  # online
     # quanzi = 430  # dev
@@ -61,7 +64,8 @@ class TestBase(minium.MiniTest):
         """
         super(TestBase, self).setUp()
         if self.switch:
-            self.app.switch_tab(self.page_name)
+            if self.page.path != self.page_name.split("?")[0]:
+                self.app.switch_tab(self.page_name)
         else:
             # self.app.navigate_to(self.page_name)
             rp = self.app.relaunch(self.page_name)
