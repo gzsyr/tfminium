@@ -85,7 +85,8 @@ class TestTfqPostDetail(TestBase):
         :return:
         """
         # e = self.page.get_element('view[class="toutiao-swiper-item tfLine1"]')
-        self.page.get_element('swiper-item[id="ontieziDetail"]').tap()
+        self.page.scroll_to(500, 500)
+        self.find_element('swiper-item[id="ontieziDetail"]').tap()
 
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
@@ -411,7 +412,8 @@ class TestTfqPostDetail(TestBase):
         """
         帖子详情页，点击最新热帖的，“更多”按钮\
         """
-        self.page.get_element('view[id="goTieZiList"]').tap()
+        self.page.scroll_to(500, 500)
+        self.find_element('view[id="goTieZiList"]').tap()
 
         self.verifyPageName('/page/taofangquan/tieziList/tieziList')
         self.get_screenshot()
