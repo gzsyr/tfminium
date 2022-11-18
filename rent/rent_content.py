@@ -20,6 +20,7 @@ class ZufangContent(TestBase):
 
         self.delay(3)
         self.page.get_element('view[class="center noMorePics"]').tap()
+        self.delay(3)
         return self
 
     def set_xqmc(self, xqmc='测试'):

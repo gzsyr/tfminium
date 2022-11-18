@@ -32,12 +32,11 @@ class TestrentMyzsy(TestBase):
         self.page.get_element('view[data-id="1"]', inner_text='我的发布').tap()
         self.delay(2)
         # 上架
-        shangjia = self.page.element_is_exists('view[class="class="center operation"]', inner_text='上架')
-        if shangjia == True:
+        try:
             self.page.get_element('view[class="center operation"]', inner_text='上架').tap()
             self.delay(1)
             self.get_screenshot()
-        else:
+        except:
             print('没有失效房源')
 
     def test_03_click_xq_我的发布显示中点击进入详情(self):
@@ -48,12 +47,11 @@ class TestrentMyzsy(TestBase):
         self.page.get_element('view[data-id="1"]', inner_text='我的发布').tap()
         self.delay(2)
         # 进入房源详情页
-        xq = self.page.element_is_exists('view[class="houseInfo"][data-status="1"]')
-        if xq == True:
+        try:
             self.page.get_element('view[class="houseInfo"][data-status="1"]').tap()
             self.delay(1)
             self.get_screenshot()
-        else:
+        except:
             print('没有显示中的房源')
 
     def test_04_click_xiajia_我的发布显示中点击下架(self):
@@ -64,15 +62,14 @@ class TestrentMyzsy(TestBase):
         self.page.get_element('view[data-id="1"]', inner_text='我的发布').tap()
         self.delay(2)
         # 下架
-        xiajia = self.page.element_is_exists('view[class="center operation"]', inner_text='下架')
-        if xiajia == True:
+        try:
             result = {"confirm": True}
             self.app.mock_wx_method("showModal", result=result)
             self.page.get_element('view[class="center operation"]', inner_text='下架').tap()
             self.app.restore_wx_method("showModal")
             self.delay(1)
             self.get_screenshot()
-        else:
+        except:
             print('没有显示中的房源')
 
     def test_05_click_xiugai_我的发布显示中点击修改(self):
@@ -83,8 +80,7 @@ class TestrentMyzsy(TestBase):
         self.page.get_element('view[data-id="1"]', inner_text='我的发布').tap()
         self.delay(2)
         # 修改
-        xiugai = self.page.element_is_exists('view[class="center operation"]', inner_text='修改')
-        if xiugai == True:
+        try:
             self.page.get_element('view[class="center operation"]', inner_text='修改').tap()
             self.delay(1)
             self.page.get_element('view[class="center option"]', inner_text='有阳台').tap()
@@ -92,7 +88,7 @@ class TestrentMyzsy(TestBase):
             self.page.get_element('//resetConfirm/view/view/view[2]').tap()
             self.delay(1)
             self.get_screenshot()
-        else:
+        except:
             print('没有显示中的房源')
 
     def test_06_click_yy_我的发布审核不通过点击原因(self):
@@ -103,15 +99,14 @@ class TestrentMyzsy(TestBase):
         self.page.get_element('view[data-id="1"]', inner_text='我的发布').tap()
         self.delay(2)
         # 查看原因
-        yy = self.page.element_is_exists('view[class="center operation"]', inner_text='查看原因')
-        if yy == True:
+        try:
             result = {"confirm": True}
             self.app.mock_wx_method("showModal", result=result)
             self.page.get_element('view[class="center operation"]', inner_text='查看原因').tap()
             self.app.restore_wx_method("showModal")
             self.delay(1)
             self.get_screenshot()
-        else:
+        except:
             print('没有审核不通过的房源')
 
     def test_07_click_tel_我的发布审核中点击电话(self):
@@ -122,15 +117,14 @@ class TestrentMyzsy(TestBase):
         self.page.get_element('view[data-id="1"]', inner_text='我的发布').tap()
         self.delay(2)
         # 点击电话
-        yy = self.page.element_is_exists('view[class="center operation"]', inner_text='电话咨询')
-        if yy == True:
+        try:
             result = {"confirm": True}
             self.app.mock_wx_method("showModal", result=result)
             self.page.get_element('view[class="center operation"]', inner_text='电话咨询').tap()
             self.app.restore_wx_method("showModal")
-            self.delay(1)
+            self.delay(2)
             self.get_screenshot()
-        else:
+        except:
             print('没有审核中的房源')
 
     def test_08_click_del_我的发布列表点删除(self):
@@ -141,10 +135,12 @@ class TestrentMyzsy(TestBase):
         self.page.get_element('view[data-id="1"]', inner_text='我的发布').tap()
         self.delay(2)
         # 点击删除
-        dels = self.page.get_elements('view[class="houseInfo"]')
+        dels = self.page.get_elements('view[class="item"]')
+        self.delay(1)
         if len(dels) > 0:
             result = {"confirm": True}
             self.app.mock_wx_method("showModal", result=result)
+            self.delay(1)
             self.page.get_element('view[class="center operation"]', inner_text='删除').tap()
             self.app.restore_wx_method("showModal")
             self.delay(1)
@@ -195,14 +191,16 @@ class TestrentMyzsy(TestBase):
         self.page.get_element('view[data-id="2"]', inner_text='我的收藏').tap()
         self.delay(2)
         # 点击一键清除失效房源
-        cl = self.page.element_is_exists('view[class="center clearAllInvalidBtn"]')
-        self.delay(1)
-        if cl == True:
+        try:
+            result = {"confirm": True}
+            self.app.mock_wx_method("showModal", result=result)
+            self.delay(1)
             e = self.page.get_element('view[class="center clearAllInvalidBtn"]')
             e.tap()
-            self.delay(1)
+            self.app.restore_wx_method("showModal")
+            self.delay(3)
             self.get_screenshot()
-        else:
+        except:
             print('没有房源')
 
     # 我的浏览
@@ -248,12 +246,14 @@ class TestrentMyzsy(TestBase):
         self.page.get_element('view[data-id="3"]', inner_text='我的浏览').tap()
         self.delay(2)
         # 点击一键清除失效房源
-        cl = self.page.element_is_exists('view[class="center clearAllInvalidBtn"]')
-        self.delay(1)
-        if cl == True:
+        try:
+            result = {"confirm": True}
+            self.app.mock_wx_method("showModal", result=result)
+            self.delay(1)
             e = self.page.get_element('view[class="center clearAllInvalidBtn"]')
             e.tap()
-            self.delay(1)
+            self.app.restore_wx_method("showModal")
+            self.delay(3)
             self.get_screenshot()
-        else:
+        except:
             print('没有房源')
