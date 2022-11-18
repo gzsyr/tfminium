@@ -25,6 +25,8 @@ class Testrentzsycz(TestBase):
         :param kwargs:
         :return:
         """
+        # 重置
+        self.set_result()
         # 上传图片
         self.set_img()
         # 标题
@@ -64,7 +66,7 @@ class Testrentzsycz(TestBase):
         # 发布
         self.set_fabu()
         # 个人中心
-        self.set_grzx()
+        # self.set_grzx()
 
     def set_img(self):
         # 上传图片
@@ -183,8 +185,6 @@ class Testrentzsycz(TestBase):
         self.delay(2)
         self.page.get_element('view[class="center option"][data-id="3"]', inner_text='不养宠物').tap()
         self.delay(2)
-        self.page.get_element('view[class="center option"][data-id="6"]', inner_text='爱干净').tap()
-        self.delay(2)
         return self
 
     def set_fwld(self):
@@ -195,8 +195,6 @@ class Testrentzsycz(TestBase):
         self.delay(2)
         self.page.get_element('view[class="center option"][data-id="5"]', inner_text='拎包入住').tap()
         self.delay(2)
-        self.page.get_element('view[class="center option"][data-id="7"]', inner_text='可短租').tap()
-        self.delay(2)
         return self
 
     def set_xiayibu(self):
@@ -206,7 +204,7 @@ class Testrentzsycz(TestBase):
         return self
 
     def set_jiaju(self):
-        # self.set_xiayibu()
+        self.set_result()
         # 家具
         self.delay(3)
         self.page.get_element('view[class="center option"][data-id="1"]', inner_text='床').tap()
@@ -222,8 +220,6 @@ class Testrentzsycz(TestBase):
         self.page.get_element('view[class="center option"][data-id="7"]', inner_text='洗衣机').tap()
         self.delay(3)
         self.page.get_element('view[class="center option"][data-id="9"]', inner_text='热水器').tap()
-        self.delay(3)
-        self.page.get_element('view[class="center option"][data-id="13"]', inner_text='微波炉').tap()
         self.delay(3)
         return self
 
@@ -283,8 +279,6 @@ class Testrentzsycz(TestBase):
         # 点击我已阅读并同意
         self.page.get_element('view[class="center checkTap"]').tap()
         self.delay(3)
-        return self
-
         # 确认发布
         self.page.get_element('view[class="resetConfirm--flex_1 resetConfirm--center resetConfirm--confirm"]').tap()
         self.delay(3)
@@ -293,5 +287,14 @@ class Testrentzsycz(TestBase):
     def set_grzx(self):
         #个人中心
         self.page.get_element('//view[@class="success"]/view[3]/text[2]').tap()
+        self.delay(3)
+        return self
+
+    def set_result(self):
+        # 重置
+        result = {"confirm": True}
+        self.app.mock_wx_method("showModal", result=result)
+        self.page.get_element('//resetconfirm/view/view/view').tap()
+        self.app.restore_wx_method("showModal")
         self.delay(3)
         return self
