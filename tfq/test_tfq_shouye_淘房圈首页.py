@@ -129,7 +129,7 @@ class TestTfqShouYe(TestBase):
         """
         淘房圈首页，点击最新热帖更多
         """
-        self.page.get_element('view[class="tfq--toutiao_more"]').tap()
+        self.find_element('view[class="tfq--toutiao_more"]').tap()
 
         self.verifyPageName('/page/taofangquan/tieziList/tieziList')
         self.get_screenshot()
@@ -138,7 +138,7 @@ class TestTfqShouYe(TestBase):
         """
         淘房圈首页，点击最新热帖第一条
         """
-        self.page.get_element('view[class="tfq--toutiao-swiper-cont"]').tap()
+        self.find_element('view[class="tfq--toutiao-swiper-cont"]').tap()
 
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()

@@ -106,7 +106,7 @@ class TestXfMap(TestBase):
 
     def test_04_xf_map_filter_change_设筛选来回切换(self):
         """
-        V6.24.X:
+        V6.24.X: 筛选项来回切换
         """
         kw = {'price': '30000-35000元/㎡'}
         self.set_filter(kw)
@@ -171,7 +171,7 @@ class TestXfMap(TestBase):
     @file_data('./test_xf_map_sx.yml')
     def test_02_xf_map_sx_地图筛选(self, **kwargs):
         """
-        V6.24.X: 更新，地图找房页面，通过筛选项筛选地图数据(先清空筛选项)
+        V6.24.X: 更新，地图找房页面，通过筛选项筛选地图数据
         """
         self.set_filter(kwargs)
 

@@ -442,7 +442,7 @@ class TestNewhouseDetail(TestBase):
         """
         新房详情页，点击热门楼盘楼层的第一个楼盘，进新房详情页
         """
-        self.page.scroll_to(3500, 500)
+        self.page.scroll_to(6500, 500)
         self.delay(6)
         self.find_element('image[class="commonNewHouseLi-l-img"]').tap()
 
