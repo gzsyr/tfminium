@@ -39,7 +39,7 @@ class TestBase(minium.MiniTest):
     # huatiid = 3393 # dev
 
     # 楼盘投票id
-    lptoupiaoid = 3724
+    lptoupiaoid = 29451
 
     # 圈子的id
     quanzi = 751  # online

@@ -18,13 +18,12 @@ class TestTfqLoupanDetail(TestBase):
         """
         V6.24.X: 进入帖子详情页，点击一个楼盘
         """
-        self.find_element('view[class="lpvote--vote-btn"]').tap()
+        TestBase.lptoupiaoid = 29464
+        self.find_element('view[class="lpvote--vote-btn"]', inner_text='投票').tap()
         self.delay(1)
 
         self.verifyStr('已投', self.find_element('view[class="lpvote--vote-btn"]').inner_text)
         self.get_screenshot()
-
-        TestBase.lptoupiaoid = 3724
 
     def test_02_投票楼盘多选(self):
         """
