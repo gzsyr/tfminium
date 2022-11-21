@@ -2,7 +2,7 @@
 # 输入：name-入口名称
 # 输出：targetp-点击后的目标页面绝对路径
 zlmb:
-  name: '资料模板'
+  name: '购房资料'
   targetp: '/page/tools/ziliaomoban/ziliaomoban'
 gflc:
   name: '购房流程'
