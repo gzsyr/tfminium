@@ -28,8 +28,10 @@ class TestCenterZygw(TestMine):
         """
         V6.24.X: 点击更多服务下视频号入口的【去观看】
         """
-        self.find_element('view[class="toVideo"]').tap()
-
+        try:
+            self.find_element('view[class="toVideo"]').tap()
+        except:
+            print('后台没有配置视频号入口')
         self.get_screenshot()
 
     def test_01_click_huoyuedu_活跃度(self):
