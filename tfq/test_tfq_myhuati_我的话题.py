@@ -17,7 +17,7 @@ class TestTfqMyHuaTi(TestBase):
         """
         我的话题页面，点击话题
         """
-        self.page.get_element('view[class="title"]').tap()
+        self.find_element('view[class="title"]').tap()
 
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
