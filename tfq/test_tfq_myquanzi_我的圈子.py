@@ -19,7 +19,7 @@ class TestTfqMyQuzi(TestBase):
         """
         我的圈子页面，点击圈子
         """
-        self.page.get_element('view[class="title tfline2"]').tap()
+        self.find_element('view[class="title tfline2"]').tap()
 
         self.verifyPageName('/page/taofangquan/huati/huatiDetail')
         self.get_screenshot()
