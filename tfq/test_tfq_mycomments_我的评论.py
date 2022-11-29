@@ -28,7 +28,7 @@ class TestTfqMyComments(TestBase):
         if self.is_comment_exist():
             print("页面有评论数据，此用例直接pass")
         else:
-            self.page.get_element('view[class="morewall"]').tap()
+            self.find_element('view[class="morewall"]').tap()
 
         self.get_screenshot()
 
@@ -39,7 +39,7 @@ class TestTfqMyComments(TestBase):
         if self.is_comment_exist():
             print("页面有评论数据，此用例直接pass")
         else:
-            self.page.get_element('view[class="hotCont list-desc"]').tap()
+            self.find_element('view[class="hotCont list-desc"]').tap()
 
         self.get_screenshot()
 
@@ -48,7 +48,7 @@ class TestTfqMyComments(TestBase):
         我的评论页面，点击第一个评论的点赞图标
         """
         if self.is_comment_exist():
-            self.page.get_element('view[class="laud-btn"]').tap()
+            self.find_element('view[class="laud-btn"]').tap()
         else:
             print("页面无评论数据，此用例直接pass")
 
@@ -59,7 +59,7 @@ class TestTfqMyComments(TestBase):
         我的评论页面，点击第一个评论的回复按钮
         """
         if self.is_comment_exist():
-            self.page.get_element('view[class="replyBtn"]').tap()
+            self.find_element('view[class="replyBtn"]').tap()
 
             self.verifyPageName('/page/taofangquan/commentDetail/commentDetail')
         else:
@@ -70,7 +70,7 @@ class TestTfqMyComments(TestBase):
         我的评论页面，点击第一个评论内容，进入详情
         """
         if self.is_comment_exist():
-            self.page.get_element('view[class="post_cont"]').tap()
+            self.find_element('view[class="post_cont"]').tap()
 
             self.verifyPageName('/page/taofangquan/commentDetail/commentDetail')
         else:
@@ -83,7 +83,7 @@ class TestTfqMyComments(TestBase):
         我的评论页面，点击第一个评论内容的楼盘名称右边箭头，进入新房详情页
         """
         if self.is_comment_exist():
-            self.page.get_element('image[class="lp_icon disflex-flex-shrink-0"]').tap()
+            self.find_element('image[class="lp_icon disflex-flex-shrink-0"]').tap()
 
             self.verifyPageName('/page/newhouse/detail')
         else:
