@@ -17,7 +17,7 @@ class TestTfqBangDan(TestBase):
         """
         淘房圈-榜单页面，点击帖子
         """
-        self.page.get_element('view[class="post_title tfLine1"]').tap()
+        self.find_element('view[class="post_title tfLine1"]').tap()
 
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
@@ -26,7 +26,7 @@ class TestTfqBangDan(TestBase):
         """
         淘房圈-榜单页面，点击”发帖“
         """
-        self.page.get_element('image[class="postBtn_img"]').tap()
+        self.find_element('image[class="postBtn_img"]').tap()
 
         self.verifyPageName('/page/taofangquan/writePost/writePost')
         self.get_screenshot()
@@ -35,7 +35,7 @@ class TestTfqBangDan(TestBase):
         """
         淘房圈-榜单页面，点击”推荐榜单“
         """
-        self.page.get_element('view[class="more_txt"]').tap()
+        self.find_element('view[class="more_txt"]').tap()
 
         self.get_screenshot()
 
@@ -43,7 +43,7 @@ class TestTfqBangDan(TestBase):
         """
         淘房圈-榜单页面，点击”分享“
         """
-        self.page.get_element('button[class="newHouseRfixed-share"]').tap()
+        self.find_element('button[class="newHouseRfixed-share"]').tap()
 
         self.get_screenshot()
 
@@ -51,9 +51,9 @@ class TestTfqBangDan(TestBase):
         """
         淘房圈-榜单页面，点击”分享“，生成海报
         """
-        self.page.get_element('button[class="newHouseRfixed-share"]').tap()
+        self.find_element('button[class="newHouseRfixed-share"]').tap()
         self.delay(2)
-        self.page.get_element('button[class="share-btn pyq"]').tap()
+        self.find_element('button[class="share-btn pyq"]').tap()
 
         self.verifyStr(True,
                        self.page.element_is_exists('button[class="canvasToImage--saveToAlbumButton"]'),
@@ -64,9 +64,9 @@ class TestTfqBangDan(TestBase):
         """
         淘房圈-榜单页面，点击”分享“，分享好友
         """
-        self.page.get_element('button[class="newHouseRfixed-share"]').tap()
+        self.find_element('button[class="newHouseRfixed-share"]').tap()
         self.delay(2)
-        self.page.get_element('button[class="share-btn hy"]').tap()
+        self.find_element('button[class="share-btn hy"]').tap()
         self.delay(1)
         self.input_value_by_mk('tfq/share_send.png')
 
