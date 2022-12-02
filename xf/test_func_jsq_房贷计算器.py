@@ -251,7 +251,7 @@ class TestFuncJsq(TestBase):
         question = ele.attribute('data-question')
         ele.tap()
 
-        self.delay(5)
+        self.delay(10)
         self.verifyPageName('/im/pages/chating/chating')
         imquestion = self.find_elements('view[class="record-chatting-item self"]')[-1].inner_wxml
         self.verifyContainsStr(question[0], imquestion)

@@ -61,11 +61,11 @@ class TestPostComment(TestMine):
         self.delay(2)
         self.app.get_current_page()
 
-        e1 = self.page.get_element('view[class="detail-fix-input"]')
+        e1 = self.find_element('view[class="detail-fix-input"]')
         e1.tap()
-        e2 = self.page.get_element('textarea[placeholder="说点什么吧"]')
+        e2 = self.find_element('textarea[placeholder="说点什么吧"]')
         e2.input(text)
-        e3 = self.page.get_element('button[class="send-btn"]')
+        e3 = self.find_element('button[class="send-btn"]')
         self.delay(1)
         e3.tap()
 
@@ -88,8 +88,8 @@ class TestPostComment(TestMine):
         self.delay(2)
         self.app.get_current_page()
 
-        self.page.get_element('view[class="commentList--reply-btn"]').tap()
-        e2 = self.page.get_element('textarea[name="quick_reply_content"]')
+        self.find_element('view[class="commentList--reply-btn"]').tap()
+        e2 = self.find_element('textarea[name="quick_reply_content"]')
         e2.input(text)
         # e3 = self.page.get_element('button[class="send-btn"]')
         # e3[1].tap()

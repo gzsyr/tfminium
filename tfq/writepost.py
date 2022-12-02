@@ -12,7 +12,7 @@ class WritePost(TestMine):
         """
         发帖完成后，发布成功页面，点击“查看发布详情”
         """
-        e = self.page.get_element('navigator', inner_text='查看发布详情 >')
+        e = self.find_element('navigator', inner_text='查看发布详情 >')
         print(e.outer_wxml)
         e.tap()
 
@@ -20,14 +20,14 @@ class WritePost(TestMine):
         """
         发帖页面，点击发布按钮
         """
-        self.page.get_element('button[class="submit-btn"]').tap()
+        self.find_element('button[class="submit-btn"]').tap()
         self.delay(2)
 
     def wp_input_title(self, value='测试帖子标题'):
         """
         发帖页面，输入标题
         """
-        self.page.get_element('textarea[class="tip"]').input(value)
+        self.find_element('textarea[class="tip"]').input(value)
         self.delay(1)
         return self
 
@@ -35,7 +35,7 @@ class WritePost(TestMine):
         """
         发帖页面，输入内容
         """
-        self.page.get_element('textarea[class="tip_tiezi"]').input(cont)
+        self.find_element('textarea[class="tip_tiezi"]').input(cont)
         self.delay(1)
         return self
 
@@ -43,17 +43,17 @@ class WritePost(TestMine):
         """
         发帖页面，点击上传图片按钮
         """
-        self.page.get_element('view[class="upload-btn"]')
+        self.find_element('view[class="upload-btn"]')
 
     def wp_choose_bk(self):
         """
         发帖页面，关联板块，选择板块
         """
-        self.page.get_element('view[class="tfFlex tfAlignC tfFlexSb tz_associate"][data-type="3"]').tap()
+        self.find_element('view[class="tfFlex tfAlignC tfFlexSb tz_associate"][data-type="3"]').tap()
         self.delay(2)
-        self.page.get_element('view[data-index="0"]', inner_text='添加').tap()
+        self.find_element('view[data-index="0"]', inner_text='添加').tap()
         self.delay(1)
-        self.page.get_element('view[class="close_box"]').tap()
+        self.find_element('view[class="close_box"]').tap()
         self.delay(1)
 
         return self
@@ -62,15 +62,15 @@ class WritePost(TestMine):
         """
         发帖页面，关联楼盘，选择楼盘,点击添加楼盘
         """
-        self.page.get_element('view[class="tfFlex tfAlignC tfFlexSb tz_associate"][data-type="2"]').tap()
+        self.find_element('view[class="tfFlex tfAlignC tfFlexSb tz_associate"][data-type="2"]').tap()
         self.delay(1)
-        self.page.get_element('input[class="searchTR-input"]').input(lpname)
+        self.find_element('input[class="searchTR-input"]').input(lpname)
         self.delay(1)
-        self.page.get_element('view[class="search_txt"]').tap()
+        self.find_element('view[class="search_txt"]').tap()
         self.delay(3)
-        self.page.get_element('view[class="quick-add quick-addto2 quick-color2"][data-index="0"]', inner_text="添加").tap()
+        self.find_element('view[class="quick-add quick-addto2 quick-color2"][data-index="0"]', inner_text="添加").tap()
         self.delay(1)
-        self.page.get_element('view[class="close_box"]').tap()
+        self.find_element('view[class="close_box"]').tap()
         self.delay(1)
 
         return self
@@ -79,10 +79,10 @@ class WritePost(TestMine):
         """
         发帖页面，关联楼盘，楼盘切换至二手房
         """
-        e1 = self.page.get_element('view[class="tfFlex tfAlignC tfFlexSb tz_associate"][data-type="2"]')
+        e1 = self.find_element('view[class="tfFlex tfAlignC tfFlexSb tz_associate"][data-type="2"]')
         e1.tap()
         self.delay(2)
-        e2 = self.page.get_element('view[data-type="secondHouse"]', inner_text="二手房")
+        e2 = self.find_element('view[data-type="secondHouse"]', inner_text="二手房")
         e2.tap()
         self.delay(1)
 
@@ -90,25 +90,25 @@ class WritePost(TestMine):
         """
         发帖页面，关联楼盘，楼盘切换至新房tab
         """
-        e1 = self.page.get_element('view[class="tfFlex tfAlignC tfFlexSb tz_associate"][data-type="2"]')
+        e1 = self.find_element('view[class="tfFlex tfAlignC tfFlexSb tz_associate"][data-type="2"]')
         e1.tap()
         self.delay(1)
-        e2 = self.page.get_element('view[data-type="newHouse"]', inner_text="新房")
+        e2 = self.find_element('view[data-type="newHouse"]', inner_text="新房")
         e2.tap()
 
     def wp_choose_quanzi(self, quanzi='圈子'):
         """
         发帖页面，点击同步到圈子，输入圈子，搜索,添加圈子,点击右上角“确定”按钮
         """
-        self.page.get_element('view[class="tfFlex tfAlignC tfFlexSb tz_associate"][data-type="1"]').tap()
+        self.find_element('view[class="tfFlex tfAlignC tfFlexSb tz_associate"][data-type="1"]').tap()
         self.delay(1)
-        self.page.get_element('input[class="searchTR-input"]').input(quanzi)
-        self.page.get_element('view[class="search_txt"]').tap()
+        self.find_element('input[class="searchTR-input"]').input(quanzi)
+        self.find_element('view[class="search_txt"]').tap()
         self.delay(1)
         if not self.page.element_is_exists('view[class="quick-add quick-notadd quick-color1"]', inner_text='已添加'):
-            self.page.get_element('view[class="quick-add quick-addto1 quick-color1"][data-index="0"]', inner_text="添加").tap()
+            self.find_element('view[class="quick-add quick-addto1 quick-color1"][data-index="0"]', inner_text="添加").tap()
         self.delay(1)
-        self.page.get_element('view[class="close_box"]').tap()
+        self.find_element('view[class="close_box"]').tap()
         self.delay(1)
 
         return self
@@ -118,7 +118,7 @@ class WritePost(TestMine):
         """
         置业顾问身份，发帖页面，点击同步到圈子，展示“我关注的”内容列表
         """
-        self.page.get_element('view[class="tfFlex tfAlignC tfFlexSb tz_associate"][data-type="1"]').tap()
+        self.find_element('view[class="tfFlex tfAlignC tfFlexSb tz_associate"][data-type="1"]').tap()
         self.set_pick_filter('picker', 1)
         self.delay(1)
         return self
@@ -127,7 +127,7 @@ class WritePost(TestMine):
         """
         发帖页面，点击“保存草稿”按钮
         """
-        self.page.get_element('image[class="save_draft"]').tap()
+        self.find_element('image[class="save_draft"]').tap()
         return self
 
     # 以下是运营身份独有的
@@ -135,54 +135,54 @@ class WritePost(TestMine):
         """
         发帖页面，运营身份，链接选择h5
         """
-        self.page.get_element('view[class="tfFlex tfAlignC tfFlexSb tz_associate"][data-type="4"]').tap()
+        self.find_element('view[class="tfFlex tfAlignC tfFlexSb tz_associate"][data-type="4"]').tap()
         self.delay(1)
-        self.page.get_element('radio[value="0"]').tap()
+        self.find_element('radio[value="0"]').tap()
         self.delay(1)
-        self.page.get_element('input[class="affiliateLink_input"]', inner_text="最多15个字").input("输入链接标题")
+        self.find_element('input[class="affiliateLink_input"]', inner_text="最多15个字").input("输入链接标题")
         self.delay(1)
-        self.page.get_element('input[class="affiliateLink_input"]', inner_text="输入链接").input("https://m.house365.com")
+        self.find_element('input[class="affiliateLink_input"]', inner_text="输入链接").input("https://m.house365.com")
         self.delay(1)
-        self.page.get_element('view[class="upload-btn"]')
+        self.find_element('view[class="upload-btn"]')
         self.delay(1)
 
     def yy_choose_nbxcx(self):
         """
         运营身份，发帖页面，链接选择内部小程序
         """
-        self.page.get_element('view[class="tfFlex tfAlignC tfFlexSb tz_associate"][data-type="4"]').tap()
+        self.find_element('view[class="tfFlex tfAlignC tfFlexSb tz_associate"][data-type="4"]').tap()
         self.delay(1)
-        self.page.get_element('radio[value="1"]').tap()
+        self.find_element('radio[value="1"]').tap()
         self.delay(1)
 
     def yy_choose_wbxcx(self):
         """
         运营身份，发帖页面，链接选择外部小程序,输入内容，选择“确定”
         """
-        self.page.get_element('view[class="tfFlex tfAlignC tfFlexSb tz_associate"][data-type="4"]').tap()
+        self.find_element('view[class="tfFlex tfAlignC tfFlexSb tz_associate"][data-type="4"]').tap()
         self.delay(1)
-        self.page.get_element('radio[value="2"]').tap()
+        self.find_element('radio[value="2"]').tap()
         self.delay(1)
-        self.page.get_element('input[class="affiliateLink_input"]', inner_text="最多15个字").input("输入链接标题")
+        self.find_element('input[class="affiliateLink_input"]', inner_text="最多15个字").input("输入链接标题")
         self.delay(1)
-        self.page.get_element('input[class="affiliateLink_input"]', inner_text="输入appId").input("wx437db912a2e4078e")
+        self.find_element('input[class="affiliateLink_input"]', inner_text="输入appId").input("wx437db912a2e4078e")
         self.delay(1)
-        self.page.get_element('input[class="affiliateLink_input"]', inner_text="输入链接").input("/pages/index/index")
+        self.find_element('input[class="affiliateLink_input"]', inner_text="输入链接").input("/pages/index/index")
         self.delay(1)
-        self.page.get_element('button[class="linkBtn"]').tap()
+        self.find_element('button[class="linkBtn"]').tap()
         self.delay(1)
 
     def yy_click_reset(self):
         """
         运营身份，发帖页面，链接选择h5，点击“重置”
         """
-        self.page.get_element('view[class="tfFlex tfAlignC tfFlexSb tz_associate"][data-type="4"]').tap()
+        self.find_element('view[class="tfFlex tfAlignC tfFlexSb tz_associate"][data-type="4"]').tap()
         self.delay(1)
-        self.page.get_element('radio[value="0"]').tap()
+        self.find_element('radio[value="0"]').tap()
         self.delay(1)
-        self.page.get_element('input[class="affiliateLink_input"]', inner_text="最多15个字").input("输入链接标题")
+        self.find_element('input[class="affiliateLink_input"]', inner_text="最多15个字").input("输入链接标题")
         self.delay(1)
-        self.page.get_element('button[class="linkBtn_plain"]')
+        self.find_element('button[class="linkBtn_plain"]')
         self.delay(1)
 
     def yy_choose_vest(self, name=''):
@@ -192,13 +192,13 @@ class WritePost(TestMine):
         if name == '':
             print('不关联马甲发帖')
         else:
-            self.page.get_element('view[class="associated_users_name tfLine1"]').tap()
+            self.find_element('view[class="associated_users_name tfLine1"]').tap()
             self.delay(1)
-            self.page.get_element('input[placeholder="请输入搜索昵称"]').input(name)
+            self.find_element('input[placeholder="请输入搜索昵称"]').input(name)
             self.delay(1)
-            self.page.get_element('view[class="search-btn"]').tap()
+            self.find_element('view[class="search-btn"]').tap()
             self.delay(1)
-            self.page.get_element('view[class="item tfLine1"][data-index="0"]').tap()
+            self.find_element('view[class="item tfLine1"][data-index="0"]').tap()
             self.delay(1)
 
         return self
@@ -216,27 +216,28 @@ class WritePost(TestMine):
 
         b_l = self.page.element_is_exists('navigator[class="vote-button look"]')
         if b_l == True:
-            self.page.get_element('navigator[class="vote-button look"]').tap()
+            self.find_element('navigator[class="vote-button look"]').tap()
             self.delay(2)
-            self.page.get_element('button[class="submit"]').tap()
+            self.find_element('button[class="submit"]').tap()
             self.delay(1)
         else:
-            self.page.get_element('navigator[class="vote-button create"]').tap()
+            self.find_element('navigator[class="vote-button create"]').tap()
             self.delay(1)
-            self.page.get_element('input[class="vote-title"]').input(title)
+            self.find_element('input[class="vote-title"]').input(title)
             self.delay(1)
 
             for i in range(0, min(len(ipt), 12)):
                 if i > 1:
-                    self.page.get_element('view[class="add"]').tap()
+                    self.find_element('view[class="add"]').tap()
                     self.delay(1)
-                self.page.get_element(f'input[data-index="{i}"]').input(ipt[i])
+                self.find_element(f'input[data-index="{i}"]').input(ipt[i])
                 self.delay(1)
 
             if ismultiple:
-                self.page.get_element('switch[name="multiple"]').tap()
+                self.find_element('switch[name="multiple"]').tap()
                 self.delay(1)
-            self.page.get_element('button[class="submit"]').tap()
+            self.find_element('button[class="submit"]').tap()
             self.delay(1)
 
         return self
+

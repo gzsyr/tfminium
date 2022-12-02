@@ -91,7 +91,7 @@ class TestTfqYyWritePost(WritePost):
             callback_args = args
 
         self.app.hook_wx_method("showToast", callback=callback)
-        self.page.get_element('image[class="save_draft"]').tap()
+        self.find_element('image[class="save_draft"]').tap()
         is_called = called.acquire(timeout=5)
         self.app.release_hook_wx_method("showToast")
 
