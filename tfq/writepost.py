@@ -221,7 +221,7 @@ class WritePost(TestMine):
             self.find_element('button[class="submit"]').tap()
             self.delay(1)
         else:
-            self.find_element('navigator[class="vote-button create"]').tap()
+            self.find_element('view[class="vote-button create"]').tap()
             self.delay(1)
             self.find_element('input[class="vote-title"]').input(title)
             self.delay(1)
