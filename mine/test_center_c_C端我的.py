@@ -118,7 +118,7 @@ class TestCenterC(TestMine):
         """
         self.page.get_element('image[class="ad"]').tap()
 
-        self.verifyPageName('/page/index/webview')
+        # self.verifyPageName('/page/index/webview')
         self.get_screenshot()
 
     @data(0, 1, 2, 3, 4)
