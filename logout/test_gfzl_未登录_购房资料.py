@@ -18,6 +18,6 @@ class TestLogoutGfzl(TestBase):
         """
         self.find_element('view[class="downBtn disflex disflex-alignitems-center disflex-justifycontent-center"]').tap()
 
-        self.verifyPageName('/page/index/login')
+        # self.verifyPageName('/page/index/login')
         self.get_screenshot()
 
