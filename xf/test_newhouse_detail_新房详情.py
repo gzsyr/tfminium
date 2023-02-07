@@ -163,6 +163,22 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/newhouse/zxdt/zxdt')
         self.get_screenshot()
 
+    def test_goto_zxdt_点击置业顾头像(self):
+        """
+        V6.29.X: 1004932，点击置业顾问头像
+        """
+        self.find_element('view[class="avator"]').tap()
+
+        self.get_screenshot()
+
+    def test_goto_zxdt_点击置业顾问正文(self):
+        """
+        V6.29.X: 1004932，点击置业顾问头像
+        """
+        self.find_element('view[class="contentWrap"]').tap()
+
+        self.get_screenshot()
+
     def test_goto_zxdt_click_最新动态提问(self):
         """
         V6.21.X: 1003947   新房详情页页面，点击最新动态，点击提问
