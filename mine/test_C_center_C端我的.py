@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- 
 # @Time : 2022/7/21 13:44 
 # @Author : zcm 
-# @File : test_center_c_C端我的.py
+# @File : test_C_center_C端我的.py
 # @desc:
 from ddt import data, ddt
 
