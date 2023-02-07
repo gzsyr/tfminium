@@ -1,4 +1,6 @@
 # -*-coding:utf-8-*-
+import minium
+
 from base.test_base import TestBase
 
 
@@ -23,7 +25,10 @@ class TestLogout(TestBase):
 
         # 点击头像
         try:
-            self.page.get_element('image[class="headL"]').tap()
+            if self.get_third_title() == '置业顾问':
+                self.page.get_element('image[class="avatar"]').tap()
+            else:
+                self.page.get_element('image[class="headL"]').tap()
             self.app.wait_for_page('/page/mine/myinfo/myinfo')
             # 点击确定“退出登录”
             result = {"confirm": True}
@@ -33,7 +38,7 @@ class TestLogout(TestBase):
             self.delay(2)
             self.capture("确定")
             self.native.handle_modal("取消", "确定")
-        except:
+        except minium.MiniElementNotFoundError:
             print('没有找到登录状态的头像，说明已经退出登录')
 
         self.get_screenshot()
