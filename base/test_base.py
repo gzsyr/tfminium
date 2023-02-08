@@ -41,6 +41,9 @@ class TestBase(minium.MiniTest):
     # 楼盘投票id
     lptoupiaoid = 29451
 
+    # PK插件的id
+    pkhuatiid = 36907
+
     # 圈子的id
     quanzi = 751  # online
     # quanzi = 430  # dev
@@ -384,14 +387,14 @@ class TestBase(minium.MiniTest):
         print('用户信息：', result)
         return result
 
-    def element_is_exist(self, selector=None, inner_text=None):
+    def element_is_exist(self, selector=None, inner_text=None, text_contains=None):
         """
         查找是否存在某个元素，参数目前就只支持selector和inner_text，后期慢慢增加
         :param selector: 查找元素的selector
         :param inner_text:  包含的text
         :return:
         """
-        return self.page.element_is_exists(selector=selector, inner_text=inner_text)
+        return self.page.element_is_exists(selector=selector, inner_text=inner_text, text_contains=text_contains)
 
     def find_element(self, selector=None, inner_text=None, text_contains=None, value=None, max_timeout=0, xpath=None):
         """
