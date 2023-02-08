@@ -39,11 +39,19 @@ class TestMine(TestBase):
             # page > view.tfFlex.j - center.head > view.headR.disflex > view.grzx_inf > view.disflex.disflex - alignitems - flex - end > view
             self.page.get_element('view.disflex.disflex-alignitems-flex-end > view', inner_text=re_name)
         except minium.MiniElementNotFoundError:
-            self.page.get_element('view[class="changeRole"]').tap()
+            try:
+                self.page.get_element('view[class="changeRole"]').tap()
+            except minium.MiniElementNotFoundError:
+                # 从置业顾问切换到其他角色 弹出切换的按钮
+                self.page.get_element('image[class="changerole"]').tap()
             self.delay(1)
             self.page.get_element('view[class="name"]', inner_text=change_name).tap()
             self.delay(1)
-            self.page.get_element('view[class="change-role-submit"]').tap()
+            try:
+                self.page.get_element('view[class="change-role-submit"]').tap()
+            except minium.MiniElementNotFoundError:
+                # 从置业顾问切换到其他角色“切换”按钮
+                self.page.get_element('view[class="change-role-submit zygwchange-role-submit"]').tap()
             self.delay(1)
             print('需要切换身份')
 
@@ -54,10 +62,14 @@ class TestMine(TestBase):
         """
         测试切换身份,切换成房博士
         """
-        try:
-            self.page.get_element('view[class="disflex tfAlignC mxfbs-title"]', text_contains='明星房博士')
-        except:
+        if self.get_third_title() == '房博士':
+            print('当前身份是房博士，无需切换')
+        else:
+        # try:
+        #     self.page.get_element('view[class="disflex tfAlignC mxfbs-title"]', text_contains='明星房博士')
+        # except:
             self.change_roles(re_name="fbs朱苏云", change_name="房博士-fbs朱苏云")
+            # self.change_roles(re_name="房博士zsy", change_name="房博士-房博士线上5160")
             print('切换到房博士身份')
 
     def change_zygw(self):
@@ -65,11 +77,15 @@ class TestMine(TestBase):
         切换身份，切换成置业顾问
         :return:
         """
-        try:
-            self.page.get_element('view[class="disflex tfAlignC level"]', text_contains='置业顾问')
-        except minium.MiniElementNotFoundError:
+        if self.get_third_title() == '置业顾问':
+            print('当前身份是置业顾问，无需切换')
+        else:
+
+        # try:
+        #     self.page.get_element('view[class="disflex tfAlignC level"]', text_contains='置业顾问')
+        # except minium.MiniElementNotFoundError:
             self.change_roles(re_name="线上", change_name="置业顾问-线上")    # online
-            # self.change_roles(re_name="线上", change_name="置业顾问-测试pre环境")    # dev
+            # self.change_roles(re_name="测试机", change_name="置业顾问-线上zygw5160")
             print('切换到置业顾问身份')
 
     def change_yy(self):
@@ -77,7 +93,11 @@ class TestMine(TestBase):
         切换身份，切换成运营角色
         :return:
         """
-        self.change_roles(re_name="yy朱苏云", change_name="运营-yy朱苏云")
+        if self.get_third_title() == '运营':
+            print('当前身份是运营，无需切换')
+        else:
+            self.change_roles(re_name="yy朱苏云", change_name="运营-yy朱苏云")
+            # self.change_roles(re_name="zsyce", change_name="运营-yy5160")
         return self
 
     def change_C(self):
@@ -85,7 +105,10 @@ class TestMine(TestBase):
         切换到C端身份
         :return:
         """
-        self.change_roles(re_name="小露朱zsy", change_name="C端用户")
+        if self.get_third_title() == 'C端用户':
+            print('当前身份是C端用户，无需切换')
+        else:
+            self.change_roles(re_name="小露朱zsy", change_name="C端用户")
 
 
 
