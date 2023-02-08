@@ -72,3 +72,39 @@ class TestTfqFbsWritePost(WritePost):
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
 
+    def test_fbs_05_write_pk_发布PK(self, **kwargs):
+        """
+        V6.26.X: 1004926, 房博士，带pk插件，成功发帖
+        """
+        kwargs['title'] = 'PK插件'
+        kwargs['content'] = '这是房博士发布的含有PK插件帖子'
+        self.wp_input_title(time.strftime('%Y-%m-%d') + kwargs['title']).wp_input_content(kwargs['content'])
+
+        # 输入PK
+        self.write_pk()
+        self.wp_submit()
+
+        self.goto_post_detail()
+        self.delay(3)
+        self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
+        self.get_screenshot()
+
+
+    @file_data('./test_tfq_writepost_yunying_vote.yml')
+    def test_fbs_04_write_vote_post_发布投票(self, **kwargs):
+        """
+        V6.26.X: 1004926, 房博士，发帖页面，输入标题，内容，新增投票，点击“发布”按钮
+        """
+        self.wp_input_title(time.strftime('%Y-%m-%d')+kwargs['title']).wp_input_content(kwargs['content'])
+
+        # 输入投票
+        self.yy_write_vote(title=time.strftime('%Y-%m-%d')+kwargs['votetitle'],
+                           ipt=kwargs['votelist'],
+                           ismultiple=kwargs['ismultiple'])
+        self.wp_submit()
+
+        self.goto_post_detail()
+        self.delay(3)
+        self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
+        self.get_screenshot()
+

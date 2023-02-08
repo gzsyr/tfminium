@@ -28,6 +28,25 @@ class TestTfqYyWritePost(WritePost):
         super(TestTfqYyWritePost, self).setUp()
         print("TestYyWritePost setup")
 
+    def test_yy_05_write_pk_发布PK(self, **kwargs):
+        """
+        V6.26.X: 1004926, 运营，带pk插件，成功发帖
+        """
+        kwargs['title'] = 'PK插件'
+        kwargs['content'] = '这是运营发布的含有PK插件帖子'
+        self.wp_input_title(time.strftime('%Y-%m-%d') + kwargs['title']).wp_input_content(kwargs['content'])
+
+        # 输入PK
+        self.write_pk()
+        self.wp_submit()
+
+        self.goto_post_detail()
+        self.delay(3)
+        TestBase.pkhuatiid = self.page.query['postsid']
+        self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
+        self.get_screenshot()
+
+
     @file_data('./test_tfq_writepost_yunying_vote.yml')
     def test_yy_04_write_vote_post_发布投票(self, **kwargs):
         """
