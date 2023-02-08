@@ -1,6 +1,8 @@
 # add by zzh
 import time
 
+import minium
+
 from base.test_base import TestBase
 
 
@@ -15,6 +17,27 @@ class TestTfqPostDetail(TestBase):
         self.classname = self.__class__.__name__
         super(TestTfqPostDetail, self).setUp()
         print("TestPostDetail  Setup")
+
+    def test_36_click_default_comment_默认评论图片(self):
+        """
+        V6.26.X: 1004927, 后台已添加默认评论, 点击默认评论图片
+        """
+        try:
+            self.find_element('text[class="default_comments_addgroup"]').tap()
+            self.get_screenshot()
+
+        except minium.MiniElementNotFoundError:
+            self.get_screenshot('test_35_click_default_comment_无默认评论按钮')
+
+    def test_35_click_default_comment_默认评论按钮(self):
+        """
+        V6.26.X: 1004927, 后台已添加默认评论, 点击默认评论按钮
+        """
+        try:
+            self.find_element('image[class="default_comments_img"]').tap()
+            self.get_screenshot()
+        except minium.MiniElementNotFoundError:
+            self.get_screenshot('test_35_click_default_comment_无默认评论图片')
 
     def test_34_check_tuomin_脱敏号码(self):
         """
