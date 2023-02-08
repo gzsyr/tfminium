@@ -17,6 +17,37 @@ class TestIndexShouye(TestBase):
         super(TestIndexShouye, self).setUp()
         print("TestIndexShouye setup atest")
 
+    def test_23_优选顾问_置业顾问IM(self):
+        """
+        V6.29.X: 1004933, 优选顾问模块，点击置业顾问在线咨询
+        """
+        self.page.scroll_to(1500, 100)
+
+        self.find_element('view[class="yxgw-btn"][data-jhtype="1"]').tap()
+
+        self.get_screenshot()
+
+    def test_24_优选顾问_房博士IM(self):
+        """
+        V6.29.X: 1004933, 优选顾问模块，点击房博士在线咨询
+        """
+        self.page.scroll_to(1500, 100)
+
+        self.find_element('view[class="yxgw-btn"][data-jhtype="2"]').tap()
+
+        self.get_screenshot()
+
+    def test_25_优选顾问_更多(self):
+        """
+        V6.29.X: 1004933, 优选顾问模块，点击更多
+        """
+        self.page.scroll_to(1500, 100)
+
+        self.find_elements('view[class="indexTitR index_fbsgd"]', inner_text='更多')[1].tap()
+        # self.find_element('view[class="indexTitL"][text="优选顾问"]/../view[class="indexTitR index_fbsgd"]').tap()
+        self.delay(2)
+        self.get_screenshot()
+
     def test_01_click_banner_one_联板广告(self):
         """
         首页，点击联板广告第一张
