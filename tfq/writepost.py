@@ -214,14 +214,14 @@ class WritePost(TestMine):
             ipt = ['选项一', '选项二', '选项三', '选项4', '选项5', '选项6', '选项7', '选项8', '选项9', '选项10'
                    , '选项11', '选项12', '选项13']
 
-        b_l = self.page.element_is_exists('navigator[class="vote-button look"]')
+        b_l = self.page.element_is_exists('view[class="vote-button look"]')
         if b_l == True:
-            self.find_element('navigator[class="vote-button look"]').tap()
+            self.find_element('view[class="vote-button look"]').tap()
             self.delay(2)
             self.find_element('button[class="submit"]').tap()
             self.delay(1)
         else:
-            self.find_element('view[class="vote-button create"]').tap()
+            self.find_element('view[class="vote-button create"]', inner_text='投票').tap()
             self.delay(1)
             self.find_element('input[class="vote-title"]').input(title)
             self.delay(1)
@@ -241,3 +241,35 @@ class WritePost(TestMine):
 
         return self
 
+    def write_pk(self, left_title='观点一标题', left_cont='观点一描述', right_title='观点二标题', right_cont='观点二描述'):
+        """
+        V6.26.X: 1004926  PK页面
+        输入PK内容
+        """
+
+        # 是否是“查看PK”按钮
+        b_l = self.page.element_is_exists('view[class="vote-button look"]')
+        if b_l == True:
+            self.find_element('view[class="vote-button look"]').tap()
+            self.delay(2)
+            self.find_element('button[class="submit"]').tap()
+            self.delay(1)
+        else:
+            self.find_element('view[class="vote-button create"]', inner_text='PK').tap()
+            self.delay(1)
+
+            # 输入观点一
+            self.find_element('input[type="text"][data-index="0"]').input(left_title)
+            self.delay(1)
+            self.find_element('textarea[data-index="0"]').input(left_cont)
+            self.delay(1)
+            # 输入观点二
+            self.find_element('input[type="text"][data-index="1"]').input(right_title)
+            self.delay(1)
+            self.find_element('textarea[data-index="1"]').input(right_cont)
+            self.delay(1)
+
+            self.find_element('button[class="submit"]').tap()
+            self.delay(1)
+
+        return self
