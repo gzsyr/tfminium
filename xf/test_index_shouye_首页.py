@@ -17,6 +17,23 @@ class TestIndexShouye(TestBase):
         super(TestIndexShouye, self).setUp()
         print("TestIndexShouye setup atest")
 
+    def test_27_热门插件更多(self):
+        """
+        V6.30.X: 1005036，互动插件模块，点击 更多
+        """
+        self.find_element('view[class="hdzj-more"]').tap()
+
+        self.verifyPageName('/page/taofangquan/huati/huatiList')
+        self.get_screenshot()
+
+    def test_26_点击热门插件(self):
+        """
+        V6.30.X: 1005036，互动插件模块，点击进入详情
+        """
+        self.find_element('view[class="hdzj-content"]').click()
+        self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
+        self.get_screenshot()
+
     def test_23_优选顾问_置业顾问IM(self):
         """
         V6.29.X: 1004933, 优选顾问模块，点击置业顾问在线咨询
@@ -43,7 +60,7 @@ class TestIndexShouye(TestBase):
         """
         self.page.scroll_to(1500, 100)
 
-        self.find_elements('view[class="indexTitR index_fbsgd"]', inner_text='更多')[1].tap()
+        self.find_elements('view[class="gd index_fbsgd"]', inner_text='更多')[1].tap()
         # self.find_element('view[class="indexTitL"][text="优选顾问"]/../view[class="indexTitR index_fbsgd"]').tap()
         self.delay(2)
         self.get_screenshot()
@@ -83,7 +100,7 @@ class TestIndexShouye(TestBase):
         首页，点击“正在热议”更多按钮
         :return:
         """
-        self.page.get_element('view[class="jujiao-icon"]').click()
+        self.page.get_element('view[class="toutiao_more toutiao_r"]').click()
         self.get_screenshot()
 
     def test_11_click_reyi_first_正在热议(self):
@@ -91,7 +108,7 @@ class TestIndexShouye(TestBase):
         首页，点击“正在热议”滚动的第一条
         :return:
         """
-        self.page.get_element('view[class="jujiao-swiper-item tfLine1"]').click()
+        self.page.get_element('view[class="toutiao-swiper-item flex tfAlignC tfFlexSb tfLine1"]').click()
         self.get_screenshot()
 
     def test_09_click_middle_adv_中间横幅广告(self):
@@ -102,23 +119,32 @@ class TestIndexShouye(TestBase):
         self.page.get_element('image[class="game-enter-img"]').click()
         self.get_screenshot()
 
+    def test_10_click_qukuai_导购楼层1(self):
+        """
+        首页，点击导购楼层的4个区块，左边一个大的
+        :return:
+        """
+        self.find_element('view[class="guide-item guide-item-left"]').click()
+        self.get_screenshot()
+
     @minium.ddt_case(
-        1, 2, 3, 4
+        1, 2, 3
     )
     def test_10_click_qukuai_导购楼层(self, value):
         """
-        首页，点击导购楼层的4个区块（摇号查询上方）
+        首页，点击导购楼层的4个区块（摇号查询上方），右边3个小的
         :return:
         """
-        self.page.get_element(f'view[class="guide-item"][data-index="{value-1}"]').click()
+        self.page.get_element(f'view[class="guide-item"][data-index="{value}"]').click()
         self.get_screenshot()
 
     def test_19_click_yaohao_loupan_name_摇号楼盘(self):
         """
-        首页，点击摇号查询模块的，楼盘名称
+        首页，点击摇号查询模块的，选择楼盘名称
         :return:
         """
-        self.page.get_element('view[class="bd yhcx-picker"]').click()
+        self.page.scroll_to(1000, 200)
+        self.set_pick_filter('picker', 2)
         self.get_screenshot()
 
     def test_17_click_yaohao_input_摇号输入(self):
@@ -134,7 +160,7 @@ class TestIndexShouye(TestBase):
         首页，摇号查询模块，点击“一键查询”
         :return:
         """
-        self.page.get_element('navigator[class="link-btn"]').click()
+        self.page.get_element('view[class="link-btn"]').click()
         self.get_screenshot()
 
     @minium.ddt_case(
@@ -161,7 +187,7 @@ class TestIndexShouye(TestBase):
         首页，点击直播看房模块，右侧“更多”按钮
         :return:
         """
-        self.page.get_element('view[class="indexTitRsj"]').click()
+        self.find_element('view[class="gd"]').click()
         self.get_screenshot()
 
     def test_21_click_zhibo_first_直播(self):
@@ -178,7 +204,7 @@ class TestIndexShouye(TestBase):
         :return:
         """
         self.page.get_element('view[data-index="0"]', inner_text='帮你找房').click()
-        self.page.get_element('view[class="link-btn"]', inner_text="马上找房").click()
+        self.page.get_element('view[class="btn"]', inner_text="查询").click()
         self.get_screenshot()
 
     def test_07_click_maifang_帮你卖房(self):
@@ -195,7 +221,7 @@ class TestIndexShouye(TestBase):
         :return:
         """
         self.test_07_click_maifang_帮你卖房()
-        self.page.get_element('navigator[class="link-btn"]', inner_text="发布房源").click()
+        self.find_element('view[class="btn"]', inner_text="查询").click()
         self.get_screenshot()
 
     def test_04_click_fbs_zixun_房博士咨询(self):
@@ -203,7 +229,7 @@ class TestIndexShouye(TestBase):
         首页，点击房博士模块第一个房博士的“立即咨询”
         :return:
         """
-        self.page.get_element('view[class="fbs-qus-btn"]', inner_text="立即咨询").click()
+        self.page.get_element('view[id="actionToOpenQuestion"]').click()
         self.get_screenshot()
 
     def test_02_click_fbs_avatar_房博士头像(self):
@@ -212,7 +238,7 @@ class TestIndexShouye(TestBase):
         :return:
         """
         self.delay(1)
-        self.page.get_element('image[class="fbs-avatar"]').click()
+        self.page.get_element('image[id="actionToOpenFBSDetail"]').click()
         self.get_screenshot()
 
     def test_03_click_fbs_more_房博士更多(self):
@@ -220,7 +246,7 @@ class TestIndexShouye(TestBase):
         首页，点击房博士模块“更多”按钮
         :return:
         """
-        self.page.get_element('view[class="indexTitR index_fbsgd"]').click()
+        self.page.get_element('view[id="actionToOpenFBSIndex"]').click()
         self.get_screenshot()
 
     def test_06_click_icon_右侧悬浮广告(self):
@@ -236,7 +262,9 @@ class TestIndexShouye(TestBase):
         首页，点击推荐楼盘列表的第一个楼盘
         :return:
         """
-        self.page.get_element('view[class="commonNewHouseLi-l"]').click()
+        self.page.scroll_to(3000, 200)
+        self.delay(2)
+        self.find_element('view[class="commonNewHouseLi-l"]').click()
         self.get_screenshot()
 
     def tearDown(self) -> None:
