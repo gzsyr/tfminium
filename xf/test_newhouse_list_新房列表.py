@@ -89,12 +89,20 @@ class TestNewsHouseList(TestBase):
             self.verifyPageName(kwargs['pagename'])
         self.get_screenshot()
 
-    @data(1, 2, 3, 4)
+    def test_click_dgmk_导购模块1(self):
+        """
+        V6.30.X: 1005036，UI改版
+        """
+        self.page.get_element('view[class="guide-item guide-item-left"]').tap()
+
+        self.get_screenshot()
+
+    @data(1, 2, 3)
     def test_click_dgmk_导购模块(self, num):
         """
         新房列表页面，功能入口下方，点击导购模块
         """
-        self.page.get_element(f'view[class="disflex tfAlignC newHouseDgLi xflb_dg{num}"]').tap()
+        self.page.get_element(f'view[class="guide-item"][data-index="{num}"]').tap()
 
         self.get_screenshot()
 
