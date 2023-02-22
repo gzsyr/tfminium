@@ -14,6 +14,32 @@ class TestNewhouseDetail(TestBase):
         super(TestNewhouseDetail, self).setUp()
         self.delay(2)
 
+    def test_backtop_展示锚点(self):
+        """
+        V6.30.X: 滑动至“最新开盘信息”头部，展示锚点
+        """
+        self.page.scroll_to(2000, 200)
+        self.delay(6)
+
+        self.get_screenshot()
+
+    def test_backtop_楼盘详情TAB(self):
+        """
+        V6.30.X: 滑动至“最新开盘信息”头部,点击首个“楼盘详情”tab
+        """
+        self.page.scroll_to(2000, 200)
+        self.delay(6)
+
+        self.find_element('view[class="backtop_icon"]').tap()
+
+    def test_goto_yfyj_点击房源(self):
+        """
+        V6.30.X: 点击一房一价的’第一个房源‘
+        """
+        self.find_element('view[class="yfyjList_cont"]').tap()
+
+        self.get_screenshot()
+
     def test_zbxx_周边学校_咨询(self):
         """
         V6.30.X: 点击周边学校的’咨询周边学校情况‘

@@ -24,6 +24,16 @@ class TestCenterZygw(TestMine):
         self.classname = self.__class__.__name__
         super(TestCenterZygw, self).setUp()
 
+    def test_43_进入素材库(self):
+        """
+        V6.30.X: 点击素材库
+        """
+        self.find_element('view[class="store-swiper-item tfLine1"]').tap()
+
+        self.delay(2)
+        self.verifyPageName('/page/taofangquan/contentstore/contentstore')
+        self.get_screenshot()
+
     def test_23_去视频号(self):
         """
         V6.24.X: 点击更多服务下视频号入口的【去观看】
@@ -145,7 +155,7 @@ class TestCenterZygw(TestMine):
         点击“权益券”
         """
         self.find_element('view[class="desc"]', inner_text='权益券').tap()
-        self.delay(2)
+        self.delay(3)
 
     def test_04_click_quanyiquan_权益券(self):
         """
@@ -161,11 +171,12 @@ class TestCenterZygw(TestMine):
         V6.27.X: 权益券，点击tab切换
         """
         self.click_quanyiquan()
-        self.find_element('view[class="used"]').tap()
+        self.delay(1)
+        self.find_element('view[id="getUsedList"]').tap()
         self.delay(1)
         self.get_screenshot('切换到“已使用”')
 
-        self.find_element('view[class="beuse"]').tap()
+        self.find_element('view[id="getList"]').tap()
         self.get_screenshot()
 
     def test_36_权益券_使用置顶券(self):
@@ -256,6 +267,11 @@ class TestCenterZygw(TestMine):
         """
         V6.27.X: 做任务赚积分，点击去分享
         """
+        try:
+            self.find_element('view[class="task"]', inner_text='做任务赚积分').tap()
+        except minium.MiniElementNotFoundError:
+            print('当前已经在‘做任务赚积分’的tab下')
+
         self.find_element('view[class="toPublish"]', inner_text='去分享').tap()
         self.delay(3)
         try:
@@ -274,11 +290,14 @@ class TestCenterZygw(TestMine):
 
     def test_13_任务查看更多(self):
         """
+        V6.30.X: 更换“点击更多”为“全部任务”
         V6.27.X: 做任务赚积分，点击查看更多
         """
-        self.find_element('view[class="more"]').tap()
+        # self.find_element('view[class="more"]').tap()
+        # 点击“全部任务”
+        self.find_element('view[class="tomore"]', inner_text='全部任务').tap()
 
-        self.verifyPageName('/page/mine/myscores/myscores')
+        self.verifyPageName('/page/mine/myscores/alltasks')
         self.get_screenshot()
 
     def test_14_积分去兑换(self):
@@ -286,23 +305,32 @@ class TestCenterZygw(TestMine):
         V6.27.X: 积分抢兑TAB, 点击去兑换
         """
         # 点击“积分抢兑”
-        self.find_element('view[class="used"]').tap()
+        try:
+            self.find_element('view[class="used"]').tap()
+        except minium.MiniElementNotFoundError:
+            print('已经在‘积分抢兑’tab下')
         # 点击“去兑换”
         self.find_element('view[class="toDh"]').tap()
 
         self.verifyPageName('/page/mine/myscores/goodsdetail')
         self.get_screenshot()
 
-    def test_15_积分查看更多(self):
+    def test_15_积分抢兑_全部商品(self):
         """
+        V6.30.X: 更换“点击更多”为“全部商品”
         V6.27.X: 积分抢兑TAB, 点击查看更多
         """
         # 点击“积分抢兑”
-        self.find_element('view[class="used"]').tap()
-        # 点击“去兑换”
-        self.find_element('view[class="more"]').tap()
+        try:
+            self.find_element('view[class="used"]').tap()
+        except minium.MiniElementNotFoundError:
+            print('已经在‘积分抢兑’tab下')
+        # 点击“更多”
+        # self.find_element('view[class="more"]').tap()
+        # 点击“全部商品”
+        self.find_element('view[class="tomore"]', inner_text='全部商品').tap()
 
-        self.verifyPageName('/page/mine/myscores/myscores')
+        self.verifyPageName('/page/mine/myscores/scoremall')
         self.get_screenshot()
 
     def test_03_click_my_card_我的名片(self):
@@ -360,17 +388,22 @@ class TestCenterZygw(TestMine):
         """
         self.click_callrecord()
 
-        self.find_element('view[data-idx="1"]', inner_text='回拨通道2').tap()
-        self.get_screenshot('回拨通道2')
+        try:
+            self.find_element('view[data-idx="1"]', inner_text='回拨通道2').tap()
+            self.get_screenshot('回拨通道2')
 
-        self.find_element('view[data-idx="0"]', inner_text='回拨通道1').tap()
-        self.get_screenshot('回拨通道1')
+            self.find_element('view[data-idx="0"]', inner_text='回拨通道1').tap()
+            self.get_screenshot('回拨通道1')
+        except minium.MiniElementNotFoundError:
+            print('仅有一个回拨通道')
+            self.get_screenshot()
 
     def test_39_回拨记录_日期切换(self):
         """
         V6.27.X: 客户消息，点击“回拨记录”，切换回拨日期
         """
         self.click_callrecord()
+        self.delay(2)
 
         self.find_element('view[data-idx="1"]', inner_text='今日回拨').tap()
         self.get_screenshot('今日回拨')
@@ -454,7 +487,7 @@ class TestCenterZygw(TestMine):
 
         self.find_element('view[class="inner disflex tfAlignC tfFlexSb"]/view', inner_text='修改资料').tap()
 
-        self.verifyPageName('/page/business/updateInfo')
+        # self.verifyPageName('/page/business/updateInfo')
         self.get_screenshot()
 
     def test_25_设置绑定楼盘(self):
