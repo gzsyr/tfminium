@@ -220,7 +220,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.19.x: 第一个优惠活动的立即报名按钮
         """
-        self.page.scroll_to(1400, 500)
+        self.page.scroll_to(800, 200)
 
         tap = 'self.page.get_element(\'view[class= "promotions_btn_0"]\').tap()'
         self.verifyStr(True, self.getShowToast(tap), '报名成功')
@@ -231,7 +231,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.19.x: 第二个优惠活动的立即报名按钮
         """
-        self.page.scroll_to(1400, 500)
+        self.page.scroll_to(800, 200)
 
         tap = 'self.page.get_element(\'view[class= "promotions_btn_1"]\').tap()'
 
@@ -415,6 +415,7 @@ class TestNewhouseDetail(TestBase):
         新房详情页页面，点击一房一价
         """
         self.find_element("view[class='newHouseIconInLi-b']", inner_text="一房一价").tap()
+        self.delay(3)
 
         self.get_screenshot()
 
@@ -423,6 +424,7 @@ class TestNewhouseDetail(TestBase):
         新房详情页页面，点击一房一价下方的’咨询房源价格‘
         """
         self.find_element("view[class='iwantdpT']", inner_text="咨询房源价格").tap()
+        self.delay(3)
 
         self.get_screenshot()
 
@@ -460,6 +462,7 @@ class TestNewhouseDetail(TestBase):
         新房详情页页面，点击报名清册
         """
         self.find_element("view[class='left-icon disflex tfAlignC tfFlexC']").tap()
+        self.delay(4)
 
         self.verifyPageName('/page/yaohao/publicity')
         self.get_screenshot()
@@ -469,7 +472,7 @@ class TestNewhouseDetail(TestBase):
         新房详情页页面，点击报名序号
         """
         self.find_element("view[class='disflex tfAlignC xf_xh_title']").tap()
-        self.delay(3)
+        self.delay(4)
         self.get_screenshot()
 
     def delete_goto_bmyfyj_摇号一房一价(self):
@@ -521,7 +524,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X:
         """
-        self.page.scroll_to(3000, 200)
+        self.page.scroll_to(2500, 200)
         self.delay(4)
         self.find_element('view[class="hxTab"]').tap()
 
