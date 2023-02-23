@@ -256,7 +256,7 @@ class WritePost(TestMine):
             self.delay(1)
         else:
             self.find_element('view[class="vote-button create"]', inner_text='PK').tap()
-            self.delay(1)
+            self.delay(3)
 
             # 输入观点一
             self.find_element('input[type="text"][data-index="0"]').input(left_title)

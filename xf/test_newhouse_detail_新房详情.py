@@ -678,7 +678,7 @@ class TestNewhouseDetail(TestBase):
         新房详情页，点击价格分析
         """
         self.page.scroll_to(3500, 500)
-        self.delay(10)
+        self.delay(11)
         self.find_element('view[class="infoTitle"]/view', inner_text='价格分析\n更多').tap()
 
         self.verifyPageName('/page/newhouse/priceAnalyse/priceAnalyse')
@@ -722,7 +722,7 @@ class TestNewhouseDetail(TestBase):
         新房详情页，点击热门楼盘楼层的第一个楼盘，进新房详情页
         """
         self.page.scroll_to(6500, 500)
-        self.delay(6)
+        self.delay(11)
         self.find_element('image[class="commonNewHouseLi-l-img"]').tap()
         self.delay(2)
         self.get_screenshot()
