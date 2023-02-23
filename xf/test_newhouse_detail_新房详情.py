@@ -38,6 +38,7 @@ class TestNewhouseDetail(TestBase):
         """
         self.find_element('view[class="yfyjList_cont"]').tap()
 
+        self.verifyPageName('/page/newhouse/fd/fdfydetail')
         self.get_screenshot()
 
     def test_zbxx_周边学校_咨询(self):
