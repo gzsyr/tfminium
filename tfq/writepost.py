@@ -104,7 +104,7 @@ class WritePost(TestMine):
         self.delay(1)
         self.find_element('input[class="searchTR-input"]').input(quanzi)
         self.find_element('view[class="search_txt"]').tap()
-        self.delay(1)
+        self.delay(3)
         if not self.page.element_is_exists('view[class="quick-add quick-notadd quick-color1"]', inner_text='已添加'):
             self.find_element('view[class="quick-add quick-addto1 quick-color1"][data-index="0"]', inner_text="添加").tap()
         self.delay(1)
@@ -222,7 +222,7 @@ class WritePost(TestMine):
             self.delay(1)
         else:
             self.find_element('view[class="vote-button create"]', inner_text='投票').tap()
-            self.delay(1)
+            self.delay(3)
             self.find_element('input[class="vote-title"]').input(title)
             self.delay(1)
 
