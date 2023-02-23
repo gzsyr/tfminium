@@ -2,6 +2,7 @@
 import threading
 import time
 
+import minium
 from ddt import ddt, file_data
 
 from tfq.writepost import WritePost
@@ -23,6 +24,89 @@ class TestTfqZygwWritePost(WritePost):
         self.classname = self.__class__.__name__
         super(TestTfqZygwWritePost, self).setUp()
         print("TestZygwWritePost setup")
+
+    def test_zygw_06_带入内容库(self):
+        """
+        V6.30.X: 1005035, 置业顾问发帖页面，点击底部“内容库”, 进入内容库列表，点击“生成帖子”
+        """
+        self.find_element('button[class="content-store"]').tap()
+        self.delay(5)
+
+        try:
+            self.find_element('view[class="tiezi"]', inner_text='生成帖子').tap()
+            self.delay(3)
+            self.verifyPageName('/page/taofangquan/writePost/writePost')
+        except minium.MiniElementNotFoundError:
+            print('没有内容库')
+
+        self.get_screenshot()
+
+    def test_zygw_08_内容库点击正文(self):
+        """
+        V6.30.X: 1005035, 置业顾问发帖页面，点击底部“内容库”, 点击正文
+        """
+        self.find_element('button[class="content-store"]').tap()
+        self.delay(5)
+
+        try:
+            self.find_element('text[class="content tfline3"]').tap()
+            self.delay(3)
+            self.verifyPageName('/page/taofangquan/contentstore/storedetail')
+        except minium.MiniElementNotFoundError:
+            print('没有内容库')
+
+        self.get_screenshot()
+
+    def test_zygw_07_内容库查看详情(self):
+        """
+        V6.30.X: 1005035, 置业顾问发帖页面，点击底部“内容库”, 点击“查看详情”按钮
+        """
+        self.find_element('button[class="content-store"]').tap()
+        self.delay(5)
+
+        try:
+            self.find_element('view[class="toDetail"]', inner_text='查看详情').tap()
+            self.delay(3)
+            self.verifyPageName('/page/taofangquan/contentstore/storedetail')
+        except minium.MiniElementNotFoundError:
+            print('没有内容库')
+
+        self.get_screenshot()
+
+    def test_zygw_09_内容库一键生成帖子(self):
+        """
+        V6.30.X: 1005035, 置业顾问发帖页面，点击底部“内容库”, 点击“查看详情”按钮，点击‘一键生成帖子’
+        """
+        self.find_element('button[class="content-store"]').tap()
+        self.delay(5)
+
+        try:
+            self.find_element('view[class="toDetail"]', inner_text='查看详情').tap()
+            self.delay(3)
+            self.find_element('view[class="btn"]', inner_text='一键生成帖子').tap()
+            self.verifyPageName('/page/taofangquan/writePost/writePost')
+        except minium.MiniElementNotFoundError:
+            print('没有内容库')
+
+        self.get_screenshot()
+
+    def test_zygw_10_内容库发布帖子(self):
+        """
+        V6.30.X: 1005035, 置业顾问发帖页面，点击底部“内容库”, 点击“查看详情”按钮，点击‘一键生成帖子’，点击“发布”
+        """
+        self.find_element('button[class="content-store"]').tap()
+        self.delay(5)
+
+        try:
+            self.find_element('view[class="toDetail"]', inner_text='查看详情').tap()
+            self.delay(3)
+            self.find_element('view[class="btn"]', inner_text='一键生成帖子').tap()
+            self.delay(2)
+            self.find_element('button[class="submit-btn"]').tap()
+        except minium.MiniElementNotFoundError:
+            print('没有内容库')
+
+        self.get_screenshot()
 
     def test_zygw_02_save_draft_保存草稿(self):
         """
