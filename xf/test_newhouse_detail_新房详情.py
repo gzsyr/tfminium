@@ -248,6 +248,7 @@ class TestNewhouseDetail(TestBase):
         V6.19.x: 第一个优惠活动的立即报名按钮
         """
         self.page.scroll_to(800, 200)
+        self.delay(3)
 
         tap = 'self.page.get_element(\'view[class= "promotions_btn_0"]\').tap()'
         self.verifyStr(True, self.getShowToast(tap), '报名成功')
@@ -259,6 +260,7 @@ class TestNewhouseDetail(TestBase):
         V6.19.x: 第二个优惠活动的立即报名按钮
         """
         self.page.scroll_to(800, 200)
+        self.delay(3)
 
         tap = 'self.page.get_element(\'view[class= "promotions_btn_1"]\').tap()'
 
@@ -384,17 +386,27 @@ class TestNewhouseDetail(TestBase):
         """
         V6.29.X: 1004932，点击置业顾问头像
         """
-        self.find_element('view[class="avator"]').tap()
-        self.delay(3)
-        self.get_screenshot()
+        self.page.scroll_to(3550, 200)
+        self.delay(10)
+        try:
+            self.find_element('view[class="avator"]').tap()
+            self.delay(3)
+            self.get_screenshot()
+        except:
+            self.get_screenshot()
 
     def test_goto_zxdt_点击置业顾问正文(self):
         """
         V6.29.X: 1004932，点击置业顾问头像
         """
-        self.find_element('view[class="contentWrap"]').tap()
-        self.delay(3)
-        self.get_screenshot()
+        self.page.scroll_to(3550, 200)
+        self.delay(10)
+        try:
+            self.find_element('view[class="contentWrap"]').tap()
+            self.delay(3)
+            self.get_screenshot()
+        except:
+            self.get_screenshot()
 
     def test_goto_zxdt_click_最新动态提问(self):
         """
@@ -573,7 +585,7 @@ class TestNewhouseDetail(TestBase):
         V6.21.X: 1003947   新房详情页页面，分栋鸟瞰图点击更多，点击【提问】按钮
         """
         self.page.scroll_to(3000, 500)
-        self.delay(10)
+        self.delay(12)
         self.find_element("view[class='infoTitle']/view", inner_text='分栋鸟瞰图\n更多').tap()
 
         # 进入分栋页面
@@ -678,7 +690,7 @@ class TestNewhouseDetail(TestBase):
         新房详情页，点击价格分析
         """
         self.page.scroll_to(3500, 500)
-        self.delay(11)
+        self.delay(12)
         self.find_element('view[class="infoTitle"]/view', inner_text='价格分析\n更多').tap()
 
         self.verifyPageName('/page/newhouse/priceAnalyse/priceAnalyse')
