@@ -25,6 +25,10 @@ class TestLogin(TestBase):
             self.page.get_element('image[class="headL login"]').tap()
             self.app.wait_for_page('/page/index/login')
 
+            # 勾选协议
+            self.find_element('checkbox').tap()
+            self.delay(2)
+
             # 点击 微信授权登录
             self.page.get_element('button').tap()
             self.delay(2)
