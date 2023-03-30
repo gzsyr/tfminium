@@ -127,7 +127,7 @@ class TestCenterC(TestMine):
         C端用户个人中心页面，C端用户点击常用工具
         """
         self.delay(1)
-        self.page.get_element(f'view[class="tab-item"][data-index="{index}"]').tap()
+        self.page.get_element(f'view[class="tab-item item"][data-index="{index}"]').tap()
         self.delay(1)
         self.get_screenshot()
 
@@ -176,3 +176,20 @@ class TestCenterC(TestMine):
         self.verifyPageName('/page/index/notice')
         self.get_screenshot()
 
+    def test_21_C_click_version_版本信息(self):
+        """
+        C端用户点击 版本信息
+        """
+        self.find_element('view[id="version"]').tap()
+
+        self.verifyPageName('/page/mine/version/version')
+        self.get_screenshot()
+
+    def test_22_C_click_card_找房卡(self):
+        """
+        C端用户点击“找房卡”
+        """
+        self.find_element('view[class="toOrder"]').tap()
+
+        self.verifyPageName('/page/newhouse/bnzf/bnzf')
+        self.get_screenshot()
