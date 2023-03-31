@@ -24,6 +24,15 @@ class TestNewsHouseList(TestBase):
             print("无弹窗广告")
         print("TestNewsHouseList setup")
 
+    def test_click_findcard_点击找房卡(self):
+        """
+        V6.32.X: 点击找房卡
+        """
+        self.find_element('view[class="findcard"]').tap()
+
+        self.verifyPageName('/page/newhouse/bnzf/bnzf')
+        self.get_screenshot()
+
     def test_click_zygw_置业顾问头像(self):
         """
         V6.20.X: 点击新房列表项下第五个的置业顾问头像
@@ -47,7 +56,7 @@ class TestNewsHouseList(TestBase):
         """
         新房列表页面，点击搜索框，输入关键词，点击搜索结果第一条，展示带关键字的列表，点击搜索框的“清空”按钮
         """
-        self.page.get_element('navigator', text_contains='请输入楼盘名或区域').tap()
+        self.page.get_element('view[class="searchtxt tfLine1"]', text_contains='请输入楼盘名或区域').tap()
         # 进入搜索页面
         self.app.wait_for_page('/page/search/index')
         # 输入关键词
@@ -65,7 +74,7 @@ class TestNewsHouseList(TestBase):
         """
         新房列表页面，点击地图
         """
-        self.page.get_element('navigator[class="search-map"]').tap()
+        self.page.get_element('view[class="search-map"]').tap()
 
         self.verifyPageName('/page/newhouse/mapzf/mapzf')
         self.get_screenshot()
@@ -126,16 +135,47 @@ class TestNewsHouseList(TestBase):
         self.verifyPageName('/page/newhouse/detail')
         self.get_screenshot()
 
+    def test_select_bk_筛选地铁(self):
+        """
+        V6.32.X: 列表页，筛选板块
+        """
+        self.find_element('view[class="newHouseTabLi-msg"]', inner_text="位置").tap()
+        self.delay(3)
+        self.find_element('view[class="newHouseMaskLi-oneLi"]', inner_text="地铁").tap()
+        self.find_element('view[class="newHouseMaskLi-twoLi tfLine1"]', inner_text='1号线').tap()
+        self.find_element('view[class="newHouseMaskLi-threeLi-check"]').tap()
+        self.find_element('view[class="newHouseMaskLi-sx-btn-confirm"]').tap()
+
+        self.delay(2)
+        self.verifyStr(True, self.element_is_exist('view[class="newHouseTabLi-msg"]'),
+                       '筛选区域正确')
+        self.get_screenshot()
+
+    def test_select_bk_筛选板块(self, bk='城东板块'):
+        """
+        V6.32.X: 列表页，筛选板块
+        """
+        self.find_element('view[class="newHouseTabLi-msg"]', inner_text="位置").tap()
+        self.delay(3)
+        self.find_element('view[class="newHouseMaskLi-oneLi"]', inner_text="板块").tap()
+        self.find_element('view[class="newHouseMaskLi-twoLi tfLine1"]', inner_text=bk).tap()
+        self.find_element('view[class="newHouseMaskLi-sx-btn-confirm"]').tap()
+
+        self.verifyStr(True, self.page.element_is_exists('view[class="newHouseTabLi-msg"]'),
+                       '筛选区域正确')
+        self.get_screenshot()
+
     @data('洛江')
     def test_select_wz_筛选区域(self, qy='洛江'):
         """
         新房列表页面，筛选区域
         """
-        self.page.get_element('view[class="newHouseTabLi-msg wmax114 tfLine1"]', inner_text="位置").tap()
-        self.page.get_element('view[class="maxw175 tfLine1"]', inner_text="区域").tap()
-        self.page.get_element('view[class="newHouseMaskLi-twoLi tfLine1"]', inner_text=qy).tap()
+        self.find_element('view[class="newHouseTabLi-msg"]', inner_text="位置").tap()
+        self.find_element('view[class="newHouseMaskLi-oneLi on"]', inner_text="区域").tap()
+        self.find_element('view[class="newHouseMaskLi-twoLi tfLine1"]', inner_text=qy).tap()
 
-        self.verifyStr(True, self.page.element_is_exists('view[class="newHouseTabLi-msg wmax114 tfLine1"]', inner_text=qy),
+        self.find_element('view[class="newHouseMaskLi-sx-btn-confirm"]').tap()
+        self.verifyStr(True, self.page.element_is_exists('view[class="newHouseTabLi-msg"]'),
                        '筛选区域正确')
         self.get_screenshot()
 
@@ -144,10 +184,10 @@ class TestNewsHouseList(TestBase):
         """
         新房列表页面，筛选价格
         """
-        self.page.get_element('view[class="newHouseTabLi-msg wmax114 tfLine1"]', inner_text="价格").tap()
+        self.page.get_element('view[class="newHouseTabLi-msg"]', inner_text="价格").tap()
         self.page.get_element('view[class="newHouseMaskLi-price-li"]', inner_text=jg).tap()
 
-        self.verifyStr(True, self.page.element_is_exists('view[class="newHouseTabLi-msg wmax114 tfLine1"]', inner_text=jg),
+        self.verifyStr(True, self.page.element_is_exists('view[class="newHouseTabLi-msg"]'),
                        '筛选价格正确')
         self.get_screenshot()
 
@@ -156,10 +196,10 @@ class TestNewsHouseList(TestBase):
         """
         新房列表页面，筛选户型
         """
-        self.page.get_element('view[class="newHouseTabLi-msg wmax114 tfLine1"]', inner_text="户型").tap()
-        self.page.get_element('view[class="newHouseMaskLi-price-li"]', inner_text=hx).tap()
+        self.page.get_element('view[class="newHouseTabLi-msg"]', inner_text="户型").tap()
+        self.page.get_element('view[class="newHouseMaskLi-sx-li"]', inner_text=hx).tap()
 
-        self.verifyStr(True, self.page.element_is_exists('view[class="newHouseTabLi-msg wmax114 tfLine1"]', inner_text=hx),
+        self.verifyStr(True, self.page.element_is_exists('view[class="newHouseTabLi-msg"]'),
                        '筛选户型正确')
         self.get_screenshot()
 
@@ -190,8 +230,20 @@ class TestNewsHouseList(TestBase):
         新房列表页面，筛选排序
         """
         self.page.get_element('view[class="newHouseTabLi-msg"]', inner_text="排序").tap()
-        self.page.get_element('view[class="newHouseMaskLi-price-li"]', inner_text=px).tap()
+        self.page.get_element('view[class="newHouseMaskLi-order-li"]', inner_text=px).tap()
 
+        self.get_screenshot()
+
+    def test_select_wz_清空筛选项(self):
+        """
+        V6.32.X: 新房列表页，选择位置区域，点击筛选条件，点击“清空”
+        """
+        self.find_element('view[class="newHouseTabLi-msg"]', inner_text="位置").tap()
+        self.find_element('view[class="newHouseMaskLi-oneLi on"]', inner_text="区域").tap()
+        self.find_element('view[class="newHouseMaskLi-twoLi tfLine1"]', inner_text='洛江').tap()
+
+        self.get_screenshot('select')
+        self.find_element('view[class="newHouseMaskLi-sx-btn-cancle"]').tap()
         self.get_screenshot()
 
     def test_z_click_fx_分享(self):

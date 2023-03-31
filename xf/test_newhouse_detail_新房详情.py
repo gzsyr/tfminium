@@ -14,6 +14,87 @@ class TestNewhouseDetail(TestBase):
         super(TestNewhouseDetail, self).setUp()
         self.delay(2)
 
+    def test_click_photo_点击总平(self):
+        """
+        V6.32.X: 点击楼盘相册上面显示的“总平”
+        """
+        # self.find_element('view[class="newHouseBannerB-li"]', inner_text='总平').tap()
+        # self.delay(2)
+        self.find_element('swiper-item[data-index="2"]/image').tap()
+
+        self.verifyPageName('/page/newhouse/fd/fdxx')
+        self.get_screenshot()
+
+    def goto_fbs_more(self):
+        """
+        点击“房博士解读”楼层 更多
+        """
+        self.page.scroll_to(4000, 200)
+        self.delay(6)
+
+        self.find_element("view[class='infoTitle']/view", text_contains='房博士解读').tap()
+        return self
+
+    def goto_fbs_detail(self):
+        """
+        房博士问答列表页面，点击回答内容
+        """
+        self.delay(6)
+        self.find_element('view[class="wdLiC-intro tfline2"]').tap()
+        return self
+
+    def test_goto_fbs_more_房博士解读更多(self):
+        """
+        V6.32.X: 点击“房博士解读”楼层 更多
+        """
+        self.goto_fbs_more()
+
+        self.verifyPageName('/fbs/questionList/questionList')
+        self.get_screenshot()
+
+    def test_goto_fbs_more_点击回答内容(self):
+        """
+        V6.32.X: 问答列表，点击问答内容
+        """
+        self.goto_fbs_more().goto_fbs_detail()
+
+        self.verifyPageName('/fbs/detail/detail')
+        self.get_screenshot()
+
+    def test_goto_fbs_点击内容(self):
+        """
+        V6.32.X: 新房详情页，点击房博士解读楼层，点击内容
+        """
+        self.page.scroll_to(8000, 200)
+
+        self.delay(6)
+        self.find_element('view[class="p-flex-item fbsjdTLi-da-t tfline4"]').tap()
+
+        self.verifyPageName('/fbs/detail/detail')
+        self.get_screenshot()
+
+    def test_goto_fbs_more_列表更多问答(self):
+        """
+        V6.32.X: 问答列表，点击 更多问答
+        """
+        self.goto_fbs_more()
+        self.delay(6)
+
+        self.find_element('view[class="showAllqus"]').tap()
+        self.get_screenshot()
+
+    def test_goto_fbs_more_更多问答切换TAB(self):
+        """
+        V6.32.X: 问答列表，点击 更多问答，进入全部回答页面，点击TAB
+        """
+        self.goto_fbs_more()
+        self.delay(6)
+
+        self.find_element('view[class="showAllqus"]').tap()
+        self.delay(3)
+        self.find_element('view[class="selectLi"]').tap()
+        self.get_screenshot()
+
     def test_backtop_展示锚点(self):
         """
         V6.30.X: 滑动至“最新开盘信息”头部，展示锚点
@@ -23,9 +104,10 @@ class TestNewhouseDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_backtop_楼盘详情TAB(self):
+    def delete_backtop_楼盘详情TAB(self):
         """
         V6.30.X: 滑动至“最新开盘信息”头部,点击首个“楼盘详情”tab
+        6.32.x: 删除该功能
         """
         self.page.scroll_to(2000, 200)
         self.delay(6)
@@ -60,11 +142,19 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/newhouse/zxdt/zxdt')
         self.get_screenshot()
 
+    def click_func_yfyj(self):
+        """
+        功能入口，点击 一房一价
+        """
+        self.find_element('view[class="newHouseIconInLi-b"]', inner_text='一房一价').tap()
+
+        return self
+
     def test_func_一房一价(self):
         """
         V6.30.X: 功能入口, 一房一价
         """
-        self.find_element('view[class="newHouseIconInLi-b"]', inner_text='一房一价').tap()
+        self.click_func_yfyj()
 
         self.verifyPageName('/page/newhouse/fd/xkb')
         self.get_screenshot()
@@ -222,27 +312,6 @@ class TestNewhouseDetail(TestBase):
         self.verifyContainsStr(question[0], imquestion)
         self.get_screenshot()
 
-    def test_goto_xxxx_map_详细信息地图(self):
-        """
-        V6.23.X: 详细信息-楼盘区属点击“地图找房”
-        """
-        self.page.scroll_to(2500, 500)
-        self.delay(4)
-
-        self.find_element('view[class="newHouseXxxxLimap_icon"]').tap()
-
-        self.verifyPageName('/page/newhouse/mapzf/mapzf')
-        self.get_screenshot()
-
-    def test_goto_xxxx_楼盘地址(self):
-        """
-        V6.30.X: 1005036, 新房详情页，详细信息楼层，点击 楼盘地址
-        """
-        self.find_element('view[class="jt_icon jt_icon_lpdz"]').tap()
-
-        self.verifyPageName('/page/newhouse/map/map')
-        self.get_screenshot()
-
     def test_check_baoming_优惠活动一(self):
         """
         V6.19.x: 第一个优惠活动的立即报名按钮
@@ -287,13 +356,123 @@ class TestNewhouseDetail(TestBase):
         self.find_element('view[class="consultEntrance--consultIcon"]').tap()
         self.get_screenshot()
 
-    def test_goto_pk_PK页面(self):
+    def goto_pk(self):
         """
         新房详情页页面，点击PK
         """
         self.find_element("navigator[class='pk-icon']").tap()
 
         self.verifyPageName('/page/newhouse/loupanPk/loupanPk')
+        return self
+
+    def add_house(self):
+        """
+        PK页面，点击添加楼盘
+        """
+        self.find_element('view[class="lpBtn1"]').tap()
+        self.verifyPageName('/page/newhouse/loupanPk/loapanAdd')
+
+        return self
+
+    def select_house(self):
+        """
+        PK页面，输入楼盘搜索并选择
+        """
+        self.find_element('input[class="searchTR-input"]').input('格林春天')
+        self.delay(5)
+        self.find_element('view[class="searchBLi-c disflex-flex-shrink-0"]').tap()
+
+        tap = 'self.find_element(\'view[class="searchBLi-c disflex-flex-shrink-0"]\').tap()'
+        if self.getShowToast(tap):
+            self.app.navigate_back()
+
+        self.verifyPageName('/page/newhouse/loupanPk/loupanPk')
+        
+        return self
+
+    def delete_house(self):
+        """
+        PK页面，删除楼盘
+        """
+        self.find_element('checkbox[value="quanzhougelinchuntian"]').tap()
+        self.find_element('view[class="lpTxt1"]').tap()
+        
+        return self
+
+    def select_pk(self):
+        """
+        选择第一个楼盘，点击“对比”
+        """
+        self.find_element('checkbox[value="quanzhougelinchuntian"]').tap()
+        self.find_element('view[class="disflex-flex-shrink-0 lpBtn2 lpBtnAct"]').tap()
+
+        self.verifyPageName('/page/newhouse/loupanPk/pkResult')
+
+    def test_goto_pk_PK页面(self):
+        self.goto_pk()
+        self.get_screenshot()
+
+    def test_PK_01_点击添加楼盘(self):
+        """
+        V6.32.X: pk页面，点击“添加楼盘”
+        """
+        self.goto_pk().add_house()
+
+        self.get_screenshot()
+
+    def test_PK_02_加入PK楼盘(self):
+        """
+        V6.32.X: pk页面，点击“添加楼盘”，输入“格林春天”选择“格林春天2”，加入对比列表
+        """
+        self.goto_pk().add_house().select_house()
+
+        self.get_screenshot()
+
+    def test_PK_08_删除楼盘(self):
+        """
+        V6.32.X: pk页面，删除第一个楼盘
+        """
+        self.goto_pk().delete_house()
+        
+        self.get_screenshot()
+
+    def test_PK_04_选择楼盘对比(self):
+        """
+        V6.32.X: pk页面，选择楼盘，点击“对比”
+        """
+        self.goto_pk().add_house().select_house().select_pk()
+
+        self.get_screenshot()
+
+    def test_PK_05_点击楼盘咨询(self):
+        """
+        V6.32.X: pk结果页面，点击楼盘的“咨询详情”
+        """
+        self.goto_pk().add_house().select_house().select_pk()
+
+        self.find_element('view[class="to_im"]').tap()
+
+        self.get_screenshot()
+
+    def test_PK_06_点击热门咨询(self):
+        """
+        V6.32.X: pk结果页面，点击下面的热门咨询
+        """
+        self.goto_pk().add_house().select_house().select_pk()
+
+        self.find_element('view[class="tfLine1"]').tap()
+
+        self.get_screenshot()
+
+    def test_PK_07_点击更多内容(self):
+        """
+        V6.32.X: pk结果页面，点击下面的更多内容
+        """
+        self.goto_pk().add_house().select_house().select_pk()
+
+        self.find_element('view[class="pkTxt2 twoline"]', inner_text='山海国际写字楼12123').tap()
+
+        self.verifyPageName('/page/newhouse/lpxx/lpxx')
         self.get_screenshot()
 
     def test_goto_dy_订阅(self):
@@ -478,6 +657,51 @@ class TestNewhouseDetail(TestBase):
         self.find_element('image[class="consultQuestion--askquestion_icon"]').tap()
         self.get_screenshot()
 
+    def yfyj_select(self, type='loudong', select=None):
+        """
+        一房一价页面，切换至“列表”，对楼栋、户型、楼层、状态进行筛选
+        """
+        self.delay(8)
+        self.find_element('button[class="fixedR fixedR-list"]').tap()
+        self.delay(5)
+        self.find_element(f'view[class="p-flex-item p-28"][data-type="{type}"]').tap()
+        self.delay(1)
+        # 选择第一个选项
+        self.find_element('view[class="popup_select_icon"]').tap()
+        # 点击“确定”
+        self.find_element('view[class="popup_btn_confirm"]').tap()
+
+    def test_goto_yfyj_筛选楼栋(self):
+        """
+        V6.32.X: 新房详情页-一房一价，点击列表，切换至列表页，选择楼栋筛选
+        """
+        self.click_func_yfyj().yfyj_select(type='loudong')
+
+        self.get_screenshot()
+
+    def test_goto_yfyj_筛选户型(self):
+        """
+        V6.32.X: 新房详情页-一房一价，点击列表，切换至列表页，选择户型筛选
+        """
+        self.click_func_yfyj().yfyj_select(type='hx')
+
+        self.get_screenshot()
+
+    def test_goto_yfyj_筛选楼层(self):
+        """
+        V6.32.X: 新房详情页-一房一价，点击列表，切换至列表页，选择楼层筛选
+        """
+        self.click_func_yfyj().yfyj_select(type='floor')
+
+        self.get_screenshot()
+
+    def test_goto_yfyj_筛选状态(self):
+        """
+        V6.32.X: 新房详情页-一房一价，点击列表，切换至列表页，选择状态筛选
+        """
+        self.click_func_yfyj().yfyj_select(type='state')
+
+        self.get_screenshot()
 
     def test_goto_lpdp_楼盘点评(self):
         """
@@ -541,13 +765,76 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/newhouse/zxdt/zxdt')
         self.get_screenshot()
 
-    def test_goto_xxxx_more_楼盘详细信息(self):
+    def test_goto_xxxx_map_详细信息地图(self):
         """
-        新房详情页页面，点击楼盘详细信息 更多
+        V6.23.X: 详细信息-楼盘区属点击“地图找房”
+        """
+        self.page.scroll_to(2500, 500)
+        self.delay(4)
+
+        self.find_element('view[class="newHouseXxxxLimap_icon"]').tap()
+
+        self.verifyPageName('/page/newhouse/mapzf/mapzf')
+        self.get_screenshot()
+
+    def test_goto_xxxx_楼盘地址(self):
+        """
+        V6.30.X: 1005036, 新房详情页，详细信息楼层，点击 楼盘地址
+        """
+        self.find_element('view[class="jt_icon jt_icon_lpdz"]').tap()
+
+        self.verifyPageName('/page/newhouse/map/map')
+        self.get_screenshot()
+
+    def goto_xxxx_more(self):
+        """
+        点击楼盘详细信息 更多
         """
         self.find_element("view[class='infoTitle']/view", inner_text='详细信息\n更多').tap()
 
         self.verifyPageName('/page/newhouse/lpxx/lpxx')
+
+    def test_goto_xxxx_more_楼盘详细信息(self):
+        """
+        新房详情页页面，点击楼盘详细信息 更多
+        """
+        self.goto_xxxx_more()
+
+        self.get_screenshot()
+
+    def test_goto_xxxx_more_滑动显示锚点(self):
+        """
+        V6.32.X: 楼盘详细信息页面，滑动页面，显示锚点
+        """
+        self.goto_xxxx_more()
+
+        self.page.scroll_to(800, 200)
+
+        self.delay(2)
+        self.verifyStr(True, self.element_is_exist('view[class="anchorPoint--anchorWrap anchorPoint--anchorFixed"]'),
+                       '显示锚点')
+
+        self.get_screenshot()
+
+    def test_goto_xxxx_more_点击详情(self):
+        """
+        V6.32.X: 楼盘详细信息页面，点击楼盘名旁边的“详情”
+        """
+        self.goto_xxxx_more()
+        self.find_element('view[class="tolpdetail"]').tap()
+
+        self.verifyPageName('/page/newhouse/detail')
+        self.get_screenshot()
+
+    def test_goto_xxxx_more_点击楼盘地址(self):
+        """
+        V6.32.X: 楼盘详细信息页面，点击楼盘地址
+        """
+        self.goto_xxxx_more()
+
+        self.find_element('view[class="jt_icon jt_icon_lpdz"]').tap()
+
+        self.verifyPageName('/page/newhouse/map/map')
         self.get_screenshot()
 
     def test_goto_xxxx_more_IM_详细信息咨询(self):

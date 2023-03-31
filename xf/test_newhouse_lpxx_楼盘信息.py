@@ -57,9 +57,10 @@ class TestNewhouseLpxx(TestBase):
         self.verifyPageName('/page/newhouse/zygw/detail')
         self.get_screenshot()
 
-    def test_004_click_申请入驻(self):
+    def delete_004_click_申请入驻(self):
         """
         V6.23.X: 置业顾问楼层，点击“申请入驻”
+        V6.32.X: 已删除改申请入驻
         """
         self.find_element('navigator[class="notification"]').tap()
 

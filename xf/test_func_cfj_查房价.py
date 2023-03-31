@@ -73,6 +73,7 @@ class TestFuncCfj(TestBase):
         """
         输入小区名称，并选择
         """
+        self.delay(2)
         self.page.get_element('input[class="blur-input"]').input(name)
         self.delay(1)
         # self.page.get_element_by_xpath(f'//*[contains(text(), {name}').tap()
