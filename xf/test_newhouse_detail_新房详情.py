@@ -78,9 +78,9 @@ class TestNewhouseDetail(TestBase):
         V6.32.X: 问答列表，点击 更多问答
         """
         self.goto_fbs_more()
-        self.delay(6)
+        self.delay(8)
 
-        self.find_element('view[class="showAllqus"]').tap()
+        self.find_element('view[class="showAllqus tfFlex tfAlignC tfFlexC"]').tap()
         self.get_screenshot()
 
     def test_goto_fbs_more_更多问答切换TAB(self):
@@ -90,7 +90,7 @@ class TestNewhouseDetail(TestBase):
         self.goto_fbs_more()
         self.delay(6)
 
-        self.find_element('view[class="showAllqus"]').tap()
+        self.find_element('view[class="showAllqus tfFlex tfAlignC tfFlexC"]').tap()
         self.delay(3)
         self.find_element('view[class="selectLi"]').tap()
         self.get_screenshot()
@@ -361,6 +361,7 @@ class TestNewhouseDetail(TestBase):
         新房详情页页面，点击PK
         """
         self.find_element("navigator[class='pk-icon']").tap()
+        self.delay(3)
 
         self.verifyPageName('/page/newhouse/loupanPk/loupanPk')
         return self
@@ -370,6 +371,7 @@ class TestNewhouseDetail(TestBase):
         PK页面，点击添加楼盘
         """
         self.find_element('view[class="lpBtn1"]').tap()
+        self.delay(2)
         self.verifyPageName('/page/newhouse/loupanPk/loapanAdd')
 
         return self
@@ -380,7 +382,7 @@ class TestNewhouseDetail(TestBase):
         """
         self.find_element('input[class="searchTR-input"]').input('格林春天')
         self.delay(5)
-        self.find_element('view[class="searchBLi-c disflex-flex-shrink-0"]').tap()
+        # self.find_element('view[class="searchBLi-c disflex-flex-shrink-0"]').tap()
 
         tap = 'self.find_element(\'view[class="searchBLi-c disflex-flex-shrink-0"]\').tap()'
         if self.getShowToast(tap):
@@ -404,8 +406,9 @@ class TestNewhouseDetail(TestBase):
         选择第一个楼盘，点击“对比”
         """
         self.find_element('checkbox[value="quanzhougelinchuntian"]').tap()
+        self.delay(2)
         self.find_element('view[class="disflex-flex-shrink-0 lpBtn2 lpBtnAct"]').tap()
-
+        self.delay(4)
         self.verifyPageName('/page/newhouse/loupanPk/pkResult')
 
     def test_goto_pk_PK页面(self):
@@ -661,11 +664,11 @@ class TestNewhouseDetail(TestBase):
         """
         一房一价页面，切换至“列表”，对楼栋、户型、楼层、状态进行筛选
         """
-        self.delay(8)
+        self.delay(9)
         self.find_element('button[class="fixedR fixedR-list"]').tap()
-        self.delay(5)
+        self.delay(9)
         self.find_element(f'view[class="p-flex-item p-28"][data-type="{type}"]').tap()
-        self.delay(1)
+        self.delay(6)
         # 选择第一个选项
         self.find_element('view[class="popup_select_icon"]').tap()
         # 点击“确定”

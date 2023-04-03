@@ -13,6 +13,7 @@ class TestXfMap(TestBase):
         self.switch = False
         self.classname = self.__class__.__name__
         super(TestXfMap, self).setUp()
+        self.delay(5)
 
     def test_03_xf_map_hotim_热门咨询(self):
         """
@@ -23,7 +24,7 @@ class TestXfMap(TestBase):
         question = ele.attribute('data-question')
         ele.tap()
 
-        self.delay(4)
+        self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
         imquestion = self.find_elements('view[class="record-chatting-item self"]')[-1].inner_wxml
         self.verifyContainsStr(question[0], imquestion)
@@ -48,14 +49,14 @@ class TestXfMap(TestBase):
         V6.24.X: 进入地铁页面，点击问题咨询
         """
         self.change()
-        self.delay(2)
+        self.delay(16)
 
         ele = self.find_element('view[class="scrollitem"]')
 
         question = ele.attribute('data-question')
         ele.tap()
 
-        self.delay(4)
+        self.delay(20)
         self.verifyPageName('/im/pages/chating/chating')
         imquestion = self.find_elements('view[class="record-chatting-item self"]')[-1].inner_wxml
         self.verifyContainsStr(question[0], imquestion)
@@ -66,10 +67,10 @@ class TestXfMap(TestBase):
         V6.24.X: 进入地铁页面，选择线路和站点，筛选
         """
         self.change()
-        self.delay(2)
+        self.delay(16)
 
         self.find_element('view[class="screenTop_list"]').tap()
-        self.delay(1)
+        self.delay(2)
         self.find_element('view[class="tfLine1 p10"]', inner_text='迈皋桥站').tap()
 
         self.find_element('view[class="screenBtn_confirm"]').tap()
@@ -81,7 +82,7 @@ class TestXfMap(TestBase):
         V6.24.X: 进入地铁页面，选择“1号线”筛选，点击“清空”
         """
         self.change()
-        self.delay(2)
+        self.delay(16)
 
         self.find_element('view[class="screenTop_list"]').tap()
         self.delay(1)
@@ -112,9 +113,11 @@ class TestXfMap(TestBase):
         self.set_filter(kw)
 
         self.change()
+        self.delay(10)
         self.verifyPageName('/page/newhouse/metrozf/metrozf')
 
         self.change()
+        self.delay(2)
         self.verifyPageName('/page/newhouse/mapzf/mapzf')
 
         self.get_screenshot()

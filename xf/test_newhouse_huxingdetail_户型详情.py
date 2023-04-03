@@ -16,7 +16,7 @@ class TestNewhouseHuxingDetail(TestBase):
         """
         V6.23.X: -置业顾问楼层，点击“查看更多”
         """
-        self.find_element('view[class="newHouseTitle-r-sj"]').tap()
+        self.find_element('view[class="more tfFlex tfAlignC"]').tap()
 
         self.verifyPageName('/page/newhouse/zygw/list')
         self.get_screenshot()
@@ -39,9 +39,10 @@ class TestNewhouseHuxingDetail(TestBase):
         self.verifyPageName('/page/newhouse/zygw/detail')
         self.get_screenshot()
 
-    def test_004_click_申请入驻(self):
+    def delete_004_click_申请入驻(self):
         """
         V6.23.X: 置业顾问楼层，点击“申请入驻”
+        V6.32.X: 删除
         """
         self.find_element('navigator[class="notification"]').tap()
 

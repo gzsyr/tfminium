@@ -11,7 +11,7 @@ class TestImdetail(WritePost):
     @classmethod
     def setUpClass(cls) -> None:
         super(TestImdetail, cls).setUpClass()
-        cls().change_zygw()
+        cls().change_C()
         print("setupclass")
 
     def setUp(self) -> None:
@@ -93,10 +93,10 @@ class TestImdetail(WritePost):
         self.delay(2)
         # 选择一条消息
         self.page.get_element('checkbox[class="checkbox"]').tap()
-        self.delay(1)
+        self.delay(3)
         # 点击去提问
         self.page.get_element('view[class="toask"]').tap()
-        self.delay(2)
+        self.delay(3)
         # 点击发布
         self.page.get_element('button[class="submit-btn"]').tap()
         self.delay(3)

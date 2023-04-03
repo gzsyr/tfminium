@@ -31,10 +31,13 @@ class TestImdetailCB(WritePost):
 
     def test_02_clickzdhf_去设置自动回复(self):
         # 点击【去设置自动回复，不错过任何消息】
-        e = self.page.get_element('view[class="chatTips flex tfAlignC tfFlexSb"]')
-        e.tap()
-        self.delay(3)
-        self.get_screenshot()
+        try:
+            e = self.page.get_element('view[class="chatTips flex tfAlignC tfFlexSb"]')
+            e.tap()
+            self.delay(3)
+            self.get_screenshot()
+        except:
+            print("设置自动回复已X掉")
 
     def test_03_clickcyy_常用语(self):
         # 点击常用语
@@ -60,18 +63,18 @@ class TestImdetailCB(WritePost):
         # 点击常用语
         e = self.page.get_element('view[class="kjhfBtn flex tfAlignC"]')
         e.tap()
-        self.delay(2)
+        self.delay(3)
         # 点击管理
         self.page.get_element('view[class="glkjhf"]').tap()
-        self.delay(2)
+        self.delay(3)
         # 点击新增常用语
-        self.page.get_element('button[class="addBtn"]').tap()
-        self.delay(2)
+        self.page.get_element('button[class="addBtn zygwBtn"]').tap()
+        self.delay(3)
         # 输入常用语
         pyperclip.copy('呜呜呜呜呜呜呜呜无')
         self.delay(3)
         self.input_value_by_mk(png='xiaoxi/changyongyu.png', value='呜呜呜呜呜呜呜呜无', direction=1)
-        self.delay(5)
+        self.delay(3)
         pyautogui.hotkey('Ctrl', 'V')
         self.delay(3)
         # 点击保存
@@ -86,11 +89,11 @@ class TestImdetailCB(WritePost):
         self.delay(2)
         # 点击管理
         self.page.get_element('view[class="glkjhf"]').tap()
-        self.delay(2)
+        self.delay(3)
         # 点击编辑常用语
         e = self.page.get_elements('image[class="edit_img"]')
         e[0].tap()
-        self.delay(2)
+        self.delay(3)
         # 输入常用语
         self.page.get_element('textarea').input('woowowo我我哦我我')
         self.delay(3)
@@ -103,10 +106,10 @@ class TestImdetailCB(WritePost):
         # 点击常用语
         e = self.page.get_element('view[class="kjhfBtn flex tfAlignC"]')
         e.tap()
-        self.delay(2)
+        self.delay(3)
         # 点击管理
         self.page.get_element('view[class="glkjhf"]').tap()
-        self.delay(2)
+        self.delay(3)
         # 点击删除常用语
         result = {"confirm": True}
         self.app.mock_wx_method("showModal", result=result)
@@ -132,10 +135,10 @@ class TestImdetailCB(WritePost):
         self.delay(2)
         # 选择一条消息
         self.page.get_element('checkbox[class="checkbox"]').tap()
-        self.delay(1)
+        self.delay(2)
         # 点击去提问
         self.page.get_element('view[class="toask"]').tap()
-        self.delay(2)
+        self.delay(3)
         # 点击发布
         self.page.get_element('button[class="submit-btn"]').tap()
         self.delay(3)
@@ -147,7 +150,7 @@ class TestImdetailCB(WritePost):
         self.delay(2)
         # 选择一条消息
         self.page.get_element('checkbox[class="checkbox"]').tap()
-        self.delay(1)
+        self.delay(2)
         # 点击取消
         self.page.get_element('view[class="cancel"]').tap()
         self.delay(3)

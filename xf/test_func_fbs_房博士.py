@@ -70,9 +70,10 @@ class TestFuncFbs(TestBase):
         self.verifyPageName('/fbs/detail/detail')
         self.get_screenshot()
 
-    def test_04_detail_goto_shouye_问答详情回首页(self):
+    def delete_04_detail_goto_shouye_问答详情回首页(self):
         """
         房博士页面，点击热门问答列表第一个 进入问答详情，点击“回首页”
+        V6.32.X: 删除
         """
         self.click_first_title().click_shouye()
 
