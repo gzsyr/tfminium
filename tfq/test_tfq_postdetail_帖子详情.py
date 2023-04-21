@@ -141,7 +141,8 @@ class TestTfqPostDetail(TestBase):
         """
         帖子详情页，点击评论第一个房博士的“点击联系”按钮
         """
-        self.find_element('view[class="commentList--contact-fbs commentList--connectfbs"]').tap()
+        self.page.scroll_to(2300, 500)
+        self.find_element('view[class="commentList--contact-fbs commentList--fbs_contact_tap"]').tap()
 
         self.get_screenshot()
 
@@ -158,7 +159,8 @@ class TestTfqPostDetail(TestBase):
         """
         帖子详情页，点击评论第一个置业顾问的“点击联系”按钮，进IM聊天
         """
-        self.find_element('view[class="commentList--contact-fbs commentList--connectzygw"]').tap()
+        self.page.scroll_to(2300, 500)
+        self.find_element('view[class="commentList--contact-fbs commentList--zygw_contact_tap"]').tap()
         self.delay(3)
 
         self.get_screenshot()
