@@ -667,7 +667,10 @@ class TestNewhouseDetail(TestBase):
         self.delay(9)
         self.find_element('button[class="fixedR fixedR-list"]').tap()
         self.delay(9)
-        self.find_element(f'view[class="p-flex-item p-28"][data-type="{type}"]').tap()
+        if type == 'loudong':
+            self.find_element(f'view[class="p-flex-item p-28 z-select"][data-type="{type}"]').tap()
+        else:
+            self.find_element(f'view[class="p-flex-item p-28"][data-type="{type}"]').tap()
         self.delay(6)
         # 选择第一个选项
         self.find_element('view[class="popup_select_icon"]').tap()
@@ -1050,7 +1053,7 @@ class TestNewhouseDetail(TestBase):
         """
         新房详情页面，点击底部的“摇号”
         """
-        self.find_element('navigator[class="comBottomBar--link-button comBottomBar--yaohao"]').tap()
+        self.find_element('navigator[class="comBottomBar--link-button comBottomBar--zm comBottomBar--yaohao"]').tap()
 
         self.verifyPageName('/page/newhouse/historyLp/historyLp')
         self.get_screenshot()
