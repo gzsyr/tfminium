@@ -8,7 +8,7 @@ class TestMine(TestBase):
     """
     我的頁面
     """
-    def change_roles(self, re_name=None, change_name=None):
+    def change_roles(self, re_name=None, change_name=None, change_type=None):
         """
         re_name：我的页面上期望展示的身份昵称
         change_name：切换角色列表中的昵称
@@ -45,7 +45,11 @@ class TestMine(TestBase):
                 # 从置业顾问切换到其他角色 弹出切换的按钮
                 self.page.get_element('image[class="changerole"]').tap()
             self.delay(1)
-            self.page.get_element('view[class="name"]', inner_text=change_name).tap()
+
+            # 勾选要切换的角色
+            # self.page.get_element('view[class="name"]', inner_text=change_name).tap()
+            self.find_element(f'radio[value="{change_type}"]').tap()
+
             self.delay(1)
             try:
                 self.page.get_element('view[class="change-role-submit"]').tap()
@@ -68,7 +72,7 @@ class TestMine(TestBase):
         # try:
         #     self.page.get_element('view[class="disflex tfAlignC mxfbs-title"]', text_contains='明星房博士')
         # except:
-            self.change_roles(re_name="fbs朱苏云", change_name="房博士-fbs朱苏云")
+            self.change_roles(re_name="fbs朱苏云", change_name="房博士-fbs朱苏云", change_type="1478")
             # self.change_roles(re_name="房博士zsy", change_name="房博士-房博士线上5160")
             print('切换到房博士身份')
 
@@ -84,7 +88,7 @@ class TestMine(TestBase):
         # try:
         #     self.page.get_element('view[class="disflex tfAlignC level"]', text_contains='置业顾问')
         # except minium.MiniElementNotFoundError:
-            self.change_roles(re_name="线上", change_name="置业顾问-线上")    # online
+            self.change_roles(re_name="线上", change_name="置业顾问-线上", change_type="1005")    # online
             # self.change_roles(re_name="测试机", change_name="置业顾问-线上zygw5160")
             print('切换到置业顾问身份')
 
@@ -96,7 +100,7 @@ class TestMine(TestBase):
         if self.get_third_title() == '运营':
             print('当前身份是运营，无需切换')
         else:
-            self.change_roles(re_name="yy朱苏云", change_name="运营-yy朱苏云")
+            self.change_roles(re_name="yy朱苏云", change_name="运营-yy朱苏云", change_type="1481")
             # self.change_roles(re_name="zsyce", change_name="运营-yy5160")
         return self
 
@@ -108,7 +112,7 @@ class TestMine(TestBase):
         if self.get_third_title() == 'C端用户':
             print('当前身份是C端用户，无需切换')
         else:
-            self.change_roles(re_name="小露朱zsy", change_name="C端用户")
+            self.change_roles(re_name="小露朱zsy", change_name="C端用户", change_type="0")
 
 
 
