@@ -6,14 +6,17 @@ N1:
   total: '100'
   price: '15179'
   area: '158'
-  years: 25
+  years: 24
   lpr: '5.0'
   lprbp: '4'
+  lilv: 13
   gjjtotal: '100'
-  gjjyears: 25
-  bxret: '5869.23'
-  bjret: '7533.33'
+  gjjyears: 24
+  bxret: '6081.3'
+  bjret: '7833.33'
   gjjbxret: '4794.29'
   gjjbjret: '5916.67'
-  bxpriceret: '9853.25'
-  bjpriceret: '12646.94'
+  bxpriceret: '10209.27'
+  bjpriceret: '13150.58'
+  zhdx: '10875.59'
+  zhdb: '13750.00'

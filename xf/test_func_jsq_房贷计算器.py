@@ -2,6 +2,7 @@
 import os
 import time
 
+import minium
 import pyautogui
 from ddt import ddt, file_data
 
@@ -85,12 +86,11 @@ class TestFuncJsq(TestBase):
         self.sydk_click_hkfs_debj().\
             input_value_by_mk(png='xf\pricetotal.png', value=kargs['total']).\
             sydk_slider_years(kargs['years']).\
-            sydk_input_Lpr(kargs['lpr']).\
-            sydk_input_lprbp(kargs['lprbp']).\
+            sydk_select_lilv(kargs['lilv']).\
             click_submitbtn()
 
         self.verifyPageName('/page/tools/fdjsq/result/result', '跳到计算结果页 ok')
-        self.verifyContainsStr(kargs['bjret'], self.page.get_elements('view[class="monthly-num"]')[1].inner_text, 'result ok')
+        self.verifyContainsStr(kargs['bjret'], self.page.get_element('view[class="monthly-price monthly-price-bj"]').inner_text, 'result ok')
         self.get_screenshot()
 
     @file_data('./test_func_jsq.yml')
@@ -99,14 +99,14 @@ class TestFuncJsq(TestBase):
         房贷计算器页面，“商业贷款”，等额本息-按贷款总额
         """
         self.input_value_by_mk(png='xf\pricetotal.png', value=kargs['total']). \
-            sydk_slider_years(kargs['years']). \
-            sydk_input_Lpr(kargs['lpr']). \
-            sydk_input_lprbp(kargs['lprbp']). \
-            click_submitbtn()
+            sydk_slider_years(kargs['years'])
+
+        self.sydk_select_lilv(kargs['lilv'])
+        self.click_submitbtn()
 
         self.verifyPageName('/page/tools/fdjsq/result/result', '跳到计算结果页 ok')
-        self.page.wait_for('view[class="monthly-num"]')
-        self.verifyContainsStr(kargs['bxret'], self.page.get_elements('view[class="monthly-num"]')[0].inner_text, 'result ok')
+        self.page.wait_for('view[class="monthly-price"]')
+        self.verifyContainsStr(kargs['bxret'], self.page.get_element('view[class="monthly-price"]').inner_text, 'result ok')
         self.get_screenshot()
 
     @file_data('./test_func_jsq.yml')
@@ -119,13 +119,12 @@ class TestFuncJsq(TestBase):
             input_value_by_mk(png='xf\price.png', value=kargs['price']).\
             input_value_by_mk(png='xf\\area.png', value=kargs['area']).\
             sydk_slider_years(kargs['years']).\
-            sydk_input_Lpr(kargs['lpr']).\
-            sydk_input_lprbp(kargs['lprbp']).\
+            sydk_select_lilv(kargs['lilv']).\
             click_submitbtn()
 
         self.verifyPageName('/page/tools/fdjsq/result/result', '跳到计算结果页 ok')
-        self.page.wait_for('view[class="monthly-num"]')
-        self.verifyContainsStr(kargs['bjpriceret'], self.page.get_elements('view[class="monthly-num"]')[1].inner_text,
+        self.page.wait_for('view[class="monthly-price monthly-price-bj"]')
+        self.verifyContainsStr(kargs['bjpriceret'], self.page.get_element('view[class="monthly-price monthly-price-bj"]').inner_text,
                                'result ok')
         self.get_screenshot()
 
@@ -138,13 +137,12 @@ class TestFuncJsq(TestBase):
             input_value_by_mk(png='xf\price.png', value=kargs['price']). \
             input_value_by_mk(png='xf\\area.png', value=kargs['area']). \
             sydk_slider_years(kargs['years']).\
-            sydk_input_Lpr(kargs['lpr']).\
-            sydk_input_lprbp(kargs['lprbp']).\
+            sydk_select_lilv(kargs['lilv']).\
             click_submitbtn()
 
         self.verifyPageName('/page/tools/fdjsq/result/result', '跳到计算结果页 ok')
-        self.page.wait_for('view[class="monthly-num"]')
-        self.verifyContainsStr(kargs['bxpriceret'], self.page.get_elements('view[class="monthly-num"]')[0].inner_text,
+        self.page.wait_for('view[class="monthly-price"]')
+        self.verifyContainsStr(kargs['bxpriceret'], self.page.get_element('view[class="monthly-price"]').inner_text,
                                'result ok')
         self.get_screenshot()
 
@@ -161,8 +159,8 @@ class TestFuncJsq(TestBase):
             click_submitbtn().delay(1)
 
         self.verifyPageName('/page/tools/fdjsq/result/result', '跳到计算结果页 ok')
-        self.page.wait_for('view[class="monthly-num"]')
-        self.verifyContainsStr(kwargs['gjjbjret'], self.page.get_elements('view[class="monthly-num"]')[1].inner_text,
+        self.page.wait_for('view[class="monthly-price monthly-price-bj"]')
+        self.verifyContainsStr(kwargs['gjjbjret'], self.page.get_element('view[class="monthly-price monthly-price-bj"]').inner_text,
                                'result ok')
         self.get_screenshot()
 
@@ -184,8 +182,8 @@ class TestFuncJsq(TestBase):
             self.click_submitbtn()
 
         self.verifyPageName('/page/tools/fdjsq/result/result', '跳到计算结果页 ok')
-        self.page.wait_for('view[class="monthly-num"]')
-        self.verifyContainsStr(kwargs['gjjbxret'], self.page.get_elements('view[class="monthly-num"]')[0].inner_text,
+        self.page.wait_for('view[class="monthly-price"]')
+        self.verifyContainsStr(kwargs['gjjbxret'], self.page.get_element('view[class="monthly-price"]').inner_text,
                                'result ok')
         self.get_screenshot()
 
@@ -200,19 +198,15 @@ class TestFuncJsq(TestBase):
             input_value_by_mk(png='xf\sd-pricetotal.png', value=kwargs['total'], direction=1).\
             delay(1).\
             sydk_slider_years(kwargs['years']).\
-            sydk_input_Lpr(kwargs['lpr']).\
-            sydk_input_lprbp(kwargs['lprbp']). \
+            sydk_select_lilv(kwargs['lilv']).\
             delay(1). \
             input_value_by_mk(png='xf\gjj-pricetotal.png', value=kwargs['gjjtotal'], direction=1).\
             gjj_slider_years(kwargs['years']).\
             click_submitbtn()
 
         self.verifyPageName('/page/tools/fdjsq/result/result', '跳到计算结果页 ok')
-        self.page.wait_for('view[class="monthly-num"]')
-        self.verifyContainsStr(kwargs['bxret'],
-                               self.page.get_elements('view[class="monthly-num-black pl40"]')[0].inner_text,
-                               'result ok')
-        self.verifyContainsStr(kwargs['gjjbxret'], self.page.get_elements('view[class="monthly-num-black pl40"]')[1].inner_text,
+        self.page.wait_for('view[class="monthly-price"]')
+        self.verifyContainsStr(kwargs['zhdx'], self.page.get_element('view[class="monthly-price"]').inner_text,
                                'result ok')
         self.get_screenshot()
 
@@ -225,19 +219,17 @@ class TestFuncJsq(TestBase):
             sydk_click_hkfs_debj().\
             input_value_by_mk(png='xf\sd-pricetotal.png', value=kwargs['total'], direction=1).\
             sydk_slider_years(kwargs['years']).\
-            sydk_input_Lpr(kwargs['lpr']).\
-            sydk_input_lprbp(kwargs['lprbp']).\
+            sydk_select_lilv(kwargs['lilv']).\
             input_value_by_mk(png='xf\gjj-pricetotal.png', value=kwargs['gjjtotal'], direction=1).\
             gjj_slider_years(kwargs['years']).\
             click_submitbtn()
 
         self.verifyPageName('/page/tools/fdjsq/result/result', '跳到计算结果页 ok')
-        self.page.wait_for('view[class="monthly-num"]')
-        self.verifyContainsStr(kwargs['bjret'],
-                               self.page.get_elements('view[class="monthly-num-black pl30"]')[0].inner_text,
+        self.page.wait_for('view[class="monthly-price monthly-price-bj"]')
+        self.verifyContainsStr(kwargs['zhdb'],
+                               self.page.get_element('view[class="monthly-price monthly-price-bj]').inner_text,
                                'result ok')
-        self.verifyContainsStr(kwargs['gjjbjret'], self.page.get_elements('view[class="monthly-num-black pl30"]')[1].inner_text,
-                               'result ok')
+
         self.get_screenshot()
 
         TestFuncJsq.result_page = self.get_page_name()
@@ -293,7 +285,7 @@ class TestFuncJsq(TestBase):
         """
         房贷计算器页面，“商业贷款”，点击“等额本金”
         """
-        ele = self.page.get_element('view[class="inline-block ml30"][data-idx="en"]')
+        ele = self.page.get_element('view[class="radioWrap"][data-idx="en"]')
         ele.tap()
         return self
 
@@ -304,7 +296,7 @@ class TestFuncJsq(TestBase):
         """
         房贷计算器页面，“商业贷款”，点击“按单价”
         """
-        ele = self.page.get_element('label[class="ml30"][data-idx="prize"]')
+        ele = self.page.get_element('label[class="radioWrap"][data-idx="prize"]')
         ele.tap()
         self.delay(1)
         return self
@@ -356,8 +348,10 @@ class TestFuncJsq(TestBase):
         """
         房贷计算器页面，“商业贷款”，滑动贷款年限到“25”
         """
-        element_slider = self.page.get_element('slider[id="qishu"]')
-        element_slider.slide_to(years)
+        self.delay(2)
+        # element_slider = self.page.get_element('slider[id="qishu"]')
+        # element_slider.slide_to(years)
+        self.set_pick_filter('picker[name="qishu"]', value=years)
         return self
 
         # self.verifyStr(element_slider.value, 25, "slider ok")
@@ -387,12 +381,30 @@ class TestFuncJsq(TestBase):
         self.page.get_element('input[name="lprbp"]').input(lprbp)
         return self
 
+    def sydk_select_lilv(self, lilv=13):
+        """
+        房贷计算器页面，“商业贷款”，选择“利率”
+        """
+        self.delay(2)
+        try:
+            self.find_elements('view[class="dk-ceng clearfix bor-b"]')[1].tap()
+        except:
+            self.find_element('view[class="dk-ceng clearfix"][data-type="sy"]').tap()
+        # self.input_value_by_mk(png='xf\lilv.png')
+        self.delay(4)
+        e = self.find_element('picker-view[class="pickerView"]')
+        e.trigger("change", {"value": lilv})
+        self.delay(2)
+        self.find_element('view[class="picker-confirm"]').tap()
+
+        return self
+
     # 以下是“公积金贷款”tab页面元素的点击
     def gjj_click_debj(self):
         """
         “公积金贷款”，点击“等额本金”
         """
-        ele = self.page.get_element('view[class="inline-block ml30"][data-idx="en"]')
+        ele = self.page.get_element('view[class="radioWrap"][data-idx="en"]')
         ele.tap()
         return self
 
@@ -404,13 +416,14 @@ class TestFuncJsq(TestBase):
         ele.input(total)
         return self
 
-    def gjj_slider_years(self, years=25):
+    def gjj_slider_years(self, years=24):
         """
-        “公积金贷款”，滑动贷款期限
+        “公积金贷款”，pick选择
         """
         self.delay(2)
-        element_slider = self.page.get_element('slider[id="gjj_qishu"]')
-        element_slider.slide_to(years)
+        # element_slider = self.page.get_element('slider[id="gjj_qishu"]')
+        # element_slider.slide_to(years)
+        self.set_pick_filter('picker[name="gjj_qishu"]', value=years)
         return self
 
 
