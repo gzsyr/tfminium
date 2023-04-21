@@ -48,7 +48,7 @@ class TestTfqMyPost(TestBase):
         self.getShowToast(tap)
         # 点击’查看发布详情'
         self.page.get_element('navigator[class="backTieZiDetailBtn"]').tap()
-        self.delay(1)
+        self.delay(3)
         self.verifyStr(True,
                        self.page.element_is_exists('view[class="post_Title"]', text_contains='编辑'),
                        '编辑标题ok')
