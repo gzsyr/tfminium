@@ -346,10 +346,11 @@ class TestTfqPostDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_03_click_addgroup_购房群(self):
+    def delete_test_03_click_addgroup_购房群(self):
         """
         帖子详情页，点击底部“购房群”按钮
         :return:
+        V6.34.X: delete
         """
         self.find_element('view[class="item bottom-add-group"]').tap()
 
@@ -388,19 +389,21 @@ class TestTfqPostDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_25_click_share_分享(self):
+    def delete_test_25_click_share_分享(self):
         """
         帖子详情页，点击”分享“按钮
+        V6.34.X: delete
         """
         self.find_element('button[class="newHouseRfixed-share"]').tap()
         self.delay(1)
 
         self.verifyByScreenshot('tfq/test_click_post_share.png')
 
-    def test_26_click_share_close_分享后取消(self):
+    def delete_test_26_click_share_close_分享后取消(self):
         """
         帖子详情页，点击”分享“按钮，点击取消按钮
         :return:
+        V6.34.X: delete
         """
         self.find_element('button[class="newHouseRfixed-share"]').tap()
         self.delay(1)
@@ -408,10 +411,11 @@ class TestTfqPostDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_27_click_share_hb_分享海报(self):
+    def delete_test_27_click_share_hb_分享海报(self):
         """
         帖子详情页，点击”分享“按钮，点击海报
         :return:
+        V6.34.X: delete
         """
         self.delay(2)
         self.find_element('button[class="newHouseRfixed-share"]').tap()
@@ -423,9 +427,10 @@ class TestTfqPostDetail(TestBase):
                        '生成海报页 ok')
         self.get_screenshot()
 
-    def test_98_z_click_share_hy_分享好友(self):
+    def delete_test_98_z_click_share_hy_分享好友(self):
         """
         帖子详情页，点击”分享“按钮，点击分享给好友
+        V6.34.X: delete
         """
         self.find_element('button[class="newHouseRfixed-share"]').tap()
         self.delay(1)

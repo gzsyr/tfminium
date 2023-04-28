@@ -246,9 +246,10 @@ class TestNewsHouseList(TestBase):
         self.find_element('view[class="newHouseMaskLi-sx-btn-cancle"]').tap()
         self.get_screenshot()
 
-    def test_z_click_fx_分享(self):
+    def delete_test_z_click_fx_分享(self):
         """
         新房列表页面，点击分享
+        V6.34.X: delete
         """
         self.page.get_element('button[class="newHouseRfixed-share xfxq_fx"]')
 
