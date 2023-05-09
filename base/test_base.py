@@ -30,6 +30,9 @@ class TestBase(minium.MiniTest):
     postid = 12746 # online
     # postid = 3387 # dev
 
+    # 南京站  经纪人身份的帖子 id
+    jjr_postid = 49711
+
     # 帖子评论的id
     pinglunid = 47170 # online
     # pinglunid = 7887 # dev
@@ -80,6 +83,14 @@ class TestBase(minium.MiniTest):
         self.delay(3)
 
         print("++++++set up atest+++++++")
+
+    def redirect_to_page(self, url, params=None):
+        """
+        关闭当前页面, 重定向到应用内的某个页面。但是不允许跳转到 tabbar 页面
+        :param url:"/page/tabBar/API/index"
+        :param params: 页面参数
+        """
+        self.app.redirect_to(url, params, is_wait_url_change=True)
 
     def delay(self, second):
         time.sleep(second)
@@ -307,13 +318,18 @@ class TestBase(minium.MiniTest):
         """
         获取当前登录用户的身份
         """
-        sf = {'fbs': '房博士', 'yunying': '运营', 'zygw': '置业顾问'}
+        sf = {'fbs': '房博士', 'yunying': '运营', 'zygw': '置业顾问', 'jjr': '经纪人'}
         result = self.app.call_wx_method('getStorageSync', 'userInfoNew').\
             get('result').get('result').get('third_data')
 
         if result:
             # third = result.get('qz')['third_title']
-            sf_tmp = result.get('qz')['third_identity']
+            if self.get_newcity() == '泉州':
+                sf_tmp = result.get('qz')['third_identity']
+            elif self.get_newcity() == '南京':
+                sf_tmp = result.get('nj')['third_identity']
+            else:
+                return 'C端用户'
             third = sf[sf_tmp]
             print('getStorageSync: ', third)
             return third

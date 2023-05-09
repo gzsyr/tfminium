@@ -114,5 +114,12 @@ class TestMine(TestBase):
         else:
             self.change_roles(re_name="小露朱zsy", change_name="C端用户", change_type="0")
 
-
+    def change_jjr(self):
+        """
+        切换到 经纪人 身份
+        """
+        if self.get_third_title() == '经纪人':
+            print('当前身份是经纪人，无需切换')
+        else:
+            self.change_roles(re_name='颜测测试111', change_name="经纪人", change_type="50662")
 
