@@ -20,6 +20,12 @@ class TestXiaoxiImtest(WritePost):
         super(TestXiaoxiImtest, self).setUp()
         print("TestZygwWritePost setup")
 
+    def test_00_展示列表(self):
+        """
+        直接获取列表截图
+        """
+        self.get_screenshot()
+
     def test_01_quguanzhu_去关注(self):
         # 点击去关注
         self.page.get_element('image[class="gzImg"]').tap()
