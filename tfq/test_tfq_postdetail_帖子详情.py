@@ -53,6 +53,9 @@ class TestTfqPostDetail(TestBase):
         帖子详情页，点击帖子正文，输入评论，发布成功，并点击该评论，进入评论详情页
         """
         content = '回复主评论'+time.strftime('%Y-%m-%d')
+
+        # 点击正文，并输入评论
+        # 如果此处修改，需要同步修改 test_jjr_tiezi_帖子相关.py
         self.find_element('view[class="post_cont"]').tap()
         self.find_element('textarea[name="quick_reply_content"][placeholder="说点什么吧"]').\
             input(content)

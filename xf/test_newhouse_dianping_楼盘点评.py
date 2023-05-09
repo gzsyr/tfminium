@@ -77,6 +77,7 @@ class TestNewhouseDianping(TestBase):
         self.app.wait_for_page('/page/taofangquan/writePingjia/writePingjia')
 
         # 输入评论内容
+        # 如果此处修改，需要同步修改 test_jjr_tiezi_帖子相关.py
         self.page.get_element('textarea[class="tip_pl"]').input(kwargs['content'])
 
         # 如果存在“关联用户”先点击
@@ -107,6 +108,7 @@ class TestNewhouseDianping(TestBase):
 
         # 以下评价 亮星(C端+运营账号，可亮星）
         # 点亮综合评价
+        # 如果此处修改，需要同步修改 test_jjr_tiezi_帖子相关.py
         try:
             zhpj = kwargs['zhpj']
             self.page.get_element(f'view[data-type="multiple-score"][data-index="{zhpj}"]').tap()
