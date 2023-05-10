@@ -155,7 +155,7 @@ class TestCenterJJR(TestMine):
         self.goto_im_autoreply()
         self.delay(2)
 
-        self.find_element('textarea').input('test_010_保存自动回复')
+        self.find_element('textarea').input('您好，现在正忙，稍后回复您！')
         self.find_element('button').tap()
 
         self.get_screenshot()

@@ -35,6 +35,7 @@ class TestJJRImdetailC2B(WritePost):
         点击悬浮层的“主推房源”，进入房源页，选择房源发送
         """
         # 点击 悬浮层的“主推房源”
+        self.delay(2)
         self.find_element('view[class="mainFybtn"]').tap()
         self.delay(5)
 
@@ -54,7 +55,7 @@ class TestJJRImdetailC2B(WritePost):
         """
         # 点击更多功能
         self.find_element('image[class="chatinput-img fr"]').tap()
-        self.delay(1)
+        self.delay(2)
 
         # 点击 发送房源
         self.find_element('view[class="more-subcontent-item"][data-kind="fy"]', inner_text='发送房源').tap()

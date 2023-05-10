@@ -46,8 +46,9 @@ class TestJJRImdetailB2C(WritePost):
         通过快捷发送房源
         """
         # 点击“发送房源”
+        self.delay(2)
         self.find_element('view[class="fyBtn flex tfAlignC"]').tap()
-        self.delay(4)
+        self.delay(5)
 
         # 进入 我的房源  页面，选择房源
         self.find_element('view[class="pa itemPlaceholder"]').tap()
@@ -64,7 +65,7 @@ class TestJJRImdetailB2C(WritePost):
         """
         # 点击更多功能
         self.find_element('image[class="chatinput-img fr"]').tap()
-        self.delay(1)
+        self.delay(2)
 
         # 点击 发送房源
         self.find_element('view[class="more-subcontent-item"][data-kind="fy"]', inner_text='发送房源').tap()
