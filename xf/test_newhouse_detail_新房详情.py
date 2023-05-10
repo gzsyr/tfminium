@@ -18,9 +18,10 @@ class TestNewhouseDetail(TestBase):
         """
         V6.32.X: 点击楼盘相册上面显示的“总平”
         """
-        # self.find_element('view[class="newHouseBannerB-li"]', inner_text='总平').tap()
+        # self.find_element('view[class="newHouseBannerB-li"][data-type="101"]', inner_text='总平').tap()
         # self.delay(2)
-        self.find_element('swiper-item[data-index="2"]/image').tap()
+        # self.find_element('swiper-item[data-index="2"]/image').tap()
+        self.find_element('swiper-item[data-type="101"]/image').tap()
 
         self.verifyPageName('/page/newhouse/fd/fdxx')
         self.get_screenshot()
