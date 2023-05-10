@@ -157,7 +157,10 @@ class TestFuncFbs(TestBase):
         问答详情页，点击 向xxx提问
         """
         self.page.wait_for('button[class="askButton-twoBtn-two tfFlex tfFlexV tfFlexC w100100"]')
-        self.page.get_element('button[class="askButton-twoBtn-two tfFlex tfFlexV tfFlexC w100100"]').click()
+        try:
+            self.find_element('button[class="askButton-twoBtn-two tfFlex tfFlexV tfFlexC w100100"]').click()
+        except:
+            self.find_element('button[class="askButton-twoBtn-two tfFlex tfFlexV tfFlexC w100100 w318"]').tap()
         return self
 
     def detail_click_first_newhouse(self):
