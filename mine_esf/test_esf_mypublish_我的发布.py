@@ -33,7 +33,7 @@ class TestEsfMypublish(TestBase):
         """
         self.page.get_element('view[data-id="1"]', inner_text='出售').tap()
         self.delay(1)
-        list = self.page.get_elements('view[class="flex flex_wrap item"]')
+        list = self.page.get_elements('view[class="flex flex_w item"]')
         list[0].tap()
         self.delay(3)
         self.get_screenshot()
@@ -132,7 +132,7 @@ class TestEsfMypublish(TestBase):
         """
         self.page.get_element('view[data-id="1"]', inner_text='出售').tap()
         self.delay(1)
-        self.page.get_element('view[class="pf center flex_column float"]').tap()
+        self.page.get_element('view[class="pf center column float"]').tap()
         self.delay(3)
         self.get_screenshot()
 
@@ -144,7 +144,7 @@ class TestEsfMypublish(TestBase):
         """
         self.page.get_element('view[data-id="2"]', inner_text='出租').tap()
         self.delay(1)
-        list = self.page.get_elements('view[class="flex flex_wrap item"]')
+        list = self.page.get_elements('view[class="flex flex_w item"]')
         list[0].tap()
         self.delay(3)
         self.get_screenshot()
@@ -246,7 +246,7 @@ class TestEsfMypublish(TestBase):
         """
         self.page.get_element('view[data-id="2"]', inner_text='出租').tap()
         self.delay(1)
-        self.page.get_element('view[class="pf center flex_column float"]').tap()
+        self.page.get_element('view[class="pf center column float"]').tap()
         self.delay(3)
         self.get_screenshot()
 
@@ -275,7 +275,7 @@ class TestEsfMypublish(TestBase):
         """
         self.page.get_element('view[data-id="3"]', inner_text='求购').tap()
         self.delay(1)
-        self.page.get_element('view[class="pf center flex_column float"]').tap()
+        self.page.get_element('view[class="pf center column float"]').tap()
         self.delay(3)
         self.get_screenshot()
 
@@ -304,7 +304,7 @@ class TestEsfMypublish(TestBase):
         """
         self.page.get_element('view[data-id="4"]', inner_text='求租').tap()
         self.delay(1)
-        self.page.get_element('view[class="pf center flex_column float"]').tap()
+        self.page.get_element('view[class="pf center column float"]').tap()
         self.delay(3)
         self.get_screenshot()
 
