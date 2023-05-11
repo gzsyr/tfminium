@@ -34,7 +34,7 @@ class TestFuncBnzf(TestBase):
         """
         V6.23.X: 找房结果页面，进入页面5S后展示咨询入口、点击咨询按钮
         """
-        self.page.get_element('button[class="find bnzf_yjzf"]').tap()
+        self.page.get_element('button[class="find"]').tap()
         self.delay(8)
 
         self.find_element('view[class="consult_btn"]').tap()
@@ -65,7 +65,7 @@ class TestFuncBnzf(TestBase):
             self.page.get_element(f'view[data-key="{gfmj[i]}"]').tap()
 
         # 点击“一键找房”按钮
-        self.page.get_element('button[class="find bnzf_yjzf"]').tap()
+        self.page.get_element('button[class="find"]').tap()
         self.delay(1)
 
         self.verifyPageName('/page/newhouse/bnzf_result/bnzf_result')
@@ -90,7 +90,7 @@ class TestFuncBnzf(TestBase):
         self.page.get_element(f'view[data-key="{mfys}"]').tap()
 
         # 点击“一键找房”按钮
-        self.page.get_element('button[class="find bnzf_yjzf"]').tap()
+        self.page.get_element('button[class="find"]').tap()
         self.delay(1)
 
         self.verifyPageName('/page/newhouse/bnzf_result/bnzf_result')
@@ -111,7 +111,7 @@ class TestFuncBnzf(TestBase):
         """
         新房，一键找房结果页面，点击第一个热门楼盘
         """
-        self.page.get_element('button[class="find bnzf_yjzf"]').tap()
+        self.page.get_element('button[class="find"]').tap()
         self.delay(3)
         self.page.get_element('image[class="commonNewHouseLi-l-img"]').tap()
 
@@ -123,7 +123,7 @@ class TestFuncBnzf(TestBase):
         点击一键找房，点击在线咨询
         # ，点击输入框，输入测试，点击发送，点击语音按钮，长按语音输入5s，再点击语音按钮，点击+按钮，点击历史消息
         """
-        self.page.get_element('button[class="find bnzf_yjzf"]').tap()
+        self.page.get_element('button[class="find"]').tap()
         self.delay(2)
         self.page.get_element('view[class="opt-item im bnzf_im"]').tap()
         self.delay(2)
@@ -157,7 +157,7 @@ class TestFuncBnzf(TestBase):
         点击一键找房，点击拨打电话
         :return:
         """
-        self.page.get_element('button[class="find bnzf_yjzf"]').tap()
+        self.page.get_element('button[class="find"]').tap()
         self.delay(2)
         self.page.get_element('view[class="opt-item tel bnzf_phone"]').tap()
         self.delay(1)
