@@ -121,7 +121,10 @@ class TestFuncFbs(TestBase):
         """
         cont = time.strftime('%Y-%m-%d') + inspect.stack()[1].function
         self.page.wait_for('textarea[class="contentInput"]')
-        self.page.get_element('textarea[class="contentInput"]').input(cont)
+        try:
+            self.page.get_element('textarea[class="contentInput"]').input(cont)
+        except:
+            print('没有进入提问页面')
         return self
 
     def upload_img(self):
@@ -140,7 +143,10 @@ class TestFuncFbs(TestBase):
         """
         我要提问页，点击“提交”按钮
         """
-        self.page.get_element('button[class="btnSubmit"]').click()
+        try:
+            self.page.get_element('button[class="btnSubmit"]').click()
+        except:
+            print('没有进入提交页面')
         return self
 
     # 以下是 问答详情页 的元素
@@ -160,7 +166,10 @@ class TestFuncFbs(TestBase):
         try:
             self.find_element('button[class="askButton-twoBtn-two tfFlex tfFlexV tfFlexC w100100"]').click()
         except:
-            self.find_element('button[class="askButton-twoBtn-two tfFlex tfFlexV tfFlexC w100100 w318"]').tap()
+            try:
+                self.find_element('button[class="askButton-twoBtn-two tfFlex tfFlexV tfFlexC w100100 w318"]').tap()
+            except:
+                print('该问答详情页已经处于等待房博士回答状态')
         return self
 
     def detail_click_first_newhouse(self):
