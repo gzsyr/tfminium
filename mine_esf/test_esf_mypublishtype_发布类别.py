@@ -20,7 +20,7 @@ class TestEsfMypublishtype(TestBase):
         """
         我的发布，切换tab
         """
-        obj = self.page.get_element(f'view[class="center flex_column type"][data-type = "{value}"]')
+        obj = self.page.get_element(f'view[class="center column type"][data-type = "{value}"]')
         obj.tap()
         self.delay(3)
         self.get_screenshot()
