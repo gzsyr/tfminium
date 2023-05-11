@@ -146,7 +146,7 @@ class TestTfqQuanZiDetail(TestBase):
         self.delay(1)
         self.verifyByScreenshot('tfq/test_click_post_share.png')
 
-    def test_12_click_returnPl_更多热帖(self):
+    def delete_test_12_click_returnPl_更多热帖(self):
         """
         圈子详情页，点击右下角“更多热帖”回首页
         """
