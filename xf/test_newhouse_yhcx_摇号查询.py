@@ -28,7 +28,7 @@ class TestNewhouseYhcx(TestBase):
         """
         摇号结果查询页，点击“摇号流程”
         """
-        self.page.get_element('view[class="disflex-flex-shrink-0 qcTxt2"]', inner_text='摇号流程').tap()
+        self.page.get_element('view[class="disflex-flex-shrink-0 qcTxt2 flex tfFlexV j-center tfAlignC"]').tap()
 
         self.verifyPageName('/page/news/detail')
         self.get_screenshot()
@@ -43,7 +43,7 @@ class TestNewhouseYhcx(TestBase):
 
         if ret:
             self.delay(1)
-            self.page.get_element('view[class="bdliBR-t arr"]', text_contains='选房序号').tap()
+            self.page.get_element('view[class="bdliBR-t"]', text_contains='选房序号').tap()
             self.delay(1)
         self.get_screenshot()
 
