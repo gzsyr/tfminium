@@ -50,7 +50,7 @@ class TestNewhouseDetail(TestBase):
         """
         self.goto_fbs_more()
 
-        self.verifyPageName('/fbs/questionList/questionList')
+        self.verifyPageName('/fbs/lpquestionlist/lpquestionlist')
         self.get_screenshot()
 
     def test_goto_fbs_more_点击回答内容(self):
@@ -92,7 +92,7 @@ class TestNewhouseDetail(TestBase):
         self.delay(6)
 
         self.find_element('view[class="showAllqus tfFlex tfAlignC tfFlexC"]').tap()
-        self.delay(3)
+        self.delay(5)
         self.find_element('view[class="selectLi"]').tap()
         self.get_screenshot()
 
@@ -666,7 +666,7 @@ class TestNewhouseDetail(TestBase):
         一房一价页面，切换至“列表”，对楼栋、户型、楼层、状态进行筛选
         """
         self.delay(9)
-        self.find_element('button[class="fixedR fixedR-list"]').tap()
+        self.find_element('view[class="fixedR-icon"]').tap()
         self.delay(9)
         if type == 'loudong':
             self.find_element(f'view[class="p-flex-item p-28 z-select"][data-type="{type}"]').tap()

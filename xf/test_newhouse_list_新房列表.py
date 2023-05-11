@@ -56,17 +56,17 @@ class TestNewsHouseList(TestBase):
         """
         新房列表页面，点击搜索框，输入关键词，点击搜索结果第一条，展示带关键字的列表，点击搜索框的“清空”按钮
         """
-        self.page.get_element('view[class="searchtxt tfLine1"]', text_contains='请输入楼盘名或区域').tap()
+        self.find_element('view[class="searchtxt tfLine1"]', text_contains='请输入楼盘名或区域').tap()
         # 进入搜索页面
         self.app.wait_for_page('/page/search/index')
         # 输入关键词
-        self.page.get_element('input[class="searchTR-input"]').input("泉州万科城")
+        self.find_element('input[class="searchTR-input"]').input("泉州万科城")
         self.delay(1)
         # 选择搜索结果
-        self.page.get_element('view[class="searchBLi tfFlex tfFlexSb tfLine1"]').tap()
+        self.find_element('view[class="searchBLi-l-wrap tfLine1"]').tap()
         self.delay(1)
 
-        self.page.get_element('view[class="cleanKeyWord"]', inner_text='清空').tap()
+        self.find_element('view[class="cleanKeyWord"]', inner_text='清空').tap()
 
         self.get_screenshot()
 
