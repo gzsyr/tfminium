@@ -59,6 +59,7 @@ class Testrentzsycz(TestBase):
         self.set_qita()
         # 房源描述
         self.set_desc(kwargs['fyms'])
+        self.delay(2)
         # 您的身份
         self.set_identity()
         # 联系人
@@ -73,17 +74,17 @@ class Testrentzsycz(TestBase):
         self.page.get_element('//step_1head/view/view/view[2]').tap()
         self.delay(3)
         # 第一张
-        self.page.get_element('view[class="center flex_column upload"]').tap()
+        self.page.get_element('view[class="center column upload"]').tap()
         self.delay(5)
         self.input_select_image(png='esf\\123.png')
         self.delay(3)
         # 第二张
-        self.page.get_element('view[class="center flex_column upload"]').tap()
+        self.page.get_element('view[class="center column upload"]').tap()
         self.delay(5)
         self.input_select_image(png='rent\\2.png')
         self.delay(3)
         # 第三张
-        self.page.get_element('view[class="center flex_column upload"]').tap()
+        self.page.get_element('view[class="center column upload"]').tap()
         self.delay(5)
         self.input_select_image(png='rent\\3.png')
         self.delay(3)
@@ -106,7 +107,8 @@ class Testrentzsycz(TestBase):
     def set_xqmc(self, xqmc='测试'):
         # 小区名称
         self.delay(8)
-        self.page.get_element('view[class="flex_1 center flex_column partItem"]/view[2]').tap()
+        # self.page.get_element('view[class="flex_1 center column partItem"]/view[2]').tap()
+        self.find_element('view[class="line_1 value valueEmpty"]').tap()
         self.delay(8)
         self.page.get_element('input[class="flex_1 input"]').input(xqmc)
         self.delay(5)
@@ -117,7 +119,7 @@ class Testrentzsycz(TestBase):
 
     def set_price(self, price='3500'):
         # 月租金
-        self.page.get_element('view[class="flex_1 center flex_column partItem"][data-picker="1"]').tap()
+        self.page.get_element('view[class="flex_1 center column partItem"][data-picker="1"]').tap()
         self.delay(5)
         self.input_value_by_mk(png='rent/zsyprice.png', value=price)
         self.delay(5)
@@ -129,7 +131,7 @@ class Testrentzsycz(TestBase):
 
     def set_huxing(self, huxing=[3, 2, 1]):
         # 户型
-        self.page.get_element('view[class="flex_1 center flex_column partItem"][data-picker="2"]').tap()
+        self.page.get_element('view[class="flex_1 center column partItem"][data-picker="2"]').tap()
         self.delay(2)
         e = self.page.get_element('picker-view')
         self.delay(1)
@@ -140,7 +142,7 @@ class Testrentzsycz(TestBase):
 
     def set_chuzutpye(self, chuzutpye=[1]):
         # 出租类型
-        self.page.get_element('view[class="flex_1 center flex_column partItem"][data-picker="18"]').tap()
+        self.page.get_element('view[class="flex_1 center column partItem"][data-picker="18"]').tap()
         self.delay(2)
         e = self.page.get_element('picker-view')
         self.delay(1)
@@ -151,7 +153,7 @@ class Testrentzsycz(TestBase):
 
     def set_ruzhutime(self, ruzhutime=[1, 2, 3]):
         # 入住时间
-        self.page.get_element('view[class="flex_1 center flex_column partItem"][data-picker="3"]').tap()
+        self.page.get_element('view[class="flex_1 center column partItem"][data-picker="3"]').tap()
         self.delay(2)
         e = self.page.get_element('picker-view')
         self.delay(1)
@@ -162,7 +164,7 @@ class Testrentzsycz(TestBase):
 
     def set_ruzhuqk(self, ruzhuqk=[1, 2]):
         # 已入住情况
-        self.page.get_element('view[class="flex_1 center flex_column partItem"][data-picker="4"]').tap()
+        self.page.get_element('view[class="flex_1 center column partItem"][data-picker="4"]').tap()
         self.delay(2)
         e = self.page.get_element('picker-view')
         self.delay(1)
