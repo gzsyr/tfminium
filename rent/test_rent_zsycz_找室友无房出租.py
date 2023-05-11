@@ -61,7 +61,7 @@ class Testrentzsywfcz(TestBase):
 
     def set_qwaddr(self):
         # 期望地点
-        self.page.get_element('view[class="flex_1 center flex_column partItem"][data-picker="1"]').tap()
+        self.page.get_element('view[class="flex_1 center column partItem"][data-picker="1"]').tap()
         self.delay(2)
         self.delay(2)
         self.page.get_element('//locpicker/view/view/view[2]/scroll-view/view[6]').tap()
@@ -73,7 +73,7 @@ class Testrentzsywfcz(TestBase):
 
     def set_zjys(self):
         # 租金预算
-        self.page.get_element('view[class="flex_1 center flex_column partItem"][data-picker="2"]').tap()
+        self.page.get_element('view[class="flex_1 center column partItem"][data-picker="2"]').tap()
         self.delay(2)
         e = self.page.get_element('//slider/view/view/view[2]/view[2]/slider')
         self.delay(2)
@@ -84,7 +84,7 @@ class Testrentzsywfcz(TestBase):
 
     def set_ruzhutime(self, ruzhutime=[1, 2, 3]):
         # 入住时间
-        self.page.get_element('view[class="flex_1 center flex_column partItem"][data-picker="3"]').tap()
+        self.page.get_element('view[class="flex_1 center column partItem"][data-picker="3"]').tap()
         self.delay(2)
         e = self.page.get_element('picker-view')
         self.delay(1)
@@ -95,7 +95,7 @@ class Testrentzsywfcz(TestBase):
 
     def set_jrz(self, jrz=[1]):
         # 我是几个人住
-        self.page.get_element('view[class="flex_1 center flex_column partItem"][data-picker="4"]').tap()
+        self.page.get_element('view[class="flex_1 center column partItem"][data-picker="4"]').tap()
         self.delay(2)
         e = self.page.get_element('picker-view')
         self.delay(1)
