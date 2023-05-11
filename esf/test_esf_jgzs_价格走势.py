@@ -18,7 +18,7 @@ class Testesfjgzs(TestBase):
         点击小区名
         :return:
         """
-        e = self.page.get_element('view[class="flex align_center villageName"]')
+        e = self.page.get_element('view[class="flex a_c villageName"]')
         e.tap()
         self.get_screenshot()
 
