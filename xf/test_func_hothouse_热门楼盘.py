@@ -25,7 +25,7 @@ class TestFuncHothouse(TestBase):
         """
         V6.23.X: “在线咨询”按钮
         """
-        self.find_element('image[class="consult_imicon"]').tap()
+        self.find_element('view[class="consult_imicon"]').tap()
         self.delay(3)
 
         self.get_screenshot()
@@ -34,6 +34,6 @@ class TestFuncHothouse(TestBase):
         """
         V6.23.X: “拨打电话”按钮
         """
-        self.find_element('image[class="consult_phoneicon"]').tap()
+        self.find_element('view[class="consult_phoneicon"]').tap()
 
         self.get_screenshot()
