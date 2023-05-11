@@ -35,7 +35,7 @@ class TestKFT(TestBase):
         self.app.wait_for_page('/page/search/index')
         self.page.get_element('input.searchTR-input').input('苏宁')
         self.delay(1)
-        self.page.get_element('text.searchBLi-l').tap()
+        self.find_element('view.searchBLi').tap()
         self.delay(1)
 
         tap = 'self.page.get_element(\'button.kfxqSub.kgt_tjxq\').tap()'
