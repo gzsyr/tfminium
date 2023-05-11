@@ -21,7 +21,7 @@ class TestNewsList(TestBase):
         """
         资讯列表页，点击第一条资讯
         """
-        self.page.get_element('//view[@class="list-box list-box_ads"]/navigator').tap()
+        self.find_element('//view[@class="list-box"]/navigator').tap()
 
         self.verifyPageName('/page/news/detail')
         self.get_screenshot()
@@ -30,9 +30,9 @@ class TestNewsList(TestBase):
         """
         资讯列表页，点击楼盘导购，点击第一条资讯
         """
-        self.page.get_element('text', inner_text='楼盘导购').tap()
+        self.find_element('view[class="flex-1"]', inner_text='楼盘导购').tap()
         self.delay(1)
-        self.page.get_element('//view[@class="list-box list-box_ads"]/navigator').tap()
+        self.find_element('//view[@class="list-box"]/navigator').tap()
 
         self.verifyPageName('/page/news/detail')
         self.get_screenshot()
