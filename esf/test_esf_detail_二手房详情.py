@@ -69,7 +69,7 @@ class Testesfdetail(TestBase):
         点击查看详情
         :return:
         """
-        e = self.page.get_element('view[class="flex align_center check"]')
+        e = self.page.get_element('view[class="flex a_c check"]')
         e.tap()
         self.get_screenshot()
 
@@ -151,7 +151,7 @@ class Testesfdetail(TestBase):
         :param value:
         :return:
         """
-        align_msg = self.page.get_elements('view[class="flex align_center msg"]')
+        align_msg = self.page.get_elements('view[class="flex a_c msg"]')
         msg_list = align_msg[value]
         msg_list.tap()
         self.delay(2)
@@ -163,7 +163,7 @@ class Testesfdetail(TestBase):
         点击小区-查看详情
         :return:
         """
-        e = self.page.get_element('view[class="flex align_center checkDetail"]')
+        e = self.page.get_element('view[class="flex a_c checkDetail"]')
         e.tap()
         self.delay(5)
         self.get_screenshot()
@@ -236,11 +236,11 @@ class Testesfdetail(TestBase):
         点击周边配套
         :return:
         """
-        self.page.scroll_to(1350, 500)
+        self.page.scroll_to(1550, 500)
         self.delay(1)
         pr = self.page.element_is_exists('text', inner_text='周边配套')
         if pr == True:
-            m = self.page.get_element('view[class="pr map"][data-type="0"]')
+            m = self.page.get_element('map[class="pr map"][data-type="0"]')
             m.tap()
             self.delay(5)
             self.get_screenshot()
@@ -299,7 +299,7 @@ class Testesfdetail(TestBase):
         """
         self.page.scroll_to(1900, 500)
         self.delay(1)
-        e = self.page.get_element('view[class="flex justify_flex_end report"]')
+        e = self.page.get_element('view[class="flex j_e report"]')
         e.tap()
         self.get_screenshot()
 
