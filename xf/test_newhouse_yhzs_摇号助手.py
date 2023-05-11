@@ -20,7 +20,7 @@ class TestNewHouseYhzs(TestBase):
         """
         摇号查询助手页，点击地图
         """
-        self.page.get_element('image[class="qcPic3 disflex-flex-shrink-0"]').tap()
+        self.find_element('view[class="search-map"]').tap()
 
         self.verifyPageName('/page/newhouse/mapzf/mapzf')
         self.get_screenshot()
