@@ -29,7 +29,7 @@ class Testesfsellfb(TestBase):
         self.page.get_element('input[class="flex_1 input"]').input('自定义')
         self.delay(3)
         # 点击去添加
-        self.page.get_element('view[class="flex justify_between align_center add-block"]').tap()
+        self.page.get_element('view[class="flex j_b a_c add-block"]').tap()
         self.delay(3)
         # 添加页
         # 自定义小区名称
@@ -40,7 +40,7 @@ class Testesfsellfb(TestBase):
         pyautogui.hotkey('Ctrl', 'V')
         self.delay(3)
         #区属板块
-        self.page.get_element('/view[3]/view[2]').tap()
+        self.find_element('view[class="arrow"]').tap()
         self.delay(5)
         e = self.page.get_element('picker-view[class="picker-view"]')
         e.trigger("change", {"value": [1, 1]})
@@ -141,7 +141,7 @@ class Testesfsellfb(TestBase):
         self.page.get_element('//step_1head//text', inner_text="上传图片").tap()
         self.delay(2)
 
-        self.page.get_element('view[class="center flex_column upload"]').tap()
+        self.page.get_element('view[class="center column upload"]').tap()
         self.delay(3)
 
         self.input_select_image(png='esf\\123.png')
@@ -380,7 +380,7 @@ class Testesfsellfb(TestBase):
         self.delay(3)
 
         #确认发布
-        self.page.get_element('/view[2]/view[8]/view/view[2]').tap()
+        self.find_element('view[class="confirm"]').tap()
         return self
 
     def set_grzx(self):
