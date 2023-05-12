@@ -17,7 +17,7 @@ class Testesfxqrp(TestBase):
         搜索
         :return:
         """
-        e = self.page.get_element('view[class="flex align_center search"]')
+        e = self.find_element('view[class="flex a_c search"]')
         e.tap()
         self.verifyPageName('/esf/village/pages/comment/search/search', '搜索 ok')
         self.delay(3)
