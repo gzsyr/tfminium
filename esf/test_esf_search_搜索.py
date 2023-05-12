@@ -43,7 +43,7 @@ class Testesfsearch(TestBase):
         """
         hot = self.page.element_is_exists('view[class="hotSearches"]')
         if hot == True:
-            self.page.get_element(f'view[class="flex align_center hotSearch"][data-index="{value}"]').tap()
+            self.page.get_element(f'view[class="flex a_c hotSearch"][data-index="{value}"]').tap()
             self.delay(3)
             self.get_screenshot()
             self.delay(3)
@@ -57,7 +57,7 @@ class Testesfsearch(TestBase):
         """
         his = self.page.element_is_exists('view[class="searchHistories"]')
         if his == True:
-            h = self.page.get_elements('view[class="flex align_center searchHistory"]')
+            h = self.page.get_elements('view[class="flex a_c searchHistory"]')
             self.delay(3)
             h[0].tap()
             self.get_screenshot()
