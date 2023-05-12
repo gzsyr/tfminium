@@ -33,7 +33,7 @@ class Testesflist(TestBase):
         :param value:
         :return:
         """
-        self.page.get_element(f'view[class="text_center tile"][data-index="{value}"]').tap()
+        self.page.get_element(f'view[class="t_c tile"][data-index="{value}"]').tap()
         self.get_screenshot()
         self.delay(3)
 
@@ -46,7 +46,7 @@ class Testesflist(TestBase):
         :param value:
         :return:
         """
-        self.page.get_element(f'view[class="inline_flex flex_column justify_center entrance"]'
+        self.page.get_element(f'view[class="inline_flex column j_c entrance"]'
                               f'[data-index="{value}"]').tap()
         # self.get_capture()
         self.get_screenshot()
@@ -211,7 +211,7 @@ class Testesflist(TestBase):
                     e = self.page.get_element("//price/view/view/view/input", inner_text="最高价")
                     e.input(max_val)
 
-                e = self.page.get_element('view[class="price--text_center price--confirm"]')
+                e = self.page.get_element('view[class="price--t_c price--confirm"]')
                 e.tap()
                 self.delay(1)
 
@@ -379,7 +379,7 @@ class Testesflist(TestBase):
         :return:
         """
         self.page.get_element('view[class="pa clear"]').tap()
-        self.page.get_element(f'view[class="text_center screenQuickItem"][data-index="{value}"]').tap()
+        self.page.get_element(f'view[class="t_c screenQuickItem"][data-index="{value}"]').tap()
         self.get_screenshot()
         self.delay(5)
 
