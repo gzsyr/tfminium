@@ -7,10 +7,10 @@ class ZufangContent(TestBase):
         self.page.get_element('//step_1head//text', inner_text="图片或视频").tap()
         self.delay(2)
 
-        # self.page.get_element('view[class="center flex_column upload"]', inner_text='上传视频').tap()
+        # self.page.get_element('view[class="center column upload"]', inner_text='上传视频').tap()
         # self.delay(3)
 
-        self.page.get_element('view[class="center flex_column upload"]', inner_text='上传图片').tap()
+        self.page.get_element('view[class="center column upload"]', inner_text='上传图片').tap()
         self.delay(3)
 
         self.input_select_image(png='esf\\123.png')
@@ -25,7 +25,7 @@ class ZufangContent(TestBase):
 
     def set_xqmc(self, xqmc='测试'):
         # 小区名称
-        self.page.get_element('view[class="center flex_column part"]/view').tap()
+        self.page.get_element('view[class="center column part"]/view').tap()
         self.delay(3)
         self.page.get_element('input[class="flex_1 input"]').input(xqmc)
         self.delay(3)
@@ -36,7 +36,7 @@ class ZufangContent(TestBase):
 
     def set_huxing(self, huxing=[3, 2, 1]):
         # 户型
-        self.page.get_element('view[class="center flex_column partItem"][data-picker="1"]').tap()
+        self.find_element('view[class="center column partItem"][data-picker="1"]').tap()
         self.delay(2)
         e = self.page.get_element('picker-view')
         self.delay(1)
@@ -47,9 +47,9 @@ class ZufangContent(TestBase):
 
     def set_chaoxiang(self, chaoxiang=[1]):
         # 朝向
-        cfck = self.page.element_is_exists('view[class="center flex_column partItem"][data-picker="2"]')
+        cfck = self.page.element_is_exists('view[class="center column partItem"][data-picker="2"]')
         if cfck == True:
-            self.page.get_element('view[class="center flex_column partItem"][data-picker="2"]').tap()
+            self.find_element('view[class="center column partItem"][data-picker="2"]').tap()
             self.delay(2)
             e = self.page.get_element('picker-view')
             self.delay(1)
@@ -57,9 +57,9 @@ class ZufangContent(TestBase):
             self.delay(2)
             self.page.get_element('view[class="selector--center selector--confirm"]').tap()
         else:
-            ckcw = self.page.element_is_exists('view[class="flex_1 center flex_column partItem"][data-picker="2"]')
+            ckcw = self.page.element_is_exists('view[class="flex_1 center column partItem"][data-picker="2"]')
             if ckcw == True:
-                self.page.get_element('view[class="flex_1 center flex_column partItem"][data-picker="2"]').tap()
+                self.find_element('view[class="flex_1 center column partItem"][data-picker="2"]').tap()
                 self.delay(2)
                 e = self.page.get_element('picker-view')
                 self.delay(1)
@@ -72,7 +72,7 @@ class ZufangContent(TestBase):
 
     def set_xzlxz(self, xzlxz=[1]):
         # 性质-写字楼
-        self.page.get_element('view[class="center flex_column partItem"][data-picker="15"]').tap()
+        self.find_element('view[class="center column partItem"][data-picker="15"]').tap()
         self.delay(2)
         e = self.page.get_element('picker-view')
         self.delay(1)
@@ -83,7 +83,7 @@ class ZufangContent(TestBase):
 
     def set_spxz(self, spxz=[1]):
         # 商铺性质
-        self.page.get_element('view[class="center flex_column partItem"][data-picker="16"]').tap()
+        self.find_element('view[class="center column partItem"][data-picker="16"]').tap()
         self.delay(2)
         e = self.page.get_element('picker-view')
         self.delay(1)
@@ -94,7 +94,7 @@ class ZufangContent(TestBase):
 
     def set_splx(self, splx=[2]):
         # 商铺类型
-        self.page.get_element('view[class="center flex_column partItem"][data-picker="17"]').tap()
+        self.find_element('view[class="center column partItem"][data-picker="17"]').tap()
         self.delay(2)
         e = self.page.get_element('picker-view')
         self.delay(1)
@@ -116,9 +116,9 @@ class ZufangContent(TestBase):
 
     def set_louceng(self, louceng=[3, 3]):
         # 楼层
-        cfcklc = self.page.element_is_exists('view[class="center flex_column partItem"][data-picker="4"]')
+        cfcklc = self.page.element_is_exists('view[class="center column partItem"][data-picker="4"]')
         if cfcklc == True:
-            self.page.get_element('view[class="center flex_column partItem"][data-picker="4"]').tap()
+            self.find_element('view[class="center column partItem"][data-picker="4"]').tap()
             self.delay(2)
             e = self.page.get_element('picker-view')
             self.delay(1)
@@ -127,9 +127,9 @@ class ZufangContent(TestBase):
             self.page.get_element('view[class="floorPicker--center floorPicker--confirm"]').tap()
             self.delay(3)
         else:
-            ckcwlc = self.page.element_is_exists('view[class="flex_1 center flex_column partItem"][data-picker="4"]')
+            ckcwlc = self.page.element_is_exists('view[class="flex_1 center column partItem"][data-picker="4"]')
             if ckcwlc == True:
-                self.page.get_element('view[class="flex_1 center flex_column partItem"][data-picker="4"]').tap()
+                self.find_element('view[class="flex_1 center column partItem"][data-picker="4"]').tap()
                 self.delay(2)
                 e = self.page.get_element('picker-view')
                 self.delay(1)
@@ -435,7 +435,7 @@ class ZufangContent(TestBase):
         self.input_value_by_mk(png='rent/cqrsfzh.png', value=cqrsfzh, direction=1)
         self.delay(5)
         # 证件照上传
-        self.page.get_element('view[class="center flex_column uploadBtn"]', inner_text="添加照片").tap()
+        self.page.get_element('view[class="center column uploadBtn"]', inner_text="添加照片").tap()
         self.delay(5)
         self.input_select_image(png='esf\\123.png')
         self.delay(5)
