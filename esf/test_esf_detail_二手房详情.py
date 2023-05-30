@@ -18,9 +18,8 @@ class Testesfdetail(TestBase):
         """
         elms = self.page.get_element('view[id="banner"]').get_element('banner').get_elements('view')
         elms[0].get_element('swiper').get_element('swiper-item').tap()
-        self.delay(3)
+        self.delay(1)
         self.get_screenshot()
-        self.delay(5)
 
     def test_01_goto_fxk_点击放心看(self):
         """
@@ -33,7 +32,6 @@ class Testesfdetail(TestBase):
             e.tap()
             self.delay(2)
             self.get_screenshot()
-            self.delay(1)
         else:
             print('没有放心看标签')
 
@@ -42,17 +40,17 @@ class Testesfdetail(TestBase):
         点击收藏
         :return:
         """
-        e = self.page.get_element('view[class="button collect"]')
+        e = self.find_element('view[class="pa center collect"]')
         e.tap()
         self.get_screenshot()
         """
         取消收藏
         """
-        e1 = self.page.get_element('view[class="button collect"]')
+        e1 = self.find_element('view[class="pa center collect"]')
         e1.tap()
         self.get_screenshot()
 
-    def test_27_goto_share_点击分享(self):
+    def delete_test_27_goto_share_点击分享(self):
         """
         点击分享
         :return:
@@ -62,14 +60,13 @@ class Testesfdetail(TestBase):
         self.delay(5)
         #self.get_capture()
         self.get_screenshot()
-        self.delay(3)
 
     def test_03_goto_ckxq_点击查看详情(self):
         """
         点击查看详情
         :return:
         """
-        e = self.page.get_element('view[class="flex a_c check"]')
+        e = self.find_element('view[class="center check"]')
         e.tap()
         self.get_screenshot()
 
@@ -106,17 +103,17 @@ class Testesfdetail(TestBase):
         点击去出价
         :return:
         """
-        e = self.page.get_element('text', inner_text="去出价")
+        e = self.find_element('view[class="pa bidBtn"]')
         e.tap()
         self.delay(3)
         self.get_screenshot()
 
     def test_08_goto_xqzx_房源详情咨询(self):
         """
-        点击房源详情咨询
+        点击咨询房源详情
         :return:
         """
-        e = self.page.get_element('text', inner_text="房源详情咨询")
+        e = self.find_element('view[class="center chat"]/text', inner_text="咨询房源详情")
         e.tap()
         self.get_screenshot()
 
@@ -156,29 +153,26 @@ class Testesfdetail(TestBase):
         msg_list.tap()
         self.delay(2)
         self.get_screenshot()
-        self.delay(2)
 
     def test_11_goto_xqckxq_小区查看详情(self):
         """
         点击小区-查看详情
         :return:
         """
-        e = self.page.get_element('view[class="flex a_c checkDetail"]')
+        e = self.find_element('view[class="flex a_c checkMore"]/text', inner_text='查看详情')
         e.tap()
         self.delay(5)
         self.get_screenshot()
-        self.delay(5)
 
     def test_12_goto_xqxq_点击小区进入详情页(self):
         """
         点击小区，进入小区详情页
         :return:
         """
-        e = self.page.get_element('view[class="village"]')
+        e = self.find_element('view[class="pr villageImg"]')
         e.tap()
         self.delay(5)
         self.get_screenshot()
-        self.delay(5)
 
     def test_13_goto_cjmsg_咨询近期成交数据(self):
         """
@@ -207,7 +201,6 @@ class Testesfdetail(TestBase):
         e.tap()
         self.delay(3)
         self.get_screenshot()
-        self.delay(3)
 
     def test_16_goto_txqfy_点击同小区房源详情页(self):
         """
@@ -238,14 +231,13 @@ class Testesfdetail(TestBase):
         """
         self.page.scroll_to(1550, 500)
         self.delay(1)
-        pr = self.page.element_is_exists('text', inner_text='周边配套')
-        if pr == True:
-            m = self.page.get_element('map[class="pr map"][data-type="0"]')
-            m.tap()
-            self.delay(5)
-            self.get_screenshot()
-        else:
+        try:
+            self.page.get_element('map[class="map"]').tap()
+            self.delay(3)
+        except:
             print('没有周边配套模块')
+
+        self.get_screenshot()
 
     def test_18_goto_txq_全部同小区房源(self):
         """
@@ -279,7 +271,6 @@ class Testesfdetail(TestBase):
             elms[0].tap()
             self.delay(3)
             self.get_screenshot()
-            self.delay(3)
 
     def test_20_goto_moreesf_点击更多二手房(self):
         """
@@ -290,7 +281,6 @@ class Testesfdetail(TestBase):
         e.tap()
         self.delay(3)
         self.get_screenshot()
-        self.delay(3)
 
     def test_21_goto_report_点击我要举报(self):
         """
@@ -304,22 +294,19 @@ class Testesfdetail(TestBase):
         self.get_screenshot()
 
     @ddt_case(
-        0, 1, 2, 3
+        1, 2, 3, 4
     )
-    def test_22_goto_asklayer_点击提问弹层及tab(self, value):
+    def test_22_goto_asklayer_点击提问弹层及tab(self, value=3):
         """
         提问弹层()
         :param value:
         :return:
         """
-        self.page.get_element('view[class="center askBtn"]').tap()
-        if self.page.wait_for('//view[@class="pa questions"]/view'):
-            elms = self.page.get_elements('//view[@class="pa questions"]/view/text')
-            if len(elms) > value:
-                #print(value)
-                elms[value].tap()
-                self.delay(3)
-                self.get_screenshot()
+        self.find_element('view[class="questionCst--arrow questionCst--arrowUp"]').tap()
+        self.delay(1)
+        self.find_element(f'//*[@id="questionCst"]//view/view[1]/view[{value}]/view[1]').tap()
+        self.delay(2)
+        self.get_screenshot()
 
     def test_23_goto_broker_点击经纪人(self):
         """
@@ -352,3 +339,4 @@ class Testesfdetail(TestBase):
         elm = self.page.get_element('//view[@class="pf contact"]/contact/view/view/view[2]/view[2]')
         elm.tap()
         self.get_screenshot()
+
