@@ -46,14 +46,14 @@ class TestFuncBnzf(TestBase):
         """
         点击新房，选择住宅，丰泽，10000以上，120-140㎡，140-160㎡，点击一键找房
         """
-        self.page.get_element('view', inner_text='新房').tap()
+        self.find_element('view', inner_text='新房').tap()
 
         # 选择物业类型
         wylx = kwargs['wylx']
-        self.page.get_element(f'view[data-key="{wylx}"]').tap()
+        self.find_element(f'view[data-key="{wylx}"]').tap()
 
         # 默认选择 区域 丰泽
-        self.page.get_element('picker').trigger('change', {'value': [0, 2]})
+        self.find_element('picker').trigger('change', {'value': [0, 2]})
 
         # 选择买房预算
         mfys = kwargs['mfys']
@@ -62,10 +62,10 @@ class TestFuncBnzf(TestBase):
         # 选择购房面积
         gfmj = kwargs['gfmj']
         for i in range(len(gfmj)):
-            self.page.get_element(f'view[data-key="{gfmj[i]}"]').tap()
+            self.find_element(f'view[data-key="{gfmj[i]}"]').tap()
 
         # 点击“一键找房”按钮
-        self.page.get_element('button[class="find"]').tap()
+        self.find_element('button[class="find"]').tap()
         self.delay(1)
 
         self.verifyPageName('/page/newhouse/bnzf_result/bnzf_result')
