@@ -264,7 +264,10 @@ class TestIndexShouye(TestBase):
         """
         self.page.scroll_to(3000, 200)
         self.delay(2)
-        self.find_element('view[class="commonNewHouseLi-l"]').click()
+        try:
+            self.find_element('view[class="commonNewHouseLi-l"]').click()
+        except:
+            print('没有配置楼盘推荐')
         self.get_screenshot()
 
     def tearDown(self) -> None:
