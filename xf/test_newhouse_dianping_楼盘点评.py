@@ -16,6 +16,13 @@ class TestNewhouseDianping(TestBase):
         self.classname = self.__class__.__name__
         super(TestNewhouseDianping, self).setUp()
 
+    def test_click_全部回复(self):
+        """
+        V6.36.X: 点击全部回复
+        """
+        self.find_element('view[class="commentList--more-reply"]').tap()
+        self.get_screenshot()
+
     def test_click_IM_在线咨询(self):
         """
         V6.21.X: 1003947   楼盘点评页，点击咨询
@@ -29,7 +36,8 @@ class TestNewhouseDianping(TestBase):
         """
         楼盘点评页面，点击第一条点评
         """
-        self.page.get_element('navigator[class="commentList--content-rich-text"]').tap()
+        self.find_element('navigator[class="commentList--content-rich-text"]').tap()
+        self.delay(5)
 
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
@@ -63,7 +71,7 @@ class TestNewhouseDianping(TestBase):
         # 输入评论内容
         self.page.get_element('textarea[class="tip_pl"]').input('输入草稿内容' + time.strftime('%Y-%m-%d--%H:%M:%S'))
         # 点击 保存草稿
-        self.page.get_element('image[class="save_draft"]').tap()
+        self.page.get_element('view[class="save_draft"]').tap()
 
         self.get_screenshot()
 
@@ -143,13 +151,30 @@ class TestNewhouseDianping(TestBase):
         self.verifyStr(True, self.getShowToast(tap), '点赞成功')
         self.get_screenshot()
 
-    def test_click_first_reply_点击评论回复(self):
+    def test_click_first_reply_点击评论数(self):
         """
-        楼盘点评页面，点击第一条评论的回复按钮
+        楼盘点评页面，点击第一条评论的评论数
         """
         self.page.get_element('view[class="commentList--tiezi-replay-btn"]').tap()
 
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
+        self.get_screenshot()
+
+    def test_click_first_reply_点击第一个回复按钮(self):
+        """
+        楼盘点评页面，点击第一个回复按钮
+        """
+        self.find_element('view[class="commentList--reply-btn"]').tap()
+        
+        self.find_element('textarea').input('楼盘回复评论')
+        self.delay(2)
+        # self.find_element('//*[@id="comp-upload-image"]//movable-area/view/image').tap()
+        self.input_value_by_mk('xf/sc_png.png', direction=1)
+        self.delay(2)
+        self.input_select_image('xf\\sc_png.png')
+        self.delay(3)
+        self.find_element('button[class="commentList--send-btn"]').tap()
+
         self.get_screenshot()
 
     # V6.21.X: 已删除
