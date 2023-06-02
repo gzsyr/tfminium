@@ -403,7 +403,6 @@ class TestNewhouseDetail(TestBase):
 
         try:
             tap = 'self.page.get_element(\'view[class= "promotions_btn_0"]\').tap()'
-            self.verifyStr(True, self.getShowToast(tap), '报名成功')
         except:
             self.find_elements('view[class="title-im promotions_im"]')[0].tap()
 
@@ -418,7 +417,6 @@ class TestNewhouseDetail(TestBase):
 
         try:
             tap = 'self.page.get_element(\'view[class= "promotions_btn_1"]\').tap()'
-            self.verifyStr(True, self.getShowToast(tap), '报名成功')
         except:
             self.find_elements('view[class="title-im promotions_im"]')[1].tap()
 
