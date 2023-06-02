@@ -39,8 +39,9 @@ class Testesflist(TestBase):
     @ddt_case(
         0, 1, 2
     )
-    def test_func_adv_首页广告(self, value):
+    def delete_test_func_adv_首页广告(self, value):
         """
+        V6.3.X: 删除该入口
         二手房首页广告
         :param value:
         :return:
