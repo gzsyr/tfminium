@@ -14,14 +14,36 @@ class TestNewhouseDetail(TestBase):
         super(TestNewhouseDetail, self).setUp()
         self.delay(2)
 
+    def test_func_日照分析(self):
+        """
+        V6.37.X: 点击功能入口“日照分析”
+        """
+        self.find_element('view[class="iconList"]/view', inner_text='日照分析').tap()
+        self.delay(2)
+
+        self.get_screenshot()
+        self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
+
+    def test_click_photo_点击日照分析(self):
+        """
+        V6.37.x: 点击楼盘相册的“日照”，进入日照分析页面
+        """
+        self.find_element('view[class="newHouseBannerB-li"][data-type="102"]', inner_text='日照').tap()
+        self.delay(2)
+        self.find_element('view[class="newHouseBanner-img-wrap"][data-type="102"]/image').tap()
+        # self.find_element('swiper-item[data-type="102"]/image').tap()
+
+        self.get_screenshot()
+        self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
+
     def test_click_photo_点击总平(self):
         """
         V6.32.X: 点击楼盘相册上面显示的“总平”
         """
-        # self.find_element('view[class="newHouseBannerB-li"][data-type="101"]', inner_text='总平').tap()
-        # self.delay(2)
-        # self.find_element('swiper-item[data-index="2"]/image').tap()
-        self.find_element('swiper-item[data-type="101"]/image').tap()
+        self.find_element('view[class="newHouseBannerB-li"][data-type="101"]', inner_text='总平').tap()
+        self.delay(2)
+        self.find_element('view[class="newHouseBanner-img-wrap"][data-type="101"]/image').tap()
+        # self.find_element('swiper-item[data-type="101"]/image').tap()
 
         self.verifyPageName('/page/newhouse/fd/fdxx')
         self.get_screenshot()
