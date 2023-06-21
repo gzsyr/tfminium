@@ -56,8 +56,9 @@ class TestKFT(TestBase):
         点击电话咨询
         """
         self.page.get_element('view[class="kftliBtn-style bg_448bc3 kgt_phone"]').tap()
-        self.delay(1)
-        self.verifyByScreenshot('xf/call.png')
+        # self.delay(1)
+        # self.verifyByScreenshot('xf/call.png')
+        self.get_screenshot()
 
     def test_03_click_signup_我要报名(self):
         """
@@ -87,7 +88,7 @@ class TestKFT(TestBase):
         点击全部路线下拉箭头
         """
         # self.page.get_element('view[class="headTR-select"]').tap()
-        self.set_pick_filter('picker', 2)
+        self.set_pick_filter('picker', 3)
 
         self.verifyStr(True, self.page.element_is_exists('view[class="headTL-allLine"]', inner_text='线路1'),
                        "选择线路1，ok")

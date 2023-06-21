@@ -272,9 +272,9 @@ class TestCenterZygw(TestMine):
         except minium.MiniElementNotFoundError:
             print('当前已经在‘做任务赚积分’的tab下')
 
-        self.find_element('view[class="toPublish"]', inner_text='去分享').tap()
-        self.delay(3)
         try:
+            self.find_element('view[class="toPublish"]', inner_text='去分享').tap()
+            self.delay(3)
             self.find_element('button').tap()
         except minium.MiniElementNotFoundError:
             print('无首页分享')

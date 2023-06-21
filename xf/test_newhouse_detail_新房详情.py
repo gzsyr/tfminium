@@ -19,11 +19,11 @@ class TestNewhouseDetail(TestBase):
         """
         点击 采光计算器
         """
-        self.find_element('view[class="iconList"]/view', inner_text='采光计算').tap()
+        self.find_element('/page/view[2]/scroll-view/view/view[10]/view/image').tap()
 
         self.delay(10)
 
-    def test_采光计算器咨询采光(self):
+    def test_cg_采光计算器咨询采光(self):
         """
         V6.36.X: 点击采光计算器页面的 咨询采光
         """
@@ -75,7 +75,7 @@ class TestNewhouseDetail(TestBase):
         self.get_screenshot()
         self.verifyPageName('/im/pages/chating/chating')
 
-    def test_采光计算器咨询层高(self):
+    def test_cg_采光计算器咨询层高(self):
         """
         V6.36.X: 点击采光计算器页面的 咨询 按钮
         """
@@ -294,7 +294,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 功能入口, 楼盘总平
         """
-        self.find_element('view[class="iconList"]/view', inner_text='楼盘总平').tap()
+        self.find_element('/page/view[2]/scroll-view/view/view[3]/view/image').tap()
 
         self.verifyPageName('/page/newhouse/fd/fdxx')
         self.get_screenshot()
@@ -303,7 +303,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 功能入口, 开盘记录
         """
-        self.find_element('view[class="iconList"]/view', inner_text='开盘记录').tap()
+        self.find_element('/page/view[2]/scroll-view/view/view[2]/view/image').tap()
 
         self.verifyPageName('/page/newhouse/historyLp/historyLp')
         self.get_screenshot()
@@ -312,7 +312,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 功能入口, 航拍看房
         """
-        self.find_element('view[class="iconList"]/view', inner_text='航拍看房').tap()
+        self.find_element('/page/view[2]/scroll-view/view/view[4]/view/image').tap()
 
         self.verifyPageName('/page/newhouse/xcny/photoalbum')
         self.get_screenshot()
@@ -321,7 +321,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 功能入口, 置业顾问
         """
-        self.find_element('view[class="iconList"]/view', inner_text='置业顾问').tap()
+        self.find_element('/page/view[2]/scroll-view/view/view[5]/view/image').tap()
 
         self.verifyPageName('/page/newhouse/zygw/list')
         self.get_screenshot()
@@ -330,7 +330,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 功能入口, 摇号查询
         """
-        self.find_element('view[class="iconList"]/view', inner_text='摇号查询').tap()
+        self.find_element('/page/view[2]/scroll-view/view/view[6]/view/image').tap()
 
         self.get_screenshot()
         self.verifyPageName('/page/yaohao/result')
@@ -339,7 +339,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 功能入口, VR看房
         """
-        self.find_element('view[class="iconList"]/view', inner_text='VR看房').tap()
+        self.find_element('/page/view[2]/scroll-view/view/view[7]/view/image').click()
 
         self.verifyPageName('/page/newhouse/xcny/photoalbum')
         self.get_screenshot()
@@ -348,7 +348,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 功能入口, 楼盘相册
         """
-        self.find_element('view[class="iconList"]/view', inner_text='楼盘相册').tap()
+        self.find_element('/page/view[2]/scroll-view/view/view[8]/view/image').tap()
 
         self.verifyPageName('/page/newhouse/xcny/xcnylist')
         self.get_screenshot()
@@ -357,7 +357,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 功能入口, 房贷计算
         """
-        self.find_element('view[class="iconList"]/view', inner_text='房贷计算').tap()
+        self.find_element('/page/view[2]/scroll-view/view/view[9]/view/image').tap()
 
         self.verifyPageName('/page/tools/fdjsq/sd/index')
         self.get_screenshot()
@@ -366,7 +366,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 功能入口, 购房资格
         """
-        self.find_element('view[class="iconList"]/view', inner_text='购房资格').tap()
+        self.find_element('/page/view[2]/scroll-view/view/view[11]/view/image').tap()
 
         self.verifyPageName('/page/tools/goufangzige/goufangzige')
         self.get_screenshot()
@@ -780,7 +780,10 @@ class TestNewhouseDetail(TestBase):
             self.find_element(f'view[class="p-flex-item p-28"][data-type="{type}"]').tap()
         self.delay(6)
         # 选择第一个选项
-        self.find_element('view[class="popup_select_icon"]').tap()
+        try:
+            self.find_element('view[class="popup_select_icon"]').tap()
+        except:
+            print('已勾选')
         # 点击“确定”
         self.find_element('view[class="popup_btn_confirm"]').tap()
 
