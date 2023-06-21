@@ -15,7 +15,7 @@ class TestJJRImdetailC2B(WritePost):
         print("setupclass")
 
     def setUp(self) -> None:
-        self.page_name = "/im/pages/chating/chating?chatTo=zsb_nj_1000969&city=nj"
+        self.page_name = "/im/pages/chating/chating?chatTo=zsb_nj_1000947&city=nj"
         self.switch = False
         self.classname = self.__class__.__name__
         super(TestJJRImdetailC2B, self).setUp()

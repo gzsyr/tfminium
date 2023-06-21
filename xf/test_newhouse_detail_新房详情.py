@@ -31,7 +31,7 @@ class TestNewhouseDetail(TestBase):
         self.find_element('picker').trigger("change", {"value": [15, 0]})
         self.set_pick_filter('picker[class="flex-1 t-r"]', 5)
         # self.find_element('input').input('9.9')
-        self.input_value_by_mk('xf/cg_cg.png', '9.9')
+        self.input_value_by_mk('xf/cg_cg_im.png', '9.9')
         self.delay(2)
         self.find_element('view[class="nextBtn"]').tap()
         self.delay(2)
@@ -99,7 +99,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.37.X: 点击功能入口“日照分析”
         """
-        self.find_element('view[class="iconList"]/view', inner_text='日照分析').tap()
+        self.find_element('/page/view[2]/scroll-view/view/view[1]/view/image').tap()
         self.delay(2)
 
         self.get_screenshot()
@@ -992,7 +992,7 @@ class TestNewhouseDetail(TestBase):
         self.find_element("view[class='infoTitle']/view", inner_text='分栋鸟瞰图\n更多').tap()
 
         # 进入分栋页面
-        self.delay(5)
+        self.delay(10)
         self.find_element('image[class="consultQuestion--askquestion_icon"]').tap()
 
         self.get_screenshot()
