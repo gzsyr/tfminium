@@ -194,7 +194,7 @@ class WritePost(TestMine):
         else:
             self.find_element('view[class="associated_users_name tfLine1"]').tap()
             self.delay(1)
-            self.find_element('input[placeholder="请输入搜索昵称"]').input(name)
+            self.find_element('input[placeholder="请输入昵称"]').input(name)
             self.delay(1)
             self.find_element('view[class="search-btn"]').tap()
             self.delay(1)
