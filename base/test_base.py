@@ -325,9 +325,15 @@ class TestBase(minium.MiniTest):
         if result:
             # third = result.get('qz')['third_title']
             if self.get_newcity() == '泉州':
-                sf_tmp = result.get('qz')['third_identity']
+                try:
+                    sf_tmp = result.get('qz')['third_identity']
+                except:
+                    return 'C端用户'
             elif self.get_newcity() == '南京':
-                sf_tmp = result.get('nj')['third_identity']
+                try:
+                    sf_tmp = result.get('nj')['third_identity']
+                except:
+                    return 'C端用户'
             else:
                 return 'C端用户'
             third = sf[sf_tmp]
