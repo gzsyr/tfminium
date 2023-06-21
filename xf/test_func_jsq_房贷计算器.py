@@ -215,12 +215,15 @@ class TestFuncJsq(TestBase):
         """
         “组合贷款”，等额本金
         """
+        self.delay(2)
         self.click_zhtab().\
+            delay(2).\
             sydk_click_hkfs_debj().\
             input_value_by_mk(png='xf\sd-pricetotal.png', value=kwargs['total'], direction=1).\
             sydk_slider_years(kwargs['years']).\
             sydk_select_lilv(kwargs['lilv']).\
-            input_value_by_mk(png='xf\gjj-pricetotal.png', value=kwargs['gjjtotal'], direction=1).\
+            delay(1). \
+            input_value_by_mk(png='xf\gjj-pricetotal-zhdb.png', value=kwargs['gjjtotal'], direction=1).\
             gjj_slider_years(kwargs['years']).\
             click_submitbtn()
 

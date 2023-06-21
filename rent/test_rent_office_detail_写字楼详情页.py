@@ -8,7 +8,7 @@ class Testrentofficedetail(TestBase):
     写字楼详情页
     """
     def setUp(self, true=None) -> None:
-        self.page_name = "/esf/sell/rent/detail/detail?rentId=105309347"
+        self.page_name = "/esf/sell/rent/detail/detail?rentId=108526853"
         self.switch = true
         self.classname = self.__class__.__name__
         super(Testrentofficedetail, self).setUp()
@@ -183,7 +183,7 @@ class Testrentofficedetail(TestBase):
         self.delay(1)
         pr = self.page.element_is_exists('view[class="module"]', inner_text='周边配套')
         if pr == True:
-            m = self.page.get_element('view[class="pr map"][data-type="0"]')
+            m = self.page.get_element('map[class="pr map"][data-type="0"]')
             m.tap()
             self.delay(1)
             self.get_screenshot()
@@ -251,7 +251,7 @@ class Testrentofficedetail(TestBase):
         """
         self.page.scroll_to(1900, 500)
         self.delay(2)
-        e = self.page.get_element('view[class="flex justify_flex_end report"]')
+        e = self.page.get_element('view[class="flex j_e report"]')
         e.tap()
         self.delay(2)
         self.get_screenshot()

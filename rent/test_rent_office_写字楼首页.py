@@ -34,7 +34,7 @@ class Testrentoffice(TestBase):
         :param value:
         :return:
         """
-        tile = self.page.get_element(f'view[class="text_center tile"][data-type = "{value}"]')
+        tile = self.page.get_element(f'view[class="t_c tile"][data-type = "{value}"]')
         tile.tap()
         self.delay(3)
         self.get_screenshot()

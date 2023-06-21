@@ -158,7 +158,7 @@ class Testesfxqxq(TestBase):
         self.delay(1)
         e_map = self.page.element_is_exists('view[class="pr map"][data-type="0"]')
         if e_map == True:
-            self.page.get_element('view[class="pr map"][data-type="0"]').tap()
+            self.page.get_element('map[class="pr map"][data-type="0"]').tap()
             self.delay(3)
             self.get_screenshot()
         else:

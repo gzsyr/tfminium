@@ -43,11 +43,11 @@ class Testrentofficebgdetail(TestBase):
         点击周边配套
         :return:
         """
-        self.page.scroll_to(1350, 500)
+        self.page.scroll_to(950, 500)
         self.delay(1)
         pr = self.page.element_is_exists('text[class="moduleName"]', inner_text='周边配套')
         if pr == True:
-            m = self.page.get_element('view[class="pr map"][data-type="0"]')
+            m = self.page.get_element('map[class="pr map"][data-type="0"]')
             m.tap()
             self.delay(2)
             self.get_screenshot()

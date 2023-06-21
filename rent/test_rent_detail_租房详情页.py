@@ -222,7 +222,7 @@ class Testrentdetail(TestBase):
         self.delay(1)
         pr = self.page.element_is_exists('text[class="moduleName"]', inner_text='周边配套')
         if pr == True:
-            m = self.page.get_element('view[class="pr map"][data-type="0"]')
+            m = self.page.get_element('map[class="pr map"][data-type="0"]')
             m.tap()
             self.delay(1)
             self.get_screenshot()
@@ -290,7 +290,7 @@ class Testrentdetail(TestBase):
         """
         self.page.scroll_to(1900, 500)
         self.delay(1)
-        e = self.page.get_element('view[class="flex justify_flex_end report"]')
+        e = self.page.get_element('view[class="flex j_e report"]')
         e.tap()
         self.delay(3)
         self.get_screenshot()

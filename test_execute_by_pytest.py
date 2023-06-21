@@ -57,8 +57,10 @@ if __name__ == '__main__':
                  "./tfq",
                  "./xf",
                  "./mine",
+                 "./xiaoxi",
                  "./logout",
                  "./city/test_index_allcity_城市.py::TestAllcity::test_select_nj_选择南京",   # 后切换到南京站测二手房相关
+                 "./jjr",
                  "./esf",
                  "./rent",
                  "./mine_esf",
@@ -71,5 +73,6 @@ if __name__ == '__main__':
     command_allure_generate = f"allure generate --clean {allure_result_path} -o {a_report_path}"
     os.system(command_allure_generate)  # 生成测试报告
     #
+    # 无需打开
     # command_allure_open = f'allure open {a_report_path}'
     # os.system(command_allure_open)  # 打开测试报告
