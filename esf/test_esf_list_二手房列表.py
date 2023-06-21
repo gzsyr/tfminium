@@ -21,8 +21,8 @@ class Testesflist(TestBase):
         """
         e = self.page.get_element('input[class="search--flex_1"]')
         e.tap()
+        self.get_screenshot()
         self.verifyPageName('/esf/sell/pages/search/search', '搜索 ok')
-        self.delay(3)
 
     @ddt_case(
         0, 1, 2, 3, 4
@@ -35,22 +35,21 @@ class Testesflist(TestBase):
         """
         self.page.get_element(f'view[class="t_c tile"][data-index="{value}"]').tap()
         self.get_screenshot()
-        self.delay(3)
 
     @ddt_case(
         0, 1, 2
     )
-    def test_func_adv_首页广告(self, value):
+    def delete_test_func_adv_首页广告(self, value):
         """
+        V6.3.X: 删除该入口
         二手房首页广告
         :param value:
         :return:
         """
-        self.page.get_element(f'view[class="inline_flex column j_c entrance"]'
+        self.find_element(f'view[class="inline_flex column j_c entrance"]'
                               f'[data-index="{value}"]').tap()
         # self.get_capture()
         self.get_screenshot()
-        self.delay(5)
 
     def test_click_gg_广告位(self):
         """
@@ -365,12 +364,12 @@ class Testesflist(TestBase):
         清空筛选条件
         """
         self.delay(1)
-        self.page.get_element('view[class="pa clear"]').tap()
+        self.page.get_element('view[class="pa clearScreen"]').tap()
 
         return self
 
     @ddt_case(
-        0, 1, 2, 3, 4
+        'VR看房', '放心看', '个人', '写字楼', '商铺'
     )
     def test_click_func_bqsx_标签筛选(self, value):
         """
@@ -378,10 +377,9 @@ class Testesflist(TestBase):
         :param value:
         :return:
         """
-        self.page.get_element('view[class="pa clear"]').tap()
-        self.page.get_element(f'view[class="t_c screenQuickItem"][data-index="{value}"]').tap()
+        self.find_element('view[class="pa clearScreen"]').tap()
+        self.find_element(f'view[class="inline_flex a_c j_c screenQuickI"][data-name="{value}"]').tap()
         self.get_screenshot()
-        self.delay(5)
 
     def test_click_housedetail_点击列表进入详情页(self):
         """
@@ -390,13 +388,13 @@ class Testesflist(TestBase):
         """
 
         # 先获取所有item
-        elm_items = self.page.get_elements('view[class="item"]')
+        elm_items = self.find_element('view[class="gridSellItem--sellFlowWrapper"]').tap()
 
-        # 第一个item
-        elm_first_item = elm_items[0]
-
-        # 点击
-        elms = elm_first_item.get_element('sellitem').get_elements('view')
-        elms[0].tap()
+        # # 第一个item
+        # elm_first_item = elm_items[0]
+        #
+        # # 点击
+        # elms = elm_first_item.get_element('sellitem').get_elements('view')
+        # elms[0].tap()
+        self.get_screenshot()
         self.verifyPageName('/esf/sell/pages/detail/detail', '房源详情 ok')
-        self.delay(5)

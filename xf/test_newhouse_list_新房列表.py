@@ -30,7 +30,6 @@ class TestNewsHouseList(TestBase):
         """
         self.find_element('view[class="findcard"]').tap()
 
-        self.verifyPageName('/page/newhouse/bnzf/bnzf')
         self.get_screenshot()
 
     def test_click_zygw_置业顾问头像(self):

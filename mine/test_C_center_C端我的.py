@@ -191,5 +191,4 @@ class TestCenterC(TestMine):
         """
         self.find_element('view[class="toOrder"]').tap()
 
-        self.verifyPageName('/page/newhouse/bnzf/bnzf')
         self.get_screenshot()

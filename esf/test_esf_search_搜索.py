@@ -19,7 +19,7 @@ class Testesfsearch(TestBase):
         输入关键字
         :return:
         """
-        self.page.get_element('//search/view/input').input('金地')
+        self.find_element('input[class="search--flex_1 search--searchInput"]').input('金地')
         self.delay(3)
         self.get_screenshot()
         self.delay(3)

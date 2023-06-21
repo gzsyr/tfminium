@@ -288,7 +288,7 @@ class TestTfqPostDetail(TestBase):
             self.find_element('view[class="commentList--more-reply"]').tap()
             self.delay(1)
 
-            self.find_element('view[class="commentList--m-reply-btn"]').tap()
+            self.find_element('view[class="commentList--m-name"]').tap()
 
         self.get_screenshot()
 

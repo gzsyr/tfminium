@@ -19,11 +19,12 @@ class Testesfgosellfb(TestBase):
 
     def test_publish_gosell_求购发布(self):
         # 想买的区域
-        self.page.get_element('/view[2]/view[3]/view[3]').tap()
-        self.delay(3)
+        # self.find_element('view[class="indicator down"]').tap()
+        # self.delay(3)
+
         # 想买的户型
-        self.page.get_element('/view[2]/view[6]/view[3]').tap()
-        self.delay(3)
+        # self.page.get_element('/view[2]/view[6]/view[3]').tap()
+        # self.delay(3)
 
         # 买房预算
         e = self.page.get_element('//slider[1]')
@@ -34,4 +35,3 @@ class Testesfgosellfb(TestBase):
         self.page.get_element('view[class="submit"]', inner_text='立刻找房').tap()
         self.delay(1)
         self.get_screenshot()
-        self.delay(3)
