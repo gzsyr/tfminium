@@ -37,6 +37,11 @@ class TestJJRTiezi(WritePost):
                              '，成交量也上涨了……那么，到底量价齐升还是以交换量？'
                              '近期在摸底南京次新小区的房价，需要数据的可以关注～')
 
+        self.wp_choose_quanzi('购房指南')
+        self.wp_choose_quanzi('购房问答')
+        self.get_screenshot('加入3个圈子')
+        self.wp_close_quanzi()
+
         self.get_screenshot()
         TestJJRTiezi.post_page = f"/page/taofangquan/tieziDetail/tieziDetail?city=nj&postsid={self.jjr_postid}"
 
