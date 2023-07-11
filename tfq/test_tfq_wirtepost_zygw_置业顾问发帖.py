@@ -190,3 +190,11 @@ class TestTfqZygwWritePost(WritePost):
         self.delay(3)
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
+
+    def test_11_新房二手房切换(self):
+        """
+        V6.38.X: 切换新房 二手房tab
+        """
+        self.wp_change_esftab()
+
+        self.get_screenshot()
