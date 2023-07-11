@@ -12,6 +12,157 @@ class Testesfxqxq(TestBase):
         super(Testesfxqxq, self).setUp()
         print("Testesfxqxq setup")
 
+    def test_帖子_点击头像(self):
+        """
+        V6.38.X: 点击 加精帖子 的头像
+        """
+        self.delay(5)
+        self.page.scroll_to(1580, 500)
+        self.delay(2)
+        try:
+            self.find_element('image[class="postComponent--avatar"]').tap()
+
+            self.verifyPageName('/esf/sell/pages/broker/broker')
+        except:
+            print('没有对应的加精帖子')
+
+        self.get_screenshot()
+
+    def test_帖子_点击咨询(self):
+        """
+        V6.38.X: 点击 加精帖子的咨询按钮
+        """
+        self.delay(5)
+        self.page.scroll_to(1580, 500)
+        self.delay(2)
+        try:
+            self.find_element('view[class="postComponent--connect postComponent--fbs_contact_tap"]').tap()
+        except:
+            print('没有对应的加精帖子')
+
+        self.get_screenshot()
+
+    def test_帖子_点击门店(self):
+        """
+        V6.38.X: 点击 加精帖子的 经纪人门店
+        """
+        self.delay(5)
+        self.page.scroll_to(1580, 500)
+        self.delay(2)
+        try:
+            self.find_element('view[class="postComponent--jjr_shop"]').tap()
+
+            self.verifyPageName('/esf/sell/pages/broker/broker')
+        except:
+            print('没有对应的加精帖子')
+
+        self.get_screenshot()
+
+    def test_帖子_点击标题(self):
+        """
+        V6.38.X: 点击 加精帖子的 标题
+        """
+        self.delay(5)
+        self.page.scroll_to(1580, 500)
+        self.delay(2)
+        try:
+            self.find_element('view[class="postComponent--list-desc postComponent--postTitle"]').tap()
+
+            self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
+        except:
+            print('没有对应的加精帖子')
+
+        self.get_screenshot()
+
+    def test_帖子_点击正文(self):
+        """
+        V6.38.X: 点击 加精帖子的 正文
+        """
+        self.delay(5)
+        self.page.scroll_to(1580, 500)
+        self.delay(2)
+        try:
+            self.find_element('view[class="postComponent--post_cont"]').tap()
+
+            self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
+        except:
+            print('没有对应的加精帖子')
+
+        self.get_screenshot()
+
+    def test_帖子_点击图片(self):
+        """
+        V6.38.X: 点击 加精帖子的 图片
+        """
+        self.delay(5)
+        self.page.scroll_to(1580, 500)
+        self.delay(2)
+        try:
+            self.find_element('image[class="postComponent--plist-item postComponent--plist-item2-2"]').tap()
+
+        except:
+            print('没有对应的加精帖子')
+
+        self.get_screenshot()
+
+    def test_帖子_点击标签(self):
+        """
+        V6.38.X: 点击 加精帖子的 标签
+        """
+        self.delay(5)
+        self.page.scroll_to(1580, 500)
+        self.delay(2)
+        try:
+            self.find_element('view[class="postComponent--posttag postComponent--flex postComponent--tfAlignC"]').tap()
+            self.verifyPageName('/page/taofangquan/huati/huatiDetail')
+        except:
+            print('没有对应的加精帖子')
+
+        self.get_screenshot()
+
+    def test_帖子_点击分享(self):
+        """
+        V6.38.X: 点击 加精帖子的 分享
+        """
+        self.delay(5)
+        self.page.scroll_to(1580, 500)
+        self.delay(2)
+        try:
+            self.find_element('image[class="postComponent--shareDetail_img"]').tap()
+        except:
+            print('没有对应的加精帖子')
+
+        self.get_screenshot()
+
+    def test_帖子_点击点赞(self):
+        """
+        V6.38.X: 点击 加精帖子的 点赞
+        """
+        self.delay(5)
+        self.page.scroll_to(1580, 500)
+        self.delay(2)
+        try:
+            self.find_element('view[class="postComponent--laud-btn"]').tap()
+        except:
+            print('没有对应的加精帖子')
+
+        self.get_screenshot()
+
+    def test_帖子_点击评论(self):
+        """
+        V6.38.X: 点击 加精帖子的 评论
+        """
+        self.delay(5)
+        self.page.scroll_to(1580, 500)
+        self.delay(2)
+        try:
+            self.find_element('view[class="postComponent--replyBtn"]').tap()
+            self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
+        except:
+            print('没有对应的加精帖子')
+
+        self.get_screenshot()
+
     @ddt_case(
         0, 1, 2, 3
     )
@@ -39,7 +190,6 @@ class Testesfxqxq(TestBase):
         """
         e = self.page.get_element('//banner/view/swiper/swiper-item')
         e.tap()
-        self.delay(3)
         self.get_screenshot()
 
     def test_goto_collec_点击收藏(self):
@@ -49,17 +199,15 @@ class Testesfxqxq(TestBase):
         """
         e = self.page.get_element('view[class="button collect"]')
         e.tap()
-        self.delay(3)
         self.get_screenshot()
 
-    def test_goto_share_点击分享(self):
+    def test_z_goto_share_点击分享(self):
         """
         点击分享
         :return:
         """
         e = self.page.get_element('button[class="button"]')
         e.tap()
-        self.delay(3)
         self.get_screenshot()
 
     def test_goto_zsell_点击在售房源(self):
@@ -119,7 +267,6 @@ class Testesfxqxq(TestBase):
         """
         e = self.page.get_element('view[class="copy copyWX"][data-type="wechat"]')
         e.tap()
-        self.delay(3)
         self.get_screenshot()
 
     def test_goto_qq_点击复制QQ(self):
@@ -129,7 +276,6 @@ class Testesfxqxq(TestBase):
         """
         e = self.page.get_element('view[class="copy copyQQ"][data-type="qq"]')
         e.tap()
-        self.delay(3)
         self.get_screenshot()
 
     def test_goto_jcxx_点击基础信息(self):
@@ -220,7 +366,7 @@ class Testesfxqxq(TestBase):
         点击小区评论-全部评论
         :return:
         """
-        self.page.scroll_to(1180, 500)
+        self.page.scroll_to(1280, 500)
         self.delay(1)
 
         house_com = self.page.element_is_exists('view[class="center check"]', inner_text="全部评论")
@@ -281,7 +427,6 @@ class Testesfxqxq(TestBase):
         if pldz == True:
             dz = self.page.get_elements('view[class="center"][data-index="0"][data-level="1"]')
             dz[0].tap()
-            self.delay(3)
             self.get_screenshot()
         else:
             print("没有评论")
@@ -299,7 +444,6 @@ class Testesfxqxq(TestBase):
         if qxdz == True:
             qx = self.page.get_elements('view[class="center like"][data-index="0"][data-level="1"]')
             qx[0].tap()
-            self.delay(3)
             self.get_screenshot()
         else:
             print("没有点赞")
@@ -328,7 +472,6 @@ class Testesfxqxq(TestBase):
             if nocomment == True:
                 e = self.page.get_element('//noComment/view/view[3]')
                 e.tap()
-                self.delay(3)
                 self.get_screenshot()
             else:
                 print("没有抢沙发我要评论")
@@ -377,7 +520,6 @@ class Testesfxqxq(TestBase):
         elms = self.page.get_elements('view[class="tel"]')
         if len(elms) > 0:
             elms[0].tap()
-            self.delay(3)
             self.get_screenshot()
         else:
             print("没有小区专家")
@@ -483,7 +625,6 @@ class Testesfxqxq(TestBase):
         # xpath定位
         elm = self.page.get_element('//view[@class="pf contact"]/contact/view/view/view[1]')
         elm.tap()
-        self.delay(1)
         self.get_screenshot()
 
     def test_goto_zxmsg_点击在线咨询(self):
@@ -496,10 +637,9 @@ class Testesfxqxq(TestBase):
         # xpath定位
         elm = self.page.get_element('//view[@class="pf contact"]/contact/view/view/view[2]/view[1]')
         elm.tap()
-        self.delay(2)
         self.get_screenshot()
 
-    def test_goto_tel_点击拨打电话(self):
+    def test_z_goto_tel_点击拨打电话(self):
         """
         点击拨打电话
         :return:
@@ -509,5 +649,4 @@ class Testesfxqxq(TestBase):
         # xpath定位
         elm = self.page.get_element('//view[@class="pf contact"]/contact/view/view/view[2]/view[2]')
         elm.tap()
-        self.delay(2)
         self.get_screenshot()
