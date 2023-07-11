@@ -113,6 +113,15 @@ class WritePost(TestMine):
 
         return self
 
+    def wp_close_quanzi(self):
+        """
+        发帖页面，点击 同步到圈子，删除一个圈子
+        """
+        self.find_element('view[class="tfFlex tfAlignC tfFlexSb tz_associate"][data-type="1"]').tap()
+        self.delay(1)
+        self.find_element('image[class="delete_icon"]').tap()
+        self.find_element('view[class="close_box"]').tap()
+        self.delay(1)
 
     def wp_quanzi_show_my_fav(self):
         """
