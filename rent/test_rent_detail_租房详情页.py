@@ -8,7 +8,7 @@ class Testrentdetail(TestBase):
     租房详情页
     """
     def setUp(self, true=None) -> None:
-        self.page_name = "/esf/sell/rent/detail/detail?rentId=104329493&city=nj"
+        self.page_name = "/esf/sell/rent/r_detail/detail?rentId=104329493&city=nj"
         self.switch = true
         self.classname = self.__class__.__name__
         super(Testrentdetail, self).setUp()
@@ -29,7 +29,7 @@ class Testrentdetail(TestBase):
         点击收藏
         :return:
         """
-        e = self.page.get_element('view[class="button collect"]')
+        e = self.page.get_element('view[class="pa center collect"]')
         e.tap()
         self.delay(3)
         self.get_screenshot()
@@ -37,7 +37,7 @@ class Testrentdetail(TestBase):
         """
         取消收藏
         """
-        e1 = self.page.get_element('view[class="button collect"]')
+        e1 = self.page.get_element('view[class="pa center collect"]')
         e1.tap()
         self.delay(3)
         self.get_screenshot()
@@ -47,7 +47,7 @@ class Testrentdetail(TestBase):
         点击分享
         :return:
         """
-        e = self.page.get_element('button[class="button"]')
+        e = self.page.get_element('button[class="pa center share"]')
         e.tap()
         # self.get_screenshot()
         self.delay(2)
@@ -290,7 +290,7 @@ class Testrentdetail(TestBase):
         """
         self.page.scroll_to(1900, 500)
         self.delay(1)
-        e = self.page.get_element('view[class="flex j_e report"]')
+        e = self.page.get_element('view[class="report"]')
         e.tap()
         self.delay(3)
         self.get_screenshot()
@@ -298,17 +298,18 @@ class Testrentdetail(TestBase):
     @ddt_case(
         0, 1, 2, 3
     )
-    def test_15_goto_asklayer(self, value):
+    def test_15_goto_asklayer(self, value=0):
         """
         提问弹层()
         :param value:
         :return:
         """
-        self.page.get_element('view[class="center askBtn"]').tap()
-        if self.page.wait_for('//view[@class="pa questions"]/view'):
-            elms = self.page.get_elements('//view[@class="pa questions"]/view/text')
+        self.page.get_element('view[class="questionCst--center questionCst--toggleBtn"]').tap()
+        if self.page.wait_for('//view[@class="questionCst--flex questionCst--column questionCst--a_e questionCst--questionList"]/view'):
+            # print('+++++a+++++')
+            elms = self.page.get_elements('//view[@class="questionCst--flex_1 questionCst--line_1"]')
             if len(elms) > value:
-                #print(value)
+                # print('+++++value+++++')
                 elms[value].tap()
                 self.delay(3)
                 self.get_screenshot()
