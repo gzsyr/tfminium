@@ -28,6 +28,50 @@ class TestJJRTiezi(WritePost):
         self.classname = self.__class__.__name__
         super(TestJJRTiezi, self).setUp()
 
+    def test_000_素材库生成帖子(self):
+        """
+        V6.38.x: 点击 素材库，带入素材库内容
+        """
+        self.click_sucaiku()
+
+        try:
+            self.select_sucaiku()
+            self.verifyPageName('/page/taofangquan/writePost/writePost')
+        except minium.MiniElementNotFoundError:
+            print('没有内容库')
+
+        self.get_screenshot()
+
+    def test_000_素材库查看详情(self):
+        """
+        V6.38.X: 点击 素材库，选择”查看详情“进入素材内容，点击”一键生成“帖子
+        """
+        self.click_sucaiku()
+
+        try:
+            self.select_sucaiku()
+            self.review_sucaiku()
+            self.output_sucaiku()
+            self.verifyPageName('/page/taofangquan/writePost/writePost')
+        except:
+            print('没有素材库')
+
+        self.get_screenshot()
+
+    def test_000_点击素材内容正文(self):
+        """
+        V6.38.X: 点击素材库页面的，素材正文
+        """
+        self.click_sucaiku()
+
+        try:
+            self.content_sucaiku()
+            self.verifyPageName('/page/taofangquan/contentstore/storedetail')
+        except:
+            print('没有素材库')
+
+        self.get_screenshot()
+
     def test_001_写帖子(self):
         """
         经纪人身份，发帖页面，输入标题，内容，选择关联板块，关联楼盘，同步到圈子，点击“发布”按钮
