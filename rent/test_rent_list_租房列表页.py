@@ -20,26 +20,23 @@ class Testrentlist(TestBase):
         搜索
         :return:
         """
-        e = self.page.get_element('view[class="input"]')
-        e.tap()
+        self.find_element('view[class="flex_1 keyword"]').tap()
+        self.get_screenshot()
         self.verifyPageName('/esf/sell/rent/office/search/search', '搜索 ok')
-        self.delay(3)
 
     @ddt_case(
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9
     )
-    def test_click_king_点击金刚区10个(self, value):
+    def test_click_king_点击金刚区10个(self, value=0):
         """
         点击金刚区（整租、合租等）
         :return:
         """
-        king = self.page.element_is_exists('view[class="quick-link"]')
-        if king:
-            obj = self.page.get_elements('view[class="quick-link"]')
-            obj[value].tap()
-            self.delay(3)
+        try:
+            self.page.get_element(f'view[class="i_c column tile"][data-index="{value}"]').tap()
+            self.delay(1)
             self.get_screenshot()
-        else:
+        except:
             print("无")
 
     def test_click_rentdetail_进入租房详情页(self):
@@ -48,17 +45,10 @@ class Testrentlist(TestBase):
         :return:
         """
         # 先获取所有item
-        elm_items = self.page.get_elements('view[class="rent-home-list"]')
-
-        # 第一个item
-        elm_first_item = elm_items[0]
-
-        # 点击
-        elms = elm_first_item.get_element('rentItem').get_elements('view')
-        elms[0].tap()
-        self.delay(5)
+        self.find_element('view[class="gridRentItem--line_2 gridRentItem--title"]').tap()
+        self.delay(2)
+        self.get_screenshot()
         self.verifyPageName('/esf/sell/rent/detail/detail', '房源详情 ok')
-        self.delay(5)
 
     @file_data('./test_rent_list.yml')
     def test_search_租房筛选(self, **kwargs):
