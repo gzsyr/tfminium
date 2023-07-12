@@ -15,6 +15,34 @@ class Testrentlist(TestBase):
         super(Testrentlist, self).setUp()
         print("Testrentlist setup")
 
+    def test_查看整租房源(self):
+        """
+        V6.38.X: 点击整租tab下的 查看房源
+        """
+        self.find_element('view[class="flex_1 center total"]').tap()
+
+        self.get_screenshot()
+        self.verifyPageName('/esf/sell/rent/list/list')
+
+    def test_查看合租房源(self):
+        """
+        V6.38.X: 点击合租tab及 查看房源
+        """
+        self.find_element('view[class="t_c rentType"][data-type="2"]').tap()
+        self.find_element('view[class="flex_1 center total"]').tap()
+
+        self.get_screenshot()
+        self.verifyPageName('/esf/sell/rent/list/list')
+
+    def test_去地图看(self):
+        """
+        V6.38.X: 点击 去地图看
+        """
+        self.find_element('view[class="flex a_c goMap"]').tap()
+        self.delay(3)
+        self.get_screenshot()
+        self.verifyPageName('/page/publicPages/dtzf/dtzf')
+
     def test_click_search_搜索(self):
         """
         搜索
