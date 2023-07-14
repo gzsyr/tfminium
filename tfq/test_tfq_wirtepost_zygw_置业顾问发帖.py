@@ -29,12 +29,10 @@ class TestTfqZygwWritePost(WritePost):
         """
         V6.30.X: 1005035, 置业顾问发帖页面，点击底部“内容库”, 进入内容库列表，点击“生成帖子”
         """
-        self.find_element('button[class="content-store"]').tap()
-        self.delay(5)
+        self.click_sucaiku()
 
         try:
-            self.find_element('view[class="tiezi"]', inner_text='生成帖子').tap()
-            self.delay(3)
+            self.select_sucaiku()
             self.verifyPageName('/page/taofangquan/writePost/writePost')
         except minium.MiniElementNotFoundError:
             print('没有内容库')

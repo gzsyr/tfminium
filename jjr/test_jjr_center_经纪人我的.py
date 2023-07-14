@@ -1,4 +1,6 @@
 # -*-coding:utf-8-*-
+import minium
+
 from base.test_mine import TestMine
 
 
@@ -27,7 +29,7 @@ class TestCenterJJR(TestMine):
         self.get_screenshot()
         self.verifyPageName('/page/mine/myinfo/myinfo')
 
-    def test_002_点击淘房圈发帖(self):
+    def delete_test_002_点击淘房圈发帖(self):
         """
         点击“淘房圈发帖”，进入写贴子页面
         """
@@ -40,7 +42,7 @@ class TestCenterJJR(TestMine):
         """
         点击“我的帖子”，进入我的帖子页面
         """
-        self.find_element('view[class="name"]', inner_text='我的帖子').tap()
+        self.find_element('view[class="dp myTfq flex tfAlignC tfFlexC tfFlexV"]').tap()
 
         self.get_screenshot()
         self.verifyPageName('/page/business/minetiezi')
@@ -49,7 +51,7 @@ class TestCenterJJR(TestMine):
         """
         点击”我的店铺“，进入我的店铺页面
         """
-        self.find_element('view[class="name"]', inner_text='我的店铺').tap()
+        self.find_element('view[class="dp"]').tap()
 
         self.get_screenshot()
         self.verifyPageName('/esf/sell/pages/broker/broker')
@@ -197,5 +199,112 @@ class TestCenterJJR(TestMine):
         self.get_screenshot()
         self.verifyPageName('/page/index/notice')
 
+    def test_015_点击素材库(self):
+        """
+        V6.38.x: 点击 素材库
+        """
+        self.find_element('swiper[class="store-swiper"]').tap()
+        self.delay(1)
+        self.get_screenshot()
+        self.verifyPageName('/page/taofangquan/contentstore/contentstore')
 
+    def click_jifen(self, desc='我的积分'):
+        """
+        点击 我的积分 ，已兑换商品
+        """
+        self.find_element('view[class="desc"]', inner_text=desc).tap()
+        self.delay(2)
 
+    def test_016_点击我的积分(self):
+        """
+        V6.38.x: 点击 我的积分，进入积分页面
+        """
+        self.click_jifen(desc='我的积分')
+
+        self.get_screenshot()
+        self.verifyPageName('/page/mine/myscores/myscores')
+
+    def test_017_已兑换商品_待使用_赚积分(self):
+        """
+        V6.38.x: 点击 已兑换商品，待使用  赚积分
+        """
+        self.click_jifen(desc='已兑换商品')
+        self.get_screenshot('已兑换商品')
+        self.verifyPageName('/page/mine/myscores/mycoupons')
+
+        self.find_element('view[class="getJf"]').tap()
+        self.get_screenshot('点击赚积分到我的积分页面')
+        self.verifyPageName('/page/mine/myscores/myscores')
+
+    def test_018_已兑换商品_已使用_赚积分(self):
+        """
+        V6.38.X: 点击 已兑换商品，已使用  赚积分
+        """
+        self.click_jifen(desc='已兑换商品')
+
+        self.find_element('view[class="used"]').tap()
+        self.find_element('view[class="getJf"]').tap()
+        self.get_screenshot('点击赚积分到我的积分页面')
+        self.verifyPageName('/page/mine/myscores/myscores')
+
+    def test_019_点击任务1(self):
+        """
+        V6.38.X: 点击 任务 1
+        """
+        self.find_element('view[class="toPublish"]').tap()
+
+        self.get_screenshot()
+
+    def test_019_点击任务2(self):
+        """
+        V6.38.X: 点击 任务2
+        """
+        try:
+            self.find_elements('view[class="toPublish"]')[1].tap()
+        except:
+            print('没有两个任务')
+
+        self.get_screenshot()
+
+    def test_020_点击全部任务(self):
+        """
+        V6.38.X: 点击 全部任务
+        """
+        self.find_element('view[class="tomore"]').tap()
+
+        self.get_screenshot()
+        self.verifyPageName('/page/mine/myscores/alltasks')
+
+    def test_021_积分兑换(self):
+        """
+        V6.38.X: 点击 积分抢兑，去兑换商品
+        """
+        # 点击“积分抢兑”
+        try:
+            self.find_element('view[class="used"]').tap()
+        except minium.MiniElementNotFoundError:
+            print('已经在‘积分抢兑’tab下')
+        # 点击“去兑换”
+        self.find_element('view[class="toDh"]').tap()
+        self.delay(3)
+
+        # 商品页面点击兑换
+        self.find_element('view[class="btnSubmit"]').tap()
+
+        self.get_screenshot()
+
+    def test_022_积分抢兑_全部商品_查看商品(self):
+        """
+        V6.38.X: 点击积分抢兑  点击全部商品 点击去兑换
+        """
+        try:
+            self.find_element('view[class="used"]').tap()
+        except minium.MiniElementNotFoundError:
+            print('已经在‘积分抢兑’tab下')
+        # 点击“更多”
+        # self.find_element('view[class="more"]').tap()
+        # 点击“全部商品”
+        self.find_element('view[class="tomore"]', inner_text='全部商品').tap()
+        self.delay(2)
+
+        self.find_element('view[class="btn"]').tap()
