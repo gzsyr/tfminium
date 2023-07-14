@@ -8,6 +8,39 @@ class WritePost(TestMine):
     发帖页面的相关按钮
     """
     # 以下是发帖页面元素
+
+    def click_sucaiku(self):
+        """
+        点击 素材库
+        """
+        self.find_element('button[class="content-store"]').tap()
+        self.delay(5)
+
+    def select_sucaiku(self):
+        """
+        选择素材，点击 生成帖子
+        """
+        self.find_element('view[class="tiezi"]', inner_text='生成帖子').tap()
+        self.delay(3)
+
+    def review_sucaiku(self):
+        """
+        素材库，点击”查看详情“
+        """
+        self.find_element('view[class="toDetail"]', inner_text='查看详情').tap()
+
+    def content_sucaiku(self):
+        """
+        素材库，点击”内容正文“
+        """
+        self.find_element('view[class="content tfline3"]').tap()
+
+    def output_sucaiku(self):
+        """
+        素材库详情，点击”一键生成帖子“
+        """
+        self.find_element('view[class="btn"]').tap()
+
     def goto_post_detail(self):
         """
         发帖完成后，发布成功页面，点击“查看发布详情”
