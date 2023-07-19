@@ -56,7 +56,7 @@ class TestMineScoreZygw(TestMine):
         """
         V6.27.X: 做任务赚积分，点击第一个任务
         """
-        self.find_element('view[class="taskInf itemInf tfFlex tfAlignC"]').tap()
+        self.find_element('view[class="taskName itemName"]').tap()
 
         self.get_screenshot()
 
