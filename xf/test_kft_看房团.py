@@ -24,19 +24,19 @@ class TestKFT(TestBase):
         点击‘苏宁测试1’，返回，
         点击立即报名
         """
-        self.page.get_element("view[class='kftfixed-r']").tap()
-        self.delay(1)
+        self.find_element("view[class='kftfixed-r']").tap()
+        self.delay(10)
 
         # 输入日期
         self.set_pick_filter('picker', time.strftime('%Y-%m-%d'))
 
         # 点击楼盘名称，到搜索页搜索楼盘
-        self.page.get_element('view.kfxqLi-l').tap()
+        self.find_element('view.kfxqLi-l').tap()
         self.app.wait_for_page('/page/search/index')
-        self.page.get_element('input.searchTR-input').input('苏宁')
-        self.delay(1)
+        self.find_element('input.searchTR-input').input('苏宁')
+        self.delay(5)
         self.find_element('view.searchBLi').tap()
-        self.delay(1)
+        self.delay(5)
 
         tap = 'self.page.get_element(\'button.kfxqSub.kgt_tjxq\').tap()'
         self.verifyStr(True, self.getShowToast(tap), '发布看房需求ok')
