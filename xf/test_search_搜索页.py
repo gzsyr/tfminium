@@ -80,10 +80,12 @@ class TestSearch(TestBase):
         V6.38.X: 输入关键词，点击联想结果，进入楼盘详情页
         """
         self.input_keyword('泉州万科城')
+        self.delay(2)
 
-        self.find_element('view[class="searchBLi"]').tap()
+        self.find_element('view[class="searchBLi-l-wrap tfLine1"]').tap()
 
         self.get_screenshot()
+        self.verifyPageName('/page/newhouse/detail')
 
     def click_filter(self, tab='位置', cont='丰泽'):
         """
