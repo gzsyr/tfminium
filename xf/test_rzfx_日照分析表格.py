@@ -17,7 +17,7 @@ class TestRzfxBg(TestBase):
         """
         点击 进入3D 模型
         """
-        self.find_element('view[class="icon tfFlex tfAlignC"]').tap()
+        self.find_element('view[class="icon tfFlex tfAlignC icon_1"]').tap()
 
         self.get_screenshot()
         self.verifyPageName('/page/newhouse/rizhaofenxi/rizhao3d')
