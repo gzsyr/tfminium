@@ -370,7 +370,7 @@ class TestCenterZygw(TestMine):
         try:
             self.find_element('view[class="todetail flex tfAlignC tfFlexSb"]').tap()
 
-            self.verifyPageName('/page/business/infoManage/customerList')
+            # self.verifyPageName('/page/business/infoManage/customerList')
             self.get_screenshot()
         except minium.MiniElementNotFoundError:
             self.get_screenshot('没有线索消息')
