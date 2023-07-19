@@ -8,7 +8,7 @@ class Testrentofficedetail(TestBase):
     写字楼详情页
     """
     def setUp(self, true=None) -> None:
-        self.page_name = "/esf/sell/rent/detail/detail?rentId=108549447"
+        self.page_name = "/esf/sell/rent/detail/detail?rentId=108714451"
         self.switch = true
         self.classname = self.__class__.__name__
         super(Testrentofficedetail, self).setUp()
