@@ -105,6 +105,18 @@ class TestNewhouseDetail(TestBase):
         self.get_screenshot()
         self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
 
+    def test_click_photo_点击楼距(self):
+        """
+        V6.39.X: 点击楼盘相册的“楼距”，进入楼距页面
+        """
+        self.find_element('view[class="newHouseBannerB-li"][data-type="103"]', inner_text='楼距').tap()
+        self.delay(2)
+        self.find_element('view[class="newHouseBanner-img-wrap"][data-type="103"]/image').tap()
+        # self.find_element('swiper-item[data-type="103"]/image').tap()
+
+        self.get_screenshot()
+        self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
+
     def test_click_photo_点击日照分析(self):
         """
         V6.37.x: 点击楼盘相册的“日照”，进入日照分析页面
@@ -881,6 +893,19 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/newhouse/zxdt/zxdt')
         self.get_screenshot()
 
+
+    def test_goto_xxxx_楼距分析(self):
+        """
+        V6.39.X: 点击 详细信息 “楼距分析”，进入楼距页面
+        """
+        self.page.scroll_to(2500, 500)
+        self.delay(4)
+
+        self.find_element('view[class="newHouseXxxxLimap flex tfAlignC tfFlexC"][data-ysposition="详细信息"][data-ysname="楼距分析"]').tap()
+        self.delay(2)
+        self.get_screenshot()
+        self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
+
     def test_goto_xxxx_map_详细信息地图(self):
         """
         V6.23.X: 详细信息-楼盘区属点击“地图找房”
@@ -982,6 +1007,18 @@ class TestNewhouseDetail(TestBase):
 
         self.delay(3)
         self.get_screenshot()
+
+    def test_goto_ldxq_点击楼距分析(self):
+        """
+        V6.39.X: 新房详情页页面，分栋鸟瞰图点，点击【楼距分析】按钮
+        """
+        self.page.scroll_to(3000, 500)
+        self.delay(12)
+
+        self.find_element('view[class="newHouseFdnkt_ljfx_short newHouseFdnkt_fx"]').tap()
+
+        self.get_screenshot()
+        self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
 
     def test_goto_ldxq_楼栋详情提问(self):
         """
