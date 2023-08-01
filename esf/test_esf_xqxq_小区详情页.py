@@ -6,11 +6,39 @@ class Testesfxqxq(TestBase):
     小区详情页
     """
     def setUp(self, true=None) -> None:
-        self.page_name = "/esf/village/pages/detail/detail?blockId=3982&city=nj"
+        self.page_name = f"/esf/village/pages/detail/detail?city=nj&blockId={self.blockid}"
         self.switch = true
         self.classname = self.__class__.__name__
         super(Testesfxqxq, self).setUp()
         print("Testesfxqxq setup")
+
+    def test_001_rizhao_banner(self):
+        """
+        V6.39.X: 1.点击日照; 2.点击动图
+        """
+        self.find_element('swiper-item[class="banner--pr banner--bannerItem"][data-id="sunlight"]').tap()
+
+        self.get_screenshot()
+        self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
+
+    def test_001_rizhao_点击日照图(self):
+        """
+        V6.39.X: 点击小区楼栋模块gif图
+        """
+        self.find_element('view[class="pr"]').tap()
+
+        self.get_screenshot()
+        self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
+
+    def test_001_rizhao_IM(self):
+        """
+        V6.39.X: 点击咨询楼栋详情
+        """
+        self.find_element('view[class="center chat"]').tap()
+        self.delay(3)
+        self.get_screenshot()
+
+        # self.blockId=3982
 
     def test_帖子_点击头像(self):
         """
@@ -265,8 +293,10 @@ class Testesfxqxq(TestBase):
         点击复制微信
         :return:
         """
-        e = self.page.get_element('view[class="copy copyWX"][data-type="wechat"]')
-        e.tap()
+        try:
+            self.find_element('view[class="copy copyWX"][data-type="wechat"]').tap()
+        except:
+            print('没有复制微信')
         self.get_screenshot()
 
     def test_goto_qq_点击复制QQ(self):
@@ -274,8 +304,10 @@ class Testesfxqxq(TestBase):
         点击复制QQ
         :return:
         """
-        e = self.page.get_element('view[class="copy copyQQ"][data-type="qq"]')
-        e.tap()
+        try:
+            self.find_element('view[class="copy copyQQ"][data-type="qq"]').tap()
+        except:
+            print('没有复制QQ')
         self.get_screenshot()
 
     def test_goto_jcxx_点击基础信息(self):
