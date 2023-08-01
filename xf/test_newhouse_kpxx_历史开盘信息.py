@@ -20,3 +20,12 @@ class TestNewhouseKpxx(TestBase):
 
         self.delay(4)
         self.get_screenshot()
+
+    def test_02_点击楼距(self):
+        """
+        V6.39.X: 点击 楼距分析
+        """
+        self.find_element('view[class="ljfx_btn flex tfAlignC tfFlexC"][data-ysname="楼距分析"]').tap()
+
+        self.get_screenshot()
+        self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')

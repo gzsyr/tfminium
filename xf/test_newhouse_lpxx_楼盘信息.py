@@ -22,6 +22,15 @@ class TestNewhouseLpxx(TestBase):
                 e.tap()
                 break
 
+    def test_009_楼距分析(self):
+        """
+        V6.39.X: 容积率字段旁，点击“楼距分析”
+        """
+        self.find_element('view[class="lpxxDetailUl-li-r-link flex tfAlignC tfFlexC"][data-ysname="楼距分析"]').tap()
+
+        self.get_screenshot()
+        self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
+
     def test_008_xxxx_点击开盘记录(self):
         """
         V6.24.X: 开盘时间字段旁，点击“开盘记录”按钮
