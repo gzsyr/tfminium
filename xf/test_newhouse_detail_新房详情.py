@@ -21,7 +21,29 @@ class TestNewhouseDetail(TestBase):
         """
         self.find_element('/page/view[2]/scroll-view/view/view[10]/view/image').tap()
 
-        self.delay(10)
+        self.delay(12)
+
+    def test_goto_xxxx_日照分析(self):
+        """
+        V6.37.X: 点击详细信息的 日照分析
+        """
+        self.page.scroll_to(2500, 500)
+        self.delay(4)
+
+        self.find_element('view[class="newHouseXxxxLirzfx_icon"]').tap()
+
+        self.get_screenshot()
+        self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
+
+    def test_goto_xxxx_more_日照分析(self):
+        """
+        V6.37.X: 点击 楼盘信息 更多 页面的 “日照分析”
+        """
+        self.goto_xxxx_more()
+
+        self.find_element('view[class="lpxxDetailUl-li-r-link flex tfAlignC tfFlexC"]/view', inner_text='日照分析').tap()
+        self.get_screenshot()
+        self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
 
     def test_cg_采光计算器咨询采光(self):
         """
@@ -207,7 +229,7 @@ class TestNewhouseDetail(TestBase):
         self.delay(6)
 
         self.find_element('view[class="showAllqus tfFlex tfAlignC tfFlexC"]').tap()
-        self.delay(5)
+        self.delay(6)
         self.find_element('view[class="selectLi"]').tap()
         self.get_screenshot()
 
@@ -1020,6 +1042,21 @@ class TestNewhouseDetail(TestBase):
         self.get_screenshot()
         self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
 
+    def test_goto_ldxq_楼栋详情_楼距分析(self):
+        """
+        V6.39.X: 新房详情页页面，分栋鸟瞰图点，点击【楼距分析】按钮
+        """
+        self.page.scroll_to(3000, 500)
+        self.delay(12)
+        self.find_element("view[class='infoTitle']/view", inner_text='分栋鸟瞰图\n更多').tap()
+
+        # 进入分栋页面
+        self.delay(10)
+        self.find_element('view[class="ljfx_wrap flex tfAlignC tfFlexC"]').tap()
+
+        self.get_screenshot()
+        self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
+
     def test_goto_ldxq_楼栋详情提问(self):
         """
         V6.21.X: 1003947   新房详情页页面，分栋鸟瞰图点击更多，点击【提问】按钮
@@ -1074,12 +1111,12 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 新房详情页，位置及周边楼层，点击地图
         """
-        self.page.scroll_to(4800, 500)
+        self.page.scroll_to(5300, 500)
         self.delay(10)
 
         # self.find_element('//*[@id="map"]').tap()
         # self.find_element('view[class="mapNearDes"]').click()
-        # self.find_element('view[class="newHouseMap-map"]').tap()
+        # self.find_element('map[class="newHouseMap-map-img"]').tap()
         self.input_value_by_mk('xf/click_map.png')
         self.delay(3)
 
@@ -1090,7 +1127,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 新房详情页，位置及周边楼层，点击教育下的文字
         """
-        self.page.scroll_to(4800, 500)
+        self.page.scroll_to(5300, 500)
         self.delay(10)
 
         # self.find_element('//*[@id="map"]').tap()
