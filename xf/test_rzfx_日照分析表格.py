@@ -12,6 +12,32 @@ class TestRzfxBg(TestBase):
         self.classname = __class__.__name__
         super(TestRzfxBg, self).setUp()
 
+    def test_goto_楼距_切换楼栋(self):
+        """
+        V6.39.X: 点击“楼距”，进入楼距tab，点击 楼栋“居民楼”
+        """
+        self.find_element('view[class="tab"][data-id="3"]').tap()
+        self.delay(1)
+
+        self.find_element('view[class="ldItem"][data-id="2505"]').tap()
+
+        self.get_screenshot()
+
+    def test_goto_楼距_3d(self):
+        """
+        V6.39.X: 点击“楼距”，进入楼距tab，点击 3d模型
+        """
+        self.find_element('view[class="tab"][data-id="3"]').tap()
+        self.delay(1)
+        self.get_screenshot('切换到楼距分析')
+        self.find_element('view[class="tab"][data-id="1"]').tap()
+        self.delay(1)
+        self.get_screenshot('切换到日照分析')
+        self.find_element('view[class="tab"][data-id="3"]').tap()
+        self.find_element('view[class="icon tfFlex tfAlignC icon_3"]').tap()
+
+        self.get_screenshot()
+        self.verifyPageName('/page/newhouse/rizhaofenxi/rizhao3d')
 
     def test_goto_3d(self):
         """
