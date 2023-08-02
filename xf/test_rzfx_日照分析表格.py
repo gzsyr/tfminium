@@ -12,6 +12,55 @@ class TestRzfxBg(TestBase):
         self.classname = __class__.__name__
         super(TestRzfxBg, self).setUp()
 
+    def test_goto_户型分析_3d(self):
+        """
+        V6.40.X: 户型分析，点击图片
+        """
+        self.find_element('view[class="tab"][data-id="4"]').tap()
+        self.find_element('view[class="icon tfFlex tfAlignC icon_4"]').tap()
+
+        self.get_screenshot()
+        self.verifyPageName('/page/newhouse/rizhaofenxi/rizhao3d')
+
+    def test_goto_户型分析_切换户型(self):
+        """
+        V6.40.X: 户型分析，点击户型切换
+        """
+        self.find_element('view[class="tab"][data-id="4"]').tap()
+        self.delay(1)
+
+        self.find_element('view[class="ldItem"][data-id="390"]').tap()
+
+        self.get_screenshot()
+
+    def test_goto_户型分析_底部咨询(self):
+        """
+        V6.40.X: 户型分析，点击底部咨询
+        """
+        self.find_element('view[class="tab"][data-id="4"]').tap()
+        self.delay(1)
+
+        self.find_element('view[class="consultWrap tfFlex tfAlignC tfFlexC"]').tap()
+
+        self.get_screenshot()
+
+    def test_goto_tab切换(self):
+        """
+        V6.40.X: 户型分析-点击日照
+        """
+        # 点击户型分析
+        self.find_element('view[class="tab"][data-id="4"]').tap()
+        self.delay(1)
+        self.get_screenshot('切换到户型分布')
+        # 点击日照
+        self.find_element('view[class="tab"][data-id="1"]').tap()
+        self.delay(1)
+        self.get_screenshot('切换到日照')
+        # 点击日照
+        self.find_element('view[class="tab"][data-id="3"]').tap()
+        self.delay(1)
+        self.get_screenshot('切换到楼距')
+
     def test_goto_楼距_切换楼栋(self):
         """
         V6.39.X: 点击“楼距”，进入楼距tab，点击 楼栋“居民楼”
