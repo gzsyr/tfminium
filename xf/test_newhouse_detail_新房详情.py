@@ -127,6 +127,17 @@ class TestNewhouseDetail(TestBase):
         self.get_screenshot()
         self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
 
+    def test_click_photo_点击户型(self):
+        """
+        V6.40.X: 点击楼盘相册的“户型”，进入户型分布表格页
+        """
+        self.find_element('view[class="newHouseBannerB-li"][data-type="104"]', inner_text='户型').tap()
+        self.delay(2)
+        self.find_element('view[class="newHouseBanner-img-wrap"][data-type="104"]/image').tap()
+        # self.find_element('swiper-item[data-type="104"]/image').tap()
+
+        self.get_screenshot()
+        self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
     def test_click_photo_点击楼距(self):
         """
         V6.39.X: 点击楼盘相册的“楼距”，进入楼距页面
@@ -1030,6 +1041,18 @@ class TestNewhouseDetail(TestBase):
         self.delay(3)
         self.get_screenshot()
 
+    def test_goto_ldxq_点击户型分布(self):
+        """
+        V6.39.X: 新房详情页页面，分栋鸟瞰图点，点击【户型分布】按钮
+        """
+        self.page.scroll_to(3000, 500)
+        self.delay(12)
+
+        self.find_element('view[class="newHouseFdnkt_hxfx_short newHouseFdnkt_fx"]').tap()
+
+        self.get_screenshot()
+        self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
+
     def test_goto_ldxq_点击楼距分析(self):
         """
         V6.39.X: 新房详情页页面，分栋鸟瞰图点，点击【楼距分析】按钮
@@ -1269,6 +1292,25 @@ class TestNewhouseDetail(TestBase):
 
         self.verifyPageName('/page/newhouse/priceAnalyse/priceAnalyse')
         self.get_screenshot()
+
+    def test_goto_kpxx_户型分布(self):
+        """
+        V6.40.x: 点击最新开盘信息模块户型分布
+        """
+        self.find_element('view[class="newHouseXxxxLimap flex tfAlignC tfFlexC"][data-ysposition="最新开盘信息"][data-ysname="户型分布"]').tap()
+
+        self.get_screenshot()
+        self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
+
+    def test_goto_kpxx_楼距分析(self):
+        """
+        V6.40.X: 点击最新开盘信息模块楼距分析
+        """
+        self.find_element(
+            'view[class="newHouseXxxxLimap flex tfAlignC tfFlexC"][data-ysposition="最新开盘信息"][data-ysname="楼距分析"]').tap()
+
+        self.get_screenshot()
+        self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
 
     def test_goto_kpjl_开盘记录(self):
         """
