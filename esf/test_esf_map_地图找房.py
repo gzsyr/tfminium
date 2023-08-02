@@ -47,7 +47,7 @@ class TestMap(TestBase):
         V6.40.X: 点击搜索
         """
         self.find_element('view[class="center column btn"]').tap()
-        self.delay(3)
+        self.delay(5)
         self.get_screenshot('search')
         self.verifyPageName('/page/publicPages/search/search')
 
