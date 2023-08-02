@@ -168,6 +168,16 @@ class TestMineScoreZygw(TestMine):
 
         self.get_screenshot()
 
+    def test_17_全部任务_去邀请(self):
+        """
+        V6.40.X: 做任务赚积分，点击“全部任务”，点击”去邀请“
+        """
+        self.click_alltask()
+        self.delay(1)
+        self.find_element('button[class="btn invitezygw"]').tap()
+
+        self.get_screenshot()
+
     def test_14_积分兑换_兑换置顶券(self):
         """
         V6.27.X: 积分兑换，点击第一个置顶券类型，执行兑换
