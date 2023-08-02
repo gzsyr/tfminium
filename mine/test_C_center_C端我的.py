@@ -192,3 +192,18 @@ class TestCenterC(TestMine):
         self.find_element('view[class="toOrder"]').tap()
 
         self.get_screenshot()
+
+    def test_23_C_click_邀请入驻(self):
+        """
+        V6.40.x:
+        """
+        url = '/page/mine/businessRegister/invitezygw?' \
+              'zg_share_id=1690965179491&zg_uid=obS_rt748XlZ75WvzZKKWfFUHGvY&' \
+              'zg_share_level=1&zygwInviter=1005&zygwname=线上&' \
+              'zygwavatar=http://img20.house365.com/jjr/2021/11/19/1637311616619764801c9b8.jpg&' \
+              'city=qz&taskid=158'
+        self.redirect_to_page(url=url)
+
+        self.find_element('view[class="toReg"]').tap()
+        self.get_screenshot()
+        self.verifyPageName('/page/business/checkzygw')
