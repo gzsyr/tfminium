@@ -24,6 +24,22 @@ class TestCenterZygw(TestMine):
         self.classname = self.__class__.__name__
         super(TestCenterZygw, self).setUp()
 
+    def test_44_复制身份ID(self):
+        """
+        V6.40.X: 点击 复制身份id
+        """
+        self.find_element('view[class="roleid"]/text').click()
+
+        self.get_screenshot()
+
+    def test_98_服务指南_邀请入驻(self):
+        """
+        V6.40.X: 点击邀请入驻
+        """
+        self.find_element('view[class="name"]', inner_text='邀请入驻').tap()
+
+        self.get_screenshot()
+
     def test_43_进入素材库(self):
         """
         V6.30.X: 点击素材库
@@ -342,7 +358,7 @@ class TestCenterZygw(TestMine):
         self.verifyPageName('/page/newhouse/zygw/detail')
         self.get_screenshot()
 
-    def test_98_客户消息_来电记录(self):
+    def test_97_客户消息_来电记录(self):
         """
         V6.27.X: 置业顾问个人中心页面，客户消息，点击来电记录，点击‘回拨’
         """
