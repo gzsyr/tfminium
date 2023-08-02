@@ -12,6 +12,15 @@ class TestNewhouseHuxingDetail(TestBase):
         self.classname = self.__class__.__name__
         super(TestNewhouseHuxingDetail, self).setUp()
 
+    def test_006_goto_户型分布(self):
+        """
+        V6.40.x: 点击户型分布
+        """
+        self.find_element('view[class="ljfx_btn flex tfAlignC tfFlexC"]').tap()
+
+        self.get_screenshot()
+        self.verifyPageName('/page/newhouse/rizhaofenxi/rizhao3d')
+
     def test_001_click_zygw_more_置业顾问更多(self):
         """
         V6.23.X: -置业顾问楼层，点击“查看更多”
