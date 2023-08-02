@@ -29,3 +29,13 @@ class TestNewhouseKpxx(TestBase):
 
         self.get_screenshot()
         self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
+
+    def test_03_点击户型分布(self):
+        """
+        V6.39.X: 点击 户型分布
+        """
+        self.find_element('view[class="ljfx_btn flex tfAlignC tfFlexC"][data-ysname="户型分布"]').tap()
+
+        self.get_screenshot()
+        self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
+
