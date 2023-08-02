@@ -6,13 +6,32 @@ class Testesfdetail(TestBase):
     二手房详情页
     """
     def setUp(self, true=None) -> None:
-        self.page_name = "/esf/sell/pages/detail/detail?sellId=331233705"
+        # self.page_name = "/esf/sell/pages/detail/detail?sellId=331233705"
+        self.page_name = "/esf/sell/pages/detail/detail?sellId=343334795"
         self.switch = true
         self.classname = self.__class__.__name__
         super(Testesfdetail, self).setUp()
         print("Testesfdetail setup")
 
-    def test_26_goto_photo_点击相册(self):
+    def test_26_点击日照图(self):
+        """
+        V6.39.X: 点击小区楼栋模块gif图
+        """
+        self.find_element('view[class="pr sunlight"]').tap()
+
+        self.get_screenshot()
+        self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
+
+    def test_27_日照IM(self):
+        """
+        V6.39.X: 点击咨询楼栋详情
+        """
+        self.find_element('view[class="center chat"]').tap()
+
+        self.delay(3)
+        self.get_screenshot()
+
+    def test_36_goto_photo_点击相册(self):
         """
         点击相册
         """
@@ -244,7 +263,7 @@ class Testesfdetail(TestBase):
         点击全部同小区房源
         :return:
         """
-        e = self.page.get_element('view[class="center moreHouses"][data-type="1"]')
+        e = self.page.get_element('view[class="center moreHouses"][data-type="2"]')
         e.tap()
         self.delay(3)
         self.get_screenshot()
@@ -282,7 +301,7 @@ class Testesfdetail(TestBase):
         self.delay(3)
         self.get_screenshot()
 
-    def test_21_goto_report_点击我要举报(self):
+    def delete_test_21_goto_report_点击我要举报(self):
         """
         点击我要举报
         :return:
