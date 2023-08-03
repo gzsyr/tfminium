@@ -170,7 +170,7 @@ class TestCenterZygw(TestMine):
         """
         点击“权益券”
         """
-        self.find_element('view[class="desc"]', inner_text='权益券').tap()
+        self.find_element('view[class="desc"]', inner_text='已兑换商品').tap()
         self.delay(3)
 
     def test_04_click_quanyiquan_权益券(self):
