@@ -24,10 +24,10 @@ class TestEsfRzfxBg(TestBase):
 
     def test_click_节气楼栋(self):
         """
-        V6.38.x: 点击 大寒  +  2 栋楼
+        V6.38.x: 点击 大寒  +  5 栋楼
         """
         self.find_element('view[class="jqItem"][data-id="6"]').tap()
-        self.find_element('view[class="ldItem"][data-id="6"]').tap()
+        self.find_element('view[class="ldItem"][data-id="2"]').tap()
 
         self.get_screenshot()
 
@@ -120,7 +120,7 @@ class TestEsfRzfxBg(TestBase):
         self.find_element('view[class="item--line_1 item--title"]').tap()
 
         self.get_screenshot()
-        self.verifyPageName('/esf/sell/rent/detail/detail')
+        self.verifyPageName('/esf/sell/rent/r_detail/detail')
 
     def test_xqfy_切换租售进入出售房源详情(self):
         """
