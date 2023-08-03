@@ -243,6 +243,7 @@ class TestCenterJJR(TestMine):
         self.click_jifen(desc='已兑换商品')
 
         self.find_element('view[class="used"]').tap()
+        self.delay(2)
         self.find_element('view[class="getJf"]').tap()
         self.get_screenshot('点击赚积分到我的积分页面')
         self.verifyPageName('/page/mine/myscores/myscores')
@@ -305,6 +306,30 @@ class TestCenterJJR(TestMine):
         # self.find_element('view[class="more"]').tap()
         # 点击“全部商品”
         self.find_element('view[class="tomore"]', inner_text='全部商品').tap()
-        self.delay(2)
+        self.delay(4)
 
         self.find_element('view[class="btn"]').tap()
+
+    def test_kh_001_进入客户列表(self):
+        """
+        V6.40.x: 点击  全部客户、未跟进、未标记，分别进入列表页
+        """
+        self.find_element('view[class="item flex tfAlignC tfFlexV tfFlexC"][data-type="1"]').tap()
+        self.delay(2)
+
+        self.get_screenshot('全部客户列表页')
+        self.verifyPageName('/page/business/customerManage/myCustomer/myCustomer')
+        self.back()
+
+        self.find_element('view[class="item flex tfAlignC tfFlexV tfFlexC"][data-type="2"]').tap()
+        self.delay(2)
+
+        self.get_screenshot('未跟进列表页')
+        self.verifyPageName('/page/business/customerManage/myCustomer/myCustomer')
+        self.back()
+
+        self.find_element('view[class="item flex tfAlignC tfFlexV tfFlexC"][data-type="3"]').tap()
+        self.delay(2)
+
+        self.get_screenshot('未标记列表页')
+        self.verifyPageName('/page/business/customerManage/myCustomer/myCustomer')
