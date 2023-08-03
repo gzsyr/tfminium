@@ -102,7 +102,7 @@ class TestRzfxBg(TestBase):
         V6.37.x: 点击 大寒  +  2 栋楼
         """
         self.find_element('view[class="jqItem"][data-id="6"]').tap()
-        self.find_element('view[class="ldItem"][data-id="219"]').tap()
+        self.find_element('view[class="ldItem"][data-id="2440"]').tap()
 
         self.get_screenshot()
 
