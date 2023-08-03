@@ -26,6 +26,9 @@ class TestBase(minium.MiniTest):
     switch = False
 
     # 以下id的相关参数，根据online、dev来选择或者设置
+    # 二手房的小区id
+    blockid = 10017892
+
     # 帖子的id
     postid = 12746 # online
     # postid = 3387 # dev
@@ -83,6 +86,9 @@ class TestBase(minium.MiniTest):
         self.delay(3)
 
         print("++++++set up atest+++++++")
+
+    def back(self):
+        self.app.navigate_back()
 
     def redirect_to_page(self, url, params=None):
         """
