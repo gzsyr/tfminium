@@ -158,7 +158,7 @@ class TestImdetailCB(WritePost):
 
     def test_10_clickkfyq_点击看房邀请(self):
         # 点击看房邀请
-        self.page.get_element('view[class="kfBtn flex tfAlignC"]').tap()
+        self.find_element('view[class="kfBtn flex tfAlignC"]').tap()
         self.delay(2)
         # 选择看房日期
         e = self.page.get_elements('picker')
