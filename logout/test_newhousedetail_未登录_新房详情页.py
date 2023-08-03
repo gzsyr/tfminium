@@ -93,3 +93,28 @@ class TestLogoutNewhouseDetail(TestBase):
         self.delay(1)
         # self.input_value_by_mk('xf/mapreturn.png')  # del by V6.22.x
 
+    def test_09_未登录_楼盘PK(self):
+        """
+        V6.40.X: 未登录，点击测试报告
+        """
+        url = '/page/newhouse/detail?pinyin=nananwanxingchengshiguangchang&city=qz'
+        self.redirect_to_page(url=url)
+
+        self.delay(10)
+        self.find_element('view[class="infoWrap"][id="pk"]').tap()
+        self.delay(10)
+        self.get_screenshot()
+
+    def test_10_未登录_查看测评报告(self):
+        """
+        V6.40.X: 未登录，点击测试报告
+        """
+        url = '/page/newhouse/detail?pinyin=nananwanxingchengshiguangchang&city=qz'
+        self.redirect_to_page(url=url)
+
+        self.page.scroll_to(2500, 200)
+        self.delay(10)
+        self.find_element('view[class="check-more"]').tap()
+        self.delay(10)
+        self.get_screenshot()
+
