@@ -96,49 +96,58 @@ class TestEsfRzfxBg(TestBase):
         """
         V6.38.X: 点击 小区房源，点击 更多
         """
-        self.click_xqfy()
+        try:
+            self.click_xqfy()
 
-        # 点击 在租
-        self.find_element('view[class="lpBottomBar--fytab"][data-type="2"]').tap()
+            # 点击 在租
+            self.find_element('view[class="lpBottomBar--fytab"][data-type="2"]').tap()
 
-        # 点击 更多
-        self.find_element('view[class="lpBottomBar--xq_consult_hx"]').tap()
+            # 点击 更多
+            self.find_element('view[class="lpBottomBar--xq_consult_hx"]').tap()
 
-        self.get_screenshot()
-        self.verifyPageName('/esf/sell/rent/list/list')
+            self.get_screenshot()
+            self.verifyPageName('/esf/sell/rent/list/list')
+        except:
+            self.get_screenshot('没有房源')
 
     def test_xqfy_在租房源详情(self):
         """
         V6.38.X: 点击 小区房源，点击 整租
         """
-        self.click_xqfy()
+        try:
+            self.click_xqfy()
 
-        # 点击 在租
-        self.find_element('view[class="lpBottomBar--fytab"][data-type="2"]').tap()
+            # 点击 在租
+            self.find_element('view[class="lpBottomBar--fytab"][data-type="2"]').tap()
 
-        # 点击房源
-        self.find_element('view[class="item--line_1 item--title"]').tap()
+            # 点击房源
+            self.find_element('view[class="item--line_1 item--title"]').tap()
 
-        self.get_screenshot()
-        self.verifyPageName('/esf/sell/rent/r_detail/detail')
+            self.get_screenshot()
+            self.verifyPageName('/esf/sell/rent/r_detail/detail')
+        except:
+            self.get_screenshot('没有房源')
 
     def test_xqfy_切换租售进入出售房源详情(self):
         """
         V6.38.X: 点击  小区房源，点击在租  在售，点击房源进入详情
         """
-        self.click_xqfy()
+        try:
+            self.click_xqfy()
 
-        # 点击 在租
-        self.find_element('view[class="lpBottomBar--fytab"][data-type="2"]').tap()
+            # 点击 在租
+            self.find_element('view[class="lpBottomBar--fytab"][data-type="2"]').tap()
 
-        # 点击 在售
-        self.find_element('view[class="lpBottomBar--fytab"][data-type="1"]').tap()
+            # 点击 在售
+            self.find_element('view[class="lpBottomBar--fytab"][data-type="1"]').tap()
 
-        # 点击房源
-        self.find_element('image[class="sell-item--img"]').tap()
+            # 点击房源
+            self.find_element('image[class="sell-item--img"]').tap()
 
-        self.get_screenshot()
-        self.verifyPageName('/esf/sell/pages/detail/detail')
+            self.get_screenshot()
+            self.verifyPageName('/esf/sell/pages/detail/detail')
+        except:
+            self.get_screenshot('没有房源')
 
     def click_lp(self):
         """

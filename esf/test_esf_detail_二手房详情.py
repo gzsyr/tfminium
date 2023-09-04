@@ -7,7 +7,7 @@ class Testesfdetail(TestBase):
     """
     def setUp(self, true=None) -> None:
         # self.page_name = "/esf/sell/pages/detail/detail?sellId=331233705"
-        self.page_name = "/esf/sell/pages/detail/detail?sellId=343334795"
+        self.page_name = "/esf/sell/pages/detail/detail?sellId=344383365"
         self.switch = true
         self.classname = self.__class__.__name__
         super(Testesfdetail, self).setUp()
