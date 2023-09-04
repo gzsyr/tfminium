@@ -23,8 +23,9 @@ class Testesfxqlb(TestBase):
         self.verifyPageName('/esf/village/pages/search/search', '搜索 ok')
         self.delay(3)
 
-    def test_click_yqtl_点击一起讨论(self):
+    def del_test_click_yqtl_点击一起讨论(self):
         """
+        V6.42.x: delete
         点击一起讨论
         :return:
         """
