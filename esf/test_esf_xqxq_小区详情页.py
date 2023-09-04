@@ -23,18 +23,19 @@ class Testesfxqxq(TestBase):
 
     def test_001_rizhao_点击日照图(self):
         """
-        V6.39.X: 点击小区楼栋模块gif图
+        V6.39.X: 点击日照gif图
         """
-        self.find_element('view[class="pr"]').tap()
+        self.find_element('image[class="sunlight--img"]').tap()
 
         self.get_screenshot()
         self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
 
     def test_001_rizhao_IM(self):
         """
+        V6.42.X: 点击咨房源采光详情
         V6.39.X: 点击咨询楼栋详情
         """
-        self.find_element('view[class="center chat"]').tap()
+        self.find_element('view[class="sunlight--center sunlight--chat"]').tap()
         self.delay(3)
         self.get_screenshot()
 
@@ -220,17 +221,17 @@ class Testesfxqxq(TestBase):
         e.tap()
         self.get_screenshot()
 
-    def test_goto_collec_点击收藏(self):
+    def test_goto_collect_点击收藏(self):
         """
         点击收藏
         :return:
         """
-        e = self.page.get_element('view[class="button collect"]')
-        e.tap()
+        self.page.get_element('image[class="image"]').tap()
         self.get_screenshot()
 
-    def test_z_goto_share_点击分享(self):
+    def del_test_z_goto_share_点击分享(self):
         """
+        V6.42.X: DELETE
         点击分享
         :return:
         """
@@ -243,18 +244,26 @@ class Testesfxqxq(TestBase):
         点击在售房源
         :return:
         """
-        e = self.page.get_element('view[class="onSell"][data-type="1"]')
-        e.tap()
+        self.find_element('view[class="price--w33"][data-type="1"]').tap()
+        self.delay(3)
+        self.get_screenshot()
+
+    def test_goto_znew_点击新上房源(self):
+        """
+        V6.42.x: 点击新上房源
+        :return:
+        """
+        self.find_element('view[class="price--w33"][data-type="3"]').tap()
         self.delay(3)
         self.get_screenshot()
 
     def test_goto_zrent_点击在租房源(self):
         """
+        V6.42.X: UPDATE
         点击在租房源
         :return:
         """
-        e = self.page.get_element('view[class="onRent"][data-mark="1"][data-type="2"]')
-        e.tap()
+        self.find_element('view[class="price--w33"][data-type="2"]').tap()
         self.delay(3)
         self.get_screenshot()
 
@@ -263,33 +272,29 @@ class Testesfxqxq(TestBase):
         点击价格走势图
         :return:
         """
-        e = self.page.get_element('view[class="flex_1 priceCharts"]')
-        e.tap()
+        self.page.get_element('view[class="price--trend"]').tap()
         self.delay(3)
         self.get_screenshot()
 
-    def test_goto_zxxq_点击咨询详情(self):
+    def test_goto_dkjs_点击贷款计算(self):
         """
-        点击咨询详情
-        :return:
+        V6.42.x: 点击贷款计算
         """
-        e = self.page.get_element('view[class="consult"]')
-        e.tap()
+        self.find_element('view[class="price--tool"]/text', inner_text='房贷计算').tap()
         self.delay(3)
         self.get_screenshot()
 
-    def test_goto_qpg_点击去评估(self):
+    def test_goto_qpg_点击采光计算(self):
         """
-        点击去评估
-        :return:
+        V6.42.X: 点击采光计算
         """
-        e = self.page.get_element('view[class="center appraised"]')
-        e.tap()
+        self.find_element('view[class="price--tool"]/text', inner_text='采光计算').tap()
         self.delay(3)
         self.get_screenshot()
 
-    def test_goto_wx_点击复制微信(self):
+    def del_test_goto_wx_点击复制微信(self):
         """
+        V6.42.X: DELETE
         点击复制微信
         :return:
         """
@@ -299,15 +304,14 @@ class Testesfxqxq(TestBase):
             print('没有复制微信')
         self.get_screenshot()
 
-    def test_goto_qq_点击复制QQ(self):
+    def test_goto_信息旁地图(self):
         """
-        点击复制QQ
-        :return:
+        V6.42.X: 点击基础信息处的地图
         """
         try:
-            self.find_element('view[class="copy copyQQ"][data-type="qq"]').tap()
+            self.find_element('image[class="price--map"]').tap()
         except:
-            print('没有复制QQ')
+            print('没有地图')
         self.get_screenshot()
 
     def test_goto_jcxx_点击基础信息(self):
@@ -561,67 +565,52 @@ class Testesfxqxq(TestBase):
         在售房源和在租房源tab切换
         :return:
         """
-        self.page.scroll_to(1300, 500)
-        self.delay(1)
+        self.redirect_to_page("/esf/village/pages/detail/detail?blockId=10020371&city=nj")
+        self.delay(5)
+        self.page.scroll_to(3500, 500)
+        self.delay(5)
 
-        e = self.page.get_element('view[class="pr typeI"][data-type="2"]')
+        e = self.page.get_element('view[class="blockHouses--center blockHouses--sell_rent_type"][data-id="2"]')
         e.tap()
         self.delay(3)
         self.get_screenshot()
         self.delay(2)
 
-        e = self.page.get_element('view[class="pr typeI"][data-type="1"]')
+        e = self.page.get_element('view[class="blockHouses--center blockHouses--sell_rent_type"][data-id="1"]')
         e.tap()
         self.get_screenshot()
 
-    def test_goto_selltab_在售房源tab(self):
+    def test_goto_selltab_在售房源(self):
         """
         在售房源tab
         :return:
         """
-        self.page.scroll_to(1300, 500)
-        self.delay(1)
+        self.redirect_to_page("/esf/village/pages/detail/detail?blockId=10020371&city=nj")
+        self.delay(5)
+        self.page.scroll_to(3500, 500)
+        self.delay(5)
 
-        selltab = self.page.element_is_exists('view[class="pr typeI active"][data-type="1"]')
-        if selltab == True:
-            # 先获取所有item
-            elm_items = self.page.get_elements('view[class="item"]')
-            #print(len(elm_items))
-            # 第一个item
-            elm_first_item = elm_items[0]
-            # 点击
-            elms = elm_first_item.get_element('sell_item').get_elements('view')
-            elms[0].tap()
-            self.delay(3)
-            self.get_screenshot()
-        else:
-            print("没有在售房源")
+        self.find_element('image[class="sellItem--img"]').tap()
 
-    def test_goto_renttab_在租房源tab(self):
+        self.delay(2)
+        self.get_screenshot()
+
+    def test_goto_renttab_在租房源(self):
         """
         在租房源tab
         :return:
         """
-        self.page.scroll_to(1300, 500)
-        self.delay(1)
+        self.redirect_to_page("/esf/village/pages/detail/detail?blockId=10020371&city=nj")
+        self.delay(5)
+        self.page.scroll_to(3500, 500)
+        self.delay(5)
 
-        e = self.page.get_element('view[class="pr typeI"][data-type="2"]')
-        e.tap()
+        self.page.get_element('view[class="blockHouses--center blockHouses--sell_rent_type"][data-id="2"]').tap()
+        self.delay(3)
+        self.find_element('image[class="rentItem--img"]').tap()
+
         self.delay(2)
         self.get_screenshot()
-        renttab = self.page.element_is_exists('view[class="pr typeI active"][data-type="2"]')
-        if renttab == True:
-            # 先获取所有item
-            elm_items = self.page.get_elements('view[class="item"]')
-            # 第一个item
-            elm_first_item = elm_items[0]
-            # 点击
-            elms = elm_first_item.get_element('rent_item').get_elements('view')
-            elms[7].tap()
-            self.delay(2)
-            self.get_screenshot()
-        else:
-            print("没有在租房源")
 
     def test_goto_zbxq_周边小区(self):
         """
@@ -631,54 +620,39 @@ class Testesfxqxq(TestBase):
         self.page.scroll_to(2000, 500)
         self.delay(1)
 
-        view_zbxq = self.page.element_is_exists('view[class="villageList"]')
-        if view_zbxq == True:
-            # 先获取所有item
-            elm_items = self.page.get_elements('//view[@class="villageList"]/view[@class="item"]')
-            print(len(elm_items))
-            # 第一个item
-            elm_first_item = elm_items[0]
-            # 点击
-            elms = elm_first_item.get_element('villageitem').get_elements('view')
-            print(len(elms))
-            elms[0].tap()
-            self.delay(2)
-            self.get_screenshot()
-        else:
-            print("没有周边小区")
+        self.find_element('image[class="villageItem--img"]').tap()
 
-    def test_goto_broker_点击经纪人(self):
-        """
-        点击经纪人
-        :return:
-        """
-        self.page.scroll_to(2000, 500)
-        self.delay(1)
-        # xpath定位
-        elm = self.page.get_element('//view[@class="pf contact"]/contact/view/view/view[1]')
-        elm.tap()
+        self.delay(2)
         self.get_screenshot()
 
-    def test_goto_zxmsg_点击在线咨询(self):
+    def test_goto_zbpt_咨询周边配套(self):
         """
-        点击在线咨询
-        :return:
+        V6.42.x: 点击周边配套模块下的“咨询周边配套”
         """
-        self.page.scroll_to(2000, 500)
-        self.delay(1)
-        # xpath定位
-        elm = self.page.get_element('//view[@class="pf contact"]/contact/view/view/view[2]/view[1]')
-        elm.tap()
+        self.find_element('image[class="zbpt--icon"]').tap()
         self.get_screenshot()
 
-    def test_z_goto_tel_点击拨打电话(self):
+    def test_goto_zxmsg_咨询详情(self):
         """
-        点击拨打电话
+        V6.42.X: 点击价格走势下方的“咨询详情”
+        """
+
+        self.find_element('view[class="price--center price--consult"]').tap()
+        self.get_screenshot()
+
+    def test_z_goto_tel_点击底部IM(self):
+        """
+        V6.42.x: 点击拨打电话
         :return:
         """
-        self.page.scroll_to(2000, 500)
-        self.delay(1)
-        # xpath定位
-        elm = self.page.get_element('//view[@class="pf contact"]/contact/view/view/view[2]/view[2]')
-        elm.tap()
+        self.find_element('view[class="bottomContact--center bottomContact--chat"]').tap()
+        self.get_screenshot()
+
+    def test_z_goto_tel_点击底部拨打电话(self):
+        """
+        V6.42.x: 点击拨打电话
+        :return:
+        """
+
+        self.find_element('view[class="bottomContact--center bottomContact--call"]').tap()
         self.get_screenshot()
