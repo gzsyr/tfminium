@@ -28,7 +28,7 @@ class TestNewsHouseList(TestBase):
         """
         V6.32.X: 点击找房卡
         """
-        self.find_element('view[class="findcard"]').tap()
+        self.find_element('view[class="quick-find"]').tap()
 
         self.get_screenshot()
 
@@ -55,12 +55,13 @@ class TestNewsHouseList(TestBase):
         """
         新房列表页面，点击搜索框，输入关键词，点击搜索结果第一条，展示带关键字的列表，点击搜索框的“清空”按钮
         """
-        self.find_element('view[class="searchtxt tfLine1"]', text_contains='请输入楼盘名或区域').tap()
+        self.find_element('view[class="hint"]', text_contains='请输入楼盘或小区名称').tap()
+        # self.find_element('view[class="search-wrapper"]').tap()
         # 进入搜索页面
         self.app.wait_for_page('/page/search/index')
         # 输入关键词
         self.find_element('input[class="searchTR-input"]').input("泉州万科城")
-        self.delay(1)
+        self.delay(5)
         # 选择搜索结果
         # self.find_element('view[class="searchBLi-l-wrap tfLine1"]').tap()
         # self.delay(5)
@@ -69,8 +70,9 @@ class TestNewsHouseList(TestBase):
 
         self.get_screenshot()
 
-    def test_click_map_地图(self):
+    def del_test_click_map_地图(self):
         """
+        V6.42.X: DELETE
         新房列表页面，点击地图
         """
         self.page.get_element('view[class="search-map"]').tap()
@@ -82,35 +84,36 @@ class TestNewsHouseList(TestBase):
         """
         新房列表页面，点击联板广告
         """
-        self.page.get_element('image[class="bannerTwo-img index_banner"]').tap()
+        self.page.get_element('image[class="ad-img"]').tap()
 
         self.get_screenshot()
 
-    @file_data('./test_newhouse_list_func.yml')
-    def test_click_yldc_功能入口(self, **kwargs):
+    # @file_data('./test_newhouse_list_func.yml')
+    @data(0, 1, 2, 3, 4)
+    def test_click_yldc_工具区入口(self, index):
         """
-        新房列表页面，联板广告下面，点击功能入口
+        V6.42.X: 新房列表页面，找房卡下面，点击工具入口
         """
-        self.page.get_element('view[class="newHouseIconEnterLi-b"]', inner_text=kwargs['funcname']).tap()
+        self.page.get_elements('view[class="tool mr0"]')[index].tap()
 
-        if kwargs['pagename']:
-            self.verifyPageName(kwargs['pagename'])
         self.get_screenshot()
 
-    def test_click_dgmk_导购模块1(self):
+    def del_test_click_dgmk_导购模块1(self):
         """
+        V6.42.x: delete
         V6.30.X: 1005036，UI改版
         """
         self.page.get_element('view[class="guide-item guide-item-left"]').tap()
 
         self.get_screenshot()
 
-    @data(1, 2, 3)
-    def test_click_dgmk_导购模块(self, num):
+    @data(0, 1, 2, 3, 4, 5, 6)
+    def test_click_gffw_购房服务(self, num=6):
         """
-        新房列表页面，功能入口下方，点击导购模块
+        V6.42.x: 购房服务模块
+        # 新房列表页面，功能入口下方，点击导购模块
         """
-        self.page.get_element(f'view[class="guide-item"][data-index="{num}"]').tap()
+        self.page.get_elements('view[class="service"]')[num].tap()
 
         self.get_screenshot()
 
