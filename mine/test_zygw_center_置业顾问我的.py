@@ -121,7 +121,7 @@ class TestCenterZygw(TestMine):
 
         self.find_element('view[class="name flex tfAlignC"]/view', inner_text='客户跟进').tap()
 
-        self.verifyPageName('/page/business/infoManage/customerList')
+        self.verifyPageName('/page/business/zygwinfomanage/customerList')
         self.get_screenshot()
 
     def test_32_活跃度关注服务号(self):
@@ -232,7 +232,7 @@ class TestCenterZygw(TestMine):
         """
         self.find_element('view[class="itemname flex tfAlignC"]/view', inner_text='全部').tap()
 
-        self.verifyPageName('/page/business/infoManage/customerList')
+        self.verifyPageName('/page/business/zygwinfomanage/customerList')
         self.get_screenshot()
 
     def test_06_click_my_customer_我的客户星标(self):
@@ -241,7 +241,7 @@ class TestCenterZygw(TestMine):
         """
         self.find_element('view[class="itemname flex tfAlignC"]/view', inner_text='星标').tap()
 
-        self.verifyPageName('/page/business/infoManage/customerList')
+        self.verifyPageName('/page/business/zygwinfomanage/customerList')
         self.get_screenshot()
 
     def test_07_click_my_customer_我的客户未跟进(self):
@@ -250,7 +250,7 @@ class TestCenterZygw(TestMine):
         """
         self.find_element('view[class="itemname flex tfAlignC"]/view', inner_text='未跟进').tap()
 
-        self.verifyPageName('/page/business/infoManage/customerList')
+        self.verifyPageName('/page/business/zygwinfomanage/customerList')
         self.get_screenshot()
 
     def test_08_click_my_customer_我的客户未标记(self):
@@ -259,7 +259,7 @@ class TestCenterZygw(TestMine):
         """
         self.find_element('view[class="itemname flex tfAlignC"]/view', inner_text='未标记').tap()
 
-        self.verifyPageName('/page/business/infoManage/customerList')
+        self.verifyPageName('/page/business/zygwinfomanage/customerList')
         self.get_screenshot()
 
     def test_09_积分TAB切换(self):
@@ -362,7 +362,7 @@ class TestCenterZygw(TestMine):
         """
         V6.27.X: 置业顾问个人中心页面，客户消息，点击来电记录，点击‘回拨’
         """
-        self.find_element('view[class="item flex tfAlignC tfFlexV tfFlexC"]/view', inner_text='来电记录').tap()
+        self.find_element('view[class="item flex tfAlignC tfFlexV tfFlexC"]/view', inner_text='1\n来电记录').tap()
 
         self.verifyPageName('/page/message/phoneList')
         self.get_screenshot('来电记录页面展示')
@@ -398,8 +398,9 @@ class TestCenterZygw(TestMine):
         self.find_element('view[class="item flex tfAlignC tfFlexV tfFlexC"]/view', inner_text='回拨记录').tap()
         self.delay(2)
 
-    def test_38_回拨记录_回拨通道切换(self):
+    def del_test_38_回拨记录_回拨通道切换(self):
         """
+        V6.42.X: 没有回拨通道
         V6.27.X: 客户消息，点击“回拨记录”，切换回拨通道
         """
         self.click_callrecord()
@@ -421,14 +422,14 @@ class TestCenterZygw(TestMine):
         self.click_callrecord()
         self.delay(2)
 
-        self.find_element('view[data-idx="1"]', inner_text='今日回拨').tap()
-        self.get_screenshot('今日回拨')
-
-        self.find_element('view[data-idx="2"]', inner_text='昨日回拨').tap()
+        self.find_element('view[data-idx="1"]', inner_text='昨日回拨').tap()
         self.get_screenshot('昨日回拨')
 
-        self.find_element('view[data-idx="0"]', inner_text='近七日回拨').tap()
+        self.find_element('view[data-idx="2"]', inner_text='近七日回拨').tap()
         self.get_screenshot('近七日回拨')
+
+        self.find_element('view[data-idx="0"]', inner_text='今日回拨').tap()
+        self.get_screenshot('今日回拨')
 
     def click_imset(self):
         """

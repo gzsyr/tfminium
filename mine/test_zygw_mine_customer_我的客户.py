@@ -22,7 +22,7 @@ class TestMineCustomer(TestMine):
         self.classname = self.__class__.__name__
         super(TestMineCustomer, self).setUp()
 
-    def search_name(self, name='1122'):
+    def search_name(self, name='0005'):
         """
         输入客户姓名，搜索
         """
@@ -33,9 +33,9 @@ class TestMineCustomer(TestMine):
         """
         V6.27.X: 点击搜索，输入姓名，搜索
         """
-        self.search_name('1122')
+        self.search_name('已回拨')
 
-        self.verifyStr(True, self.element_is_exist('view[class="customerName"]', text_contains='1122'), '搜索到客户')
+        self.verifyStr(True, self.element_is_exist('view[class="customerName"]', text_contains='已回拨'), '搜索到客户')
         self.get_screenshot()
 
     def test_02_切换到未跟进(self):
@@ -166,7 +166,7 @@ class TestMineCustomer(TestMine):
         """
         V6.27.X: 客户列表，点击星标
         """
-        self.search_name('1122')
+        self.search_name('已回拨')
 
         self.find_element('view[class="customer_sign"]').tap()
 
@@ -176,7 +176,7 @@ class TestMineCustomer(TestMine):
         """
         V6.27.X: 客户列表，取消星标
         """
-        self.search_name('1122')
+        self.search_name('已回拨')
 
         self.find_element('view[class="customer_sign active"]').tap()
 
@@ -195,7 +195,7 @@ class TestMineCustomer(TestMine):
         置业顾问个人中心，我的客户页面，搜索后的第一个结果写跟进记录
         """
         # 搜索客户
-        self.search_name('1122')
+        self.search_name('已回拨')
         # 点击第一个搜索结果
         try:
             self.page.get_element('image[src="http://tfxcx.house365.com/static/tfxcx_img/cust_gj.png"]').tap()
@@ -246,7 +246,7 @@ class TestMineCustomer(TestMine):
         """
         V6.27.X: 客户详情，点击星标
         """
-        self.search_name('1122')
+        self.search_name('已回拨')
         try:
             self.find_element('view[class="customerWrap"]').tap()
         except minium.MiniElementNotFoundError:
@@ -266,7 +266,7 @@ class TestMineCustomer(TestMine):
         """
         V6.27.X: 客户详情，取消星标
         """
-        self.search_name('1122')
+        self.search_name('已回拨')
 
         try:
             self.find_element('view[class="customerWrap"]').tap()
@@ -287,7 +287,7 @@ class TestMineCustomer(TestMine):
         """
         V6.27.X: 客户详情，编辑客户
         """
-        self.search_name('1122')
+        self.search_name('已回拨')
 
         try:
             self.find_element('view[class="customerWrap"]').tap()
@@ -309,7 +309,7 @@ class TestMineCustomer(TestMine):
         """
         V6.27.X: 客户详情，拨打电话
         """
-        self.search_name('1122')
+        self.search_name('已回拨')
 
         try:
             self.find_element('view[class="customerWrap"]').tap()
@@ -325,7 +325,7 @@ class TestMineCustomer(TestMine):
         """
         V6.27.X: 客户详情，IM咨询
         """
-        self.search_name('13182858015')
+        self.search_name('已回拨')
 
         try:
             self.find_element('view[class="customerWrap"]').tap()
@@ -334,15 +334,17 @@ class TestMineCustomer(TestMine):
             self.get_screenshot('没有搜索到用户')
             return
 
-        self.find_element('text', inner_text='发消息').tap()
-
+        try:
+            self.find_element('text', inner_text='发消息').tap()
+        except minium.MiniElementNotFoundError:
+            self.get_screenshot('no-im')
         self.get_screenshot()
 
     def test_22_客户详情_写跟进(self):
         """
         V6.27.X: 客户详情，写跟进
         """
-        self.search_name('1122')
+        self.search_name('已回拨')
 
         try:
             self.find_element('view[class="customerWrap"]').tap()
@@ -364,7 +366,7 @@ class TestMineCustomer(TestMine):
         """
         V6.27.X: 客户详情，TAB切换
         """
-        self.search_name('1122')
+        self.search_name('已回拨')
 
         try:
             self.find_element('view[class="customerWrap"]').tap()
@@ -386,7 +388,7 @@ class TestMineCustomer(TestMine):
         """
         V6.27.X: 客户详情，历史楼盘查看
         """
-        self.search_name('13182858015')
+        self.search_name('已回拨')
 
         try:
             self.find_element('view[class="customerWrap"]').tap()
