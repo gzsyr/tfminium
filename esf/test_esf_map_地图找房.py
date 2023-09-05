@@ -74,7 +74,7 @@ class TestMap(TestBase):
         V6.40.X: tab切换
         """
         self.find_element('view[class="pr center zf_type"]/text', inner_text='新房').tap()
-        self.delay(15)
+        self.delay(20)
         self.get_screenshot('XF')
 
         self.find_element('view[class="flex tfFlexC tfAlignC zf_type"]/text', inner_text='二手房').tap()

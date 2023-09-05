@@ -92,10 +92,18 @@ class TestEsfRzfxBg(TestBase):
         """
         self.find_element('view[class="lpBottomBar--tab"][data-index="2"]').tap()
 
+    def redirect_to_have_house(self):
+        """
+        切换到有 二手房、租房房源的页面
+        """
+        self.redirect_to_page('/page/newhouse/rizhaofenxi/rizhaofenxi?city=nj&esfId=10006280&tab=1')
+        self.delay(3)
+
     def test_xqfy_在租更多(self):
         """
         V6.38.X: 点击 小区房源，点击 更多
         """
+        self.redirect_to_have_house()
         try:
             self.click_xqfy()
 
@@ -114,6 +122,7 @@ class TestEsfRzfxBg(TestBase):
         """
         V6.38.X: 点击 小区房源，点击 整租
         """
+        self.redirect_to_have_house()
         try:
             self.click_xqfy()
 
@@ -132,6 +141,7 @@ class TestEsfRzfxBg(TestBase):
         """
         V6.38.X: 点击  小区房源，点击在租  在售，点击房源进入详情
         """
+        self.redirect_to_have_house()
         try:
             self.click_xqfy()
 
