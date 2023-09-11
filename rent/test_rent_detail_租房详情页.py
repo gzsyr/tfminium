@@ -81,21 +81,13 @@ class Testrentdetail(TestBase):
         else:
             print('没有该模块')
 
-    def test_04_click_xiaoqu_点击小区(self):
+    def test_04_click_xiaoqu_点击小区位置(self):
         """
-        点击小区
+        点击小区位置
         :return:
         """
-        self.page.scroll_to(400, 500)
-        self.delay(1)
-        m = self.page.element_is_exists('view[class="flex_1 between"]')
-        if m == True:
-            self.page.get_element('view[class="flex_1 between"]').tap()
-            self.delay(2)
-            self.get_screenshot()
-            self.delay(1)
-        else:
-            print('没有小区')
+        self.find_element('image[class="houseInfo--img"]').tap()
+        self.get_screenshot()
 
     def test_05_click_ditie_点击地铁地图(self):
         """
@@ -136,9 +128,9 @@ class Testrentdetail(TestBase):
         """
         self.page.scroll_to(800, 500)
         self.delay(1)
-        msg = self.page.element_is_exists('view[class="msg"]')
+        msg = self.page.element_is_exists('image[class="houseDesc--im_chat"]')
         if msg == True:
-            self.page.get_element('view[class="msg"]').tap()
+            self.page.get_element('image[class="houseDesc--im_chat"]').tap()
             self.delay(1)
             self.get_screenshot()
         else:
@@ -151,9 +143,9 @@ class Testrentdetail(TestBase):
         """
         self.page.scroll_to(800, 500)
         self.delay(1)
-        tel = self.page.element_is_exists('view[class="tel"]')
+        tel = self.page.element_is_exists('image[class="houseDesc--tel"]')
         if tel == True:
-            self.page.get_element('view[class="tel"]').tap()
+            self.page.get_element('image[class="houseDesc--tel"]').tap()
             self.delay(1)
             self.get_screenshot()
         else:

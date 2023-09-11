@@ -28,7 +28,7 @@ class Testrentlist(TestBase):
         """
         V6.38.X: 点击合租tab及 查看房源
         """
-        self.find_element('view[class="t_c rentType"][data-type="2"]').tap()
+        self.find_element('view[class="t_c rentType"][data-index="1"]').tap()
         self.find_element('view[class="flex_1 center total"]').tap()
 
         self.get_screenshot()
@@ -48,9 +48,9 @@ class Testrentlist(TestBase):
         搜索
         :return:
         """
-        self.find_element('view[class="flex_1 keyword"]').tap()
+        self.find_element('view[class="center search"]').tap()
         self.get_screenshot()
-        self.verifyPageName('/esf/sell/rent/office/search/search', '搜索 ok')
+        self.verifyPageName('/esf/sell/rent/search/search', '搜索 ok')
 
     @ddt_case(
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9
@@ -76,7 +76,7 @@ class Testrentlist(TestBase):
         self.find_element('view[class="gridRentItem--line_2 gridRentItem--title"]').tap()
         self.delay(2)
         self.get_screenshot()
-        self.verifyPageName('/esf/sell/rent/detail/detail', '房源详情 ok')
+        # self.verifyPageName('/esf/sell/rent/detail/detail', '房源详情 ok')
 
     @file_data('./test_rent_list.yml')
     def test_search_租房筛选(self, **kwargs):

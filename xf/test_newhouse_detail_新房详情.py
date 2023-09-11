@@ -523,7 +523,7 @@ class TestNewhouseDetail(TestBase):
         PK页面，点击添加楼盘
         """
         self.find_element('view[class="lpBtn1"]').tap()
-        self.delay(2)
+        self.delay(4)
         self.verifyPageName('/page/newhouse/loupanPk/loapanAdd')
 
         return self
@@ -533,7 +533,7 @@ class TestNewhouseDetail(TestBase):
         PK页面，输入楼盘搜索并选择
         """
         self.find_element('input[class="searchTR-input"]').input('格林春天')
-        self.delay(5)
+        self.delay(6)
         # self.find_element('view[class="searchBLi-c disflex-flex-shrink-0"]').tap()
 
         tap = 'self.find_element(\'view[class="searchBLi-c disflex-flex-shrink-0"]\').tap()'
@@ -548,7 +548,7 @@ class TestNewhouseDetail(TestBase):
         """
         PK页面，删除楼盘
         """
-        self.find_element('checkbox[value="quanzhougelinchuntian"]').tap()
+        self.find_element('checkbox[value="glct"]').tap()
         self.find_element('view[class="lpTxt1"]').tap()
         
         return self
@@ -557,7 +557,7 @@ class TestNewhouseDetail(TestBase):
         """
         选择第一个楼盘，点击“对比”
         """
-        self.find_element('checkbox[value="quanzhougelinchuntian"]').tap()
+        self.find_element('checkbox[value="glct"]').tap()
         self.delay(2)
         self.find_element('view[class="disflex-flex-shrink-0 lpBtn2 lpBtnAct"]').tap()
         self.delay(4)

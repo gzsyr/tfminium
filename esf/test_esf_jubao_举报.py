@@ -9,7 +9,7 @@ class Testesfjubao(TestBase):
     """
 
     def setUp(self, true=None) -> None:
-        self.page_name = "/esf/sell/pages/report/report?sellId=337038019&real=1"
+        self.page_name = "/esf/sell/pages/report/report?sellId=331233705&real=1"
         self.switch = true
         self.classname = self.__class__.__name__
         super(Testesfjubao, self).setUp()
@@ -22,11 +22,11 @@ class Testesfjubao(TestBase):
         :param kwargs:
         :return:
         """
+        self.delay(3)
         self.set_pick_filter('picker[range-key="name"]', kwargs['title'])
         self.page.get_element('textarea[class="descInput"]').input(kwargs['desc'])
         sub = 'self.page.get_element(\'view[class="center submitBtn"]\').tap()'
         self.verifyStr(True, self.getShowToast(sub), '举报成功ok')
-        self.delay(3)
         self.get_screenshot()
         #self.get_capture()
         #self.verifyByScreenshot('esf/jubao.png')
