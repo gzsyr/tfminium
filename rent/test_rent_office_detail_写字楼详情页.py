@@ -8,7 +8,7 @@ class Testrentofficedetail(TestBase):
     写字楼详情页
     """
     def setUp(self, true=None) -> None:
-        self.page_name = "/esf/sell/rent/detail/detail?rentId=108714451"
+        self.page_name = "/esf/sell/rent/r_detail/detail?rentId=107306391"
         self.switch = true
         self.classname = self.__class__.__name__
         super(Testrentofficedetail, self).setUp()
@@ -29,14 +29,14 @@ class Testrentofficedetail(TestBase):
         点击收藏
         :return:
         """
-        e = self.page.get_element('view[class="button collect"]')
+        e = self.page.get_element('view[class="pa center collect"]')
         e.tap()
         self.get_screenshot()
         self.delay(1)
         """
         取消收藏
         """
-        e1 = self.page.get_element('view[class="button collect"]')
+        e1 = self.page.get_element('view[class="pa center collect"]')
         e1.tap()
         self.get_screenshot()
         self.delay(1)
@@ -46,7 +46,7 @@ class Testrentofficedetail(TestBase):
         点击分享
         :return:
         """
-        e = self.page.get_element('button[class="button"]')
+        e = self.page.get_element('button[class="pa center share"]')
         e.tap()
         # self.get_capture()
         self.get_screenshot()
@@ -70,13 +70,8 @@ class Testrentofficedetail(TestBase):
         点击地图图标
         :return:
         """
-        m = self.page.element_is_exists('view[class="map"][data-type="0"]')
-        if m == True:
-            self.page.get_element('view[class="map"][data-type="0"]').tap()
-            self.get_screenshot()
-            self.delay(1)
-        else:
-            print('没有该模块')
+        self.find_element('image[class="houseInfo--img"]').tap()
+        self.get_screenshot()
 
     def test_04_click_fygk_房源概况房源详情咨询(self):
         """
@@ -99,9 +94,9 @@ class Testrentofficedetail(TestBase):
         """
         self.page.scroll_to(800, 500)
         self.delay(1)
-        msg = self.page.element_is_exists('view[class="msg"]')
+        msg = self.page.element_is_exists('image[class="houseDesc--im_chat"]')
         if msg == True:
-            self.page.get_element('view[class="msg"]').tap()
+            self.page.get_element('image[class="houseDesc--im_chat"]').tap()
             self.delay(1)
             self.get_screenshot()
         else:
@@ -114,9 +109,9 @@ class Testrentofficedetail(TestBase):
         """
         self.page.scroll_to(800, 500)
         self.delay(1)
-        tel = self.page.element_is_exists('view[class="tel"]')
+        tel = self.page.element_is_exists('image[class="houseDesc--tel"]')
         if tel == True:
-            self.page.get_element('view[class="tel"]').tap()
+            self.page.get_element('image[class="houseDesc--tel"]').tap()
             self.delay(1)
             self.get_screenshot()
         else:
@@ -129,20 +124,13 @@ class Testrentofficedetail(TestBase):
         """
         self.page.scroll_to(800, 500)
         self.delay(1)
-        des = self.page.element_is_exists('view[class="between module"]', inner_text='房源描述')
-        if des == True:
-            tog = self.page.element_is_exists('view[class="center toggle"]', inner_text='查看全部')
-            if tog == True:
-                self.page.get_element('view[class="center toggle"]', inner_text='查看全部').tap()
-                self.get_screenshot()
-                self.delay(1)
-                self.page.get_element('view[class="center toggle"]', inner_text='收起').tap()
-                self.get_screenshot()
-                self.delay(1)
-            else:
-                print('没有查看更多')
-        else:
-            print('没有房源描述模块')
+
+        tog = self.find_element('view[class="houseDesc--center"]').tap()
+        self.get_screenshot('查看全部')
+        self.delay(2)
+        tog = self.find_element('view[class="houseDesc--center"]').tap()
+        self.get_screenshot('收起')
+
 
     def test_07_click_loupanmore_所属楼盘查看详情(self):
         """
@@ -251,7 +239,7 @@ class Testrentofficedetail(TestBase):
         """
         self.page.scroll_to(1900, 500)
         self.delay(2)
-        e = self.page.get_element('view[class="flex j_e report"]')
+        e = self.page.get_element('view[class="report"]')
         e.tap()
         self.delay(2)
         self.get_screenshot()
@@ -265,11 +253,13 @@ class Testrentofficedetail(TestBase):
         :param value:
         :return:
         """
-        self.page.get_element('view[class="center askBtn"]').tap()
-        if self.page.wait_for('//view[@class="pa questions"]/view'):
-            elms = self.page.get_elements('//view[@class="pa questions"]/view/text')
+        self.page.get_element('view[class="questionCst--center questionCst--toggleBtn"]').tap()
+        if self.page.wait_for(
+                '//view[@class="questionCst--flex questionCst--column questionCst--a_e questionCst--questionList"]/view'):
+            # print('+++++a+++++')
+            elms = self.page.get_elements('//view[@class="questionCst--flex_1 questionCst--line_1"]')
             if len(elms) > value:
-                #print(value)
+                # print('+++++value+++++')
                 elms[value].tap()
                 self.delay(3)
                 self.get_screenshot()
