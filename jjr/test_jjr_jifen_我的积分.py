@@ -98,13 +98,17 @@ class TestMineScoreJJR(TestMine):
             print('无分享任务')
         self.get_screenshot()
 
-    def test_08_点击全部任务(self):
+    def test_08_点击全部任务_标记客户(self):
         """
-        V6.38.X: 点击全部任务
+        V6.38.X: 点击全部任务 并且 V6.42.x:点击标记客户
         """
         self.find_element('view[class="toAll"]', inner_text='全部任务 ').tap()
-        self.get_screenshot()
+        self.get_screenshot('进入全部任务')
         self.verifyPageName('/page/mine/myscores/alltasks')
+
+        self.find_element('view[class="btn"]', inner_text='去标记').tap()
+        self.get_screenshot('点击去标记')
+        self.verifyPageName('/page/business/customerManage/myCustomer/myCustomer')
 
     def test_09_点击积分商城(self):
         """

@@ -147,6 +147,14 @@ class TestJJRCustomer(TestMine):
             'view[class="flex a_c action"][data-index="0"]').tap()
         self.get_screenshot('客户详情-打电话')
 
+        self.find_element('image[class="eye"]').tap()
+        self.get_screenshot('客户详情-手机号')
+
+        self.find_element('view[class="flex j_c a_c record"]').tap()
+        self.delay(3)
+        self.get_screenshot('客户详情-回话记录')
+        self.back()
+
         self.find_element(
             'view[class="flex a_c action"][data-index="2"]').tap()
         self.get_screenshot('客户详情-写跟进')

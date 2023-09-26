@@ -22,6 +22,14 @@ class TestImdetailCB(WritePost):
         super(TestImdetailCB, self).setUp()
         print("TestZygwWritePost setup")
 
+    def test_15_点击跟进客户(self):
+        """
+        V6.42.X: 点击 跟进客户
+        """
+        self.find_element('view[class="btn"]/view', inner_text='跟进客户').tap()
+        self.get_screenshot()
+        self.verifyPageName('/page/business/zygwinfomanage/followAdd')
+
     def test_01_clicktouxiang_用户头像(self):
         # 点击上方C端用户头像
         e = self.page.get_element('image[class="avatar"]')

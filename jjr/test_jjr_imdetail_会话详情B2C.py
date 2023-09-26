@@ -16,11 +16,34 @@ class TestJJRImdetailB2C(WritePost):
         print("setupclass")
 
     def setUp(self) -> None:
-        self.page_name = "/im/pages/chating/chating?chatTo=tf_6219430&city=nj"
+        self.page_name = "/im/pages/chating/chating?chatTo=tf_6255336&city=nj"
         self.switch = False
         self.classname = self.__class__.__name__
         super(TestJJRImdetailB2C, self).setUp()
         print("TestJJRImdetailB2C setup")
+
+    def test_07_点击头像无响应(self):
+        """
+        V6.42.X: 点击头像无响应
+        """
+        self.redirect_to_page('/im/pages/chating/chating?chatTo=tf_6219430&city=nj')
+        self.find_element('image[class="avatar"]').tap()
+        self.get_screenshot()
+        self.verifyPageName('/im/pages/chating/chating')
+    def test_06_点击头像进详情(self):
+        """
+        V6.42.X: 点击用户头像进详情
+        """
+        self.find_element('image[class="avatar"]').tap()
+        self.get_screenshot()
+        self.verifyPageName('/page/business/customerManage/customerDetail/customerDetail')
+    def test_05_点击标记客户(self):
+        """
+        V6.42.x: 点击 标记客户
+        """
+        self.find_element('view[class="btn"]/view', inner_text='标记客户').tap()
+        self.verifyPageName('/page/business/customerManage/followUp/followUp')
+        self.get_screenshot()
 
     def test_01_点击用户足迹(self):
         """
@@ -46,7 +69,7 @@ class TestJJRImdetailB2C(WritePost):
         通过快捷发送房源
         """
         # 点击“发送房源”
-        self.delay(2)
+        self.delay(5)
         self.find_element('view[class="fyBtn flex tfAlignC"]').tap()
         self.delay(5)
 

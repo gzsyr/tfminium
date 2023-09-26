@@ -326,7 +326,7 @@ class TestMineAllCustomer(TestMine):
         """
         V6.27.X: 客户详情，IM咨询
         """
-        self.search_name('1122')
+        self.search_name('5160')
 
         try:
             self.find_element('view[class="customerWrap"]').tap()
@@ -337,6 +337,44 @@ class TestMineAllCustomer(TestMine):
 
         try:
             self.find_element('text', inner_text='发消息').tap()
+        except minium.MiniElementNotFoundError:
+            self.get_screenshot('no-im')
+        self.get_screenshot()
+
+    def test_25_客户详情_会话记录进聊天(self):
+        """
+        V6.42.X: 客户详情，会话记录进聊天
+        """
+        self.search_name('5160')
+
+        try:
+            self.find_element('view[class="customerWrap"]').tap()
+            self.delay(2)
+        except minium.MiniElementNotFoundError:
+            self.get_screenshot('没有搜索到用户')
+            return
+
+        try:
+            self.find_element('view[class="history_chat"]').tap()
+        except minium.MiniElementNotFoundError:
+            self.get_screenshot('no-im')
+        self.get_screenshot()
+        self.verifyPageName('/im_pages/historyFromCloud/historyFromCloud')
+    def test_24_客户详情_会话记录无响应(self):
+        """
+        V6.42.X: 客户详情，会话记录无响应
+        """
+        self.search_name('1122')
+
+        try:
+            self.find_element('view[class="customerWrap"]').tap()
+            self.delay(2)
+        except minium.MiniElementNotFoundError:
+            self.get_screenshot('没有搜索到用户')
+            return
+
+        try:
+            self.find_element('view[class="history_chat"]').tap()
         except minium.MiniElementNotFoundError:
             self.get_screenshot('no-im')
         self.get_screenshot()
