@@ -23,8 +23,9 @@ class TestTfqReYi(TestBase):
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
 
-    def test_click_postbt_点击发帖入口(self):
+    def delete_test_click_postbt_点击发帖入口(self):
         """
+        V6.44.x: delete
         正在热议页面，点击底部发帖入口
         """
         self.page.get_element('view[class="write_Post tfFlex tfAlignC tfFlexC"]').tap()
@@ -32,8 +33,9 @@ class TestTfqReYi(TestBase):
         self.verifyPageName('/page/taofangquan/writePost/writePost')
         self.get_screenshot()
 
-    def test_click_wpbtn_点击发布按钮(self):
+    def delete_test_click_wpbtn_点击发布按钮(self):
         """
+        V6.44.x: delete
         正在热议页面，点击底部“发布”按钮
         """
         self.page.get_element('view[class="send_Post"]').tap()
