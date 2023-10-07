@@ -101,8 +101,9 @@ class TestTfqShouYe(TestBase):
         self.verifyPageName('/page/taofangquan/huati/huatiDetail')
         self.get_screenshot()
 
-    def test_16_click_qzSquare_圈子广场(self):
+    def delete_test_16_click_qzSquare_圈子广场(self):
         """
+        V6.44.x: delete
         淘房圈首页，点击圈子模块圈子广场
         """
         self.page.get_element('image[class="tfq--topicImg"]'
@@ -138,7 +139,7 @@ class TestTfqShouYe(TestBase):
         """
         淘房圈首页，点击最新热帖第一条
         """
-        self.find_element('view[class="tfq--toutiao-swiper-cont"]').tap()
+        self.find_element('swiper-item[data-index="0"]').tap()
 
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
@@ -148,7 +149,7 @@ class TestTfqShouYe(TestBase):
         """
         淘房圈首页，热门圈子，点击“更多圈子”
         """
-        self.page.get_element('navigator[class="tfq--more"]').tap()
+        self.page.get_element('view[class="tfq--more"]').tap()
 
         self.verifyPageName('/page/taofangquan/huati/huatiSquare')
         self.get_screenshot()

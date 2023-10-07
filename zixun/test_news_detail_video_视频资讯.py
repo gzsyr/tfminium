@@ -23,7 +23,7 @@ class TestNewsdetailVideo(TestBase):
         """
         资讯详情页视频稿件，点击视频播放
         """
-        self.page.get_element('video#myVideo').play()
+        self.find_element('video#myVideo').play()
 
         self.get_screenshot()
 
