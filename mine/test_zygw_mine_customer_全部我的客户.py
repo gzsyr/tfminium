@@ -26,7 +26,7 @@ class TestMineAllCustomer(TestMine):
         """
         输入客户姓名，搜索
         """
-        self.page.get_element('input[class="search-input"]').input(name + '\n')
+        self.page.get_element('input').input(name + '\n')
         self.delay(3)
 
     def test_01_搜索客户姓名(self):
