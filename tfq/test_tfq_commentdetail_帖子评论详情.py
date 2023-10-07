@@ -58,8 +58,9 @@ class TestTfqCommentDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_07_click_share_分享(self):
+    def delete_test_07_click_share_分享(self):
         """
+        V6.44.x: delete
         帖子的评论详情页，点击左下角“分享”icon帖子的评论详情页，
         """
         self.find_element('button[class="detail-fix-share"]').tap()
