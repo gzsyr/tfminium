@@ -148,7 +148,7 @@ class TestImdetail(WritePost):
 
     def test_15_clicklsxx_历史消息(self):
         # 点击历史消息按钮
-        e = self.page.get_element('image[class="historychat"]')
+        e = self.find_element('view[class="historychat"]')
         e.tap()
         self.delay(3)
         self.get_screenshot()
