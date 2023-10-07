@@ -105,6 +105,7 @@ class TestMineScoreJJR(TestMine):
         self.find_element('view[class="toAll"]', inner_text='全部任务 ').tap()
         self.get_screenshot('进入全部任务')
         self.verifyPageName('/page/mine/myscores/alltasks')
+        self.delay(3)
 
         self.find_element('view[class="btn"]', inner_text='去标记').tap()
         self.get_screenshot('点击去标记')
