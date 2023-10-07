@@ -69,57 +69,57 @@ class TestCenterZygw(TestMine):
 
         return self
 
-    def test_27_活跃度等待时长(self):
+    def test_27_活跃度IM咨询(self):
         """
         V6.27.X: 点击活跃度，点击IM等待时长
         """
         self.click_huoyuedu()
 
-        self.find_element('view[class="name flex tfAlignC"]/view', inner_text='IM等待时长').tap()
+        self.find_element('view[class="name flex tfAlignC"]/view', inner_text='IM咨询').tap()
 
         self.verifyPageName('/im/pages/recentchat/recentchat')
         self.get_screenshot()
 
-    def test_28_活跃度IM回复率(self):
+    def test_28_活跃度线索转化(self):
         """
         V6.27.X: 点击活跃度，点击IM回复率
         """
         self.click_huoyuedu()
 
-        self.find_element('view[class="name flex tfAlignC"]/view', inner_text='IM回复率').tap()
+        self.find_element('view[class="name flex tfAlignC"]/view', inner_text='线索转化').tap()
 
-        self.verifyPageName('/im/pages/recentchat/recentchat')
+        self.verifyPageName('/page/business/zygwinfomanage/customerList')
         self.get_screenshot()
 
-    def test_29_活跃度400会话时长(self):
+    def test_29_活跃度400电话(self):
         """
         V6.27.X: 点击活跃度，点击400会话时长
         """
         self.click_huoyuedu()
 
-        self.find_element('view[class="name flex tfAlignC"]/view', inner_text='400会话时长').tap()
+        self.find_element('view[class="name flex tfAlignC"]/view', inner_text='400电话').tap()
 
         self.verifyPageName('/page/message/phoneList')
         self.get_screenshot()
 
-    def test_30_活跃度400通话接通率(self):
+    def test_30_活跃度线索反馈(self):
         """
         V6.27.X: 点击活跃度，点击400通话接通率
         """
         self.click_huoyuedu()
 
-        self.find_element('view[class="name flex tfAlignC"]/view', inner_text='400通话接通率').tap()
+        self.find_element('view[class="name flex tfAlignC"]/view', inner_text='线索反馈').tap()
 
-        self.verifyPageName('/page/message/phoneList')
+        self.verifyPageName('/page/business/zygwinfomanage/customerList')
         self.get_screenshot()
 
-    def test_31_活跃度客户跟进(self):
+    def test_31_活跃度线索回拨(self):
         """
         V6.27.X: 点击活跃度，点击客户跟进
         """
         self.click_huoyuedu()
 
-        self.find_element('view[class="name flex tfAlignC"]/view', inner_text='客户跟进').tap()
+        self.find_element('view[class="name flex tfAlignC"]/view', inner_text='线索回拨').tap()
 
         self.verifyPageName('/page/business/zygwinfomanage/customerList')
         self.get_screenshot()
@@ -362,7 +362,7 @@ class TestCenterZygw(TestMine):
         """
         V6.27.X: 置业顾问个人中心页面，客户消息，点击来电记录，点击‘回拨’
         """
-        self.find_element('view[class="item flex tfAlignC tfFlexV tfFlexC"]/view', inner_text='1\n来电记录').tap()
+        self.find_element('view[class="item flex tfAlignC tfFlexV tfFlexC"]/view', inner_text='来电记录').tap()
 
         self.verifyPageName('/page/message/phoneList')
         self.get_screenshot('来电记录页面展示')
