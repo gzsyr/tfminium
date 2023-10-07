@@ -325,16 +325,18 @@ class TestTfqPostDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_01_click_add_加入群聊(self):
+    def delete_test_01_click_add_加入群聊(self):
         """
+        V6.44.x: delete
         帖子详情页，点击“加入群聊”入口，进入配置的页面
         """
         self.find_element('view[class="add_jqbtn"]').tap()
 
         self.get_screenshot()
 
-    def test_02_click_add_close_关闭群聊入口(self):
+    def delete_test_02_click_add_close_关闭群聊入口(self):
         """
+        V6.44.x: delete
         帖子详情页，点击“加入群聊”入口的关闭按钮
         """
         self.find_element('view[class="close"]').tap()
