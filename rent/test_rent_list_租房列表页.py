@@ -392,7 +392,7 @@ class Testrentlist(TestBase):
         清空筛选条件
         """
         self.delay(1)
-        self.page.get_element('image[class="icon-clear-filter"]').tap()
+        self.page.get_element('image[class="filter--pa filter--clear"]').tap()
         self.get_screenshot()
 
         return self
