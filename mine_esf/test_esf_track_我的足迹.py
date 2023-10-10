@@ -35,7 +35,7 @@ class TestEsfMyTrack(TestBase):
         try:
             self.page.get_element('view[class="sellItem--flex_1"]').tap()
 
-            self.verifyPageName('/esf/sell/pages/detail/detail')
+            self.verifyPageName('/esf/sell/rent/r_detail/detail')
         except:
             print('无二手房的足迹')
 

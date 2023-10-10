@@ -12,6 +12,36 @@ class Testesfxqxq(TestBase):
         super(Testesfxqxq, self).setUp()
         print("Testesfxqxq setup")
 
+    def test_楼盘测评(self):
+        """
+        V6.43.x: 楼盘测试用例  中冶钟鼎山庄
+        同步未登录用例，在logout/test_xq_未登录_小区详情.py中
+        """
+        self.redirect_to_page('/esf/village/pages/detail/detail?blockId=1401&city=nj')
+        self.delay(5)
+
+        # 点击 进入楼盘测评详情页
+        self.find_element('view[class="evaluation--check-more"]').tap()
+        self.delay(5)
+        self.get_screenshot('进入楼盘测评详情页')
+
+        # 在楼盘测评详情页，点击 在线咨询
+        self.find_element('view[class="button"]', inner_text='在线咨询').tap()
+        self.delay(5)
+        self.get_screenshot('进入咨询页面')
+        self.back()
+
+        # 在楼盘测评详情页，点击拨打电话
+        self.find_element('view[class="button"]', inner_text='拨打电话').tap()
+        self.get_screenshot('点击拨打电话')
+
+        # 在楼盘测评详情页，点击图片
+        self.find_element('image[class="single-pic"]').tap()
+        self.get_screenshot('查看大图')
+        self.back()
+
+        self.verifyPageName('/esf/village/pages/detail/detail')
+
     def test_001_rizhao_banner(self):
         """
         V6.39.X: 1.点击日照; 2.点击动图

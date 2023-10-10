@@ -128,6 +128,7 @@ class TestesfXXDT(TestBase):
         type: 0 -- 学校
               1 -- 小区
               3 -- 周边配套
+              4 -- 切换到中学
         """
         self.delay(15)
         # 点击 雨花台区
@@ -139,6 +140,11 @@ class TestesfXXDT(TestBase):
         self.delay(20)
         self.get_screenshot('点击雨花外国语小学')
         # self.find_element('cover-view[class="t_c"]/conver-view', text_contains='雨花台区').tap()
+
+        if type == 4:
+            self.find_element('view[class="flex_1 center school_type"][data-id="3"]/text').tap()
+            self.get_screenshot('切换到中学')
+            return
 
         if type == 1:
             self.find_element('cover-view[class="i_c customCallout blockCallout"][marker-id="1727"]').tap()
@@ -167,6 +173,12 @@ class TestesfXXDT(TestBase):
 
         self.back()
 
+        if type == 1:
+            self.find_element('view[class="sellItem--flex sellItem--sellItem"]').tap()
+            self.delay(15)
+            self.get_screenshot('进入二手房详情页')
+            self.back()
+
         self.find_element('view[class="center chat"]').tap()
         self.delay(3)
         self.get_screenshot('咨询')
@@ -183,4 +195,8 @@ class TestesfXXDT(TestBase):
         """
         self.click_school_commit(type=1)
         
-
+    def test_009_切换到中学(self):
+        """
+        V6.42.X: 切换到中学
+        """
+        self.click_school_commit(type=4)
