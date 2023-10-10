@@ -8,7 +8,7 @@ class Testesflist(TestBase):
     二手房列表页
     """
     def setUp(self, true=None) -> None:
-        self.page_name = "/esf/sell/pages/home/home"
+        self.page_name = "/esf/sell/pages/home/home?shareCity=nj"
         self.switch = true
         self.classname = self.__class__.__name__
         super(Testesflist, self).setUp()
@@ -17,12 +17,35 @@ class Testesflist(TestBase):
     def test_click_search_搜索(self):
         """
         搜索
-        :return:
+        V6.44.x: 搜索发现关键词、小区人气榜、房源推荐榜、经纪人榜分别进入对应页面
         """
-        e = self.page.get_element('input[class="search--flex_1"]')
-        e.tap()
+        self.find_element('input[class="search--flex_1"]').tap()
         self.get_screenshot()
         self.verifyPageName('/esf/sell/pages/search/search', '搜索 ok')
+        self.delay(3)
+
+        # 点击发现关键词
+        self.find_element('view[class="flex a_c item"]').tap()
+        self.delay(8)
+        self.get_screenshot('点击发现关键词的第一个')
+        self.back()
+        #
+        # 点击小区人气榜第一个
+        self.find_element('view[class="flex a_c rank-item"][data-type="xq"]').tap()
+        self.delay(8)
+        self.get_screenshot('点击小区人气榜的第一个')
+        self.back()
+
+        # 点击房源推荐榜第一个
+        self.find_element('view[class="flex a_c rank-item"][data-type="special"]').tap()
+        self.delay(8)
+        self.get_screenshot('点击房源推荐榜的第一个')
+        self.back()
+
+        # 点击经纪人榜第一个
+        self.find_element('view[class="flex a_c rank-item"][data-type="jjr"]').tap()
+        self.delay(5)
+        self.get_screenshot('点击经纪人榜的第一个')
 
     @ddt_case(
         0, 1, 2, 3, 4
