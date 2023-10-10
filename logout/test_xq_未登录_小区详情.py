@@ -4,7 +4,7 @@ from base.test_base import TestBase
 
 class TestLogoutXq(TestBase):
     """
-    小区详情页未登录
+    小区详情页未登录  中冶钟鼎山庄
     """
     def setUp(self) -> None:
         self.page_name = '/esf/village/pages/detail/detail?blockId=1401&city=nj'
