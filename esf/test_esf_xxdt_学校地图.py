@@ -161,17 +161,23 @@ class TestesfXXDT(TestBase):
         self.get_screenshot('上拉展示')
 
         self.find_element('view[class="arrow_down"]').tap()
-        self.delay(10)
+        self.delay(15)
         self.get_screenshot('向下收起')
 
         if type == 0:
             self.find_element('view[class="villageItem--flex villageItem--village_item_wrapper"]').tap()
         elif type == 1:
             self.find_element('view[class="sellItem--sell_item_wrapper"]').tap()
-        self.delay(15)
+        self.delay(25)
         self.get_screenshot('进入小区详情')
 
         self.back()
+
+        if type == 0:
+            self.find_element('view[class="support"]').tap()
+            self.delay(40)
+            self.get_screenshot('进入学校详情页面')
+            self.back()
 
         if type == 1:
             self.find_element('view[class="sellItem--flex sellItem--sellItem"]').tap()
