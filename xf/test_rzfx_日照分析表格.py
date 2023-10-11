@@ -12,6 +12,47 @@ class TestRzfxBg(TestBase):
         self.classname = __class__.__name__
         super(TestRzfxBg, self).setUp()
 
+    def test_goto_噪音分析_3d(self):
+        """
+        V6.41.X: 噪音分析，点击图片
+        """
+        self.find_element('view[class="tab"][data-id="2"]').tap()
+        self.find_element('view[class="icon tfFlex tfAlignC icon_2"]').tap()
+
+        self.get_screenshot('进入3D页面')
+        self.verifyPageName('/page/newhouse/rizhaofenxi/rizhao3d')
+
+        self.delay(10)
+
+        self.input_value_by_mk('xf/zy_night.png')
+        self.delay(3)
+        self.get_screenshot('3D页面黑夜')
+
+        self.find_element('cover-image[class="consultimg"]').tap()
+        self.get_screenshot('3D页面咨询')
+
+    def test_goto_噪音分析_切换黑夜(self):
+        """
+        V6.41.X: 噪音分析，点击黑夜切换
+        """
+        self.find_element('view[class="tab"][data-id="2"]').tap()
+        self.delay(1)
+
+        self.find_element('view[class="jqItem"][data-id="2"]').tap()
+
+        self.get_screenshot()
+
+    def test_goto_噪音分析_底部咨询(self):
+        """
+        V6.41.X: 噪音分析，点击底部咨询
+        """
+        self.find_element('view[class="tab"][data-id="2"]').tap()
+        self.delay(1)
+
+        self.find_element('view[class="consultWrap tfFlex tfAlignC tfFlexC"]').tap()
+
+        self.get_screenshot()
+
     def test_goto_户型分析_3d(self):
         """
         V6.40.X: 户型分析，点击图片

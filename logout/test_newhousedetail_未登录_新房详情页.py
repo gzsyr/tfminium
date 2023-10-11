@@ -118,3 +118,14 @@ class TestLogoutNewhouseDetail(TestBase):
         self.delay(10)
         self.get_screenshot()
 
+    def test_11_未登录_查看分析(self):
+        """
+        V6.41.X: 未登录，点击日照分析
+        """
+        url = '/page/newhouse/rizhaofenxi/rizhaofenxi?city=qz&pinyin=shanhaiguojixzl&tab=1'
+        self.redirect_to_page(url=url)
+
+        self.find_element('button[class="logincomponent--loginBtn"]').tap()
+        self.get_screenshot()
+        self.input_value_by_mk('logout/phone_refuse.png')
+        self.delay(1)
