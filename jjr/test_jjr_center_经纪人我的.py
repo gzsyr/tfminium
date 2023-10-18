@@ -20,6 +20,19 @@ class TestCenterJJR(TestMine):
         self.classname = self.__class__.__name__
         super(TestCenterJJR, self).setUp()
 
+    def test_023_查看课程(self):
+        """
+        V6.45.X: 转到课程详情页
+        """
+        self.find_element('view[class="name"]', inner_text='操作指南').tap()
+        self.get_screenshot('跳转到课程中心页')
+        self.verifyPageName('/page/business/classguide/classguide')
+
+        self.delay(1)
+        self.find_element('view[class="content_title"]').tap()
+        self.get_screenshot('跳转到课程详情页')
+        self.verifyPageName('/page/business/classguide/classguidedetail')
+
     def test_001_点击头像(self):
         """
         点击头像，进入用户信息页

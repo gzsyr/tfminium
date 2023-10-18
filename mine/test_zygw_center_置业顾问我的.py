@@ -32,6 +32,19 @@ class TestCenterZygw(TestMine):
 
         self.get_screenshot()
 
+    def test_45_查看课程(self):
+        """
+        V6.45.X: 转到课程详情页
+        """
+        self.find_element('view[class="name"]', inner_text='操作指南').tap()
+        self.get_screenshot('跳转到课程中心页')
+        self.verifyPageName('/page/business/classguide/classguide')
+
+        self.delay(1)
+        self.find_element('view[class="content_title"]').tap()
+        self.get_screenshot('跳转到课程详情页')
+        self.verifyPageName('/page/business/classguide/classguidedetail')
+
     def test_98_服务指南_邀请入驻(self):
         """
         V6.40.X: 点击邀请入驻
