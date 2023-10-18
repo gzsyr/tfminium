@@ -13,8 +13,9 @@ class TestTfqFbsPage(TestBase):
         super(TestTfqFbsPage, self).setUp()
         print("TestFbsPage setup")
 
-    def test_14_z_click_call_拨打电话(self):
+    def delete_test_14_z_click_call_拨打电话(self):
         """
+        V6.45.X: DELETE
         房博士主页，点击下方“拨打电话”
         """
         self.find_element('view[class="link-button call"]').tap()
@@ -25,7 +26,7 @@ class TestTfqFbsPage(TestBase):
         """
         房博士主页，点击“实地看盘“
         """
-        self.find_element('view[data-eventid="2951"]').tap()
+        self.find_element('view[data-eventid="2952"]').tap()
 
         self.get_screenshot()
 
@@ -33,7 +34,7 @@ class TestTfqFbsPage(TestBase):
         """
         房博士主页，点击“户型解析”
         """
-        self.find_element('view[data-eventid="2952"]').tap()
+        self.find_element('view[data-eventid="2953"]').tap()
 
         self.get_screenshot()
 
@@ -41,15 +42,21 @@ class TestTfqFbsPage(TestBase):
         """
         房博士主页，点击“交通配套”
         """
-        self.find_element('view[data-eventid="2953"]').tap()
+        self.find_element('view[data-eventid="2954"]').tap()
 
         self.get_screenshot()
+
+    def click_pinglun(self):
+        """
+
+        """
+        self.find_element('view[data-eventid="2955"]').tap()
 
     def test_04_click_loupanpinglun_楼盘评论(self):
         """
         房博士主页，点击“楼盘评论”
         """
-        self.find_element('view[data-eventid="2954"]').tap()
+        self.click_pinglun()
 
         self.get_screenshot()
 
@@ -57,7 +64,7 @@ class TestTfqFbsPage(TestBase):
         """
         房博士主页，点击“话题“
         """
-        self.find_element('view[data-eventid="2955"]').tap()
+        self.find_element('view[data-eventid="2951"]').tap()
         return self
 
     def test_01_click_huati_话题(self):
@@ -72,6 +79,9 @@ class TestTfqFbsPage(TestBase):
         """
         房博士主页，点击楼盘评论，进入楼盘评论详情页
         """
+        self.click_pinglun()
+        self.delay(1)
+
         self.find_element('view[class="post_cont"]').tap()
 
         self.verifyPageName('/page/taofangquan/commentDetail/commentDetail')
@@ -81,6 +91,9 @@ class TestTfqFbsPage(TestBase):
         """
         房博士主页，点击楼盘评论的“点赞”icon
         """
+        self.click_pinglun()
+        self.delay(1)
+
         tap = 'self.page.get_element(\'view[class="laud-btn"]\').tap()'
         self.verifyStr(True, self.getShowToast(tap), '点赞Ok')
         self.get_screenshot()
@@ -89,6 +102,9 @@ class TestTfqFbsPage(TestBase):
         """
         房博士主页，点击楼盘评论的“回复”icon
         """
+        self.click_pinglun()
+        self.delay(1)
+
         self.find_element('view[class="replyBtn"]').tap()
 
         self.verifyPageName('/page/taofangquan/commentDetail/commentDetail')
@@ -98,6 +114,9 @@ class TestTfqFbsPage(TestBase):
         """
         房博士主页，点击楼盘评论的圈子，进入圈子页面
         """
+        self.click_pinglun()
+        self.delay(1)
+
         self.find_element('view[class="posttag flex tfAlignC"]').tap()
 
         self.verifyPageName('/page/taofangquan/huati/huatiDetail')
