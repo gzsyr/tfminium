@@ -42,14 +42,16 @@ class TestRzfxBg(TestBase):
 
         self.get_screenshot()
 
-    def test_goto_噪音分析_底部咨询(self):
+    def delete_test_goto_噪音分析_底部咨询(self):
         """
+        V6.45.x: delete
         V6.41.X: 噪音分析，点击底部咨询
         """
         self.find_element('view[class="tab"][data-id="2"]').tap()
-        self.delay(1)
+        self.delay(2)
 
         self.find_element('view[class="consultWrap tfFlex tfAlignC tfFlexC"]').tap()
+        # self.find_element('view[class="comBottomBar--link-button comBottomBar--im"]').tap()
 
         self.get_screenshot()
 

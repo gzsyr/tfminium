@@ -34,7 +34,8 @@ class TestesfXxxq(TestBase):
         """
         V6.42.X: 点击咨询学校详细信息
         """
-        self.find_element('view[class="info-info--center info-info--chat"]').tap()
+        self.delay(2)
+        self.find_element('view[class="info--center info--chat"]').tap()
         self.delay(3)
         self.get_screenshot()
 

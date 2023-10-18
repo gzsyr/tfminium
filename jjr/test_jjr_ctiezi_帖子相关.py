@@ -183,8 +183,8 @@ class TestJJRTiezi(WritePost):
         self.delay(2)
         # 切换到二手房
         # self.find_element('view[class="tab"][data-index="2"]').tap()
-        self.find_element('view[class="flex recommend_tab"]/view[data-index="2"]').tap()
-        self.delay(1)
+        self.find_element('view[class="tab"]/view[data-index="2"]').tap()
+        self.delay(2)
         # 点击IM咨询
         self.find_element('view[class="villageItem--center villageItem--chat"]').tap()
         self.delay(3)

@@ -172,10 +172,10 @@ class TestJJRCustomer(TestMine):
         self.delay(2)
         date = time.strftime('%Y-%m-%d')
 
-        # 客户意向
-        self.find_element('view[class="filter-item"][data-type="intent"]').tap()
         # 跟进阶段
         self.find_element('view[class="filter-item"][data-type="stage"]').tap()
+        # 客户意向
+        self.find_element('view[class="filter-item"][data-type="intent"]').tap()
 
         # 备注
         self.find_element('textarea[class="pr remark"]').input(date)
