@@ -37,7 +37,7 @@ class TestJJRImdetailC2B(WritePost):
         # 点击 悬浮层的“主推房源”
         self.delay(2)
         self.find_element('view[class="mainFybtn"]').tap()
-        self.delay(5)
+        self.delay(20)
 
         # 进入 主推房源  页面，选择房源
         self.find_element('view[class="pa itemPlaceholder"]').tap()
