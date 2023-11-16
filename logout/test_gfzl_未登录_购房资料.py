@@ -23,7 +23,7 @@ class TestLogoutGfzl(TestBase):
 
     def test_02_click_zygw_im_点击置业顾问IM(self):
         """
-        V6.29.X: 1004929，点击置业顾问IM
+        V6.28.X: 1004929，点击置业顾问IM
         """
         self.find_element('view[class="flex-1 flex tfAlignC tfFlexC link-button im"]').tap()
 
@@ -31,7 +31,7 @@ class TestLogoutGfzl(TestBase):
 
     def test_03_click_zygw_im_点击置业顾问电话(self):
         """
-        V6.29.X: 1004929，点击置业顾问电话
+        V6.28.X: 1004929，点击置业顾问电话
         """
         self.find_element('view[class="flex-1 flex tfAlignC tfFlexC link-button call"]').tap()
 
