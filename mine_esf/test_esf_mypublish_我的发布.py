@@ -1,3 +1,4 @@
+import minium
 from ddt import ddt, data, unpack
 
 from base.test_base import TestBase
@@ -33,9 +34,11 @@ class TestEsfMypublish(TestBase):
         """
         self.page.get_element('view[data-id="1"]', inner_text='出售').tap()
         self.delay(1)
-        list = self.page.get_elements('view[class="flex flex_w item"]')
-        list[0].tap()
-        self.delay(3)
+        try:
+            self.find_element('view[class="flex flex_w item"]').tap()
+            self.delay(3)
+        except minium.MiniElementNotFoundError:
+            self.find_element('view[class="publish"]').tap()
         self.get_screenshot()
 
     def test_03_click_esf_点击出售列表修改(self):
