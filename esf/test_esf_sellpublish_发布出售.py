@@ -237,7 +237,7 @@ class Testesfsellfb(TestBase):
         self.page.scroll_to(800, 500)
         self.delay(1)
         # 期望价格
-        self.input_value_by_mk(png='esf/price.png', value=price)
+        self.input_value_by_mk(png='esf/price.png', value=price, direction=1)
         self.delay(1)
         return  self
 

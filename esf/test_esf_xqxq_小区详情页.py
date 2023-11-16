@@ -18,7 +18,7 @@ class Testesfxqxq(TestBase):
         同步未登录用例，在logout/test_xq_未登录_小区详情.py中
         """
         self.redirect_to_page('/esf/village/pages/detail/detail?blockId=1401&city=nj')
-        self.delay(5)
+        self.delay(10)
 
         # 点击 进入楼盘测评详情页
         self.find_element('view[class="evaluation--check-more"]').tap()

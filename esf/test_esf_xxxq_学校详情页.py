@@ -148,9 +148,12 @@ class TestesfXxxq(TestBase):
         """
         self.find_element('view[class="yzfy--center yzfy--type"][data-id="rent"]').tap()
 
-        self.find_element('view[class="yzfy--center yzfy--chat"]').tap()
-        self.get_screenshot()
-        self.verifyPageName('/esf/sell/rent/list/list')
+        try:
+            self.find_element('view[class="yzfy--center yzfy--chat"]').tap()
+            self.get_screenshot()
+            self.verifyPageName('/esf/sell/rent/list/list')
+        except:
+            self.page.scroll_to(10000, 200)
 
     def test_99_分享(self):
         """

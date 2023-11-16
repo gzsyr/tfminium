@@ -18,7 +18,7 @@ class Testesfdetail(TestBase):
         V6.39.X: 点击小区楼栋模块gif图
         """
         self.find_element('view[class="pr sunlight"]').tap()
-
+        self.delay(2)
         self.get_screenshot()
         self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
 
