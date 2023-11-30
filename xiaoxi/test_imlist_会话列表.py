@@ -48,9 +48,10 @@ class TestXiaoxiImtest(WritePost):
 
     def test_03_heimingdan_黑名单(self):
         # 点击黑名单
-        e = self.page.get_elements('view[class="t_tabitem flex tfAlignC"]')
-        e[2].tap()
-        self.delay(3)
+        # update v6.48.x
+        self.find_element('view[class="t_tabitem blackList flex tfAlignC"]').tap()
+        self.delay(1)
+        self.get_screenshot()
         # 点击移除
         try:
             self.page.get_element('view[class="removeBlack"]').tap()
@@ -61,33 +62,28 @@ class TestXiaoxiImtest(WritePost):
 
     def test_04_weiduhuihua_只看未读会话(self):
         # 点击只看未读会话
-        e = self.page.get_elements('view[class="t_tabitem flex tfAlignC"]')
-        e[1].tap()
-        self.delay(3)
+        # update v6.48.x
+        self.find_element('view[class="t_tabitem unreadChat flex tfAlignC tfFlexE"]').tap()
         self.get_screenshot()
 
     def test_05_quanbuyidu_全部已读(self):
         # 点击全部已读
-        e = self.page.get_elements('view[class="t_tabitem flex tfAlignC"]')
-        e[0].tap()
-        self.delay(3)
-        # 点击只看未读会话
-        e[1].tap()
-        self.delay(3)
+        # update v6.48.x
+        self.find_element('view[class="t_tabitem flex tfAlignC tfFlexE"]').tap()
         self.get_screenshot()
 
-    def test_06_xitongxiaoxi_系统消息(self):
+    def test_06_tongzhi_通知(self):
         # 点击系统消息
-        e = self.page.get_elements('view[class="tabBox"]')
-        e[0].tap()
-        self.delay(3)
+        # update v6.48.x
+        self.find_element('view[class="tabBox flex tfAlignC tfFlexC"][id="systemMessageList"]/image').tap()
         self.get_screenshot()
 
     def test_07_dianzan_点赞(self):
         # 点击点赞
-        e = self.page.get_elements('view[class="tabBox"]')
-        e[1].tap()
-        self.delay(3)
+        # update v6.48.x
+        self.find_element('view[class="tabBox flex tfAlignC tfFlexC"][data-type="zan"]/image').tap()
+        self.delay(1)
+        self.get_screenshot()
         # 点击查看详情
         try:
             e1 = self.page.get_elements('view[class="go-detail"]')
@@ -97,11 +93,12 @@ class TestXiaoxiImtest(WritePost):
         except:
             print('没有点赞列表')
 
-    def test_08_pinglunhuifu_评论和回复(self):
+    def test_08_huifu_回复(self):
         # 点击评论和回复
-        e = self.page.get_elements('view[class="tabBox"]')
-        e[2].tap()
-        self.delay(3)
+        # update v6.48.x
+        self.find_element('view[class="tabBox flex tfAlignC tfFlexC"][data-type="pinglun"]/image').tap()
+        self.delay(1)
+        self.get_screenshot()
         # 点击查看详情
         try:
             e1 = self.page.get_elements('view[class="go-detail"]')
@@ -111,11 +108,12 @@ class TestXiaoxiImtest(WritePost):
         except:
             print('没有评论和回复列表')
 
-    def test_09_yaoqingpinglun_邀请评论(self):
+    def test_09_yaoqing_邀请(self):
         # 点击邀请评论
-        e = self.page.get_elements('view[class="tabBox"]')
-        e[3].tap()
-        self.delay(3)
+        # update v6.48.x
+        self.find_element('view[class="tabBox flex tfAlignC tfFlexC"][data-type="invite"]/image').tap()
+        self.delay(1)
+        self.get_screenshot()
         # 点击查看详情
         try:
             e1 = self.page.get_elements('view[class="go-detail"]')
@@ -141,9 +139,10 @@ class TestXiaoxiImtest(WritePost):
 
     def test_11_taofangquan_淘房圈消息tab切换(self):
         # 点击点赞
-        e = self.page.get_elements('view[class="tabBox"]')
-        e[1].tap()
-        self.delay(3)
+        # update v6.48.x
+        self.find_element('view[class="tabBox flex tfAlignC tfFlexC"][data-type="zan"]/image').tap()
+        self.delay(1)
+        self.get_screenshot()
         # 淘房圈消息页4个tab切换
         e1 = self.page.get_elements('view[class="tabItem"]')
         e1[0].tap()
