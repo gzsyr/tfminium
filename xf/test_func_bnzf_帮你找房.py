@@ -71,23 +71,29 @@ class TestFuncBnzf(TestBase):
         self.verifyPageName('/page/newhouse/bnzf_result/bnzf_result')
         self.get_screenshot()
 
-    @file_data('./test_func_bnzf_02_esf.yml')
-    def test_01_click_bnzf_esf_二手房一键找房(self, **kwargs):
+
+    def test_01_click_bnzf_esf_二手房一键找房(self):
         """
-        点击二手房，选择丰泽区，二室，20-30万
+        V6.47.X: 二手房选择一键找房
         """
+        self.redirect_to_page('/page/newhouse/bnzf/bnzf?city=nj')
+        self.delay(2)
         self.page.get_element('view', inner_text='二手房').tap()
 
         # 选择意向位置
-        self.page.get_element('picker').trigger('change', {'value': 1})
+        self.find_element('view[class="arr"]').tap()
+
+        # 选择类型
+        self.find_element('view[class="item"][data-type="infoType"]').tap()
 
         # 选择户型
-        hx = kwargs['hx']
-        self.page.get_element(f'view[data-key="{hx}"]').tap()
+        self.find_element('view[class="item"][data-type="room"]').tap()
 
-        # 选择买房预算
-        mfys = kwargs['mfys']
-        self.page.get_element(f'view[data-key="{mfys}"]').tap()
+        # 选择价格
+        self.find_element('view[class="item"][data-type="price"]').tap()
+
+        # 选择面积
+        self.find_element('view[class="item"][data-type="area"]').tap()
 
         # 点击“一键找房”按钮
         self.page.get_element('button[class="find"]').tap()
