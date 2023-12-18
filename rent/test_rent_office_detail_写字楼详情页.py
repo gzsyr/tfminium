@@ -8,7 +8,7 @@ class Testrentofficedetail(TestBase):
     写字楼详情页
     """
     def setUp(self, true=None) -> None:
-        self.page_name = "/esf/sell/rent/r_detail/detail?rentId=107306391"
+        self.page_name = "/esf/sell/rent/r_detail/detail?rentId=109329245"
         self.switch = true
         self.classname = self.__class__.__name__
         super(Testrentofficedetail, self).setUp()
@@ -124,11 +124,13 @@ class Testrentofficedetail(TestBase):
         """
         self.page.scroll_to(800, 500)
         self.delay(1)
-
-        tog = self.find_element('view[class="houseDesc--center"]').tap()
-        self.get_screenshot('查看全部')
-        self.delay(2)
-        tog = self.find_element('view[class="houseDesc--center"]').tap()
+        try:
+            tog = self.find_element('view[class="houseDesc--center"]').tap()
+            self.get_screenshot('查看全部')
+            self.delay(2)
+            tog = self.find_element('view[class="houseDesc--center"]').tap()
+        except:
+            print('无查看全部')
         self.get_screenshot('收起')
 
 

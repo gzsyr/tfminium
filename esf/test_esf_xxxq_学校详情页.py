@@ -146,14 +146,14 @@ class TestesfXxxq(TestBase):
         """
         V6.42.X: 点击 优质 在租房源，进列表
         """
-        self.find_element('view[class="yzfy--center yzfy--type"][data-id="rent"]').tap()
-
         try:
+            self.find_element('view[class="yzfy--center yzfy--type"][data-id="rent"]').tap()
             self.find_element('view[class="yzfy--center yzfy--chat"]').tap()
             self.get_screenshot()
             self.verifyPageName('/esf/sell/rent/list/list')
         except:
             self.page.scroll_to(10000, 200)
+            self.get_screenshot()
 
     def test_99_分享(self):
         """

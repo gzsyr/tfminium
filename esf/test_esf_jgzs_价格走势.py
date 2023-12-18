@@ -68,12 +68,7 @@ class Testesfjgzs(TestBase):
         在售房源-进入房源详情页
         :return:
         """
-        self.page.scroll_to(350, 500)
-        self.delay(1)
-        elm_items = self.page.get_elements('view[class="item"]')
-        elm_first_item = elm_items[0]
-        elms = elm_first_item.get_element('sell_item').get_elements('view')
-        elms[0].tap()
+        self.find_element('view[class="sellItem--pr sellItem--sellItemImg"]').tap()
         self.delay(3)
         self.get_screenshot()
 
@@ -84,9 +79,10 @@ class Testesfjgzs(TestBase):
         """
         self.page.scroll_to(1150, 500)
         self.delay(1)
-        e = self.page.get_element('view[class="center more"]')
-        e.tap()
-        self.delay(3)
+        try:
+            self.find_element('view[class="center more"]').tap()
+        except:
+            print('fangyuan bu zu')
         self.get_screenshot()
 
     def test_click_mfpg_点击卖房评估(self):

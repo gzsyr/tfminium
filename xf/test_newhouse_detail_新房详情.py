@@ -546,7 +546,7 @@ class TestNewhouseDetail(TestBase):
         新房详情页页面，点击PK
         """
         self.find_element("navigator[class='pk-icon']").tap()
-        self.delay(3)
+        self.delay(5)
 
         self.verifyPageName('/page/newhouse/loupanPk/loupanPk')
         return self
@@ -591,9 +591,9 @@ class TestNewhouseDetail(TestBase):
         选择第一个楼盘，点击“对比”
         """
         self.find_element('checkbox[value="glct"]').tap()
-        self.delay(2)
-        self.find_element('view[class="disflex-flex-shrink-0 lpBtn2 lpBtnAct"]').tap()
         self.delay(4)
+        self.find_element('view[class="disflex-flex-shrink-0 lpBtn2 lpBtnAct"]').tap()
+        self.delay(7)
         self.verifyPageName('/page/newhouse/loupanPk/pkResult')
 
     def test_goto_pk_PK页面(self):
@@ -655,12 +655,13 @@ class TestNewhouseDetail(TestBase):
     def test_PK_07_点击更多内容(self):
         """
         V6.32.X: pk结果页面，点击下面的更多内容
+        V6.47.x：pk结果页面，点击楼盘名称
         """
         self.goto_pk().add_house().select_house().select_pk()
 
-        self.find_element('view[class="pkTxt2 twoline"]', inner_text='山海国际写字楼12123').tap()
+        self.find_element('image[class="pkPic1"]').tap()
 
-        self.verifyPageName('/page/newhouse/lpxx/lpxx')
+        self.verifyPageName('/page/newhouse/detail')
         self.get_screenshot()
 
     def test_goto_dy_订阅(self):
@@ -1055,7 +1056,7 @@ class TestNewhouseDetail(TestBase):
 
         self.find_element('view[class="jt_icon jt_icon_lpdz"]').tap()
 
-        self.verifyPageName('/page/newhouse/map/map')
+        self.verifyPageName('/page/publicPages/map/map')
         self.get_screenshot()
 
     def test_goto_xxxx_more_IM_详细信息咨询(self):

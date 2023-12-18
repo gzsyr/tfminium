@@ -88,8 +88,12 @@ class TestImdetail(WritePost):
         self.get_screenshot()
 
     def test_08_clickwytw_点击我要提问(self):
+        """
+        v6.48.x: update
+        """
         # 点击我要提问
-        self.page.get_element('view[class="askBtn flex tfAlignC"]').tap()
+        self.find_element('image[class="chatinput-img fr"]').tap()
+        self.find_element('view[class="more-subcontent-item"]/text', inner_text='我要提问').tap()
         self.delay(2)
         # 选择一条消息
         self.page.get_element('checkbox[class="checkbox"]').tap()

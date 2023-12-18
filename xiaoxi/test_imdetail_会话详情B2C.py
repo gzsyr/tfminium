@@ -139,29 +139,29 @@ class TestImdetailCB(WritePost):
 
     def test_08_clickwytw_点击我要提问(self):
         # 点击我要提问
-        self.page.get_element('view[class="askBtn flex tfAlignC"]').tap()
+        self.find_element('image[class="chatinput-img fr"]').tap()
+        self.find_element('view[class="more-subcontent-item"]/text', inner_text='我要提问').tap()
         self.delay(2)
         # 选择一条消息
         self.page.get_element('checkbox[class="checkbox"]').tap()
         self.delay(2)
         # 点击去提问
         self.page.get_element('view[class="toask"]').tap()
-        self.delay(3)
+        self.delay(5)
         # 点击发布
         self.page.get_element('button[class="submit-btn"]').tap()
-        self.delay(3)
         self.get_screenshot()
 
     def test_09_clickwytw_点击我要提问取消(self):
         # 点击我要提问
-        self.page.get_element('view[class="askBtn flex tfAlignC"]').tap()
+        self.find_element('image[class="chatinput-img fr"]').tap()
+        self.find_element('view[class="more-subcontent-item"]/text', inner_text='我要提问').tap()
         self.delay(2)
         # 选择一条消息
         self.page.get_element('checkbox[class="checkbox"]').tap()
         self.delay(2)
         # 点击取消
         self.page.get_element('view[class="cancel"]').tap()
-        self.delay(3)
         self.get_screenshot()
 
     def test_10_clickkfyq_点击看房邀请(self):

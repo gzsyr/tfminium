@@ -14,6 +14,7 @@ class Testrentzupublist(TestBase):
         print("Testrentzupublist setup")
 
     def test_publish_zurent_求租发布(self):
+        self.delay(2)
         # 房屋类型
         self.page.get_element('view[class="center option optionChecked"][data-id="1"]').tap()
         self.delay(3)
