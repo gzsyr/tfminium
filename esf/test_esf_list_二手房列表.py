@@ -411,7 +411,7 @@ class Testesflist(TestBase):
         """
 
         # 先获取所有item
-        elm_items = self.find_element('view[class="gridSellItem--sellFlowWrapper"]').tap()
+        elm_items = self.find_element('image[class="gridSellItem--img"]').tap()
 
         # # 第一个item
         # elm_first_item = elm_items[0]

@@ -19,7 +19,7 @@ class TestNewhouseDetail(TestBase):
         """
         点击 采光计算器
         """
-        self.find_element('/page/view/view[2]/scroll-view/view/view[11]/view/image').tap()
+        self.find_element('/page/view/view[2]/scroll-view/view/view[12]/view/image').tap()
 
         self.delay(15)
 
@@ -138,11 +138,21 @@ class TestNewhouseDetail(TestBase):
         self.get_screenshot()
         self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
 
+    def test_func_周边规划(self):
+        """
+        V6.37.X: 点击功能入口“周边规划”
+        """
+        self.find_element('/page/view/view[2]/scroll-view/view/view[2]/view/image').tap()
+        self.delay(2)
+
+        self.get_screenshot()
+        self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
+
     def test_func_噪音分析(self):
         """
         V6.41.X: 点击功能入口“噪音分析”
         """
-        self.find_element('/page/view/view[2]/scroll-view/view/view[2]/view/image').tap()
+        self.find_element('/page/view/view[2]/scroll-view/view/view[3]/view/image').tap()
         self.delay(2)
 
         self.get_screenshot()
@@ -372,7 +382,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 功能入口, 楼盘总平
         """
-        self.find_element('/page/view/view[2]/scroll-view/view/view[4]/view/image').tap()
+        self.find_element('/page/view/view[2]/scroll-view/view/view[5]/view/image').tap()
 
         self.verifyPageName('/page/newhouse/fd/fdxx')
         self.get_screenshot()
@@ -381,7 +391,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 功能入口, 开盘记录
         """
-        self.find_element('/page/view/view[2]/scroll-view/view/view[3]/view/image').tap()
+        self.find_element('/page/view/view[2]/scroll-view/view/view[4]/view/image').tap()
 
         self.verifyPageName('/page/newhouse/historyLp/historyLp')
         self.get_screenshot()
@@ -390,7 +400,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 功能入口, 航拍看房
         """
-        self.find_element('/page/view/view[2]/scroll-view/view/view[5]/view/image').tap()
+        self.find_element('/page/view/view[2]/scroll-view/view/view[6]/view/image').tap()
 
         self.verifyPageName('/page/newhouse/xcny/photoalbum')
         self.get_screenshot()
@@ -399,7 +409,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 功能入口, 置业顾问
         """
-        self.find_element('/page/view/view[2]/scroll-view/view/view[6]/view/image').tap()
+        self.find_element('/page/view/view[2]/scroll-view/view/view[7]/view/image').tap()
 
         self.verifyPageName('/page/newhouse/zygw/list')
         self.get_screenshot()
@@ -408,7 +418,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 功能入口, 摇号查询
         """
-        self.find_element('/page/view/view[2]/scroll-view/view/view[7]/view/image').tap()
+        self.find_element('/page/view/view[2]/scroll-view/view/view[8]/view/image').tap()
 
         self.get_screenshot()
         self.verifyPageName('/page/yaohao/result')
@@ -417,7 +427,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 功能入口, VR看房
         """
-        self.find_element('/page/view/view[2]/scroll-view/view/view[8]/view/image').click()
+        self.find_element('/page/view/view[2]/scroll-view/view/view[9]/view/image').click()
 
         self.verifyPageName('/page/newhouse/xcny/photoalbum')
         self.get_screenshot()
@@ -426,7 +436,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 功能入口, 楼盘相册
         """
-        self.find_element('/page/view/view[2]/scroll-view/view/view[9]/view/image').tap()
+        self.find_element('/page/view/view[2]/scroll-view/view/view[10]/view/image').tap()
 
         self.verifyPageName('/page/newhouse/xcny/xcnylist')
         self.get_screenshot()
@@ -435,7 +445,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 功能入口, 房贷计算
         """
-        self.find_element('/page/view/view[2]/scroll-view/view/view[10]/view/image').tap()
+        self.find_element('/page/view/view[2]/scroll-view/view/view[11]/view/image').tap()
 
         self.verifyPageName('/page/tools/fdjsq/sd/index')
         self.get_screenshot()
@@ -444,7 +454,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 功能入口, 购房资格
         """
-        self.find_element('/page/view/view[2]/scroll-view/view/view[12]/view/image').tap()
+        self.find_element('/page/view/view[2]/scroll-view/view/view[13]/view/image').tap()
 
         self.verifyPageName('/page/tools/goufangzige/goufangzige')
         self.get_screenshot()
@@ -1199,7 +1209,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 新房详情页，位置及周边楼层，点击地图
         """
-        self.page.scroll_to(5000, 500)
+        self.page.scroll_to(5500, 500)
         self.delay(15)
 
         # self.find_element('//*[@id="map"]').tap()
@@ -1215,7 +1225,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 新房详情页，位置及周边楼层，点击教育下的文字
         """
-        self.page.scroll_to(5100, 500)
+        self.page.scroll_to(5600, 500)
         self.delay(15)
 
         # self.find_element('//*[@id="map"]').tap()

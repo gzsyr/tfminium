@@ -79,7 +79,8 @@ class TestNewSy(TestBase):
         self.delay(2)
         self.find_element('view[data-type="esf"]').tap()
         self.get_screenshot('切换到二手房tab')
-        self.find_element('view[class="gridSellItem--sellFlowWrapper"]').tap()
+        self.delay(3)
+        self.find_element('image[class="gridSellItem--img"]').tap()
         self.delay(4)
         self.get_screenshot('进入房源详情页')
 
