@@ -1,13 +1,19 @@
 from minium import ddt_class
 
 from base.test_base import TestBase
+from base.test_mine import TestMine
 
 
 @ddt_class()
-class Testesfbroker(TestBase):
+class Testesfbroker(TestMine):
     """
     经纪人店铺
     """
+    @classmethod
+    def setUpClass(cls) -> None:
+        super(Testesfbroker, cls).setUpClass()
+        cls().change_C()
+        print("setupclass Testesfbroker")
 
     def setUp(self, true=None) -> None:
         self.page_name = "/esf/sell/pages/broker/broker?uid=825738"

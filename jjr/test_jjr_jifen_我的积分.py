@@ -17,6 +17,14 @@ class TestMineScoreJJR(TestMine):
         cls().change_jjr()
         print("setupclass TestMineScoreZygw")
 
+    @classmethod
+    def tearDownClass(cls) -> None:
+        cls().change_C()
+
+        print("setupclass Testesfbroker")
+        super(TestMineScoreJJR, cls).tearDownClass()
+
+
     def setUp(self) -> None:
         self.page_name = '/page/mine/myscores/myscores?city=nj'
         self.switch = False
@@ -117,7 +125,7 @@ class TestMineScoreJJR(TestMine):
         """
         self.page.scroll_to(500, 200)
         try:
-            self.find_element('view[class="toAll"]', inner_text='积分商城  ').tap()
+            self.find_element('view[class="toAll"]', inner_text='积分商城 ').tap()
         except:
             print('只有两个商品')
 
