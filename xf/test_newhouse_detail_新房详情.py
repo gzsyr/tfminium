@@ -146,7 +146,7 @@ class TestNewhouseDetail(TestBase):
         self.delay(2)
 
         self.get_screenshot()
-        self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
+        self.verifyPageName('/page/publicPages/zbgh/zbgh')
 
     def test_func_噪音分析(self):
         """
