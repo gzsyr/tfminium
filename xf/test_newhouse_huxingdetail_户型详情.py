@@ -36,7 +36,9 @@ class TestNewhouseHuxingDetail(TestBase):
         """
         self.find_element('button[class="zyList_li_r_im"]').tap()
 
-        self.delay(4)
+
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_003_goto_zygw_进置业顾问名片(self):

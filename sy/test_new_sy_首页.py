@@ -104,7 +104,9 @@ class TestNewSy(TestBase):
         self.find_element('view[data-type="esf"]').tap()
 
         self.find_element('view[class="gridSellItem--zixunBtn"]/view', inner_text='咨询').tap()
-        self.delay(4)
+
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot('咨询经纪人')
 
     def test_z_tab_二手房经纪人店铺(self):

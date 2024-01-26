@@ -66,7 +66,9 @@ class Testesfxqxq(TestBase):
         V6.39.X: 点击咨询楼栋详情
         """
         self.find_element('view[class="sunlight--center sunlight--chat"]').tap()
-        self.delay(3)
+
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
         # self.blockId=3982
@@ -96,6 +98,8 @@ class Testesfxqxq(TestBase):
         self.delay(2)
         try:
             self.find_element('view[class="postComponent--connect postComponent--fbs_contact_tap"]').tap()
+            self.delay(6)
+            self.verifyPageName('/im/pages/chating/chating')
         except:
             print('没有对应的加精帖子')
 
@@ -660,6 +664,9 @@ class Testesfxqxq(TestBase):
         V6.42.x: 点击周边配套模块下的“咨询周边配套”
         """
         self.find_element('image[class="zbpt--icon"]').tap()
+
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_goto_zxmsg_咨询详情(self):
@@ -668,6 +675,8 @@ class Testesfxqxq(TestBase):
         """
 
         self.find_element('view[class="price--center price--consult"]').tap()
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_z_goto_tel_点击底部IM(self):
@@ -676,6 +685,8 @@ class Testesfxqxq(TestBase):
         :return:
         """
         self.find_element('view[class="bottomContact--center bottomContact--chat"]').tap()
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_z_goto_tel_点击底部拨打电话(self):

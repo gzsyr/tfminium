@@ -128,6 +128,7 @@ class Testrenthouseingdetail(TestBase):
         self.delay(1)
         m = self.page.get_element('view[class="center msg"]')
         m.tap()
-        self.delay(1)
+
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
-        self.delay(1)

@@ -26,8 +26,9 @@ class TestFuncHothouse(TestBase):
         V6.23.X: “在线咨询”按钮
         """
         self.find_element('view[class="consult_imicon"]').tap()
-        self.delay(3)
 
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_003_click_call(self):

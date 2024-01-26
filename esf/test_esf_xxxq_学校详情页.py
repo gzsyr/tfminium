@@ -36,7 +36,9 @@ class TestesfXxxq(TestBase):
         """
         self.delay(2)
         self.find_element('view[class="info--center info--chat"]').tap()
-        self.delay(3)
+
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_04_学校话题查看(self):
@@ -62,7 +64,9 @@ class TestesfXxxq(TestBase):
         V6.42.X: 点击咨询周边配套
         """
         self.find_element('view[class="zbpt--center zbpt--chat"]').tap()
-        self.delay(3)
+
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_07_热门咨询提问(self):
@@ -70,7 +74,9 @@ class TestesfXxxq(TestBase):
         V6.42.X: 点击热门咨询快捷提问
         """
         self.find_element('view[class="hotConsult--flex_1 hotConsult--line_1"]').tap()
-        self.delay(3)
+
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_08_点击划片范围(self):
@@ -88,7 +94,9 @@ class TestesfXxxq(TestBase):
         V6.42.X: 点击咨询划片范围
         """
         self.find_element('view[class="hpfw--center hpfw--chat"]').tap()
-        self.delay(3)
+
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_10_划片小区更多(self):
@@ -96,16 +104,16 @@ class TestesfXxxq(TestBase):
         V6.42.X: 点击划片小区更多
         """
         self.find_element('view[class="hpxq--center hpxq--checkClick"]').tap()
-        self.delay(3)
+        self.delay(5)
         self.get_screenshot('进入划片小区列表页面')
         self.verifyPageName('/esf/sell/pages/schoolBlockList/schoolBlockList')
         
-        self.find_element('view[class="villageItem--pr villageItem--village_item_img"]').tap()
+        self.find_elements('view[class="villageItem--pr villageItem--village_item_img"]')[1].tap()
         self.delay(3)
         self.get_screenshot('列表页点击进入小区详情页')
         self.back()
 
-        self.find_element('view[class="villageItem--center villageItem--chat"]').tap()
+        self.find_elements('view[class="villageItem--center villageItem--chat"]')[1].tap()
         self.get_screenshot('列表页点击进入咨询页面')
         
 
@@ -123,7 +131,9 @@ class TestesfXxxq(TestBase):
         V6.42.X: 点击划片小区 咨询底价
         """
         self.find_element('view[class="hpxq--center hpxq--consult"]').tap()
-        self.delay(3)
+
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_13_优质在售房源(self):

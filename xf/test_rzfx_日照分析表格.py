@@ -229,6 +229,8 @@ class TestRzfxBg(TestBase):
 
         self.find_element('view[class="lpBottomBar--consult_imicon_yfyj"]').tap()
 
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_yfyj_进入详情(self):
@@ -265,7 +267,8 @@ class TestRzfxBg(TestBase):
         """
         self.find_element('view[class="comBottomBar--link-button comBottomBar--im"]').tap()
 
-        self.delay(3)
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_zz_打电话(self):

@@ -147,6 +147,8 @@ class TestTfqPostDetail(TestBase):
         self.page.scroll_to(2300, 500)
         self.find_element('view[class="commentList--contact-fbs commentList--fbs_contact_tap"]').tap()
 
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_29_click_zygwavator_置业顾问头像(self):
@@ -164,8 +166,9 @@ class TestTfqPostDetail(TestBase):
         """
         self.page.scroll_to(2300, 500)
         self.find_element('view[class="commentList--contact-fbs commentList--zygw_contact_tap"]').tap()
-        self.delay(3)
 
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def click_content_text(self):
@@ -388,7 +391,9 @@ class TestTfqPostDetail(TestBase):
         exist = self.page.element_is_exists('image[class="bottom-connect-avatar"]')
         if exist:
             self.find_element('image[class="bottom-connect-avatar"]').tap()
-            self.delay(4)
+
+            self.delay(6)
+            self.verifyPageName('/im/pages/chating/chating')
         else:
             print("本帖子没有配置关联置业顾问，该用例直接pass")
 

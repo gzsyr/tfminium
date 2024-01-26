@@ -115,7 +115,9 @@ class Testrentdetail(TestBase):
         m = self.page.element_is_exists('view[class="center msg"]')
         if m == True:
             self.page.get_element('view[class="center msg"]').tap()
-            self.delay(1)
+
+            self.delay(6)
+            self.verifyPageName('/im/pages/chating/chating')
             self.get_screenshot()
             self.delay(1)
         else:
@@ -325,7 +327,9 @@ class Testrentdetail(TestBase):
         # xpath定位
         elm = self.page.get_element('//view[@class="pf contact"]/contact/view/view/view[2]/view[1]')
         elm.tap()
-        self.delay(2)
+
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_19_goto_tel_点击拨打电话(self):

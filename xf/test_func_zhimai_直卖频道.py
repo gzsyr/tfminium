@@ -67,8 +67,9 @@ class TestFuncZhiMai(TestBase):
         """
         self.page.get_element('view[class="im-btn"]').click()
 
-        self.delay(3)
-        # self.verifyPageName('/im/pages/chating/chating')
+
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_09_unfold_hxlist_展开户型(self):

@@ -18,7 +18,9 @@ class TestNewhouseKpxx(TestBase):
         """
         self.find_element('view[class="title-im"]').tap()
 
-        self.delay(4)
+
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_02_点击楼距(self):

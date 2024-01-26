@@ -137,7 +137,7 @@ class TestesfXXDT(TestBase):
         self.get_screenshot('点击雨花台区')
 
         self.find_element('cover-view[class="i_c customCallout schoolCallout"][marker-id="217"]').tap()
-        self.delay(20)
+        self.delay(40)
         self.get_screenshot('点击雨花外国语小学')
         # self.find_element('cover-view[class="t_c"]/conver-view', text_contains='雨花台区').tap()
 
@@ -152,7 +152,7 @@ class TestesfXXDT(TestBase):
             self.get_screenshot('点击宏图上水园')
 
             self.find_element('view[class="support"]').tap()
-            self.delay(25)
+            self.delay(40)
             self.get_screenshot('进入周边配套')
             self.back()
 
@@ -167,9 +167,10 @@ class TestesfXXDT(TestBase):
         if type == 0:
             self.find_element('view[class="villageItem--flex villageItem--village_item_wrapper"]').tap()
         elif type == 1:
-            self.find_element('view[class="sellItem--sell_item_wrapper"]').tap()
-        self.delay(25)
-        self.get_screenshot('进入小区详情')
+            # self.find_element('view[class="sellItem--sell_item_wrapper"]').tap()
+            return
+        self.delay(40)
+        self.get_screenshot('当前页面')
 
         self.back()
 
@@ -180,7 +181,7 @@ class TestesfXXDT(TestBase):
             self.back()
 
         if type == 1:
-            self.find_element('view[class="sellItem--flex sellItem--sellItem"]').tap()
+            self.find_element('view[class="sellItem--pr sellItem--sell_item_wrapper"]').tap()
             self.delay(15)
             self.get_screenshot('进入二手房详情页')
             self.back()

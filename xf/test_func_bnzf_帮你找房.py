@@ -27,7 +27,9 @@ class TestFuncBnzf(TestBase):
         self.delay(5)
 
         self.find_element('view[class="consult_btn"]').tap()
-        self.delay(4)
+
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_07_result_click_im_结果页咨询房博士(self):
@@ -38,7 +40,9 @@ class TestFuncBnzf(TestBase):
         self.delay(8)
 
         self.find_element('view[class="consult_btn"]').tap()
-        self.delay(4)
+
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     @file_data('./test_func_bnzf_01_xf.yml')
@@ -93,7 +97,10 @@ class TestFuncBnzf(TestBase):
         self.find_element('view[class="item"][data-type="price"]').tap()
 
         # 选择面积
-        self.find_element('view[class="item"][data-type="area"]').tap()
+        try:
+            self.find_element('view[class="item"][data-type="area"]').tap()
+        except:
+            self.find_element('view[class="item active"][data-type="area"]').tap()
 
         # 点击“一键找房”按钮
         self.page.get_element('button[class="find"]').tap()
@@ -132,7 +139,9 @@ class TestFuncBnzf(TestBase):
         self.page.get_element('button[class="find"]').tap()
         self.delay(2)
         self.page.get_element('view[class="opt-item im bnzf_im"]').tap()
-        self.delay(2)
+
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
 
         # self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()

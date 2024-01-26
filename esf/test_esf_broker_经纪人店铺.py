@@ -80,7 +80,8 @@ class Testesfbroker(TestMine):
         :return:
         """
         self.page.get_element('view[class="center btn msg"]').tap()
-        self.delay(5)
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_04_click_btntel_点击打电话(self):

@@ -29,7 +29,9 @@ class TestNewhouseDianping(TestBase):
         """
         self.page.get_element('view[class="consultEntrance--consultBtn"]').tap()
 
-        self.delay(3)
+
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_click_first_pinglun_点击评论(self):

@@ -68,6 +68,8 @@ class TestTfqQuanZiDetail(TestBase):
         """
         self.page.get_element('view[class="connect connectfbs"]').tap()
 
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_13_click_zygw_avator_置业顾问头像(self):

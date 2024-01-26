@@ -323,6 +323,8 @@ class TestNewhouseDetail(TestBase):
         self.delay(3)
         self.find_element('view[class="iwantdpT"]', inner_text='咨询周边学校情况').tap()
 
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_func_最新动态(self):
@@ -549,6 +551,8 @@ class TestNewhouseDetail(TestBase):
         self.delay(10)
 
         self.find_element('view[class="consultEntrance--consultIcon"]').tap()
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def goto_pk(self):
@@ -660,6 +664,8 @@ class TestNewhouseDetail(TestBase):
 
         self.find_element('view[class="tfLine1"]').tap()
 
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_PK_07_点击更多内容(self):
@@ -1075,7 +1081,9 @@ class TestNewhouseDetail(TestBase):
         """
         self.find_element("view[class='iwantdpT']", inner_text="咨询更多楼盘信息").tap()
 
-        self.delay(3)
+
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_goto_zlhx_切换TAB(self):
@@ -1096,7 +1104,9 @@ class TestNewhouseDetail(TestBase):
         self.delay(4)
         self.find_element('view[class="consult_imicon_hx"]').tap()
 
-        self.delay(3)
+
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_goto_ldxq_点击户型分布(self):
@@ -1209,7 +1219,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 新房详情页，位置及周边楼层，点击地图
         """
-        self.page.scroll_to(5500, 500)
+        self.page.scroll_to(5000, 500)
         self.delay(15)
 
         # self.find_element('//*[@id="map"]').tap()
@@ -1225,7 +1235,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 新房详情页，位置及周边楼层，点击教育下的文字
         """
-        self.page.scroll_to(5600, 500)
+        self.page.scroll_to(5000, 500)
         self.delay(15)
 
         # self.find_element('//*[@id="map"]').tap()
@@ -1290,7 +1300,9 @@ class TestNewhouseDetail(TestBase):
         self.delay(10)
 
         self.find_element('view[class="center chat"]').tap()
-        self.delay(2)
+
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_goto_wzzb_zbpt_周边配套切换(self):
@@ -1354,7 +1366,9 @@ class TestNewhouseDetail(TestBase):
 
         self.find_element("view[class='iwantdpT']", inner_text="咨询周边配套及规划").tap()
 
-        self.delay(3)
+
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_goto_jgfx_价格分析(self):
@@ -1435,8 +1449,9 @@ class TestNewhouseDetail(TestBase):
         新房详情页面，点击底部的“在线咨询”
         """
         self.find_element('view[class="comBottomBar--link-button comBottomBar--im"]').tap()
-        self.delay(3)
 
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_zz_click_buttom_call_拨打电话(self):

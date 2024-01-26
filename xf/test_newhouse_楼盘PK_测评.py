@@ -28,7 +28,8 @@ class TestNewhousePKCP(TestBase):
         self.delay(2)
         self.find_element('view[class="im"]').tap()
 
-        self.delay(4)
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_PK_02_点击支持TA(self):
@@ -51,7 +52,9 @@ class TestNewhousePKCP(TestBase):
 
         self.find_element('view[class="im"]', inner_text='咨询底价').tap()
 
-        self.delay(4)
+
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_PK_04_底部咨询底价(self):
@@ -64,7 +67,8 @@ class TestNewhousePKCP(TestBase):
         self.delay(2)
         self.find_element('view[class="button"]', inner_text='咨询底价').tap()
 
-        self.delay(4)
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_PK_05_进入PK后返回详情(self):
@@ -108,7 +112,9 @@ class TestNewhousePKCP(TestBase):
         self.goto_cp()
         self.delay(7)
         self.find_element('view[class="button"]', inner_text='在线咨询').tap()
-        self.delay(3)
+
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot('点击咨询')
 
         self.back()

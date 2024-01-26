@@ -54,7 +54,8 @@ class TestNewhouseLpxx(TestBase):
         """
         self.find_element('button[class="zyList_li_r_im"]').tap()
 
-        self.delay(4)
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_003_goto_zygw_进置业顾问名片(self):
@@ -82,7 +83,8 @@ class TestNewhouseLpxx(TestBase):
         """
         self.find_element('image[class="lpxxDetailUl-li-r-link-bk"]').tap()
 
-        self.delay(4)
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_006_xxxx_地图找房(self):
@@ -100,7 +102,8 @@ class TestNewhouseLpxx(TestBase):
         """
         self.find_element('image[class="consult_imicon"]').tap()
 
-        self.delay(4)
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_010_click_zygw_call_置业顾问电话(self):

@@ -42,6 +42,8 @@ class TestIndexShouye(TestBase):
 
         self.find_element('view[class="yxgw-btn"][data-jhtype="1"]').tap()
 
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_24_优选顾问_房博士IM(self):
@@ -52,6 +54,8 @@ class TestIndexShouye(TestBase):
 
         self.find_element('view[class="yxgw-btn"][data-jhtype="2"]').tap()
 
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_25_优选顾问_更多(self):

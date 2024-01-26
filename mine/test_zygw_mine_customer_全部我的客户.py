@@ -35,7 +35,7 @@ class TestMineAllCustomer(TestMine):
         """
         self.search_name('1122')
 
-        self.verifyStr(True, self.element_is_exist('view[class="customerName"]', text_contains='1122'), '搜索到客户')
+        self.verifyStr(True, self.element_is_exist('view[class="customerName tfFlex tfAlignC"]', text_contains='1122'), '搜索到客户')
         self.get_screenshot()
 
     def test_02_切换到未跟进(self):

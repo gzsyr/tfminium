@@ -75,6 +75,7 @@ class TestNewHouseYhzs(TestBase):
         """
         self.page.get_element('view[class="consultEntrance--consultBtn"]').tap()
 
-        self.delay(3)
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 

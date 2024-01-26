@@ -82,7 +82,9 @@ class Testrentofficedetail(TestBase):
         if fygk == True:
             e = self.page.get_element('view[class="center msg"]')
             e.tap()
-            self.delay(1)
+
+            self.delay(6)
+            self.verifyPageName('/im/pages/chating/chating')
             self.get_screenshot()
         else:
             print('没有房源概况模块')
@@ -263,7 +265,9 @@ class Testrentofficedetail(TestBase):
             if len(elms) > value:
                 # print('+++++value+++++')
                 elms[value].tap()
-                self.delay(3)
+
+                self.delay(6)
+                self.verifyPageName('/im/pages/chating/chating')
                 self.get_screenshot()
 
     def test_14_goto_broker_点击经纪人(self):
@@ -284,6 +288,8 @@ class Testrentofficedetail(TestBase):
         # xpath定位
         elm = self.page.get_element('//view[@class="pf contact"]/contact/view/view/view[2]/view[1]')
         elm.tap()
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_16_goto_tel_点击拨打电话(self):

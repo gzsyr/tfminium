@@ -71,7 +71,9 @@ class TestEsfRzfxBg(TestBase):
         self.click_hx()
         # 点击咨询底价
         self.find_element('view[class="lpBottomBar--tfFlex lpBottomBar--tfAlignC lpBottomBar--tfFlexC lpBottomBar--consult_hx"]').tap()
-        self.delay(3)
+
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_hx_更多(self):
@@ -184,6 +186,8 @@ class TestEsfRzfxBg(TestBase):
 
         self.find_element('view[class="lpBottomBar--xq_consult_imicon_hx"]').tap()
 
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_z_在线咨询(self):
@@ -192,7 +196,9 @@ class TestEsfRzfxBg(TestBase):
         """
         self.find_element('view[class="contact--center contact--pr contact--msg"]').tap()
 
-        self.delay(3)
+
+        self.delay(6)
+        self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
     def test_zz_打电话(self):
