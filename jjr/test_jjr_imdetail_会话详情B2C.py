@@ -45,9 +45,10 @@ class TestJJRImdetailB2C(WritePost):
         self.verifyPageName('/page/business/customerManage/followUp/followUp')
         self.get_screenshot()
 
-    def test_01_点击用户足迹(self):
+    def delete_test_01_点击用户足迹(self):
         """
         点击上方C端用户昵称旁边的“用户足迹”
+        delete v7.02.x
         """
         self.find_element('view[class="usertrack"]').tap()
         self.delay(3)

@@ -270,7 +270,9 @@ class Testesfxqlb(TestBase):
         点击小区列表的im
         :return:
         """
-        elm = self.page.get_element('//villageitem/view/view[3]')
-        elm.tap()
-        self.delay(3)
+        self.delay(4)
+        self.find_element('image[class="villageItem--chat"]').tap()
+        self.delay(6)
+
         self.get_screenshot()
+        self.verifyPageName('/im/pages/chating/chating')

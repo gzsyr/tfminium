@@ -684,16 +684,7 @@ class TestNewhouseDetail(TestBase):
         """
         新房详情页页面，点击订阅（图片右边的爱心按钮）
         """
-        if self.page.element_is_exists('view[class="dy-icon is_sub"]'):
-            self.find_element('view[class="dy-icon is_sub"]').tap()
-
-            self.verifyStr(True, self.page.element_is_exists('view[class="dy-icon"]'),
-                           '取消订阅 ok')
-        else:
-            self.find_element('view[class="dy-icon"]').tap()
-
-            self.verifyStr(True, self.page.element_is_exists('view[class="dy-icon is_sub"]'),
-                           '订阅 ok')
+        self.find_element('view[class="subscribe--pa subscribe--subscribe"]').tap()
 
         self.get_screenshot()
 
@@ -701,16 +692,7 @@ class TestNewhouseDetail(TestBase):
         """
         新房详情页页面，点击楼盘名称旁边的闹铃 订阅楼盘
         """
-        if self.page.element_is_exists('view[class="dy"]', inner_text='订阅楼盘'):
-            self.find_element('view[class="dy"]', inner_text='订阅楼盘').tap()
-
-            self.verifyStr(True, self.page.element_is_exists('view[class="dy removeDy"]'),
-                           '取消订阅 ok')
-        else:
-            self.find_element('view[class="dy removeDy"]').tap()
-
-            self.verifyStr(True, self.page.element_is_exists('view[class="dy"]', inner_text='订阅楼盘'),
-                           '订阅 ok')
+        self.find_elements('view[class="subscribe--pa subscribe--subscribe"]')[1].tap()
 
         self.get_screenshot()
 

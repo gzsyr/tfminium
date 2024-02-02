@@ -37,7 +37,7 @@ class TestCenterC(TestMine):
         """
         self.page.get_element('view[class="avatar"]').tap()
 
-        self.verifyPageName('/page/mine/myinfo/myinfo')
+        self.verifyPageName('/page/mine/myinfo/setupInfo')
         self.get_screenshot()
 
     def test_02_C_click_yaohao_我的摇号(self):
