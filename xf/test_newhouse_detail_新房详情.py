@@ -23,19 +23,29 @@ class TestNewhouseDetail(TestBase):
 
         self.delay(15)
 
-    def test_goto_3D_噪音分析(self):
+    def test_goto_3D_噪音分析_and_订阅(self):
         """
+        V7.02.X:add subscribe
         V6.41.X: 点击 3D分析处的 噪音分析
         """
         self.page.scroll_to(3000, 500)
         self.delay(4)
         self.find_element('image[class="btn_3d"][data-ysname="噪音分析"]').tap()
 
-        self.get_screenshot()
+        self.get_screenshot('page')
         self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
 
-    def test_goto_xxxx_日照分析(self):
+        self.delay(5)
+        # subscribe
+        self.find_element('view[class="subscribe--pa subscribe--subscribe"]').tap()
+        self.get_screenshot('subscribe')
+        self.delay(2)
+        self.find_element('view[class="subscribe--pa subscribe--subscribe"]').tap()
+        self.get_screenshot('cancel')
+
+    def test_goto_xxxx_日照分析_and_订阅(self):
         """
+        V7.02.X:add subscribe
         V6.37.X: 点击详细信息的 日照分析
         """
         self.page.scroll_to(2500, 500)
@@ -43,8 +53,16 @@ class TestNewhouseDetail(TestBase):
 
         self.find_element('view[class="newHouseXxxxLirzfx_icon"]').tap()
 
-        self.get_screenshot()
+        self.get_screenshot('page')
         self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
+
+        self.delay(5)
+        # subscribe
+        self.find_element('view[class="subscribe--pa subscribe--subscribe"]').tap()
+        self.get_screenshot('subscribe')
+        self.delay(2)
+        self.find_element('view[class="subscribe--pa subscribe--subscribe"]').tap()
+        self.get_screenshot('cancel')
 
     def test_goto_xxxx_more_日照分析(self):
         """
@@ -785,14 +803,24 @@ class TestNewhouseDetail(TestBase):
         self.find_element('image[class="consultQuestion--askquestion_icon"]').tap()
         self.get_screenshot()
 
-    def test_goto_hxjx_户型解析(self):
+    def test_goto_hxjx_户型解析_and_订阅(self):
         """
+        V7.02.X:add subscribe
         新房详情页页面，点击户型解析
         """
         self.find_element("view[class='newHouseIconInLi-b']", inner_text="户型解析").tap()
 
         self.verifyPageName('/page/newhouse/hx/hxlist')
-        self.get_screenshot()
+        self.get_screenshot('list')
+
+        # 到户型解析页面
+        self.delay(10)
+
+        self.find_element('view[class="subscribe--pa subscribe--subscribe"]').tap()
+        self.get_screenshot('subscribe')
+        self.delay(2)
+        self.find_element('view[class="subscribe--pa subscribe--subscribe"]').tap()
+        self.get_screenshot('cancel')
 
     def test_goto_hxjx_点击户型分布图(self):
         """
@@ -829,14 +857,22 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/newhouse/lpxx/lpxx')
         self.get_screenshot()
 
-    def test_goto_yfyj_一房一价(self):
+    def test_goto_yfyj_一房一价_and_订阅(self):
         """
+        V7.02.X:add subscribe
         新房详情页页面，点击一房一价
         """
         self.find_element("view[class='newHouseIconInLi-b']", inner_text="一房一价").tap()
-        self.delay(3)
+        self.delay(5)
 
-        self.get_screenshot()
+        self.get_screenshot('page')
+
+        # subscribe
+        self.find_element('view[class="subscribe--pa subscribe--subscribe"]').tap()
+        self.get_screenshot('subscribe')
+        self.delay(2)
+        self.find_element('view[class="subscribe--pa subscribe--subscribe"]').tap()
+        self.get_screenshot('cancel')
 
     def test_goto_yfyj_一房一价咨询价格(self):
         """
@@ -1091,8 +1127,9 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
-    def test_goto_ldxq_点击户型分布(self):
+    def test_goto_ldxq_点击户型分布_and_订阅(self):
         """
+        V7.02.X:add subscribe
         V6.39.X: 新房详情页页面，分栋鸟瞰图点，点击【户型分布】按钮
         """
         self.page.scroll_to(6000, 500)
@@ -1100,11 +1137,20 @@ class TestNewhouseDetail(TestBase):
 
         self.find_element('view[class="newHouseFdnkt_hxfx_short newHouseFdnkt_fx"]').tap()
 
-        self.get_screenshot()
+        self.get_screenshot('page')
         self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
 
-    def test_goto_ldxq_点击楼距分析(self):
+        self.delay(5)
+        # subscribe
+        self.find_element('view[class="subscribe--pa subscribe--subscribe"]').tap()
+        self.get_screenshot('subscribe')
+        self.delay(2)
+        self.find_element('view[class="subscribe--pa subscribe--subscribe"]').tap()
+        self.get_screenshot('cancel')
+
+    def test_goto_ldxq_点击楼距分析_and_订阅(self):
         """
+        V7.02.X:add subscribe
         V6.39.X: 新房详情页页面，分栋鸟瞰图点，点击【楼距分析】按钮
         """
         self.page.scroll_to(6000, 500)
@@ -1112,8 +1158,16 @@ class TestNewhouseDetail(TestBase):
 
         self.find_element('view[class="newHouseFdnkt_ljfx_short newHouseFdnkt_fx"]').tap()
 
-        self.get_screenshot()
+        self.get_screenshot('page')
         self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
+
+        self.delay(5)
+        # subscribe
+        self.find_element('view[class="subscribe--pa subscribe--subscribe"]').tap()
+        self.get_screenshot('subscribe')
+        self.delay(2)
+        self.find_element('view[class="subscribe--pa subscribe--subscribe"]').tap()
+        self.get_screenshot('cancel')
 
     def test_goto_ldxq_楼栋详情_户型分布(self):
         """

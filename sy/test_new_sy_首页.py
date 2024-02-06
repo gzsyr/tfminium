@@ -15,6 +15,15 @@ class TestNewSy(TestBase):
         self.classname = self.__class__.__name__
         super(TestNewSy, self).setUp()
 
+    def test_click_楼盘测评分(self):
+        """
+        V6.47.X: 楼盘测评分
+        """
+        self.page.scroll_to(3000)
+        self.find_element('navigator[class="gridNewItem--grid_lpcp"]').tap()
+        self.delay(2)
+        self.get_screenshot()
+
     def test_tab_新房详情(self):
         """
         V6.40.X: 切换到新房tab，点击进入房源

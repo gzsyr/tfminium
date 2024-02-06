@@ -24,6 +24,30 @@ class TestSearch(TestBase):
         """
         self.find_element('input[class="searchTR-input"]').input(keyword)
 
+    def test_007_click_关注度榜单(self):
+        """"
+        V7.01.X: click_关注度榜单
+        """
+        self.get_screenshot('show')
+        self.find_element('view[class="item tfFlex tfAlignC listNum"]').tap()
+
+        self.verifyPageName('/page/newhouse/detail')
+        self.get_screenshot()
+
+    def test_006_进入楼盘评测(self):
+        """
+        V6.47.X: 进入楼盘评测
+        """
+        # 搜索关键词 ‘苏宁测试11’，搜索
+        self.input_keyword('苏宁测试11')
+        self.click_search_button()
+
+        self.delay(2)
+        self.find_element('navigator[class="grid_lpcp"]').tap()
+        self.delay(3)
+        self.verifyPageName('/page/newhouse/evaluation/evaluation')
+        self.get_screenshot()
+
     def test_001_无搜索词搜索(self):
         """
         V6.38.X: 无搜索词，点击 搜索按钮

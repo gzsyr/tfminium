@@ -24,6 +24,29 @@ class TestNewsHouseList(TestBase):
             print("无弹窗广告")
         print("TestNewsHouseList setup")
 
+    def test_click_子榜单信息(self):
+        """
+        V7.01.X: 找房页面（第三位后）子榜单信息流
+        """
+        self.page.scroll_to(800, 200)
+        self.get_screenshot('show')
+
+        self.find_element('view[class="ranking_more"]').tap()
+        self.delay(3)
+        self.verifyPageName('/page/newhouse/rankinglist/rankinglist')
+        self.get_screenshot()
+
+    def test_click_进入楼盘评测(self):
+        """
+        V6.47.x: 进入楼盘评测
+        """
+        self.page.scroll_to(3500, 200)
+        self.delay(2)
+        self.find_element('navigator[class="grid_lpcp"]').tap()
+        self.delay(5)
+        self.verifyPageName('/page/newhouse/evaluation/evaluation')
+        self.get_screenshot()
+
     def test_click_findcard_点击找房卡(self):
         """
         V6.32.X: 点击找房卡
