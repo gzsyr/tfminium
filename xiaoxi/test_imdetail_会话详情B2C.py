@@ -22,6 +22,23 @@ class TestImdetailCB(WritePost):
         super(TestImdetailCB, self).setUp()
         print("TestZygwWritePost setup")
 
+    def test_16_发送资料(self):
+        """
+        V6.48.X: 发送资料
+        """
+        self.find_element('view[class="gfzlBtn flex tfAlignC"]').tap()
+        self.delay(3)
+        self.get_screenshot('open')
+
+        self.find_element('view[class="tfFlex tfAlignC tfFlexC preview"]').tap()
+        self.delay(2)
+        self.get_screenshot('view')
+
+        self.back()
+
+        self.find_element('view[class="tfFlex tfAlignC tfFlexC chat"]').tap()
+        self.get_screenshot('send')
+
     def test_15_点击跟进客户(self):
         """
         V6.42.X: 点击 跟进客户
