@@ -13,15 +13,30 @@ class Testesfxqlb(TestBase):
         super(Testesfxqlb, self).setUp()
         print("Testesfxqlb setup")
 
-    def test_click_search_搜索(self):
+    def test_click_小区测评分数(self):
         """
-        搜索
+        V6.47.X: 点击小区测评分数
+        """
+        self.delay(3)
+        # self.page.scroll_to(2000, 200)
+        self.find_element('image[class="villageItem--ic_cp"]').tap()
+        self.delay(2)
+        self.get_screenshot()
+
+    def test_搜索小区点击测评分数(self):
+        """
+        V6.47.X: 搜索小区点击测评分数
         :return:
         """
-        e = self.page.get_element('input[class="search--flex_1"]')
-        e.tap()
+        self.find_element('input[class="search--flex_1"]').tap()
         self.verifyPageName('/esf/village/pages/search/search', '搜索 ok')
-        self.delay(3)
+        self.delay(1)
+
+        self.find_element('input[class="search--flex_1"]').input('保利梧桐语\t\n')
+        self.delay(2)
+        self.find_element('image[class="villageItem--ic_cp"]').tap()
+        self.delay(2)
+        self.get_screenshot()
 
     def del_test_click_yqtl_点击一起讨论(self):
         """

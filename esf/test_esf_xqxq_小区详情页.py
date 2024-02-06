@@ -12,6 +12,18 @@ class Testesfxqxq(TestBase):
         super(Testesfxqxq, self).setUp()
         print("Testesfxqxq setup")
 
+    def test_周边小区楼盘测评分(self):
+        """
+        V6.47.X: 周边小区楼盘测评分
+        """
+        self.redirect_to_page('/esf/village/pages/detail/detail?blockId=280646&city=nj')
+        self.delay(10)
+
+        self.page.scroll_to(5000)
+        self.find_element('image[class="villageItem--ic_cp"]').tap()
+        self.delay(2)
+        self.get_screenshot()
+
     def test_楼盘测评(self):
         """
         V6.43.x: 楼盘测试用例  中冶钟鼎山庄
