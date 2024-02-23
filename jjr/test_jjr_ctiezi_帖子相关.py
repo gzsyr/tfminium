@@ -99,9 +99,10 @@ class TestJJRTiezi(WritePost):
         self.get_screenshot()
         self.verifyPageName('/esf/sell/pages/broker/broker')
 
-    def test_003_点击经纪人咨询(self):
+    def delete_test_003_点击经纪人咨询(self):
         """
         点击经纪人咨询icon，进入im页面
+        v7.03 防止骚扰经纪人
         """
         self.find_element('view[class="connect fbs_contact_tap"]').tap()
 
@@ -150,9 +151,10 @@ class TestJJRTiezi(WritePost):
         except minium.MiniElementNotFoundError:
             print('该经纪人无发布房源')
 
-    def test_007_点击底部经纪人咨询(self):
+    def delete_test_007_点击底部经纪人咨询(self):
         """
         点击底部经纪人咨询，进入im
+        v7.03 防止骚扰经纪人
         """
         self.find_element('image[class="bottom-connect-avatar"]').tap()
 
@@ -176,9 +178,10 @@ class TestJJRTiezi(WritePost):
         self.get_screenshot()
         self.verifyPageName('/esf/village/pages/detail/detail')
 
-    def test_009_点击推荐二手房咨询(self):
+    def delete_test_009_点击推荐二手房咨询(self):
         """
         点击推荐二手房咨询，进入IM
+        v7.03 防止骚扰经纪人
         """
         self.page.scroll_to(2600, 200)
         self.delay(2)
@@ -187,7 +190,7 @@ class TestJJRTiezi(WritePost):
         self.find_element('view[class="flex recommend_tab"]/view[data-index="2"]').tap()
         self.delay(2)
         # 点击IM咨询
-        self.find_element('view[class="villageItem--center villageItem--chat"]').tap()
+        self.find_element('image[class="villageItem--chat"]').tap()
         self.delay(3)
 
         self.get_screenshot()
