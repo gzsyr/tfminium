@@ -22,15 +22,18 @@ class TestLogin(TestBase):
 
         try:
             # 点击头像
-            self.page.get_element('image[class="headL login"]').tap()
-            self.app.wait_for_page('/page/index/login')
+            # self.find_element('image[class="headL login"]').tap()
+            self.find_element('button[class="logincomponent--loginBtn"]').tap()
 
-            # 勾选协议
-            self.find_element('checkbox').tap()
-            self.delay(2)
 
-            # 点击 微信授权登录
-            self.page.get_element('button').tap()
+            # self.app.wait_for_page('/page/index/login')
+            #
+            # # 勾选协议
+            # self.find_element('checkbox').tap()
+            # self.delay(2)
+            #
+            # # 点击 微信授权登录
+            # self.page.get_element('button').tap()
             self.delay(2)
 
             # 点击 允许
@@ -38,6 +41,7 @@ class TestLogin(TestBase):
 
         except:
             print('没有找到退出登录状态的头像，说明已经登录')
+            assert 1==0
 
         self.get_screenshot()
 

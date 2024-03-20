@@ -89,7 +89,7 @@ class TestNewhousePKCP(TestBase):
         """
         点击测评，进入测评页面
         """
-        self.page.scroll_to(2500, 200)
+        self.page.scroll_to(3000, 200)
         self.delay(3)
         self.find_element('view[class="check-more"]').tap()
 
@@ -111,14 +111,14 @@ class TestNewhousePKCP(TestBase):
         """
         self.goto_cp()
         self.delay(7)
-        self.find_element('view[class="button"]', inner_text='在线咨询').tap()
+        self.find_element('view[class="button positionRel"]', inner_text='在线咨询\n隐私保护').tap()
 
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot('点击咨询')
 
         self.back()
-        self.find_element('view[class="button"]', inner_text='拨打电话').tap()
+        self.find_element('view[class="button positionRel"]', inner_text='拨打电话\n免费').tap()
         self.get_screenshot('拨打电话')
 
     def test_CP_04_点击户型(self):

@@ -43,6 +43,8 @@ class TestNewhouseLpxx(TestBase):
         """
         V6.23.X: -置业顾问楼层，点击“查看更多”
         """
+        self.page.scroll_to(1200, 300)
+        self.delay(4)
         self.find_element('view[class="newHouseTitle-r-sj"]').tap()
 
         self.verifyPageName('/page/newhouse/zygw/list')
@@ -52,6 +54,8 @@ class TestNewhouseLpxx(TestBase):
         """
         V6.23.X: 置业顾问楼层，点击IM按钮
         """
+        self.page.scroll_to(1200, 300)
+        self.delay(4)
         self.find_element('button[class="zyList_li_r_im"]').tap()
 
         self.delay(6)
@@ -62,6 +66,8 @@ class TestNewhouseLpxx(TestBase):
         """
         V6.23.X: 置业顾问楼层，点击置业顾问头像，进置业顾问名片页
         """
+        self.page.scroll_to(1200, 300)
+        self.delay(4)
         self.find_element('image[class="zyList_li_l-img"]').tap()
 
         self.verifyPageName('/page/newhouse/zygw/detail')
@@ -110,6 +116,8 @@ class TestNewhouseLpxx(TestBase):
         """
         V6.23.X: 置业顾问楼层，点击电话
         """
+        self.page.scroll_to(1200, 300)
+        self.delay(4)
         self.find_element('button[class="zyList_li_r_tel"]').tap()
 
         self.get_screenshot()
