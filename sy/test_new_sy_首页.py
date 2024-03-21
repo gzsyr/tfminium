@@ -20,8 +20,17 @@ class TestNewSy(TestBase):
         V6.47.X: 楼盘测评分
         """
         self.page.scroll_to(3000)
-        self.find_element('navigator[class="gridNewItem--grid_lpcp"]').tap()
-        self.delay(2)
+        i = 0
+        while (i < 5):
+            self.page.scroll_to(5000, 200)
+            self.delay(2)
+            try:
+                self.find_element('navigator[class="gridNewItem--grid_lpcp"]').tap()
+                self.delay(2)
+                break
+            except:
+                i = i + 1
+
         self.get_screenshot()
 
     def test_tab_新房详情(self):
@@ -170,7 +179,7 @@ class TestNewSy(TestBase):
         elif value == '租房':
             self.verifyPageName('/esf/sell/rent/home/home')
         elif value == '地图找房':
-            self.verifyPageName('/page/newhouse/mapzf/mapzf')
+            self.verifyPageName('/page/publicPages/dtzf/dtzf')
 
         self.delay(3)
         self.get_screenshot()

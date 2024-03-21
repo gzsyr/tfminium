@@ -17,6 +17,55 @@ class TestIndexShouye(TestBase):
         super(TestIndexShouye, self).setUp()
         print("TestIndexShouye setup atest")
 
+    def test_30_click_新房列表页子榜单(self):
+        """
+        V7.01.x:小程序后台榜单排行榜配置了新房列表页（第三位后）子榜单信息流
+        """
+        self.page.scroll_to(3200, 200)
+        self.get_screenshot('show')
+        self.find_element('view[class="ranking_more"]').tap()
+        self.delay(3)
+        self.verifyPageName('/page/newhouse/rankinglist/rankinglist')
+        self.get_screenshot()
+
+    def test_29_更多精选主题(self):
+        """
+        V7.01.X: 点击小程序首页主题找房楼层右侧的更多精选主题
+        """
+        self.find_element('image[class="more"]').tap()
+
+        self.get_screenshot()
+        self.verifyPageName('/page/newhouse/housespecial/housespecail')
+
+        self.find_element('view[class="item flex tfAlignC"]').tap()
+        self.delay(2)
+        self.get_screenshot('first content')
+
+        self.back()
+
+        self.find_elements('view[class="item flex tfAlignC"]')[1].tap()
+        self.get_screenshot('second content')
+
+    def test_28_进入楼盘评测(self):
+        """
+        V6.47.X: 进入楼盘评测
+        """
+        self.page.scroll_to(3000, 500)
+        self.delay(2)
+
+        i = 0
+        while (i < 5):
+            self.page.scroll_to(5000, 200)
+            self.delay(2)
+            try:
+                self.find_element('navigator[class="grid_lpcp"]').tap()
+                self.delay(5)
+                break
+            except:
+                i = i + 1
+        self.verifyPageName('/page/newhouse/evaluation/evaluation')
+        self.get_screenshot()
+
     def test_27_热门插件更多(self):
         """
         V6.30.X: 1005036，互动插件模块，点击 更多

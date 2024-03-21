@@ -45,12 +45,12 @@ class Testrentofficelhdetail(TestBase):
         """
         b = self.page.element_is_exists('text[class="moduleName"]', inner_text='本楼盘房源')
         if b == True:
-            e = self.page.get_element('view[class="inline_middle house"]')
-            e.tap()
+            self.find_element('view[class="i_m house"]').tap()
             self.delay(1)
-            self.get_screenshot()
         else:
             print('没有本楼盘房源模块')
+
+        self.get_screenshot()
 
     def test_03_click_shadow_品牌介绍点击查看更多收起(self):
         """

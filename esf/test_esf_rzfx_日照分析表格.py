@@ -194,7 +194,7 @@ class TestEsfRzfxBg(TestBase):
         """
         V6.38.X: 点击 在线咨询
         """
-        self.find_element('view[class="contact--center contact--pr contact--msg"]').tap()
+        self.find_element('view[class="contact--center contact--pr contact--msg contact--positionRel"]').tap()
 
 
         self.delay(6)
@@ -205,7 +205,7 @@ class TestEsfRzfxBg(TestBase):
         """
         V6.38.X: 点击 拨打电话
         """
-        self.find_element('view[class="contact--center contact--tel"]').tap()
+        self.find_element('view[class="contact--center contact--tel contact--positionRel"]').tap()
 
         self.get_screenshot()
 

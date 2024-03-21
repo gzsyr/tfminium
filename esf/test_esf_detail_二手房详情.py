@@ -59,15 +59,13 @@ class Testesfdetail(TestBase):
         点击收藏
         :return:
         """
-        e = self.find_element('view[class="pa center collect"]')
-        e.tap()
-        self.get_screenshot()
+        self.find_element('view[class="pa center collect"]').tap()
+        self.get_screenshot('collect')
         """
         取消收藏
         """
-        e1 = self.find_element('view[class="pa center collect"]')
-        e1.tap()
-        self.get_screenshot()
+        self.find_element('view[class="pa center collect"]').tap()
+        self.get_screenshot('cancel')
 
     def delete_test_27_goto_share_点击分享(self):
         """

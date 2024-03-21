@@ -35,7 +35,7 @@ class TestMineCard(TestMine):
         """
         V6.23.X: 底部“在线咨询”
         """
-        self.find_element('view[class="bBtn-im flex tfAlignC tfFlexC"]').tap()
+        self.find_element('view[class="bBtn-im flex tfAlignC tfFlexC positionRel"]').tap()
 
         self.delay(4)
         self.get_screenshot()
@@ -191,7 +191,7 @@ class TestMineCard(TestMine):
         """
         V6.23.X: 底部“在线咨询”
         """
-        self.find_element('view[class="bBtn-tel flex tfAlignC tfFlexC"]').tap()
+        self.find_element('view[class="bBtn-tel flex tfAlignC tfFlexC positionRel"]').tap()
 
         self.get_screenshot()
 

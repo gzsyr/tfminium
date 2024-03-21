@@ -124,7 +124,7 @@ class TestLogoutNewhouseDetail(TestBase):
         """
         url = '/page/newhouse/rizhaofenxi/rizhaofenxi?city=qz&pinyin=shanhaiguojixzl&tab=1'
         self.redirect_to_page(url=url)
-
+        self.delay(10)
         self.find_element('button[class="logincomponent--loginBtn"]').tap()
         self.get_screenshot()
         self.input_value_by_mk('logout/phone_refuse.png')

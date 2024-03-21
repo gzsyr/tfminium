@@ -18,23 +18,35 @@ class Testesfxqlb(TestBase):
         V6.47.X: 点击小区测评分数
         """
         self.delay(3)
-        # self.page.scroll_to(2000, 200)
-        self.find_element('image[class="villageItem--ic_cp"]').tap()
-        self.delay(2)
+        i = 0
+        while(i < 5):
+            self.page.scroll_to(2000, 200)
+            try:
+                self.find_element('image[class="villageItem--ic_cp"]').tap()
+                self.delay(2)
+                break
+            except:
+                i = i+1
         self.get_screenshot()
+
+    def search_village(self, name='测试'):
+        """
+        搜索小区
+        """
+        self.find_element('input[class="search--flex_1"]').tap()
+        self.verifyPageName('/esf/village/pages/search/search', '搜索 ok')
+        self.delay(1)
+
+        self.find_element('input[class="search--flex_1"]').input(name)
+        self.delay(4)
 
     def test_搜索小区点击测评分数(self):
         """
         V6.47.X: 搜索小区点击测评分数
         :return:
         """
-        self.find_element('input[class="search--flex_1"]').tap()
-        self.verifyPageName('/esf/village/pages/search/search', '搜索 ok')
-        self.delay(1)
-
-        self.find_element('input[class="search--flex_1"]').input('保利梧桐语\t\n')
-        self.delay(2)
-        self.find_element('image[class="villageItem--ic_cp"]').tap()
+        self.search_village('保利梧桐语\t\n')
+        self.find_element('image[class="villageItem--pa villageItem--icon"]').tap()
         self.delay(2)
         self.get_screenshot()
 
@@ -49,8 +61,9 @@ class Testesfxqlb(TestBase):
         self.delay(3)
         self.get_screenshot()
 
-    def test_click_jhpl_点击滚动的精华评论(self):
+    def delete_test_click_jhpl_点击滚动的精华评论(self):
         """
+        V7.05: DELETE
         点击滚动的精华评论
         :return:
         """
@@ -275,8 +288,8 @@ class Testesfxqlb(TestBase):
         点击小区列表进入详情页
         :return:
         """
-        elm = self.page.get_element('//villageitem/view')
-        elm.tap()
+        self.delay(3)
+        self.find_element('view[class="villageItem--flex villageItem--village_item_wrapper"]').tap()
         self.delay(3)
         self.get_screenshot()
 
@@ -285,8 +298,8 @@ class Testesfxqlb(TestBase):
         点击小区列表的im
         :return:
         """
-        self.delay(4)
-        self.find_element('image[class="villageItem--chat"]').tap()
+        self.search_village('测试\t\n')
+        self.find_element('image[class="villageItem--icon"]').tap()
         self.delay(6)
 
         self.get_screenshot()

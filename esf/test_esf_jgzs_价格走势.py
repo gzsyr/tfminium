@@ -4,10 +4,10 @@ from base.test_base import TestBase
 @ddt_class()
 class Testesfjgzs(TestBase):
     """
-    价格走势
+    价格走势 水佐岗小区
     """
     def setUp(self, true=None) -> None:
-        self.page_name = "/esf/village/pages/priceTrend/priceTrend?blockId=3982&city=nj"
+        self.page_name = "/esf/village/pages/priceTrend/priceTrend?blockId=1927&city=nj"
         self.switch = true
         self.classname = self.__class__.__name__
         super(Testesfjgzs, self).setUp()
@@ -27,22 +27,21 @@ class Testesfjgzs(TestBase):
         点击关注，取消关注
         :return: 
         """
-        collect = self.page.element_is_exists('view[class="center collect"]')
-        if collect == True:
-            self.page.get_element('view[class="center collect"]').tap()
+        try:
+            self.find_element('view[class="center collect"]').tap()
             self.delay(2)
 
-            collected = self.page.element_is_exists('view[class="center collected"]')
-            if collected == True:
-                self.page.get_element('view[class="center collected"]').tap()
+            try:
+                self.find_element('view[class="center collected"]').tap()
                 self.delay(2)
                 self.get_screenshot()
-            else:
-                self.page.get_element('view[class="center collect"]').tap()
+            except:
+                self.find_element('view[class="center collect"]').tap()
                 self.delay(2)
                 self.get_screenshot()
-        else:
-            self.page.get_element('view[class="center collected"]').tap()
+        except:
+            self.find_element('view[class="center collected"]').tap()
+            self.get_screenshot()
 
     def test_click_date_点击日期tab(self):
         """

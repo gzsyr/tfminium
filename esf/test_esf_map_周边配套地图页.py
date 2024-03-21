@@ -42,9 +42,10 @@ class Testesfmap(TestBase):
         """
         V6.42.X: 点击咨询
         """
-        self.find_element('view[class="icon"]').tap()
-        self.delay(2)
+        self.find_element('view[class="center chat"]').tap()
+        self.delay(6)
         self.get_screenshot()
+        self.verifyPageName('/im/pages/chating/chating')
 
     def test_click_文字(self):
         """

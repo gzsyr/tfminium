@@ -16,7 +16,7 @@ class TestLogoutXq(TestBase):
         """
         V6.43.X: 点击楼盘测评
         """
-        self.delay(2)
+        self.delay(10)
         self.find_element('view[class="evaluation--check-more"]').tap()
         self.delay(5)
         self.get_screenshot('进入楼盘测评详情页')

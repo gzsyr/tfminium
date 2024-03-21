@@ -103,8 +103,9 @@ class TestesfXxxq(TestBase):
         """
         V6.42.X: 点击划片小区更多
         """
+        self.delay(5)
         self.find_element('view[class="hpxq--center hpxq--checkClick"]').tap()
-        self.delay(7)
+        self.delay(10)
         self.get_screenshot('进入划片小区列表页面')
         self.verifyPageName('/esf/sell/pages/schoolBlockList/schoolBlockList')
         
@@ -113,7 +114,7 @@ class TestesfXxxq(TestBase):
         self.get_screenshot('列表页点击进入小区详情页')
         self.back()
 
-        self.find_elements('image[class="villageItem--chat"]')[2].tap()
+        self.find_elements('view[class="villageItem--center villageItem--chat"]')[1].tap()
         self.delay(6)
 
         self.get_screenshot('列表页点击进入咨询页面')

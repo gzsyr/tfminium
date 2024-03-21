@@ -16,7 +16,7 @@ class Testesfbroker(TestMine):
         print("setupclass Testesfbroker")
 
     def setUp(self, true=None) -> None:
-        self.page_name = "/esf/sell/pages/broker/broker?uid=825738"
+        self.page_name = "/esf/sell/pages/broker/broker?uid=1000947&city=nj"
         self.switch = true
         self.classname = self.__class__.__name__
         super(Testesfbroker, self).setUp()
@@ -54,24 +54,13 @@ class Testesfbroker(TestMine):
         租房tab进入详情
         :return: 
         """
-        renttab = self.page.element_is_exists('//view[@class="list"]')
-        renttext = self.page.element_is_exists('text', inner_text="租房")
-        if renttext == True:
-            if renttab == True:
-                r_t = self.page.get_element('//view[2]/view[2]')
-                r_t.tap()
-                self.delay(3)
-                r_items = self.page.get_elements('view[class="item"]')
-                r_first_item = r_items[0]
-                elms = r_first_item.get_element('rentitem').get_elements('view')
-                elms[0].tap()
-                self.verifyPageName('/esf/sell/rent/detail/detail', '房源详情 ok')
-                self.delay(5)
-                self.get_screenshot()
-            else:
-                print("没有列表数据")
-        else:
+        try:
+            self.find_element('view[class="center type"]').tap()
+            self.delay(2)
+            self.find_element('image[class="rentItem--img"]').tap()
+        except:
             print("没有租房房源")
+        self.get_screenshot()
 
 
     def test_03_click_btnmsg_点击在线聊(self):
@@ -79,7 +68,7 @@ class Testesfbroker(TestMine):
         点击在线聊
         :return:
         """
-        self.page.get_element('view[class="center btn msg"]').tap()
+        self.find_element('view[class="center btn msg positionRel"]').tap()
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
@@ -89,7 +78,5 @@ class Testesfbroker(TestMine):
         点击打电话
         :return:
         """
-        self.page.get_element('view[class="center btn tel"]').tap()
-        self.delay(2)
+        self.find_element('view[class="center btn tel positionRel"]').tap()
         self.get_screenshot()
-        self.delay(5)

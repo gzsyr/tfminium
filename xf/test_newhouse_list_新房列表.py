@@ -22,6 +22,11 @@ class TestNewsHouseList(TestBase):
             print("关闭弹窗广告")
         except minium.MiniElementNotFoundError:
             print("无弹窗广告")
+
+        try:
+            self.find_element('view[class="tab"]', inner_text='新房').tap()
+        except minium.MiniElementNotFoundError:
+            print('已经再新房tab下')
         print("TestNewsHouseList setup")
 
     def test_click_子榜单信息(self):
@@ -40,10 +45,16 @@ class TestNewsHouseList(TestBase):
         """
         V6.47.x: 进入楼盘评测
         """
-        self.page.scroll_to(3500, 200)
-        self.delay(2)
-        self.find_element('navigator[class="grid_lpcp"]').tap()
-        self.delay(5)
+        i = 0
+        while(i < 5):
+            self.page.scroll_to(5000, 200)
+            self.delay(2)
+            try:
+                self.find_element('navigator[class="grid_lpcp"]').tap()
+                self.delay(5)
+                break
+            except:
+                i = i + 1
         self.verifyPageName('/page/newhouse/evaluation/evaluation')
         self.get_screenshot()
 
@@ -81,6 +92,14 @@ class TestNewsHouseList(TestBase):
         """
         self.find_element('view[class="hint"]', text_contains='请输入楼盘或小区名称').tap()
         # self.find_element('view[class="search-wrapper"]').tap()
+
+        self.delay(2)
+        try:
+             self.find_element('view[class="center typeClick"][data-type="XF"]').tap()
+
+        except:
+            print('停留在新房tab')
+
         # 进入搜索页面
         self.app.wait_for_page('/page/search/index')
         # 输入关键词
@@ -156,6 +175,7 @@ class TestNewsHouseList(TestBase):
         """
         新房列表页面，进入新房详情页
         """
+        self.delay(2)
         self.page.get_element('view[class="tfFlex xflb_lp disflex-flexwrap-nowrap"]').tap()
 
         self.verifyPageName('/page/newhouse/detail')

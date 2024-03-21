@@ -339,7 +339,7 @@ class TestNewhouseDetail(TestBase):
         """
         self.page.scroll_to(3000, 200)
         self.delay(3)
-        self.find_element('view[class="iwantdpT"]', inner_text='咨询周边学校情况').tap()
+        self.find_element('view[class="iwantdpT"]', inner_text='周边学校咨询z').tap()
 
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
@@ -878,7 +878,7 @@ class TestNewhouseDetail(TestBase):
         """
         新房详情页页面，点击一房一价下方的’咨询房源价格‘
         """
-        self.find_element("view[class='iwantdpT']", inner_text="咨询房源价格").tap()
+        self.find_element("view[class='iwantdpT']", inner_text="一房一价咨询z").tap()
         self.delay(3)
 
         self.get_screenshot()
@@ -1097,7 +1097,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.21.X: 1003947   新房详情页页面，详情详细信息位置，点击【咨询更多楼盘信息】按钮
         """
-        self.find_element("view[class='iwantdpT']", inner_text="咨询更多楼盘信息").tap()
+        self.find_element("view[class='iwantdpT']", inner_text="楼盘详情咨询z").tap()
 
 
         self.delay(6)
@@ -1221,7 +1221,7 @@ class TestNewhouseDetail(TestBase):
         """
         self.page.scroll_to(6000, 500)
         self.delay(10)
-        self.find_element("view[class='iwantdpT']", inner_text="咨询楼栋详情").tap()
+        self.find_element("view[class='iwantdpT']", inner_text="鸟瞰图咨询z").tap()
 
         self.delay(3)
         self.get_screenshot()
@@ -1255,7 +1255,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 新房详情页，位置及周边楼层，点击地图
         """
-        self.page.scroll_to(5000, 500)
+        self.page.scroll_to(4500, 500)
         self.delay(15)
 
         # self.find_element('//*[@id="map"]').tap()
@@ -1271,7 +1271,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 新房详情页，位置及周边楼层，点击教育下的文字
         """
-        self.page.scroll_to(5000, 500)
+        self.page.scroll_to(4500, 500)
         self.delay(15)
 
         # self.find_element('//*[@id="map"]').tap()
@@ -1337,7 +1337,7 @@ class TestNewhouseDetail(TestBase):
 
         self.find_element('view[class="center chat"]').tap()
 
-        self.delay(6)
+        self.delay(8)
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
 
@@ -1400,7 +1400,7 @@ class TestNewhouseDetail(TestBase):
         self.page.scroll_to(3500, 500)
         self.delay(6)
 
-        self.find_element("view[class='iwantdpT']", inner_text="咨询周边配套及规划").tap()
+        self.find_element("view[class='iwantdpT']", inner_text="位置周边咨询z").tap()
 
 
         self.delay(6)

@@ -57,7 +57,7 @@ class TestTieziIM(WritePost):
         self.find_element('view[class="flex recommend_tab"]/view[data-index="2"]').tap()
         self.delay(2)
         # 点击IM咨询
-        self.find_element('image[class="villageItem--chat"]').tap()
+        self.find_element('image[class="villageItem--icon"]').tap()
         self.delay(3)
 
         self.get_screenshot()

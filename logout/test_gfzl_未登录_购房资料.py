@@ -25,7 +25,7 @@ class TestLogoutGfzl(TestBase):
         """
         V6.28.X: 1004929，点击置业顾问IM
         """
-        self.find_element('view[class="flex-1 flex tfAlignC tfFlexC link-button im"]').tap()
+        self.find_element('view[class="flex-1 flex tfAlignC tfFlexC link-button im positionRel"]').tap()
 
         self.get_screenshot()
 
@@ -33,7 +33,7 @@ class TestLogoutGfzl(TestBase):
         """
         V6.28.X: 1004929，点击置业顾问电话
         """
-        self.find_element('view[class="flex-1 flex tfAlignC tfFlexC link-button call"]').tap()
+        self.find_element('view[class="flex-1 flex tfAlignC tfFlexC link-button call positionRel"]').tap()
 
         self.get_screenshot()
 

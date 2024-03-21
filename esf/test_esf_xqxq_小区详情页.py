@@ -20,7 +20,7 @@ class Testesfxqxq(TestBase):
         self.delay(10)
 
         self.page.scroll_to(5000)
-        self.find_element('image[class="villageItem--ic_cp"]').tap()
+        self.find_element('image[class="villageItem--pa villageItem--icon"]').tap()
         self.delay(2)
         self.get_screenshot()
 
@@ -38,13 +38,13 @@ class Testesfxqxq(TestBase):
         self.get_screenshot('进入楼盘测评详情页')
 
         # 在楼盘测评详情页，点击 在线咨询
-        self.find_element('view[class="button"]', inner_text='在线咨询').tap()
+        self.find_element('view[class="button positionRel"]', inner_text='在线咨询\n隐私保护').tap()
         self.delay(5)
         self.get_screenshot('进入咨询页面')
         self.back()
 
         # 在楼盘测评详情页，点击拨打电话
-        self.find_element('view[class="button"]', inner_text='拨打电话').tap()
+        self.find_element('view[class="button positionRel"]', inner_text='拨打电话\n免费').tap()
         self.get_screenshot('点击拨打电话')
 
         # 在楼盘测评详情页，点击图片
@@ -696,7 +696,7 @@ class Testesfxqxq(TestBase):
         V6.42.x: 点击拨打电话
         :return:
         """
-        self.find_element('view[class="bottomContact--center bottomContact--chat"]').tap()
+        self.find_element('view[class="bottomContact--center bottomContact--chat bottomContact--positionRel"]').tap()
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
@@ -707,5 +707,5 @@ class Testesfxqxq(TestBase):
         :return:
         """
 
-        self.find_element('view[class="bottomContact--center bottomContact--call"]').tap()
+        self.find_element('view[class="bottomContact--center bottomContact--call bottomContact--positionRel"]').tap()
         self.get_screenshot()
