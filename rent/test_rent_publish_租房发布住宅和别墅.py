@@ -74,15 +74,12 @@ class Testrentfb(ZufangContent):
         self.rent_content(kwargs)
         self.delay(3)
         self.get_screenshot()
-        self.delay(3)
 
     def rent_content(self, kwargs):
         """
         填写租房发布内容
         :return:
         """
-        # 上传图片
-        self.set_img()
         # 小区名称
         self.set_xqmc(kwargs['xqmc'])
         # 户型
@@ -119,8 +116,8 @@ class Testrentfb(ZufangContent):
         self.set_czyq()
         # 房源描述
         self.set_desc(kwargs['fyms'])
-        # 核验码
-        self.set_hym(kwargs['heyanma'])
+        # 核验码#delete 2024.4.2
+        # self.set_hym(kwargs['heyanma'])
         # 看房时间
         self.set_kanfangtime(kwargs['kanfangtime'])
         # 入住时间
@@ -129,12 +126,15 @@ class Testrentfb(ZufangContent):
         self.set_name(kwargs['name'])
         # 房屋权属信息-去认证
         self.set_renzheng(kwargs['zjlx'], kwargs['zjhm'], kwargs['qqh'], kwargs['cqrxm'], kwargs['cqrsfzh'])
+
+        # 上传图片
+        self.set_img()
+
         self.get_screenshot()
         self.delay(3)
         # 发布
         self.set_fabu()
         self.get_screenshot()
-        self.delay(3)
         # 个人中心
         # self.set_grzx()
 

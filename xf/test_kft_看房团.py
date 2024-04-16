@@ -65,7 +65,7 @@ class TestKFT(TestBase):
         点击我要报名,点击我已阅读小√，输入手机号，点击获取验证码
         """
         self.page.get_element('view[class="kftliBtn-style bg_ff5500"]').tap()
-        self.app.wait_for_page('/page/houseteam/apply')
+        self.app.wait_for_page('/page/houseteam/apply', max_timeout=15)
         self.page.get_element('image.agree-icon').tap()
         self.page.get_element('input', inner_text='请填写11位手机号码').input('15105182846')
         self.page.get_element('input', inner_text='请填写姓名').input('测试人员')

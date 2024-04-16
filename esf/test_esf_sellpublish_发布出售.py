@@ -66,17 +66,78 @@ class Testesfsellfb(TestBase):
         :param kwargs:
         :return:
         """
-        self.page.get_element(f'view[class="between houseType"][data-type="{kwargs["datatype"]}"]').tap()
+        self.find_element(f'view[class="between houseType"][data-type="{kwargs["datatype"]}"]').tap()
+        # self.find_element(f'view[class="between houseType"][data-type="1"]').tap()
         self.delay(3)
+
+        # 先reset重置页面
         result = {"confirm": True}
         self.app.mock_wx_method("showModal", result=result)
         self.page.get_element('view[class="reset"]').tap()
         self.app.restore_wx_method("showModal")
         self.delay(3)
+
         self.sell_content(kwargs)
         self.delay(3)
         self.get_screenshot()
         self.delay(3)
+
+    def sell_content_no_params(self):
+        """
+        测试用 ，使用默认参数
+        """
+        # 小区名称
+        self.set_xqmc()
+        # 户型
+        self.set_huxing()
+        # 朝向
+        self.set_chaoxiang()
+        # 楼层
+        self.set_louceng()
+        # 楼栋号
+        self.set_loudonghao()
+        # 单元号
+        self.set_danyuan()
+        # 室号
+        self.set_shihao()
+        # 装修
+        self.set_zhuangxiu()
+        # 面积
+        self.set_area()
+        # 期望价格
+        self.set_price()
+        # 建筑年代
+        self.set_year()
+        # 下一步
+        self.set_xiayibu()
+        self.delay(5)
+
+        self.get_screenshot()
+        self.delay(3)
+
+        # page two
+        # 房源标题
+        self.set_title()
+        # 核验码
+        # self.set_hym()
+        # 房源特色
+        self.set_fyts()
+        # 房源描述
+        self.set_desc()
+        # 联系人
+        self.set_name()
+        # 去认证
+        self.set_renzheng()
+        # 上传图片
+        self.set_img()
+
+        self.delay(5)
+        self.get_screenshot()
+        self.delay(3)
+        # 发布
+        self.set_fabu()
+        self.delay(5)
+        self.get_screenshot()
 
     def sell_content(self, kwargs):
         """
@@ -84,8 +145,7 @@ class Testesfsellfb(TestBase):
         :param kwargs:
         :return:
         """
-        # 上传图片
-        self.set_img()
+
         # 小区名称
         self.set_xqmc(kwargs['xqmc'])
         # 户型
@@ -115,8 +175,8 @@ class Testesfsellfb(TestBase):
         self.delay(3)
         # 房源标题
         self.set_title(kwargs['title'])
-        # 核验码
-        self.set_hym(kwargs['heyanma'])
+        # 核验码 delete 2024.4.1
+        # self.set_hym(kwargs['heyanma'])
         # 房源特色
         self.set_fyts()
         # 房源描述
@@ -125,20 +185,21 @@ class Testesfsellfb(TestBase):
         self.set_name(kwargs['name'])
         # 去认证
         self.set_renzheng(kwargs['zjlx'], kwargs['zjhm'], kwargs['cqrxm'], kwargs['cqrsfzh'])
-        self.delay(5)
-        self.get_screenshot()
-        self.delay(3)
+        self.delay(2)
+
+        # 上传图片
+        self.set_img()
+
         # 发布
         self.set_fabu()
         self.delay(5)
         self.get_screenshot()
-        self.delay(3)
         # 个人中心
         # self.set_grzx()
 
     def set_img(self):
         # 上传图片
-        self.page.get_element('//step_1head//text', inner_text="上传图片").tap()
+        self.find_element('image[class="ic_camera"]').tap()
         self.delay(2)
 
         self.page.get_element('view[class="center column upload"]').tap()
@@ -155,12 +216,11 @@ class Testesfsellfb(TestBase):
 
     def set_xqmc(self, xqmc='测试'):
         # 小区名称
-        self.page.get_element('/view[2]/view[2]/view/view/view[2]').tap()
+        self.find_element('view[class="content"]', inner_text='请输入小区名称').tap()
         self.delay(3)
-        self.page.get_element('input[class="flex_1 input"]').input(xqmc)
+        self.find_element('input[class="flex_1 input"]').input(xqmc)
         self.delay(3)
-        item = self.page.get_elements('/view[2]/view/view')
-        item[0].tap()
+        self.find_element('view[class="item"]').tap()
         self.delay(2)
         return self
 
@@ -324,20 +384,21 @@ class Testesfsellfb(TestBase):
         self.page.get_element('view[class="reset"]').tap()
         self.app.restore_wx_method("showModal")
         self.delay(3)
-        # 证件类型
-        self.page.get_element('/view/view[2]').tap()
-        self.delay(5)
-        e = self.page.get_element('picker-view[class="picker-view"]')
-        e.trigger("change", {"value": zjlx})
-        self.delay(5)
-        self.page.get_element('//view[@class="pa picker"]/view/view[2]').tap()
-        self.delay(5)
-        # 证件号码
-        self.input_value_by_mk(png='esf/zjhm.png', value=zjhm, direction=1)
-        self.delay(6)
+        # 证件类型 delete 2024.4.1
+        # self.page.get_element('/view/view[2]').tap()
+        # self.delay(5)
+        # e = self.page.get_element('picker-view[class="picker-view"]')
+        # e.trigger("change", {"value": zjlx})
+        # self.delay(5)
+        # self.page.get_element('//view[@class="pa picker"]/view/view[2]').tap()
+        # self.delay(5)
+        # 证件号码 delete2024.4.1
+        # self.input_value_by_mk(png='esf/zjhm.png', value=zjhm, direction=1)
+        # self.delay(6)
+
         # 产权人姓名
         pyperclip.copy(cqrxm)
-        self.delay(5)
+        self.delay(2)
         self.input_value_by_mk(png='esf/cqrxm.png', value=cqrxm, direction=1)
         self.delay(5)
         pyautogui.hotkey('Ctrl', 'V')

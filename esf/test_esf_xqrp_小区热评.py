@@ -28,9 +28,7 @@ class Testesfxqrp(TestBase):
         热评小区-点击去搜索
         :return:
         """
-        e = self.page.get_element('view[class="center toDo"]')
-        e.tap()
-        self.delay(3)
+        self.find_element('view[class="center toDo"]').tap()
         self.get_screenshot()
 
     def test_03_click_hotcomment_列表进详情(self):
@@ -38,8 +36,7 @@ class Testesfxqrp(TestBase):
         热评小区列表点击进详情
         :return:
         """
-        hotlist = self.page.get_elements('view[class="between hotComment"]')
-        hotlist[0].tap()
+        self.find_elements('view[class="between hotComment"]')[0].tap()
         self.delay(3)
         self.get_screenshot()
 
@@ -155,7 +152,5 @@ class Testesfxqrp(TestBase):
         """
         self.page.scroll_to(500, 500)
         self.delay(1)
-        e = self.page.get_element('//hoverbutton/view/view')
-        e.tap()
-        self.delay(3)
+        self.find_element('//hoverbutton/view/view').tap()
         self.get_screenshot()

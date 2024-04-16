@@ -100,7 +100,7 @@ class WritePost(TestMine):
         self.find_element('input[class="searchTR-input"]').input(lpname)
         self.delay(1)
         self.find_element('view[class="search_txt"]').tap()
-        self.delay(3)
+        self.delay(4)
         self.find_element('view[class="quick-add quick-addto2 quick-color2"][data-index="0"]', inner_text="添加").tap()
         self.delay(1)
         self.find_element('view[class="close_box"]').tap()

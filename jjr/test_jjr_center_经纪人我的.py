@@ -74,7 +74,7 @@ class TestCenterJJR(TestMine):
         # 点击 IM咨询配置
         self.find_element('view[class="name"]', inner_text='IM咨询配置').tap()
 
-        self.delay(3)
+        self.delay(8)
 
         # 点击 常用语设置
         self.find_element('view[class="inner disflex tfAlignC tfFlexSb"]/view', inner_text='常用语设置').tap()

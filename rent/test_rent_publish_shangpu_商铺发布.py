@@ -31,15 +31,13 @@ class Testrentshangpu(ZufangContent):
         self.rent_content(kwargs)
         self.delay(3)
         self.get_screenshot()
-        self.delay(3)
 
     def rent_content(self, kwargs):
         """
         填写商铺发布内容
         :return:
         """
-        # 上传图片
-        self.set_img()
+
         # 小区名称
         self.set_xqmc(kwargs['xqmc'])
         # 商铺性质
@@ -80,9 +78,12 @@ class Testrentshangpu(ZufangContent):
         self.set_name(kwargs['name'])
         # 房屋权属信息-去认证
         self.set_renzheng(kwargs['zjlx'], kwargs['zjhm'], kwargs['qqh'], kwargs['cqrxm'], kwargs['cqrsfzh'])
+
+        # 上传图片
+        self.set_img()
+
         self.get_screenshot()
         self.delay(3)
         # 发布
         self.set_fabu()
         self.get_screenshot()
-        self.delay(3)

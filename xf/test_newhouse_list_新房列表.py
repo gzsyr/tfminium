@@ -93,7 +93,7 @@ class TestNewsHouseList(TestBase):
         self.find_element('view[class="hint"]', text_contains='请输入楼盘或小区名称').tap()
         # self.find_element('view[class="search-wrapper"]').tap()
 
-        self.delay(2)
+        self.delay(20)
         try:
              self.find_element('view[class="center typeClick"][data-type="XF"]').tap()
 
@@ -101,7 +101,7 @@ class TestNewsHouseList(TestBase):
             print('停留在新房tab')
 
         # 进入搜索页面
-        self.app.wait_for_page('/page/search/index')
+        self.app.wait_for_page('/page/search/index', max_timeout=20)
         # 输入关键词
         self.find_element('input[class="searchTR-input"]').input("泉州万科城")
         self.delay(5)

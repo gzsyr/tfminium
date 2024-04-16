@@ -21,6 +21,8 @@ class TestTfqShouYe(TestBase):
         """
         跳转至话题
         """
+        self.page.scroll_to(1000, 200)
+        self.delay(1)
         self.page.get_element('view[class="tfq--hot-huati-more"]').tap()
 
         self.verifyPageName('/page/taofangquan/huati/huatiList')

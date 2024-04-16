@@ -97,7 +97,7 @@ class Testrentzsycz(TestBase):
     def set_zsytitle(self, zsytitle='找室友标题啊啊啊'):
         # 标题
         pyperclip.copy(zsytitle)
-        self.delay(8)
+        self.delay(5)
         self.input_value_by_mk(png='rent/zsytitle.png', value=zsytitle)
         self.delay(5)
         pyautogui.hotkey('Ctrl', 'V')
@@ -106,9 +106,8 @@ class Testrentzsycz(TestBase):
 
     def set_xqmc(self, xqmc='测试'):
         # 小区名称
-        self.delay(8)
         # self.page.get_element('view[class="flex_1 center column partItem"]/view[2]').tap()
-        self.find_element('view[class="line_1 value valueEmpty"]').tap()
+        self.find_element('view[class="flex_1 center column partItem"]').tap()
         self.delay(8)
         self.page.get_element('input[class="flex_1 input"]').input(xqmc)
         self.delay(5)

@@ -30,7 +30,7 @@ class TestJJRImdetailB2C(WritePost):
         self.delay(3)
         self.get_screenshot('open')
 
-        self.find_element('view[class="tfFlex tfAlignC tfFlexC preview"]').tap()
+        self.find_element('image[class="img"]').tap()
         self.delay(2)
         self.get_screenshot('view')
 
