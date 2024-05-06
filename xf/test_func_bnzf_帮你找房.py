@@ -53,12 +53,22 @@ class TestFuncBnzf(TestBase):
         """
         self.find_element('view', inner_text='新房').tap()
 
+        # 重置
+        self.find_element('button[class="reset"]').tap()
+
         # 选择物业类型
         wylx = kwargs['wylx']
         self.find_element(f'view[data-key="{wylx}"]').tap()
 
         # 默认选择 区域 丰泽
-        self.find_element('picker').trigger('change', {'value': [0, 2]})
+        # self.find_element('picker').trigger('change', {'value': [0, 2]})
+        try:
+            self.find_element('view[class="item pos"]').tap()
+            self.find_element('view[class="item"][data-index2="2"]').tap()
+            self.find_element('view[class="flex_1 center btn confirm"]').tap()
+        except:
+            print('已经选中')
+
 
         # 选择买房预算
         mfys = kwargs['mfys']

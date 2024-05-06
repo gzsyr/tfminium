@@ -179,7 +179,7 @@ class TestNewSy(TestBase):
         elif value == '租房':
             self.verifyPageName('/esf/sell/rent/home/home')
         elif value == '地图找房':
-            self.verifyPageName('/page/publicPages/dtzf/dtzf')
+            self.verifyPageName('/page/newhouse/mapzf/mapzf')
 
         self.delay(3)
         self.get_screenshot()
