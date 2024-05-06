@@ -19,19 +19,13 @@ class Testesfsearch(TestBase):
         输入关键字
         :return:
         """
-        self.find_element('input[class="search--flex_1 search--searchInput"]').input('金地')
+        self.find_element('input[class="search--flex_1 search--ipt"]').input('金地')
         self.delay(3)
         self.get_screenshot()
+        self.find_element('view[class="flex column j_c listItem"]').tap()
         self.delay(3)
-        keys = self.page.element_is_exists('//view[@class="flex flex_column justify_center listItem"]')
-        if keys == True:
-            k = self.page.get_elements('//view[@class="flex flex_column justify_center listItem"]')
-            k[0].tap()
-            self.delay(3)
-            self.get_screenshot()
-        else:
-            print('没有查找到相关内容')
-            self.get_screenshot()
+        self.verifyPageName('/esf/sell/pages/sellList/sellList')
+        self.get_screenshot('进入详情')
 
     @ddt_case(
         0, 1, 2

@@ -50,15 +50,16 @@ class TestSearch(TestBase):
 
     def test_001_无搜索词搜索(self):
         """
+        V7.08: update no toast
         V6.38.X: 无搜索词，点击 搜索按钮
         """
-        tap = 'self.find_element(\'view[class="search_txt"]\').tap()'
+        self.find_element('view[class="search_txt"]').tap()
 
         self.get_screenshot()
-        self.verifyStr(True, self.getShowToast(tap), '提示成功')
 
     def test_002_关键词搜索(self):
         """
+        V7.08: update no toast
         V6.38.X: 输入关键词搜索，进入搜索结果页
         """
         self.input_keyword('test')
@@ -72,9 +73,8 @@ class TestSearch(TestBase):
         self.get_screenshot('搜索结果页取消关键词')
 
         # 搜索关键为空，点击搜索
-        tap = 'self.find_element(\'view[class="search_txt"]\').tap()'
+        self.find_element('view[class="search_txt"]').tap()
         self.get_screenshot('关键词为空点击搜索')
-        self.verifyStr(True, self.getShowToast(tap), '提示成功')
 
         # 搜索关键词 ‘泉州万科城’，搜索
         self.input_keyword('泉州万科城')

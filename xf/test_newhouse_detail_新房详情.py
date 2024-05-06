@@ -19,9 +19,10 @@ class TestNewhouseDetail(TestBase):
         """
         点击 采光计算器
         """
+        self.delay(10)
         self.find_element('/page/view/view[2]/scroll-view/view/view[12]/view/image').tap()
 
-        self.delay(15)
+        self.delay(25)
 
     def test_goto_3D_噪音分析_and_订阅(self):
         """

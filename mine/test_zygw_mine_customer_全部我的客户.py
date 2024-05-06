@@ -26,7 +26,7 @@ class TestMineAllCustomer(TestMine):
         """
         输入客户姓名，搜索
         """
-        self.page.get_element('input').input(name + '\n')
+        self.find_element('input').input(name + '\n')
         self.delay(3)
 
     def test_01_搜索客户姓名(self):
@@ -219,6 +219,9 @@ class TestMineAllCustomer(TestMine):
         添加跟进记录页面
         """
         self.delay(2)
+        if zt:
+            self.page.get_element('view[data-tagindex="0"]', inner_text=zt).tap()
+
         if yx:
             self.page.get_element('view[data-tagindex="0"]', inner_text=yx).tap()
         if jd:
@@ -226,8 +229,6 @@ class TestMineAllCustomer(TestMine):
             a = lxele.attribute('class')
             if 'active' not in a[0]:
                 lxele.tap()
-        if zt:
-            self.page.get_element('view[data-tagindex="0"]', inner_text=zt).tap()
         if bz:
             self.page.get_element('textarea').input(bz)
 

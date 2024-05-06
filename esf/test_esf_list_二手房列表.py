@@ -19,10 +19,12 @@ class Testesflist(TestBase):
         搜索
         V6.44.x: 搜索发现关键词、小区人气榜、房源推荐榜、经纪人榜分别进入对应页面
         """
-        self.find_element('input[class="search--flex_1"]').tap()
-        self.get_screenshot()
-        self.verifyPageName('/esf/sell/pages/search/search', '搜索 ok')
-        self.delay(3)
+        self.redirect_to_page('/esf/sell/pages/search/search')
+        # self.delay(3)
+        # self.find_element('input[class="flex a_c hotKeyword"]').tap()
+        # self.get_screenshot()
+        # self.verifyPageName('/esf/sell/pages/search/search', '搜索 ok')
+        self.delay(8)
 
         # 点击发现关键词
         self.find_element('view[class="flex a_c item"]').tap()
@@ -32,7 +34,7 @@ class Testesflist(TestBase):
         #
         # 点击小区人气榜第一个
         self.find_element('view[class="flex a_c rank-item"][data-type="xq"]').tap()
-        self.delay(8)
+        self.delay(10)
         self.get_screenshot('点击小区人气榜的第一个')
         self.back()
 

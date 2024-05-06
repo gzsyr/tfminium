@@ -49,7 +49,7 @@ class TestAlbum(TestMine):
         """
         V6.50.x: 周边配套小图
         """
-        self.find_element('view[class="firstImg_txt"]').tap()
+        self.find_element('view[class="firstImg_txt"]/text', inner_text='周边配套').tap()
 
         self.get_screenshot()
         self.verifyPageName('/page/publicPages/map/map')

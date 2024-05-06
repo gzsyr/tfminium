@@ -231,15 +231,10 @@ class Testrentofficelianhe(TestBase):
         点击列表进入详情页
         :return:
         """
-        elm_items = self.page.get_elements('//view[@class="list"]')
-        # 第一个item
-        elm_first_item = elm_items[0]
-        # 点击第一条房源
-        elms = elm_first_item.get_element('buildingItem').get_elements('view')
-        elms[0].tap()
+        self.find_element('view[class="buildingItem--pr buildingItem--pic"]').tap()
+        # self.find_elements('//view[@class="list"]')[0].get_element('buildingItem').get_elements('view')[0].tap()
         self.delay(3)
         self.get_screenshot()
-        self.delay(3)
 
     def test_click_pprz_点击品牌入驻(self):
         """
@@ -255,4 +250,3 @@ class Testrentofficelianhe(TestBase):
         sub = 'self.page.get_element(\'view[class="center submit"]\').tap()'
         self.verifyStr(True, self.getShowToast(sub), '提交成功ok')
         self.get_screenshot()
-        self.delay(5)

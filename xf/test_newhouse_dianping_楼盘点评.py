@@ -57,7 +57,7 @@ class TestNewhouseDianping(TestBase):
         """
         楼盘点评页面，点击综合评分下面的热点聚焦，进入帖子详情页
         """
-        self.page.get_element('view[class="toutiao-swiper-item tfLine1"]').tap()
+        self.find_element('view[class="toutiao-swiper-item tfLine1"]').tap()
 
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()

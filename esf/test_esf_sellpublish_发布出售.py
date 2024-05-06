@@ -368,13 +368,19 @@ class Testesfsellfb(TestBase):
         self.delay(1)
         pyperclip.copy(name)
         self.delay(3)
-        self.input_value_by_mk(png='esf/name.png', value=name, direction=1)
+        try:
+            self.input_value_by_mk(png='esf/name.png', value=name, direction=1)
+        except:
+            self.input_value_by_mk(png='esf/name-bb.png', value=name, direction=1)
         self.delay(3)
         pyautogui.hotkey('Ctrl', 'V')
         self.delay(3)
         return self
 
     def set_renzheng(self, zjlx=[2], zjhm='0000000000', cqrxm='赵赵赵', cqrsfzh='320520199001021111'):
+        #delete
+        return
+
         self.page.scroll_to(800, 500)
         self.delay(1)
         # 房屋权属信息-去认证

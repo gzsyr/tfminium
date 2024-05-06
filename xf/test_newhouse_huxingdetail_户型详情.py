@@ -1,11 +1,17 @@
 # -*-coding:utf-8-*-
 from base.test_base import TestBase
+from base.test_mine import TestMine
 
-
-class TestNewhouseHuxingDetail(TestBase):
+class TestNewhouseHuxingDetail(TestMine):
     """
     户型详情页(苏宁测试11）
     """
+    @classmethod
+    def setUpClass(cls) -> None:
+        super(TestNewhouseHuxingDetail, cls).setUpClass()
+        cls().change_C()
+        print("setupclass")
+
     def setUp(self) -> None:
         self.page_name = '/page/newhouse/hx/hxdetail?picid=3127301&pinyin=sjcs1&city=qz'
         self.switch = False
@@ -26,7 +32,7 @@ class TestNewhouseHuxingDetail(TestBase):
         V6.23.X: -置业顾问楼层，点击“查看更多”
         """
         self.page.scroll_to(500, 300)
-        self.delay(3)
+        self.delay(8)
         self.find_element('view[class="more tfFlex tfAlignC"]').tap()
 
         self.verifyPageName('/page/newhouse/zygw/list')
@@ -37,7 +43,7 @@ class TestNewhouseHuxingDetail(TestBase):
         V6.23.X: 置业顾问楼层，点击IM按钮
         """
         self.page.scroll_to(500, 300)
-        self.delay(3)
+        self.delay(8)
         self.find_element('button[class="zyList_li_r_im"]').tap()
 
 
@@ -50,7 +56,7 @@ class TestNewhouseHuxingDetail(TestBase):
         V6.23.X: 置业顾问楼层，点击置业顾问头像，进置业顾问名片页
         """
         self.page.scroll_to(500, 300)
-        self.delay(3)
+        self.delay(8)
         self.find_element('image[class="zyList_li_l-img"]').tap()
 
         self.verifyPageName('/page/newhouse/zygw/detail')
@@ -86,7 +92,7 @@ class TestNewhouseHuxingDetail(TestBase):
         V6.23.X: 置业顾问楼层，点击电话
         """
         self.page.scroll_to(500, 300)
-        self.delay(3)
+        self.delay(8)
         self.find_element('button[class="zyList_li_r_tel"]').tap()
 
         self.get_screenshot()
