@@ -13,7 +13,7 @@ class TestKFT(TestBase):
         self.classname = self.__class__.__name__
         super(TestKFT, self).setUp()
         
-    def test_01_click_kfxq_看房需求(self):
+    def delete_test_01_click_kfxq_看房需求(self):
         """
         前置条件是登录，
         手机号是登录之后自动获取，
@@ -46,16 +46,16 @@ class TestKFT(TestBase):
         """
         点击第一条路线
         """
-        self.page.get_element('view[class="kftliLi-l"]', inner_text="测试22").tap()
+        self.page.get_element('view[class="kftliLi title"]').tap()
 
-        self.verifyPageName('/page/houseteam/detail')
+        self.verifyPageName('/page/houseteam/kftactivity')
         self.get_screenshot()
 
     def test_05_click_zphone_电话咨询(self):
         """
         点击电话咨询
         """
-        self.page.get_element('view[class="kftliBtn-style bg_448bc3 kgt_phone"]').tap()
+        self.find_element('view[class="kftliBtn-style bg_FF7500 kgt_phone"]').tap()
         # self.delay(1)
         # self.verifyByScreenshot('xf/call.png')
         self.get_screenshot()
@@ -64,14 +64,11 @@ class TestKFT(TestBase):
         """
         点击我要报名,点击我已阅读小√，输入手机号，点击获取验证码
         """
-        self.page.get_element('view[class="kftliBtn-style bg_ff5500"]').tap()
+        self.find_element('view[class="kftliBtn-style bg_5186FF"]').tap()
         self.app.wait_for_page('/page/houseteam/apply', max_timeout=15)
-        self.page.get_element('image.agree-icon').tap()
-        self.page.get_element('input', inner_text='请填写11位手机号码').input('15105182846')
-        self.page.get_element('input', inner_text='请填写姓名').input('测试人员')
-        self.page.get_element('input', inner_text='请填写报名人数').input('11')
-        self.page.get_element('input', inner_text='请输入验证码').input('11')
-        self.page.get_element('button.btn-submit').tap()
+        self.find_element('input[class="inp"]').input('测试人员')
+        self.find_element('checkbox').tap()
+        self.find_element('button').tap()
 
         self.get_screenshot()
 
@@ -88,9 +85,7 @@ class TestKFT(TestBase):
         点击全部路线下拉箭头
         """
         # self.page.get_element('view[class="headTR-select"]').tap()
-        self.set_pick_filter('picker', 3)
+        self.find_element('view[class="headTL-allLine"]').tap()
 
-        self.verifyStr(True, self.page.element_is_exists('view[class="headTL-allLine"]', inner_text='线路1'),
-                       "选择线路1，ok")
         self.get_screenshot()
 

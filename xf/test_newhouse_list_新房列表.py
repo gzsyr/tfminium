@@ -271,7 +271,7 @@ class TestNewsHouseList(TestBase):
         self.get_screenshot()
 
     @data('开盘时间由近到远')
-    def test_select_px_筛选排序(self, px):
+    def test_select_px_筛选排序(self, px='开盘时间由近到远'):
         """
         新房列表页面，筛选排序
         """

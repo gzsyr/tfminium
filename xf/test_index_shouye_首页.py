@@ -79,7 +79,7 @@ class TestIndexShouye(TestBase):
         """
         V6.30.X: 1005036，互动插件模块，点击进入详情
         """
-        self.find_element('view[class="hdzj-content"]').click()
+        self.find_element('view[class="hdzj-content"]').tap()
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         self.get_screenshot()
 

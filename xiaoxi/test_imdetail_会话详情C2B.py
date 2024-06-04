@@ -23,17 +23,17 @@ class TestImdetail(WritePost):
 
     def test_01_addweixin_添加微信(self):
         # 点击添加微信-复制微信号
-        e = self.page.get_elements('view[class="btn"]')
+        e = self.find_elements('view[class="btn"]')
         e[1].tap()
         self.delay(3)
         # 复制微信号
-        self.page.get_element('view[class="content-card-b-btn copywxnum"]').tap()
+        self.find_element('view[class="content-card-b-btn copywxnum"]').tap()
         self.delay(3)
         self.get_screenshot()
 
     def test_02_addsaoma_扫码直接添加(self):
         # 点击扫码直接添加
-        e = self.page.get_element('view[class="content-card-b-btn copywxcode"]')
+        e = self.find_element('view[class="content-card-b-btn copywxcode"]')
         e.tap()
         self.delay(3)
         self.get_screenshot()
@@ -64,7 +64,7 @@ class TestImdetail(WritePost):
 
     def test_06_clickwypj_点击我要评价(self):
         # 点击我要评价
-        self.page.get_element('view[class="pjBtn flex tfAlignC"]').tap()
+        self.page.get_element('view[class="btn pjBtn flex tfAlignC"]').tap()
         self.delay(3)
         self.get_screenshot()
         # 点击一颗心
@@ -80,7 +80,7 @@ class TestImdetail(WritePost):
 
     def test_07_clickcyy_点击常用语(self):
         # 点击常用语
-        self.page.get_element('view[class="kjhfBtn flex tfAlignC"]').tap()
+        self.page.get_element('view[class="btn kjhfBtn flex tfAlignC"]').tap()
         self.delay(2)
         # 点击第一条用语
         self.page.get_element('view[class="kjhfList"]').get_element('view').tap()

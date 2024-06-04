@@ -78,55 +78,40 @@ class Testesfxqlb(TestBase):
         展开位置筛选
         :return:
         """
-        e = self.page.get_element('view[class="flex a_c screenTab"][data-id="0"]', inner_text="位置")
-        e.tap()
-        self.delay(5)
+        self.find_element('view[class="flex a_c screenTab"][data-id="0"]', inner_text="位置").tap()
         self.get_screenshot()
-        self.delay(2)
 
     def test_show_jj_展开均价筛选(self):
         """
         展开均价筛选
         :return:
         """
-        e = self.page.get_element('view[class="flex a_c screenTab"][data-id="1"]', inner_text="均价")
-        e.tap()
-        self.delay(5)
+        self.find_element('view[class="flex a_c screenTab"][data-id="1"]', inner_text="均价").tap()
         self.get_screenshot()
-        self.delay(2)
 
     def test_show_fl_展开房龄筛选(self):
         """
         展开房龄筛选
         :return:
         """
-        e = self.page.get_element('view[class="flex a_c screenTab"][data-id="2"]', inner_text="房龄")
-        e.tap()
-        self.delay(5)
+        self.find_element('view[class="flex a_c screenTab"][data-id="2"]', inner_text="房龄").tap()
         self.get_screenshot()
-        self.delay(2)
 
     def test_show_gd_展开更多筛选(self):
         """
         展开更多筛选
         :return:
         """
-        e = self.page.get_element('view[class="flex a_c screenTab"][data-id="3"]', inner_text="更多")
-        e.tap()
-        self.delay(5)
+        self.find_element('view[class="flex a_c screenTab"][data-id="3"]', inner_text="更多").tap()
         self.get_screenshot()
-        self.delay(2)
 
     def test_show_px_展开排序筛选(self):
         """
         展开排序筛选
         :return:
         """
-        e = self.page.get_element('view[class="flex a_c screenTab"][data-id="4"]', inner_text="排序")
-        e.tap()
-        self.delay(5)
+        self.find_element('view[class="flex a_c screenTab"][data-id="4"]', inner_text="排序").tap()
         self.get_screenshot()
-        self.delay(2)
 
     def test_show_delete_点击删除(self):
         """
@@ -136,7 +121,6 @@ class Testesfxqlb(TestBase):
         e = self.page.get_element('image[class="img"]')
         e.tap()
         self.get_screenshot()
-        self.delay(2)
 
     def test_select_bx_筛选不限(self):
         """

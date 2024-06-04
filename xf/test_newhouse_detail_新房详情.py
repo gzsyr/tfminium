@@ -614,7 +614,7 @@ class TestNewhouseDetail(TestBase):
         """
         PK页面，删除楼盘
         """
-        self.find_element('checkbox[value="glct"]').tap()
+        self.find_element('checkbox[aria-disabled="false"]').tap()
         self.find_element('view[class="lpTxt1"]').tap()
         
         return self
@@ -623,7 +623,7 @@ class TestNewhouseDetail(TestBase):
         """
         选择第一个楼盘，点击“对比”
         """
-        self.find_element('checkbox[value="glct"]').tap()
+        self.find_element('checkbox[aria-disabled="false"]').tap()
         self.delay(4)
         self.find_element('view[class="disflex-flex-shrink-0 lpBtn2 lpBtnAct"]').tap()
         self.delay(7)

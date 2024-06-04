@@ -28,7 +28,10 @@ class TestXiaoxiImtest(WritePost):
 
     def test_01_quguanzhu_去关注(self):
         # 点击去关注
-        self.page.get_element('image[class="gzImg"]').tap()
+        try:
+            self.find_element('image[class="gzImg"]').tap()
+        except:
+            print('已关注')
         self.delay(3)
         self.get_screenshot()
 

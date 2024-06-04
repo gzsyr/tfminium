@@ -26,7 +26,7 @@ class TestFuncZhiMai(TestBase):
         """
         直卖频道页，点击筛选项“区域”选择
         """
-        self.set_pick_filter('picker[data-bj="0"]', 2)
+        self.set_pick_filter('picker[data-bj="0"]', 3)
 
         ele = self.page.get_elements('view[class="item tfLine1"]')
         self.verifyStr(ele[0].inner_text, '丰泽', "直卖频道页，点击筛选项“区域”选择 丰泽 ok")

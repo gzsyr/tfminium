@@ -35,9 +35,10 @@ class Testesfdetail(TestBase):
         """
         点击相册
         """
-        elms = self.page.get_element('view[id="banner"]').get_element('banner').get_elements('view')
-        elms[0].get_element('swiper').get_element('swiper-item').tap()
-        self.delay(1)
+        # elms = self.find_element('view[id="banner"]').get_element('banner').get_elements('view')
+        # elms[0].get_element('swiper').get_element('swiper-item').tap()
+        self.find_element('image[class="banner--img"]').tap()
+        self.delay(3)
         self.get_screenshot()
 
     def test_01_goto_fxk_点击放心看(self):

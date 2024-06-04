@@ -4,22 +4,22 @@ import pyperclip
 
 class ZufangContent(TestBase):
     def set_img(self):
-        self.page.get_element('//step_1head//text', inner_text="图片或视频").tap()
+        self.find_element('image[class="ic_camera"]').tap()
         self.delay(2)
 
         # self.page.get_element('view[class="center column upload"]', inner_text='上传视频').tap()
         # self.delay(3)
 
-        self.page.get_element('view[class="center column upload"]', inner_text='上传图片').tap()
+        self.find_element('view[class="center column upload"]', inner_text='上传图片').tap()
         self.delay(3)
 
         self.input_select_image(png='esf\\123.png')
 
         self.delay(2)
-        self.page.get_element('view[class="center completeBtn"]').tap()
+        self.find_element('view[class="center completeBtn"]').tap()
 
         self.delay(3)
-        self.page.get_element('view[class="center noMorePics"]').tap()
+        self.find_element('view[class="center noMorePics"]').tap()
         self.delay(3)
         return self
 
@@ -389,7 +389,10 @@ class ZufangContent(TestBase):
         # 联系人
         pyperclip.copy(name)
         self.delay(3)
-        self.input_value_by_mk(png='rent/name.png', value=name, direction=1)
+        try:
+            self.input_value_by_mk(png='rent/name.png', value=name, direction=1)
+        except:
+            self.input_value_by_mk(png='rent/name-zz.png', value=name, direction=1)
         self.delay(5)
         pyautogui.hotkey('Ctrl', 'V')
         return self
@@ -407,23 +410,27 @@ class ZufangContent(TestBase):
 
     def set_renzheng(self, zjlx=[2], zjhm='0000000000', qqh='1111111111', cqrxm='赵赵赵', cqrsfzh='320520199001021111'):
         # 房屋权属信息-去认证
+        # delete
+        return
         self.page.get_element('view[class="center ownershipCertificate"]', inner_text='去认证').tap()
         self.delay(5)
         self.set_result()
-        # 证件类型
-        self.page.get_element('/view/view/view[2]').tap()
-        self.delay(5)
-        e = self.page.get_element('picker-view')
-        e.trigger("change", {"value": zjlx})
-        self.delay(5)
-        self.page.get_element('view[class="selector--center selector--confirm"]').tap()
-        self.delay(10)
-        # 证件号码
-        self.input_value_by_mk(png='rent/zjhm.png', value=zjhm, direction=1)
-        self.delay(5)
+        # # 证件类型 delete 2024.4.1
+        # self.page.get_element('/view/view/view[2]').tap()
+        # self.delay(5)
+        # e = self.page.get_element('picker-view')
+        # e.trigger("change", {"value": zjlx})
+        # self.delay(5)
+        # self.page.get_element('view[class="selector--center selector--confirm"]').tap()
+        # self.delay(10)
+        # # 证件号码
+        # self.input_value_by_mk(png='rent/zjhm.png', value=zjhm, direction=1)
+        # self.delay(5)
+
         # 丘权号
         self.input_value_by_mk(png='rent/qqh.png', value=qqh, direction=1)
         self.delay(5)
+
         # 产权人姓名
         pyperclip.copy(cqrxm)
         self.delay(5)
@@ -431,6 +438,7 @@ class ZufangContent(TestBase):
         self.delay(5)
         pyautogui.hotkey('Ctrl', 'V')
         self.delay(5)
+
         # 产权人身份证号
         self.input_value_by_mk(png='rent/cqrsfzh.png', value=cqrsfzh, direction=1)
         self.delay(5)

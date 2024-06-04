@@ -28,6 +28,7 @@ class Testesfxqrp(TestBase):
         热评小区-点击去搜索
         :return:
         """
+        self.delay(3)
         self.find_element('view[class="center toDo"]').tap()
         self.get_screenshot()
 
@@ -36,6 +37,7 @@ class Testesfxqrp(TestBase):
         热评小区列表点击进详情
         :return:
         """
+        self.delay(3)
         self.find_elements('view[class="between hotComment"]')[0].tap()
         self.delay(3)
         self.get_screenshot()

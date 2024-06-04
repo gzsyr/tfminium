@@ -32,10 +32,10 @@ class TestEsfMypublish(TestBase):
         点击出售列表-进入详情页
         :return:
         """
-        self.page.get_element('view[data-id="1"]', inner_text='出售').tap()
+        self.find_element('view[data-id="1"]', inner_text='出售').tap()
         self.delay(1)
         try:
-            self.find_element('view[class="flex flex_w item"]').tap()
+            self.find_element('view[class="flex flex_w"]').tap()
             self.delay(3)
         except minium.MiniElementNotFoundError:
             self.find_element('view[class="publish"]').tap()
@@ -145,10 +145,9 @@ class TestEsfMypublish(TestBase):
         点击出租列表-进入详情
         :return:
         """
-        self.page.get_element('view[data-id="2"]', inner_text='出租').tap()
+        self.find_element('view[data-id="2"]', inner_text='出租').tap()
         self.delay(1)
-        list = self.page.get_elements('view[class="flex flex_w item"]')
-        list[0].tap()
+        self.find_element('view[class="flex flex_w"]').tap()
         self.delay(3)
         self.get_screenshot()
 
