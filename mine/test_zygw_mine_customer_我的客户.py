@@ -6,13 +6,14 @@ import minium
 from base.test_mine import TestMine
 
 
-class TestMineCustomer(TestMine):
+class DELETETestMineCustomer(TestMine):
     """
     置业顾问 我的客户 页
+    置业顾问个人中心页的投流客户 不要了 delete
     """
     @classmethod
     def setUpClass(cls) -> None:
-        super(TestMineCustomer, cls).setUpClass()
+        super(DELETETestMineCustomer, cls).setUpClass()
         cls().change_zygw()
         print("setupclass change_zygw")
 
@@ -20,7 +21,7 @@ class TestMineCustomer(TestMine):
         self.page_name = '/page/business/infoManage/customerList?city=qz&optionstype=1'
         self.switch = False
         self.classname = self.__class__.__name__
-        super(TestMineCustomer, self).setUp()
+        super(DELETETestMineCustomer, self).setUp()
 
     def search_name(self, name='0005'):
         """
