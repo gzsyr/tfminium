@@ -525,10 +525,10 @@ class TestCenterZygw(TestMine):
         V6.27.X: 置业顾问个人中心页面，点击设置，点击绑定楼盘
         """
         self.click_set_icon()
-
+        self.delay(6)
         self.find_element('view[class="inner disflex tfAlignC tfFlexSb"]/view', text_contains='绑定楼盘').tap()
-
-        self.verifyPageName('/page/business/mineLp')
+        self.delay(3)
+        self.verifyPageName('/page/business/updateLoupan')
         self.get_screenshot()
 
     def test_26_设置我的红包(self):

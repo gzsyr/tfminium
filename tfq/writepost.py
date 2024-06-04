@@ -86,7 +86,7 @@ class WritePost(TestMine):
         self.delay(2)
         self.find_element('view[data-index="0"]', inner_text='添加').tap()
         self.delay(1)
-        self.find_element('view[class="close_box"]').tap()
+        self.find_element('image[class="delete_icon"]').tap()
         self.delay(1)
 
         return self
@@ -103,7 +103,7 @@ class WritePost(TestMine):
         self.delay(4)
         self.find_element('view[class="quick-add quick-addto2 quick-color2"][data-index="0"]', inner_text="添加").tap()
         self.delay(1)
-        self.find_element('view[class="close_box"]').tap()
+        self.find_element('image[class="delete_icon"]').tap()
         self.delay(1)
 
         return self
@@ -141,7 +141,7 @@ class WritePost(TestMine):
         if not self.page.element_is_exists('view[class="quick-add quick-notadd quick-color1"]', inner_text='已添加'):
             self.find_element('view[class="quick-add quick-addto1 quick-color1"][data-index="0"]', inner_text="添加").tap()
         self.delay(1)
-        self.find_element('view[class="close_box"]').tap()
+        self.find_element('view[class="cancle"]').tap()
         self.delay(1)
 
         return self
@@ -153,7 +153,7 @@ class WritePost(TestMine):
         self.find_element('view[class="tfFlex tfAlignC tfFlexSb tz_associate"][data-type="1"]').tap()
         self.delay(1)
         self.find_element('image[class="delete_icon"]').tap()
-        self.find_element('view[class="close_box"]').tap()
+        # self.find_element('view[class="close_box"]').tap()
         self.delay(1)
 
     def wp_quanzi_show_my_fav(self):
@@ -169,7 +169,7 @@ class WritePost(TestMine):
         """
         发帖页面，点击“保存草稿”按钮
         """
-        self.find_element('image[class="save_draft"]').tap()
+        self.find_element('view[class="save_draft_icon"]').tap()
         return self
 
     # 以下是运营身份独有的
@@ -234,7 +234,7 @@ class WritePost(TestMine):
         if name == '':
             print('不关联马甲发帖')
         else:
-            self.find_element('view[class="associated_users_name tfLine1"]').tap()
+            self.find_element('view[class="tz_associate_cont tfLine1"]').tap()
             self.delay(1)
             self.find_element('input[placeholder="请输入昵称"]').input(name)
             self.delay(1)
@@ -263,7 +263,7 @@ class WritePost(TestMine):
             self.find_element('button[class="submit"]').tap()
             self.delay(1)
         else:
-            self.find_element('view[class="vote-button create"]', inner_text='投票').tap()
+            self.find_element('view[class="vote-button create_vote"]', inner_text='投票').tap()
             self.delay(3)
             self.find_element('input[class="vote-title"]').input(title)
             self.delay(1)
@@ -297,7 +297,7 @@ class WritePost(TestMine):
             self.find_element('button[class="submit"]').tap()
             self.delay(1)
         else:
-            self.find_element('view[class="vote-button create"]', inner_text='PK').tap()
+            self.find_element('view[class="vote-button create_pk"]', inner_text='PK').tap()
             self.delay(3)
 
             # 输入观点一

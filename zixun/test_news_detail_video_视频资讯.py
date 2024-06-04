@@ -77,7 +77,8 @@ class TestNewsdetailVideo(TestBase):
         """
         资讯详情页视频稿件，点击第一个推荐楼盘
         """
-        self.page.get_element('//view[@class="tjlplist-rl"]').tap()
+        self.page.scroll_to(2000, 300)
+        self.find_element('//view[@class="tjlplist-rl"]').tap()
 
         self.verifyPageName('/page/newhouse/detail')
         self.get_screenshot()
@@ -86,7 +87,8 @@ class TestNewsdetailVideo(TestBase):
         """
         资讯详情页视频稿件，点击第一个推荐楼盘的电话
         """
-        self.page.get_element('//button[@class="tjlplist-tel"]').tap()
+        self.page.scroll_to(2000, 300)
+        self.find_element('//button[@class="tjlplist-tel"]').tap()
 
         self.verifyByScreenshot('xf/call.png')
 
@@ -103,7 +105,7 @@ class TestNewsdetailVideo(TestBase):
         """
         资讯详情页视频稿件，点击分享
         """
-        self.page.get_element('//button[@class="newHouseRfixed-share xfxq_fx"]').tap()
+        self.find_element('//button[@class="newHouseRfixed-share xfxq_fx"]').tap()
 
         self.get_screenshot()
 
@@ -111,7 +113,7 @@ class TestNewsdetailVideo(TestBase):
         """
         资讯详情页视频稿件，点击写评论，直接通过trigger发布
         """
-        self.page.get_element('button.fixBL-l').tap()
+        self.find_element('button.fixBL-l').tap()
         tm = time.strftime('%Y-%m-%d %H:%M:%S')
         tap = 'self.page.get_element(\'input.fixBIntB-input\').trigger("confirm", {"value": "'+tm+'"})'
         self.verifyStr(True, self.getShowToast(tap), '发布评论ok')
@@ -150,7 +152,7 @@ class TestNewsdetailVideo(TestBase):
         """
         资讯详情页视频稿件，点击我要咨询
         """
-        self.page.get_element('button[class="fixBR-btn zx"]').tap()
+        self.find_element('button[class="fixBR-btn zx"]').tap()
         self.verifyByScreenshot('xf/call.png')
 
     def test_00_click_firstyd_推荐阅读(self):

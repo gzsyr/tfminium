@@ -178,7 +178,7 @@ class TestTfqShouYe(TestBase):
         """
         淘房圈首页，热门圈子，点击第三个圈子
         """
-        self.page.get_element('navigator[data-index="2"]').tap()
+        self.find_element('navigator[data-index="2"]').tap()
 
         self.verifyPageName('/page/taofangquan/huati/huatiDetail')
         self.get_screenshot()
@@ -187,7 +187,7 @@ class TestTfqShouYe(TestBase):
         """
         淘房圈首页，热门圈子，点击第四个圈子
         """
-        self.page.get_element('navigator[data-index="3"]').tap()
+        self.find_element('navigator[data-index="3"]').tap()
 
         self.verifyPageName('/page/taofangquan/huati/huatiDetail')
         self.get_screenshot()
