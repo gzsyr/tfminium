@@ -265,8 +265,10 @@ class TestCenterJJR(TestMine):
         """
         V6.38.X: 点击 任务 1
         """
-        self.find_element('view[class="toPublish"]').tap()
-
+        try:
+            self.find_element('view[class="toPublish"]').tap()
+        except:
+            self.find_element('view[class="toPublish unuse"]').tap()
         self.get_screenshot()
 
     def test_019_点击任务2(self):

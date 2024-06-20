@@ -30,7 +30,7 @@ class DELETETestMineCustomer(TestMine):
         self.page.get_element('input[class="search-input"]').input(name + '\n')
         self.delay(3)
 
-    def test_01_搜索客户姓名(self):
+    def delete_test_01_搜索客户姓名(self):
         """
         V6.27.X: 点击搜索，输入姓名，搜索
         """
@@ -39,7 +39,7 @@ class DELETETestMineCustomer(TestMine):
         self.verifyStr(True, self.element_is_exist('view[class="customerName"]', text_contains='已回拨'), '搜索到客户')
         self.get_screenshot()
 
-    def test_02_切换到未跟进(self):
+    def delete_test_02_切换到未跟进(self):
         """
         V6.27.X: 切换到未跟进TAB
         """
@@ -47,7 +47,7 @@ class DELETETestMineCustomer(TestMine):
 
         self.get_screenshot()
 
-    def test_03_切换到已回拨(self):
+    def delete_test_03_切换到已回拨(self):
         """
         V6.27.X: 切换到已回拨TAB
         """
@@ -55,7 +55,7 @@ class DELETETestMineCustomer(TestMine):
 
         self.get_screenshot()
 
-    def test_04_切换到已拨已聊(self):
+    def delete_test_04_切换到已拨已聊(self):
         """
         V6.27.X: 切换到已拨已聊TAB
         """
@@ -63,7 +63,7 @@ class DELETETestMineCustomer(TestMine):
 
         self.get_screenshot()
 
-    def test_05_切换到未标记(self):
+    def delete_test_05_切换到未标记(self):
         """
         V6.27.X: 切换到未标记TAB
         """
@@ -71,7 +71,7 @@ class DELETETestMineCustomer(TestMine):
 
         self.get_screenshot()
 
-    def test_06_切换到全部(self):
+    def delete_test_06_切换到全部(self):
         """
         V6.27.X: 切换到未跟进TAB
         """
@@ -92,7 +92,7 @@ class DELETETestMineCustomer(TestMine):
 
         self.verifyStr(True, self.element_is_exist('view[class="c-text"]', inner_text=sort_str), '选择%s正确'%sort_str)
 
-    def test_07_排序_老客优先(self):
+    def delete_test_07_排序_老客优先(self):
         """
         V6.27.X: 排序-老客优先
         """
@@ -100,7 +100,7 @@ class DELETETestMineCustomer(TestMine):
 
         self.get_screenshot()
 
-    def test_08_排序_新客优先(self):
+    def delete_test_08_排序_新客优先(self):
         """
         V6.27.X: 排序-新客优先
         """
@@ -108,7 +108,7 @@ class DELETETestMineCustomer(TestMine):
 
         self.get_screenshot()
 
-    def test_09_排序_高意向优先(self):
+    def delete_test_09_排序_高意向优先(self):
         """
         V6.27.X: 排序_高意向优先
         """
@@ -116,7 +116,7 @@ class DELETETestMineCustomer(TestMine):
 
         self.get_screenshot()
 
-    def test_10_排序_近期跟进优先(self):
+    def delete_test_10_排序_近期跟进优先(self):
         """
         V6.27.X: 排序_近期跟进优先
         """
@@ -124,7 +124,7 @@ class DELETETestMineCustomer(TestMine):
 
         self.get_screenshot()
 
-    def test_11_排序_历史跟进优先(self):
+    def delete_test_11_排序_历史跟进优先(self):
         """
         V6.27.X: 排序_历史跟进优先
         """
@@ -132,7 +132,7 @@ class DELETETestMineCustomer(TestMine):
 
         self.get_screenshot()
 
-    def test_12_筛选客户并重置(self):
+    def delete_test_12_筛选客户并重置(self):
         """
         V6.27.X: 筛选客户
         """
@@ -154,7 +154,7 @@ class DELETETestMineCustomer(TestMine):
 
         self.get_screenshot('重置后的筛选结果')
 
-    def test_13_客户列表_查看客户详情(self):
+    def delete_test_13_客户列表_查看客户详情(self):
         """
         V6.27.X: 点击客户进入详情
         """
@@ -163,7 +163,7 @@ class DELETETestMineCustomer(TestMine):
         self.verifyPageName('/page/business/infoManage/customerDetails')
         self.get_screenshot()
 
-    def test_14_客户列表_点击星标(self):
+    def delete_test_14_客户列表_点击星标(self):
         """
         V6.27.X: 客户列表，点击星标
         """
@@ -173,7 +173,7 @@ class DELETETestMineCustomer(TestMine):
 
         self.get_screenshot("第一条非星标客户，已添加星标")
 
-    def test_15_客户列表_取消星标(self):
+    def delete_test_15_客户列表_取消星标(self):
         """
         V6.27.X: 客户列表，取消星标
         """
@@ -183,7 +183,7 @@ class DELETETestMineCustomer(TestMine):
 
         self.get_screenshot('第一条星标客户，取消星标')
 
-    def test_98_客户列表_拨打电话(self):
+    def delete_test_98_客户列表_拨打电话(self):
         """
         V6.27.X: 客户列表，点击电话
         """
@@ -191,7 +191,7 @@ class DELETETestMineCustomer(TestMine):
 
         self.get_screenshot()
 
-    def test_16_搜客户写跟进(self):
+    def delete_test_16_搜客户写跟进(self):
         """
         置业顾问个人中心，我的客户页面，搜索后的第一个结果写跟进记录
         """
@@ -234,7 +234,7 @@ class DELETETestMineCustomer(TestMine):
         tap = 'self.page.get_element(\'button\').tap()'
         self.getShowToast(tap)
 
-    def test_17_客户列表_回拨记录(self):
+    def delete_test_17_客户列表_回拨记录(self):
         """
         V6.27.X: 客户列表，点击’回拨记录‘
         """
@@ -243,7 +243,7 @@ class DELETETestMineCustomer(TestMine):
         self.verifyPageName('/page/business/infoManage/callback')
         self.get_screenshot()
 
-    def test_18_客户详情_点击星标(self):
+    def delete_test_18_客户详情_点击星标(self):
         """
         V6.27.X: 客户详情，点击星标
         """
@@ -263,7 +263,7 @@ class DELETETestMineCustomer(TestMine):
 
         self.get_screenshot()
 
-    def test_19_客户详情_取消星标(self):
+    def delete_test_19_客户详情_取消星标(self):
         """
         V6.27.X: 客户详情，取消星标
         """
@@ -284,7 +284,7 @@ class DELETETestMineCustomer(TestMine):
 
         self.get_screenshot()
 
-    def test_20_客户详情_编辑客户(self):
+    def delete_test_20_客户详情_编辑客户(self):
         """
         V6.27.X: 客户详情，编辑客户
         """
@@ -306,7 +306,7 @@ class DELETETestMineCustomer(TestMine):
         self.verifyPageName('/page/business/infoManage/customerDetails')
         self.get_screenshot()
 
-    def test_99_客户详情_拨打电话(self):
+    def delete_test_99_客户详情_拨打电话(self):
         """
         V6.27.X: 客户详情，拨打电话
         """
@@ -322,7 +322,7 @@ class DELETETestMineCustomer(TestMine):
         self.find_element('image[class="btnIcon"]').tap()
         self.get_screenshot()
 
-    def test_21_客户详情_IM咨询(self):
+    def delete_test_21_客户详情_IM咨询(self):
         """
         V6.27.X: 客户详情，IM咨询
         """
@@ -341,7 +341,7 @@ class DELETETestMineCustomer(TestMine):
             self.get_screenshot('no-im')
         self.get_screenshot()
 
-    def test_22_客户详情_写跟进(self):
+    def delete_test_22_客户详情_写跟进(self):
         """
         V6.27.X: 客户详情，写跟进
         """
@@ -363,7 +363,7 @@ class DELETETestMineCustomer(TestMine):
         self.verifyPageName('/page/business/infoManage/customerDetails')
         self.get_screenshot()
 
-    def test_23_客户详情_TAB切换(self):
+    def delete_test_23_客户详情_TAB切换(self):
         """
         V6.27.X: 客户详情，TAB切换
         """
@@ -385,7 +385,7 @@ class DELETETestMineCustomer(TestMine):
         self.find_element('text', inner_text='跟进').tap()
         self.get_screenshot('切换到“跟进”')
 
-    def test_24_客户详情_查看历史跟进(self):
+    def delete_test_24_客户详情_查看历史跟进(self):
         """
         V6.27.X: 客户详情，历史楼盘查看
         """

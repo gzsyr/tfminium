@@ -135,13 +135,13 @@ class TestrentMyzsy(TestBase):
         self.page.get_element('view[data-id="1"]', inner_text='我的发布').tap()
         self.delay(2)
         # 点击删除
-        dels = self.page.get_elements('view[class="item"]')
+        dels = self.find_elements('view[class="item"]')
         self.delay(1)
         if len(dels) > 0:
             result = {"confirm": True}
             self.app.mock_wx_method("showModal", result=result)
             self.delay(1)
-            self.page.get_element('view[class="center operation"]', inner_text='删除').tap()
+            self.find_element('view[class="center operation"]', inner_text='删除').tap()
             self.app.restore_wx_method("showModal")
             self.delay(1)
             self.get_screenshot()
