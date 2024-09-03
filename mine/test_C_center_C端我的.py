@@ -137,7 +137,7 @@ class TestCenterC(TestMine):
         """
         self.page.get_element('view[id="businessRegister"]').tap()
 
-        self.verifyPageName('/page/business/checkzygw')
+        self.verifyPageName('/page/mine/bregister/bregister')
         self.get_screenshot()
 
     def test_17_C_click_more_ys_隐私政策(self):
@@ -198,12 +198,11 @@ class TestCenterC(TestMine):
         V6.40.x:
         """
         url = '/page/mine/businessRegister/invitezygw?' \
-              'zg_share_id=1690965179491&zg_uid=obS_rt748XlZ75WvzZKKWfFUHGvY&' \
-              'zg_share_level=1&zygwInviter=1005&zygwname=线上&' \
-              'zygwavatar=http://img20.house365.com/jjr/2021/11/19/1637311616619764801c9b8.jpg&' \
-              'city=qz&taskid=158'
+              'inviterId=1005&name=线上&avatar=http://img20.house365.com/jjr/2021/11/19/1637311616619764801c9b8.jpg&identity=zygw' \
+              '&city=qz&taskid=&fromopenid=oe6EY0YRlC0Ep4itHXJYIAcTE5Wk&from_user_unique_id=13776645736&from_user_unique_id_type=phone&share_depth=1' \
+              '&from_title=【置业顾问-线上】邀请您入驻365淘房'
         self.redirect_to_page(url=url)
-
+        self.delay(5)
         self.find_element('view[class="toReg"]').tap()
         self.get_screenshot()
         self.verifyPageName('/page/business/checkzygw')
