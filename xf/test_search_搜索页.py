@@ -39,7 +39,7 @@ class TestSearch(TestBase):
         V6.47.X: 进入楼盘评测
         """
         # 搜索关键词 ‘苏宁测试11’，搜索
-        self.input_keyword('苏宁测试11')
+        self.input_keyword('苏宁测试')
         self.click_search_button()
 
         self.delay(2)

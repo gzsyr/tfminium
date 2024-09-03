@@ -73,7 +73,7 @@ class TestJJRImdetailC2B(WritePost):
         self.verifyPageName('/esf/sell/pages/myCollect/myCollect')
 
         # 切换到 楼盘 tab
-        # self.find_element('view[class="pr center tab"][data-id="4"]').tap()
+        self.find_element('view[class="pr center tab"][data-id="4"]').tap()
         self.delay(3)
         # 选择第一个楼盘
         self.find_element('view[class="pa itemPlaceholder"]').tap()

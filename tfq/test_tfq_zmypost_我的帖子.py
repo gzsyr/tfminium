@@ -23,7 +23,7 @@ class TestTfqMyPost(TestBase):
         """
         点击帖子、帖子详情页“更多”
         """
-        self.page.get_element('view[class="list-desc disflex-flex-shrink-0 flex-1"]',
+        self.find_element('view[class="list-desc disflex-flex-shrink-0 flex-1"]',
                               text_contains=text_contains).tap()
         self.delay(4)
         # 点击 更多

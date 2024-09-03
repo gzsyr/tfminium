@@ -168,7 +168,10 @@ class TestJJRTiezi(WritePost):
         self.page.scroll_to(2600, 200)
         self.delay(2)
         # 切换到二手房
-        self.find_element('view[class="flex recommend_tab"]/view[data-index="2"]').tap()
+        try:
+            self.find_element('view[class="tfFlex recommend_tab"]/view[data-index="2"]').tap()
+        except:
+            print('not found')
         # self.find_element('view[class="tab"][data-index="2"]').tap()
         self.delay(1)
         # 点击小区

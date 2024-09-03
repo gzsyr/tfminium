@@ -231,7 +231,7 @@ class TestNewsHouseList(TestBase):
         新房列表页面，筛选价格
         """
         self.page.get_element('view[class="newHouseTabLi-msg"]', inner_text="价格").tap()
-        self.page.get_element('view[class="newHouseMaskLi-price-li"]', inner_text=jg).tap()
+        self.page.get_element('view[class="tfLine1 newHouseMaskLi-price-li"]', inner_text=jg).tap()
 
         self.verifyStr(True, self.page.element_is_exists('view[class="newHouseTabLi-msg"]'),
                        '筛选价格正确')

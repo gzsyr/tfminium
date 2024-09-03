@@ -108,7 +108,7 @@ class TestMineCard(TestMine):
         """
         V6.27.X: 查看主营楼盘
         """
-        self.find_element('view[class="house__item tfFlex tfFlexSb"]').tap()
+        self.find_element('view[class="house__item tfFlex"]').tap()
 
         self.verifyPageName('/page/newhouse/detail')
         self.get_screenshot()

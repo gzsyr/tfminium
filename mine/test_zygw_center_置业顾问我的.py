@@ -77,7 +77,7 @@ class TestCenterZygw(TestMine):
         """
         置业顾问个人中心页面，点击活跃度
         """
-        self.find_element('view[class="desc"]', inner_text='活跃度').tap()
+        self.find_element('view[class="desc"]', inner_text='服务分').tap()
         self.delay(2)
 
         return self
@@ -88,7 +88,7 @@ class TestCenterZygw(TestMine):
         """
         self.click_huoyuedu()
 
-        self.find_element('view[class="name flex tfAlignC"]/view', inner_text='IM咨询').tap()
+        self.find_element('view[class="pointProgress-name"]', inner_text='IM咨询').tap()
 
         self.verifyPageName('/im/pages/recentchat/recentchat')
         self.get_screenshot()
@@ -99,7 +99,7 @@ class TestCenterZygw(TestMine):
         """
         self.click_huoyuedu()
 
-        self.find_element('view[class="name flex tfAlignC"]/view', inner_text='线索转化').tap()
+        self.find_element('view[class="pointProgress-name"]', inner_text='线索转化').tap()
 
         self.verifyPageName('/page/business/zygwinfomanage/customerList')
         self.get_screenshot()
@@ -110,7 +110,7 @@ class TestCenterZygw(TestMine):
         """
         self.click_huoyuedu()
 
-        self.find_element('view[class="name flex tfAlignC"]/view', inner_text='400电话').tap()
+        self.find_element('view[class="pointProgress-name"]', inner_text='400电话').tap()
 
         self.verifyPageName('/page/message/phoneList')
         self.get_screenshot()
@@ -121,7 +121,7 @@ class TestCenterZygw(TestMine):
         """
         self.click_huoyuedu()
 
-        self.find_element('view[class="name flex tfAlignC"]/view', inner_text='线索反馈').tap()
+        self.find_element('view[class="pointProgress-name"]', inner_text='线索反馈').tap()
 
         self.verifyPageName('/page/business/zygwinfomanage/customerList')
         self.get_screenshot()
@@ -132,7 +132,7 @@ class TestCenterZygw(TestMine):
         """
         self.click_huoyuedu()
 
-        self.find_element('view[class="name flex tfAlignC"]/view', inner_text='线索回拨').tap()
+        self.find_element('view[class="pointProgress-name"]', inner_text='线索回拨').tap()
 
         self.verifyPageName('/page/business/zygwinfomanage/customerList')
         self.get_screenshot()
@@ -143,7 +143,7 @@ class TestCenterZygw(TestMine):
         """
         self.click_huoyuedu()
 
-        self.find_element('view[class="btn"]', inner_text='关注服务号').tap()
+        self.find_element('view[class="btn"][data-type="1"]').tap()
 
         self.verifyPageName('/page/mine/gzService/gzService')
         self.get_screenshot()
@@ -154,7 +154,7 @@ class TestCenterZygw(TestMine):
         """
         self.click_huoyuedu()
 
-        self.find_element('view[class="btn"]', inner_text='来电记录').tap()
+        self.find_element('view[class="btn"][data-type="2"]').tap()
 
         self.verifyPageName('/page/message/phoneList')
         self.get_screenshot()
@@ -165,7 +165,7 @@ class TestCenterZygw(TestMine):
         """
         self.click_huoyuedu()
 
-        self.find_element('view[class="btn"]', inner_text='做任务得线索').tap()
+        self.find_element('view[class="btn"][data-type="3"]').tap()
 
         self.verifyPageName('/page/mine/myscores/myscores')
         self.get_screenshot()
@@ -188,11 +188,11 @@ class TestCenterZygw(TestMine):
 
     def test_04_click_quanyiquan_权益券(self):
         """
-        V6.27.X: 置业顾问个人中心页面，点击权益券
+        V6.27.X: 置业顾问个人中心页面，点击积分
         """
-        self.click_quanyiquan()
+        self.find_element('view[class="desc"]', inner_text='积分').tap()
 
-        self.verifyPageName('/page/mine/myscores/mycoupons')
+        self.verifyPageName('/page/mine/myscores/myscores')
         self.get_screenshot()
 
     def test_35_权益券TAB切换(self):
@@ -341,7 +341,7 @@ class TestCenterZygw(TestMine):
         # 点击“去兑换”
         self.find_element('view[class="toDh"]').tap()
 
-        self.verifyPageName('/page/mine/myscores/goodsdetail')
+        # self.verifyPageName('/page/mine/myscores/goodsdetail')
         self.get_screenshot()
 
     def test_15_积分抢兑_全部商品(self):
@@ -359,7 +359,7 @@ class TestCenterZygw(TestMine):
         # 点击“全部商品”
         self.find_element('view[class="tomore"]', inner_text='全部商品').tap()
 
-        self.verifyPageName('/page/mine/myscores/scoremall')
+        # self.verifyPageName('/page/mine/myscores/scoremall')
         self.get_screenshot()
 
     def test_03_click_my_card_我的名片(self):

@@ -24,6 +24,7 @@ class TestCenterJJR(TestMine):
         """
         V6.45.X: 转到课程详情页
         """
+        self.delay(3)
         self.find_element('view[class="name"]', inner_text='操作指南').tap()
         self.get_screenshot('跳转到课程中心页')
         self.verifyPageName('/page/business/classguide/classguide')
@@ -221,18 +222,18 @@ class TestCenterJJR(TestMine):
         self.get_screenshot()
         self.verifyPageName('/page/taofangquan/contentstore/contentstore')
 
-    def click_jifen(self, desc='我的积分'):
+    def click_jifen(self):
         """
-        点击 我的积分 ，已兑换商品
+        点击 我的积分
         """
-        self.find_element('view[class="desc"]', inner_text=desc).tap()
+        self.find_element('view[class="my_points"]').tap()
         self.delay(2)
 
     def test_016_点击我的积分(self):
         """
         V6.38.x: 点击 我的积分，进入积分页面
         """
-        self.click_jifen(desc='我的积分')
+        self.click_jifen()
 
         self.get_screenshot()
         self.verifyPageName('/page/mine/myscores/myscores')
@@ -241,10 +242,12 @@ class TestCenterJJR(TestMine):
         """
         V6.38.x: 点击 已兑换商品，待使用  赚积分
         """
-        self.click_jifen(desc='已兑换商品')
-        self.get_screenshot('已兑换商品')
-        self.verifyPageName('/page/mine/myscores/mycoupons')
+        self.click_jifen()
+        self.verifyPageName('/page/mine/myscores/myscores')
 
+        # 点击 已兑换商品
+        self.find_element('view[class="jf_ydhgoods flex tfAlignC tfFlexC"]').tap()
+        self.delay(3)
         self.find_element('view[class="getJf"]').tap()
         self.get_screenshot('点击赚积分到我的积分页面')
         self.verifyPageName('/page/mine/myscores/myscores')
@@ -253,7 +256,11 @@ class TestCenterJJR(TestMine):
         """
         V6.38.X: 点击 已兑换商品，已使用  赚积分
         """
-        self.click_jifen(desc='已兑换商品')
+        self.click_jifen()
+
+        # 点击 已兑换商品
+        self.find_element('view[class="jf_ydhgoods flex tfAlignC tfFlexC"]').tap()
+        self.delay(3)
 
         self.find_element('view[class="used"]').tap()
         self.delay(2)
@@ -329,21 +336,21 @@ class TestCenterJJR(TestMine):
         """
         V6.40.x: 点击  全部客户、未跟进、未标记，分别进入列表页
         """
-        self.find_element('view[class="item flex tfAlignC tfFlexV tfFlexC"][data-type="1"]').tap()
+        self.find_element('view[class="tfFlex tfFlexC tfAlignC tfFlexV item"][data-type="1"]').tap()
         self.delay(2)
 
         self.get_screenshot('全部客户列表页')
         self.verifyPageName('/page/business/customerManage/myCustomer/myCustomer')
         self.back()
 
-        self.find_element('view[class="item flex tfAlignC tfFlexV tfFlexC"][data-type="2"]').tap()
+        self.find_element('view[class="tfFlex tfFlexC tfAlignC tfFlexV item"][data-type="2"]').tap()
         self.delay(2)
 
         self.get_screenshot('未跟进列表页')
         self.verifyPageName('/page/business/customerManage/myCustomer/myCustomer')
         self.back()
 
-        self.find_element('view[class="item flex tfAlignC tfFlexV tfFlexC"][data-type="3"]').tap()
+        self.find_element('view[class="tfFlex tfFlexC tfAlignC tfFlexV item"][data-type="3"]').tap()
         self.delay(2)
 
         self.get_screenshot('未标记列表页')

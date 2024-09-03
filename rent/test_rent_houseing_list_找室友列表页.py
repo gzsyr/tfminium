@@ -280,7 +280,7 @@ class Testrenthouseinglist(TestBase):
         :return:
         """
         elms = self.page.get_elements('//view[@class="rent-home-list grey"]/view/findRoommateItem/view')
-        elms[0].tap()
+        elms[1].tap()
         self.delay(3)
         self.get_screenshot()
         self.delay(1)

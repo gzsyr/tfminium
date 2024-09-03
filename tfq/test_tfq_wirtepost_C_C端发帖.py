@@ -55,7 +55,9 @@ class TestTfqCWritePost(WritePost):
         """
         self.wp_quanzi_show_my_fav()
 
-        self.verifyByScreenshot('tfq/test_yy_quanzi_show_my_fav.png')
+
+        # self.verifyByScreenshot('tfq/test_yy_quanzi_show_my_fav.png')
+        self.verifyStr(True, self.element_is_exist('view[class="quick_unm_choose flex tfAlignC tfFlexC"]/view', text_contains='我订阅的'))
 
     @file_data('./test_tfq_writepost_c.yml')
     def test_C_03_write_post_发布帖子(self, **kwargs):

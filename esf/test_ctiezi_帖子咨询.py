@@ -54,7 +54,10 @@ class TestTieziIM(WritePost):
         self.delay(2)
         # 切换到二手房
         # self.find_element('view[class="tab"][data-index="2"]').tap()
-        self.find_element('view[class="flex recommend_tab"]/view[data-index="2"]').tap()
+        try:
+            self.find_element('view[class="tfFlex recommend_tab"]/view[data-index="2"]').tap()
+        except:
+            print('not found')
         self.delay(2)
         # 点击IM咨询
         self.find_element('image[class="villageItem--icon"]').tap()

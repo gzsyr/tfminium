@@ -346,16 +346,17 @@ class TestMineAllCustomer(TestMine):
         """
         V6.42.X: 客户详情，会话记录进聊天
         """
-        self.search_name('5160')
+        self.search_name('3806')
 
         try:
             self.find_element('view[class="customerWrap"]').tap()
-            self.delay(2)
+            self.delay(3)
         except minium.MiniElementNotFoundError:
             self.get_screenshot('没有搜索到用户')
             return
 
         try:
+            self.delay(2)
             self.find_element('view[class="history_chat"]').tap()
         except minium.MiniElementNotFoundError:
             self.get_screenshot('no-im')

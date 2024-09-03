@@ -72,7 +72,7 @@ class TestRzfxBg(TestBase):
         self.find_element('view[class="tab"][data-id="4"]').tap()
         self.delay(1)
 
-        self.find_element('view[class="ldItem"][data-id="390"]').tap()
+        self.find_element('view[class="ldItem"]').tap()
 
         self.get_screenshot()
 
@@ -111,7 +111,7 @@ class TestRzfxBg(TestBase):
         self.find_element('view[class="tab"][data-id="3"]').tap()
         self.delay(1)
 
-        self.find_element('view[class="ldItem"][data-id="2505"]').tap()
+        self.find_element('view[class="ldItem"]').tap()
 
         self.get_screenshot()
 
@@ -145,7 +145,7 @@ class TestRzfxBg(TestBase):
         V6.37.x: 点击 大寒  +  2 栋楼
         """
         self.find_element('view[class="jqItem"][data-id="6"]').tap()
-        self.find_element('view[class="ldItem"][data-id="2440"]').tap()
+        self.find_element('view[class="ldItem"][data-id="9521"]').tap()
 
         self.get_screenshot()
 

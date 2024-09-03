@@ -1272,7 +1272,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 新房详情页，位置及周边楼层，点击教育下的文字
         """
-        self.page.scroll_to(4500, 500)
+        self.page.scroll_to(4800, 500)
         self.delay(15)
 
         # self.find_element('//*[@id="map"]').tap()

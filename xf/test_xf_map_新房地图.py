@@ -34,7 +34,10 @@ class TestXfMap(TestBase):
         """
         点击“地铁找房”
         """
-        self.find_element('image[class="metro_btn"]').tap()
+        # self.find_element('image[class="mapbtn_icon"]').tap()
+        self.find_element('view[class="mapbtn"]/view', inner_text='地铁').tap()
+
+
 
     def test_05_xf_metro_change_切换地铁找房(self):
         """
@@ -116,7 +119,7 @@ class TestXfMap(TestBase):
         self.delay(10)
         self.verifyPageName('/page/newhouse/metrozf/metrozf')
 
-        self.change()
+        self.find_element('image[class="metro_btn"]').tap()
         self.delay(2)
         self.verifyPageName('/page/newhouse/mapzf/mapzf')
 
@@ -137,7 +140,7 @@ class TestXfMap(TestBase):
         # 价格
         if 'price' in kwargs.keys() and kwargs['price'] != '':
             self.find_element('view[class="screenTop_list"][data-type="price"]').tap()
-            self.find_element('view[class="screenCon_list_price"]', inner_text=kwargs['price']).tap()
+            self.find_element('view[class="tfLine1 screenCon_list_price"]', inner_text=kwargs['price']).tap()
             self.find_element('view[class="screenBtn_confirm"]').tap()
 
         # 户型
@@ -186,7 +189,8 @@ class TestXfMap(TestBase):
         """
         地图找房页面，通过关键词搜索
         """
-        self.find_element('image[class="map_search_btn"]').tap()
+        # self.find_element('image[class="map_search_btn"]').tap()
+        self.find_element('view[class="mapbtn"]/view', inner_text='搜索').tap()
         self.delay(3)
         self.verifyPageName('/page/search/index')
         # 到搜索页面

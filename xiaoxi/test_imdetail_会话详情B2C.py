@@ -26,7 +26,7 @@ class TestImdetailCB(WritePost):
         """
         V6.48.X: 发送资料
         """
-        self.find_element('view[class="btn gfzlBtn flex tfAlignC"]').tap()
+        self.find_element('view[class="btn sendwxBtn"]').tap()
         self.delay(5)
         self.get_screenshot('open')
 
@@ -66,7 +66,7 @@ class TestImdetailCB(WritePost):
 
     def test_03_clickcyy_常用语(self):
         # 点击常用语
-        e = self.find_element('view[class="btn kjhfBtn flex tfAlignC"]')
+        e = self.find_element('view[class="btn kjhfBtn"]')
         e.tap()
         self.delay(2)
         # 点击新增常用语
@@ -86,7 +86,7 @@ class TestImdetailCB(WritePost):
 
     def test_04_clickcyygl_常用语管理新增(self):
         # 点击常用语
-        e = self.page.get_element('view[class="btn kjhfBtn flex tfAlignC"]')
+        e = self.page.get_element('view[class="btn kjhfBtn"]')
         e.tap()
         self.delay(3)
         # 点击管理
@@ -109,7 +109,7 @@ class TestImdetailCB(WritePost):
 
     def test_05_clickcyygl_常用语管理编辑(self):
         # 点击常用语
-        e = self.page.get_element('view[class="btn kjhfBtn flex tfAlignC"]')
+        e = self.page.get_element('view[class="btn kjhfBtn"]')
         e.tap()
         self.delay(2)
         # 点击管理
@@ -129,7 +129,7 @@ class TestImdetailCB(WritePost):
 
     def test_06_clickcyydel_常用语删除(self):
         # 点击常用语
-        e = self.page.get_element('view[class="btn kjhfBtn flex tfAlignC"]')
+        e = self.page.get_element('view[class="btn kjhfBtn"]')
         e.tap()
         self.delay(3)
         # 点击管理
@@ -146,7 +146,7 @@ class TestImdetailCB(WritePost):
 
     def test_07_clickcyyfasong_常用语发送(self):
         # 点击常用语
-        e = self.page.get_element('view[class="btn kjhfBtn flex tfAlignC"]')
+        e = self.page.get_element('view[class="btn kjhfBtn"]')
         e.tap()
         self.delay(2)
         e1 = self.page.get_element('view[class="kjhfList"]').get_element('view')

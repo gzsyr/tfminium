@@ -92,7 +92,8 @@ class TestTfqYyWritePost(WritePost):
 
         self.wp_quanzi_show_my_fav()
 
-        self.verifyByScreenshot('tfq/test_yy_quanzi_show_my_fav.png')
+        # self.verifyByScreenshot('tfq/test_yy_quanzi_show_my_fav.png')
+        self.verifyStr(True, self.element_is_exist('view[class="quick_unm_choose flex tfAlignC tfFlexC"]/view', text_contains='我订阅的'))
 
     def test_yy_02_save_draft_保存草稿(self):
         """

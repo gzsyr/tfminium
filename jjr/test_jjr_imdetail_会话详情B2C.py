@@ -26,8 +26,8 @@ class TestJJRImdetailB2C(WritePost):
         """
         V6.48.X: 发送资料
         """
-        self.find_element('view[class="btn gfzlBtn flex tfAlignC"]').tap()
-        self.delay(3)
+        self.find_element('view[class="btn sendwxBtn"]').tap()
+        self.delay(4)
         self.get_screenshot('open')
 
         self.find_element('image[class="img"]').tap()
@@ -88,7 +88,7 @@ class TestJJRImdetailB2C(WritePost):
         """
         # 点击“发送房源”
         self.delay(5)
-        self.find_element('view[class="btn fyBtn flex tfAlignC"]').tap()
+        self.find_element('view[class="btn fyBtn"]').tap()
         self.delay(5)
 
         # 进入 我的房源  页面，选择房源

@@ -124,6 +124,9 @@ class TestJJRCustomer(TestMine):
         self.delay(2)
         self.get_screenshot('查看客户详情')
 
+        # 切换客户跟进
+        self.find_element('view[class="flex column a_c category"]').tap()
+
         self.find_element('view[class="check-all"][data-type="followUp"]').tap()
         self.delay(2)
         self.get_screenshot('客户详情-查看全部跟进记录')
