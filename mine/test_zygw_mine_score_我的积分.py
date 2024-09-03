@@ -178,8 +178,9 @@ class TestMineScoreZygw(TestMine):
 
         self.get_screenshot()
 
-    def test_14_积分兑换_兑换置顶券(self):
+    def delete_test_14_积分兑换_兑换置顶券(self):
         """
+        V7.16delete
         V6.27.X: 积分兑换，点击第一个置顶券类型，执行兑换
         """
         self.find_element('view[id="toGoodsdetail"][data-type="1"]').tap()
@@ -205,8 +206,9 @@ class TestMineScoreZygw(TestMine):
         self.find_element('view[id="tojfMall"]').tap()
         self.delay(2)
 
-    def test_15_积分兑换_积分商城(self):
+    def delete_test_15_积分兑换_积分商城(self):
         """
+        V7.16delete
         V6.27.X: 积分兑换，点击积分商城
         """
         self.click_jfmall()
@@ -214,8 +216,9 @@ class TestMineScoreZygw(TestMine):
         self.verifyPageName('/page/mine/myscores/scoremall')
         self.get_screenshot()
 
-    def test_16_积分商城_去兑换(self):
+    def delete_test_16_积分商城_去兑换(self):
         """
+        V7.16delete
         V6.27.X: 积分兑换，点击积分商城
         """
         self.click_jfmall()

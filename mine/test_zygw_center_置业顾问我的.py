@@ -195,8 +195,9 @@ class TestCenterZygw(TestMine):
         self.verifyPageName('/page/mine/myscores/myscores')
         self.get_screenshot()
 
-    def test_35_权益券TAB切换(self):
+    def delete_test_35_权益券TAB切换(self):
         """
+        V7.16delete
         V6.27.X: 权益券，点击tab切换
         """
         self.click_quanyiquan()
@@ -208,8 +209,9 @@ class TestCenterZygw(TestMine):
         self.find_element('view[id="getList"]').tap()
         self.get_screenshot()
 
-    def test_36_权益券_使用置顶券(self):
+    def delete_test_36_权益券_使用置顶券(self):
         """
+        V7.16delete
         V6.27.X: 权益券，待使用，选择’置顶券‘类型，点击’去使用‘
         """
         self.click_quanyiquan()
@@ -225,8 +227,9 @@ class TestCenterZygw(TestMine):
 
         self.get_screenshot()
 
-    def test_37_权益券_使用自定义券(self):
+    def delete_test_37_权益券_使用自定义券(self):
         """
+        V7.16delete
         V6.27.X: 权益券，待使用，选择’置顶券‘类型，点击’去使用‘
         """
         self.click_quanyiquan()

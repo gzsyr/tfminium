@@ -85,8 +85,9 @@ class TestMineScoreJJR(TestMine):
         self.get_screenshot()
         self.verifyPageName('/im/pages/recentchat/recentchat')
 
-    def test_07_去兑换(self):
+    def delete_test_07_去兑换(self):
         """
+        V7.16delete
         V6.38.X: 点击 去兑换
         """
         self.find_element('view[class="toDh"]').tap()
