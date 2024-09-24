@@ -384,7 +384,7 @@ class ZufangContent(TestBase):
         return self
 
     def set_name(self, name='赵赵测试'):
-        self.page.scroll_to(800, 500)
+        self.page.scroll_to(1200, 500)
         self.delay(1)
         # 联系人
         pyperclip.copy(name)

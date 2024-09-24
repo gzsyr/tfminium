@@ -26,7 +26,7 @@ class TestTfqQuanZi(TestBase):
         """
         圈子广场，点击圈子列表第一条，点击”关注“按钮变为“已关注”，或（“已关注”）点击后进入圈子详情页
         """
-        self.page.get_element('view[data-index2="0"]').tap()
+        self.find_element('view[class="item"]/view[data-id="751"]').tap()
 
         self.get_screenshot()
 

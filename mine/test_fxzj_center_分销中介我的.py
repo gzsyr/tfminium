@@ -8,21 +8,21 @@ from base.test_mine import TestMine
 
 
 @ddt
-class TestCenterZygw(TestMine):
+class TestCenterFxzj(TestMine):
     """
-    置业顾问个人中心页面
+    分销中介个人中心页面
     """
     @classmethod
     def setUpClass(cls) -> None:
-        super(TestCenterZygw, cls).setUpClass()
-        cls().change_zygw()
-        print("setupclass change_zygw")
+        super(TestCenterFxzj, cls).setUpClass()
+        cls().change_fxzj()
+        print("setupclass change_fxzj")
 
     def setUp(self) -> None:
         self.page_name = '/page/index/mine?city=qz'
         self.switch = True
         self.classname = self.__class__.__name__
-        super(TestCenterZygw, self).setUp()
+        super(TestCenterFxzj, self).setUp()
 
     def test_44_复制身份ID(self):
         """
@@ -32,19 +32,6 @@ class TestCenterZygw(TestMine):
 
         self.get_screenshot()
 
-    def test_45_查看课程(self):
-        """
-        V6.45.X: 转到课程详情页
-        """
-        self.find_element('view[class="name"]', inner_text='操作指南').tap()
-        self.get_screenshot('跳转到课程中心页')
-        self.verifyPageName('/page/business/classguide/classguide')
-
-        self.delay(1)
-        self.find_element('view[class="content_title"]').tap()
-        self.get_screenshot('跳转到课程详情页')
-        self.verifyPageName('/page/business/classguide/classguidedetail')
-
     def test_98_服务指南_邀请入驻(self):
         """
         V6.40.X: 点击邀请入驻
@@ -53,29 +40,9 @@ class TestCenterZygw(TestMine):
 
         self.get_screenshot()
 
-    def test_43_进入素材库(self):
-        """
-        V6.30.X: 点击素材库
-        """
-        self.find_element('view[class="store-swiper-item tfLine1"]').tap()
-
-        self.delay(2)
-        self.verifyPageName('/page/taofangquan/contentstore/contentstore')
-        self.get_screenshot()
-
-    def test_23_去视频号(self):
-        """
-        V6.24.X: 点击更多服务下视频号入口的【去观看】
-        """
-        try:
-            self.find_element('view[class="toVideo"]').tap()
-        except minium.MiniElementNotFoundError:
-            print('后台没有配置视频号入口')
-        self.get_screenshot()
-
     def click_huoyuedu(self):
         """
-        置业顾问个人中心页面，点击活跃度
+        分销中介个人中心页面，点击活跃度
         """
         self.find_element('view[class="desc"]', inner_text='服务分').tap()
         self.delay(2)
@@ -101,7 +68,7 @@ class TestCenterZygw(TestMine):
 
         self.find_element('view[class="pointProgress-name"]', inner_text='线索转化').tap()
 
-        self.verifyPageName('/page/business/zygwinfomanage/customerList')
+        self.verifyPageName('/page/business/fxzjmanage/customerlist')
         self.get_screenshot()
 
     def test_29_活跃度400电话(self):
@@ -123,7 +90,7 @@ class TestCenterZygw(TestMine):
 
         self.find_element('view[class="pointProgress-name"]', inner_text='线索反馈').tap()
 
-        self.verifyPageName('/page/business/zygwinfomanage/customerList')
+        self.verifyPageName('/page/business/fxzjmanage/customerlist')
         self.get_screenshot()
 
     def test_31_活跃度线索回拨(self):
@@ -134,7 +101,7 @@ class TestCenterZygw(TestMine):
 
         self.find_element('view[class="pointProgress-name"]', inner_text='线索回拨').tap()
 
-        self.verifyPageName('/page/business/zygwinfomanage/customerList')
+        self.verifyPageName('/page/business/fxzjmanage/customerlist')
         self.get_screenshot()
 
     def test_32_活跃度关注服务号(self):
@@ -150,7 +117,7 @@ class TestCenterZygw(TestMine):
 
     def test_33_活跃度来电记录(self):
         """
-        V6.27.X: 点击活跃度，点击关注服务号
+        V6.27.X: 点击活跃度，点击来电记录
         """
         self.click_huoyuedu()
 
@@ -170,9 +137,18 @@ class TestCenterZygw(TestMine):
         self.verifyPageName('/page/mine/myscores/myscores')
         self.get_screenshot()
 
+    def test_01_click_帖子(self):
+        """
+        V6.27.X: 分销中介个人中心页面，点击帖子
+        """
+        self.find_element('view[class="mp myTfq flex tfAlignC tfFlexC tfFlexV"]').tap()
+
+        self.verifyPageName('/page/business/minetiezi')
+        self.get_screenshot()
+
     def test_02_click_jifen_积分(self):
         """
-        V6.27.X: 置业顾问个人中心页面，点击积分
+        V6.27.X: 分销中介个人中心页面，点击积分
         """
         self.find_element('view[class="desc"]', inner_text='积分').tap()
 
@@ -188,94 +164,47 @@ class TestCenterZygw(TestMine):
 
     def test_04_click_quanyiquan_权益券(self):
         """
-        V6.27.X: 置业顾问个人中心页面，点击积分
+        V6.27.X: 分销中介个人中心页面，点击积分
         """
         self.find_element('view[class="desc"]', inner_text='积分').tap()
 
         self.verifyPageName('/page/mine/myscores/myscores')
         self.get_screenshot()
 
-    def delete_test_35_权益券TAB切换(self):
-        """
-        V7.16delete
-        V6.27.X: 权益券，点击tab切换
-        """
-        self.click_quanyiquan()
-        self.delay(1)
-        self.find_element('view[id="getUsedList"]').tap()
-        self.delay(1)
-        self.get_screenshot('切换到“已使用”')
-
-        self.find_element('view[id="getList"]').tap()
-        self.get_screenshot()
-
-    def delete_test_36_权益券_使用置顶券(self):
-        """
-        V7.16delete
-        V6.27.X: 权益券，待使用，选择’置顶券‘类型，点击’去使用‘
-        """
-        self.click_quanyiquan()
-        try:
-            self.find_element('view[class="touse"][data-couponstype="1"]').tap()
-            self.delay(1)
-        except minium.MiniElementNotFoundError:
-            self.get_screenshot('没有置顶券可用')
-            return
-
-        # 点击“使用权益券”弹框的“确认”
-        self.find_element('view[id="confirm"]').tap()
-
-        self.get_screenshot()
-
-    def delete_test_37_权益券_使用自定义券(self):
-        """
-        V7.16delete
-        V6.27.X: 权益券，待使用，选择’置顶券‘类型，点击’去使用‘
-        """
-        self.click_quanyiquan()
-        try:
-            self.find_element('view[class="touse"][data-couponstype="2"]').tap()
-            self.delay(1)
-        except minium.MiniElementNotFoundError:
-            self.get_screenshot('没有自定义商品券可用')
-            return
-
-        self.get_screenshot()
-
     def test_05_click_my_customer_我的客户全部(self):
         """
-        V6.27.X: 置业顾问个人中心页面，点击我的客户
+        V6.27.X: 分销中介个人中心页面，点击我的客户
         """
         self.find_element('view[class="tfFlex tfAlignC key"]/view', inner_text='全部').tap()
 
-        self.verifyPageName('/page/business/zygwinfomanage/customerList')
+        self.verifyPageName('/page/business/fxzjmanage/customerlist')
         self.get_screenshot()
 
     def test_06_click_my_customer_我的客户星标(self):
         """
-        V6.27.X: 置业顾问个人中心页面，点击我的客户
+        V6.27.X: 分销中介个人中心页面，点击我的客户
         """
         self.find_element('view[class="tfFlex tfAlignC key"]/view', inner_text='星标').tap()
 
-        self.verifyPageName('/page/business/zygwinfomanage/customerList')
+        self.verifyPageName('/page/business/fxzjmanage/customerlist')
         self.get_screenshot()
 
     def test_07_click_my_customer_我的客户未跟进(self):
         """
-        V6.27.X: 置业顾问个人中心页面，点击我的客户
+        V6.27.X: 分销中介个人中心页面，点击我的客户
         """
         self.find_element('view[class="tfFlex tfAlignC key"]/view', inner_text='未跟进').tap()
 
-        self.verifyPageName('/page/business/zygwinfomanage/customerList')
+        self.verifyPageName('/page/business/fxzjmanage/customerlist')
         self.get_screenshot()
 
     def test_08_click_my_customer_我的客户未标记(self):
         """
-        V6.27.X: 置业顾问个人中心页面，点击我的客户
+        V6.27.X: 分销中介个人中心页面，点击我的客户
         """
         self.find_element('view[class="tfFlex tfAlignC key"]/view', inner_text='未标记').tap()
 
-        self.verifyPageName('/page/business/zygwinfomanage/customerList')
+        self.verifyPageName('/page/business/fxzjmanage/customerlist')
         self.get_screenshot()
 
     def test_09_积分TAB切换(self):
@@ -367,16 +296,16 @@ class TestCenterZygw(TestMine):
 
     def test_03_click_my_card_我的名片(self):
         """
-        置业顾问个人中心页面，点击我的名片
+        分销中介个人中心页面，点击我的名片
         """
         self.page.get_element('view[class="mp"]').tap()
 
-        self.verifyPageName('/page/newhouse/zygw/detail')
+        self.verifyPageName('/page/business/fxzjmanage/detail')
         self.get_screenshot()
 
-    def test_97_客户消息_来电记录(self):
+    def test_97_常用功能_来电记录(self):
         """
-        V6.27.X: 置业顾问个人中心页面，客户消息，点击来电记录，点击‘回拨’
+        V6.27.X: 常用功能，点击来电记录，点击‘回拨’
         """
         self.find_element('view[class="item flex tfAlignC tfFlexV tfFlexC"]/view', inner_text='来电记录').tap()
 
@@ -389,9 +318,53 @@ class TestCenterZygw(TestMine):
         except minium.MiniElementNotFoundError:
             self.get_screenshot('无来电记录')
 
-    def test_17_客户消息_消息线索查看(self):
+    def test_16_常用功能_回拨记录(self):
         """
-        V6.27.X: 客户消息，点击’消息‘，线索派发的消息，点击“查看更多”
+        V7.17: 常用功能_回拨记录
+        """
+        self.find_element('view[class="item flex tfAlignC tfFlexV tfFlexC"]/view', inner_text='回拨记录').tap()
+
+        self.verifyPageName('/page/business/zygwinfomanage/callback')
+        self.get_screenshot()
+
+    def test_20_常用功能_回拨记录(self):
+        """
+        V7.17: 常用功能_回拨记录
+        """
+        self.find_element('view[class="item flex tfAlignC tfFlexV tfFlexC"]/view', inner_text='回拨记录').tap()
+
+        self.verifyPageName('/page/business/zygwinfomanage/callback')
+        self.get_screenshot()
+
+    def test_23_常用功能_房贷计算器(self):
+        """
+        V7.17: 常用功能_房贷计算器
+        """
+        self.find_element('view[class="item flex tfAlignC tfFlexV tfFlexC"]/view', inner_text='房贷计算器').tap()
+
+        self.verifyPageName('/page/tools/fdjsq/sd/index')
+        self.get_screenshot()
+
+    def test_25_常用功能_采光计算器(self):
+        """
+        V7.17: 常用功能_采光计算器
+        """
+        self.find_element('view[class="item flex tfAlignC tfFlexV tfFlexC"]/view', inner_text='采光计算器').tap()
+
+        self.verifyPageName('/page/tools/cgjsq/cgjsq')
+        self.get_screenshot()
+
+    def test_35_常用功能_积分商城(self):
+        """
+        V7.17: 常用功能_积分商城
+        """
+        self.find_element('view[class="item flex tfAlignC tfFlexV tfFlexC"]/view', inner_text='积分商城').tap()
+
+        self.get_screenshot()
+
+    def test_17_常用功能_消息线索查看(self):
+        """
+        V6.27.X: 常用功能，点击’消息‘，线索派发的消息，点击“查看更多”
         """
         self.find_element('view[class="item flex tfAlignC tfFlexV tfFlexC"]//view', text_contains='消息').tap()
 
@@ -413,23 +386,6 @@ class TestCenterZygw(TestMine):
         """
         self.find_element('view[class="item flex tfAlignC tfFlexV tfFlexC"]/view', inner_text='回拨记录').tap()
         self.delay(2)
-
-    def del_test_38_回拨记录_回拨通道切换(self):
-        """
-        V6.42.X: 没有回拨通道
-        V6.27.X: 客户消息，点击“回拨记录”，切换回拨通道
-        """
-        self.click_callrecord()
-
-        try:
-            self.find_element('view[data-idx="1"]', inner_text='回拨通道2').tap()
-            self.get_screenshot('回拨通道2')
-
-            self.find_element('view[data-idx="0"]', inner_text='回拨通道1').tap()
-            self.get_screenshot('回拨通道1')
-        except minium.MiniElementNotFoundError:
-            print('仅有一个回拨通道')
-            self.get_screenshot()
 
     def test_39_回拨记录_日期切换(self):
         """
@@ -491,16 +447,13 @@ class TestCenterZygw(TestMine):
         """
         V6.27.X: 点击“横幅广告”
         """
-        try:
-            self.find_element('image[class="ad"]').tap()
+        self.find_element('image[class="ad"]').tap()
 
-            self.get_screenshot()
-        except minium.MiniElementNotFoundError:
-            self.get_screenshot('没有横幅广告')
+        self.get_screenshot()
 
     def test_19_服务指南_关注服务号(self):
         """
-        置业顾问个人中心页面，点击关注服务号
+        分销中介个人中心页面，点击关注服务号
         """
         self.find_element('view[class="name"]', inner_text='关注服务号').tap()
 
@@ -514,29 +467,18 @@ class TestCenterZygw(TestMine):
 
     def test_24_设置修改资料(self):
         """
-        V6.27.X: 置业顾问个人中心页面，点击设置，点击修改资料
+        V6.27.X: 分销中介个人中心页面，点击设置，点击修改资料
         """
         self.click_set_icon()
 
         self.find_element('view[class="inner disflex tfAlignC tfFlexSb"]/view', inner_text='修改资料').tap()
 
-        # self.verifyPageName('/page/business/updateInfo')
-        self.get_screenshot()
-
-    def test_25_设置绑定楼盘(self):
-        """
-        V6.27.X: 置业顾问个人中心页面，点击设置，点击绑定楼盘
-        """
-        self.click_set_icon()
-        self.delay(6)
-        self.find_element('view[class="inner disflex tfAlignC tfFlexSb"]/view', text_contains='绑定楼盘').tap()
-        self.delay(3)
-        self.verifyPageName('/page/business/updateLoupan')
+        self.verifyPageName('/page/business/fxzjmanage/updateinfo')
         self.get_screenshot()
 
     def test_26_设置我的红包(self):
         """
-        V6.27.X: 置业顾问个人中心页面，点击设置，点击我的红包
+        V6.27.X: 分销中介个人中心页面，点击设置，点击我的红包
         """
         self.click_set_icon()
 
@@ -547,7 +489,7 @@ class TestCenterZygw(TestMine):
 
     def test_22_服务指南_隐私政策(self):
         """
-        置业顾问个人中心页面，点击隐私权政策
+        分销中介个人中心页面，点击隐私权政策
         """
         self.find_element('view[class="name"]', inner_text='隐私权政策').tap()
 
@@ -556,19 +498,11 @@ class TestCenterZygw(TestMine):
 
     def test_21_服务指南_意见反馈(self):
         """
-        置业顾问个人中心页面，点击意见反馈
+        分销中介个人中心页面，点击意见反馈
         """
         self.find_element('view[class="name"]', inner_text='意见反馈').tap()
 
         self.verifyPageName('/page/mine/wtfk/wtfk')
-        self.get_screenshot()
-
-    def test_20_服务指南_我的专属客服(self):
-        """
-        V6.27.X: 服务指南，我的专属客服
-        """
-        self.find_element('view[class="name"]', inner_text='专属客服').tap()
-
         self.get_screenshot()
 
 
