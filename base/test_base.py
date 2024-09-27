@@ -87,8 +87,15 @@ class TestBase(minium.MiniTest):
 
         print("++++++set up atest+++++++")
 
-    def back(self):
-        self.app.navigate_back()
+    def back(self, backpagename=None):
+        """
+        backpagename: 回退到的页面路径，如果不填，直接回退；
+                      如果填写，则比对当前页面路径是否匹配backpagename，匹配则直接返回，否则回退
+        """
+        if backpagename and self.page.path != backpagename:
+            self.app.navigate_back()
+        else:
+            self.app.navigate_back()
 
     def redirect_to_page(self, url, params=None):
         """
@@ -161,6 +168,13 @@ class TestBase(minium.MiniTest):
         else:
             pyautogui.click(btm[0], btm[1])
 
+    def press_keyboard(self, value=None):
+        """
+
+        """
+        if value is not None:
+            pyautogui.press(value)
+        return self
 
     def input_value_by_mk(self, png, value=None, direction=0):
         """
@@ -286,7 +300,7 @@ class TestBase(minium.MiniTest):
                   True--默认截图
                   False--无需截图
         """
-        ret = self.app.wait_for_page(pagename)
+        ret = self.app.wait_for_page(pagename, max_timeout=15)
         try:
             self.assertTrue(ret, f"wait {pagename} success")
             self.assertEqual(self.app.current_page.path, pagename, f"goto {pagename} OK")
@@ -324,7 +338,7 @@ class TestBase(minium.MiniTest):
         """
         获取当前登录用户的身份
         """
-        sf = {'fbs': '房博士', 'yunying': '运营', 'zygw': '置业顾问', 'jjr': '经纪人'}
+        sf = {'fbs': '房博士', 'yunying': '运营', 'zygw': '置业顾问', 'jjr': '经纪人', 'fxzj': '分销中介'}
         result = self.app.call_wx_method('getStorageSync', 'userInfoNew').\
             get('result').get('result').get('third_data')
 

@@ -92,6 +92,22 @@ class TestMine(TestBase):
             # self.change_roles(re_name="测试机", change_name="置业顾问-线上zygw5160")
             print('切换到置业顾问身份')
 
+    def change_fxzj(self):
+        """
+        切换身份，切换成分销中介
+        :return:
+        """
+        if self.get_third_title() == '分销中介':
+            print('当前身份是置业顾问，无需切换')
+        else:
+
+        # try:
+        #     self.page.get_element('view[class="disflex tfAlignC level"]', text_contains='置业顾问')
+        # except minium.MiniElementNotFoundError:
+            self.change_roles(re_name="泉州分销", change_name="安家顾问-泉州分销", change_type="55345")    # online
+            # self.change_roles(re_name="测试机", change_name="置业顾问-线上zygw5160")
+            print('切换到分销中介身份')
+
     def change_yy(self):
         """
         切换身份，切换成运营角色
@@ -121,5 +137,5 @@ class TestMine(TestBase):
         if self.get_third_title() == '经纪人':
             print('当前身份是经纪人，无需切换')
         else:
-            self.change_roles(re_name='颜测测试111', change_name="经纪人", change_type="50662")
+            self.change_roles(re_name='雪中飞-zsytest', change_name="经纪人", change_type="51235")
 
