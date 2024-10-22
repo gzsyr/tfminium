@@ -26,7 +26,7 @@ class TestMineTrack(TestBase):
         """
         V6.21.X: 1003947   我的足迹页楼盘对应的【在线咨询】按钮
         """
-        self.page.get_element('view[data-pinyin="liuyijun"]', inner_text='在线咨询').tap()
+        self.find_element('view[data-pinyin="liuyijun"]', inner_text='在线咨询').tap()
         self.delay(3)
 
         self.get_screenshot()
@@ -35,7 +35,7 @@ class TestMineTrack(TestBase):
         """
         V6.21.X: 1003947   我的足迹页楼盘对应的【拨打电话】按钮
         """
-        self.page.get_element('view[data-pinyin="liuyijun"]', inner_text='拨打电话').tap()
+        self.find_element('view[data-pinyin="liuyijun"]', inner_text='拨打电话').tap()
         self.delay(3)
 
         self.get_screenshot()

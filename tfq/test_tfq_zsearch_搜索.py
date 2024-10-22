@@ -61,10 +61,10 @@ class TestTfqSearch(TestBase):
         """
         b_l = self.page.element_is_exists('view[class="searchBT-r"]')
         if b_l == True:
-            self.page.get_element('text[class="item"]').tap()
+            self.find_element('text[class="item"]').tap()
 
-            self.delay(1)
-            self.page.get_element('view[class="post_Title list-desc"]').tap()
+            self.delay(4)
+            self.find_element('view[class="post_Title list-desc"]').tap()
 
             self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
         else:

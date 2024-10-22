@@ -224,7 +224,10 @@ class TestIndexShouye(TestBase):
         首页，点击销售节点楼层，“1-新领销许、2-最新摇号”
         :return:
         """
-        self.page.get_element(f'view[class="yhcx-tab-item"][data-index="{value}"]').click()
+        # value = 2
+        self.page.scroll_to(1000,300)
+        self.delay(5)
+        self.find_element(f'view[class="yhcx-tab-item"][data-index="{value}"]').click()
         self.get_screenshot()
 
     def test_13_click_sell_loupan_近期开盘(self):

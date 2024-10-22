@@ -57,8 +57,8 @@ class TestEsfRzfxBg(TestBase):
         self.click_hx()
         self.delay(2)
         # 点击 二室
-        self.find_element('view[class="lpBottomBar--hxtab"][data-key="2"]').tap()
-        self.get_screenshot('选择二室的截图')
+        self.find_element('view[class="lpBottomBar--hxtab"][data-key="3"]').tap()
+        self.get_screenshot('选择san室的截图')
 
         self.find_element('image[class="lpBottomBar--hxImg"]').tap()
         self.get_screenshot('点击户型图的截图')

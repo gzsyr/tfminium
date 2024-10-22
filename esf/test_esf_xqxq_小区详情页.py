@@ -330,12 +330,13 @@ class Testesfxqxq(TestBase):
         self.delay(3)
         self.get_screenshot()
 
-    def test_goto_qpg_点击采光计算(self):
+    def test_goto_qpg_点击历史成交(self):
         """
         V6.42.X: 点击采光计算
+        V7.19: 变更为“历史成交”
         """
-        self.find_element('view[class="price--tool"]/text', inner_text='采光计算').tap()
-        self.delay(3)
+        # self.find_element('view[class="price--tool"]/text', inner_text='采光计算').tap()
+        self.find_element('view[class="price--tool"]').tap()
         self.get_screenshot()
 
     def del_test_goto_wx_点击复制微信(self):

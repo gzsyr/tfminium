@@ -105,8 +105,9 @@ class TestTfqPostDetail(TestBase):
         self.verifyStr(True, self.getShowToast('self.page.get_element(\'view[class="report-submit"]\').tap()'), '举报成功弹框')
         self.get_screenshot()
 
-    def test_15_click_newpost_最新热帖(self):
+    def del_test_15_click_newpost_最新热帖(self):
         """
+        DEL V7.19
         帖子详情页，点击帖子"最新热帖"按钮，进入帖子详情页
         :return:
         """
@@ -448,8 +449,9 @@ class TestTfqPostDetail(TestBase):
 
         self.get_screenshot()
 
-    def test_16_click_newpost_more_最新热帖更多(self):
+    def del_test_16_click_newpost_more_最新热帖更多(self):
         """
+        del v7.19
         帖子详情页，点击最新热帖的，“更多”按钮\
         """
         self.page.scroll_to(500, 500)
@@ -479,6 +481,7 @@ class TestTfqPostDetail(TestBase):
         """
         帖子详情页，点击 相关推荐 第一条帖子
         """
+        self.delay(3)
         self.find_element('view[class="recommend_post_cont"]').tap()
 
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')

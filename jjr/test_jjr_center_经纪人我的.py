@@ -226,7 +226,7 @@ class TestCenterJJR(TestMine):
 
         self.get_screenshot()
 
-    def test_039_点击积分抢客(self):
+    def delete_test_039_点击积分抢客(self):
         """
         V7.17: 点击 积分抢客
         """
@@ -292,7 +292,7 @@ class TestCenterJJR(TestMine):
         """
         V7.17: 点击 海报获客
         """
-        self.find_element('view[class="tfFlex tfFlexC tfAlignC tfFlexV tile"][data-index="2"]/view', inner_text='海报获客').tap()
+        self.find_element('view[class="tfFlex tfFlexC tfAlignC tfFlexV tile"][data-index="1"]/view', inner_text='海报获客').tap()
 
         self.verifyPageName('/page/publicPages/hkhb/hkhbindex')
         self.get_screenshot()
@@ -301,7 +301,8 @@ class TestCenterJJR(TestMine):
         """
         V7.17: 点击 发帖获客
         """
-        self.find_element('view[class="tfFlex tfFlexC tfAlignC tfFlexV tile"][data-index="3"]/view', inner_text='发帖获客').tap()
+        self.delay(5)
+        self.find_element('view[class="tfFlex tfFlexC tfAlignC tfFlexV tile"][data-index="2"]/view', inner_text='发帖获客').tap()
 
         self.verifyPageName('/page/taofangquan/writePost/writePost')
         self.get_screenshot()
@@ -454,6 +455,7 @@ class TestCenterJJR(TestMine):
         """
         点击“IM咨询配置”，点击“自动回复设置”，进入自动回复设置页面，输入内容保存
         """
+        self.delay(2)
         self.goto_im_autoreply()
         self.delay(2)
 

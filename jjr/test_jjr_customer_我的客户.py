@@ -140,14 +140,14 @@ class TestJJRCustomer(TestMine):
         except:
             self.get_screenshot('客户详情-无更多通话记录')
 
-        self.find_element(
-            'view[class="flex a_c action"][data-index="1"]').tap()
-        self.delay(3)
+        self.find_element('view[class="flex a_c action"][data-index="1"]').tap()
+        self.delay(1)
         self.get_screenshot('客户详情-发消息')
-        self.back()
+        self.delay(2)
+        if self.get_page_name() != '/page/business/customerManage/customerDetail/customerDetail?id=13679':
+            self.back()
 
-        self.find_element(
-            'view[class="flex a_c action"][data-index="0"]').tap()
+        self.find_element('view[class="flex a_c action"][data-index="0"]').tap()
         self.get_screenshot('客户详情-打电话')
 
         self.find_element('image[class="eye"]').tap()

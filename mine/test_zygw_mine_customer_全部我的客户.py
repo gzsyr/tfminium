@@ -42,7 +42,7 @@ class TestMineAllCustomer(TestMine):
         """
         V6.27.X: 切换到未跟进TAB
         """
-        self.find_element('view[data-idx="2"]', inner_text='未跟进').tap()
+        self.find_element('view[data-idx="1"]', inner_text='未跟进').tap()
 
         self.get_screenshot()
 
@@ -50,7 +50,7 @@ class TestMineAllCustomer(TestMine):
         """
         V6.27.X: 切换到未接通
         """
-        self.find_element('view[data-idx="3"]', inner_text='未接通').tap()
+        self.find_element('view[data-idx="2"]', inner_text='未接通').tap()
 
         self.get_screenshot()
 
@@ -58,7 +58,7 @@ class TestMineAllCustomer(TestMine):
         """
         V6.27.X: 切换到已接通TAB
         """
-        self.find_element('view[data-idx="4"]', inner_text='已接通').tap()
+        self.find_element('view[data-idx="3"]', inner_text='已接通').tap()
 
         self.get_screenshot()
 
@@ -66,7 +66,7 @@ class TestMineAllCustomer(TestMine):
         """
         V6.27.X: 切换到未标记TAB
         """
-        self.find_element('view[data-idx="5"]', inner_text='未标记').tap()
+        self.find_element('view[data-idx="4"]', inner_text='未标记').tap()
 
         self.get_screenshot()
 
@@ -74,7 +74,7 @@ class TestMineAllCustomer(TestMine):
         """
         V6.27.X: 切换到未跟进TAB
         """
-        self.find_element('view[data-idx="5"]', inner_text='未标记').tap()
+        self.find_element('view[data-idx="4"]', inner_text='未标记').tap()
 
         self.find_element('view[data-idx="0"]', inner_text='全部').tap()
 
