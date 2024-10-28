@@ -88,6 +88,12 @@ class Testesfdetail(TestBase):
         e.tap()
         self.get_screenshot()
 
+    def checkSendCard(self):
+        """
+        是不是发送到了咨询卡片
+        """
+        self.verifyByScreenshot('esf/esfdetailchecksendcard.png')
+
     def test_04_goto_ygim_首付和月供咨询(self):
         """
         点击首付和月供咨询
@@ -95,9 +101,10 @@ class Testesfdetail(TestBase):
         """
         e = self.page.get_element('text', inner_text="首付和月供咨询")
         e.tap()
-        self.delay(6)
+        self.delay(10)
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
+        self.checkSendCard()
 
     def test_05_goto_lcim_点击楼层咨询(self):
         """
@@ -106,9 +113,10 @@ class Testesfdetail(TestBase):
         """
         e = self.page.get_element('text', inner_text="楼层咨询")
         e.tap()
-        self.delay(6)
+        self.delay(10)
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
+        self.checkSendCard()
 
     def test_06_goto_sfim_点击税费咨询(self):
         """
@@ -117,9 +125,10 @@ class Testesfdetail(TestBase):
         """
         e = self.page.get_element('text', inner_text="税费咨询")
         e.tap()
-        self.delay(6)
+        self.delay(10)
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
+        self.checkSendCard()
 
     def test_07_goto_qcj_点击去出价(self):
         """
@@ -138,9 +147,10 @@ class Testesfdetail(TestBase):
         """
         e = self.find_element('view[class="center chat"]/text', inner_text="咨询房源详情")
         e.tap()
-        self.delay(6)
+        self.delay(10)
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
+        self.checkSendCard()
 
     def test_09_goto_ckall_房源描述查看详情(self):
         """
@@ -176,9 +186,10 @@ class Testesfdetail(TestBase):
         align_msg = self.page.get_elements('view[class="flex a_c msg"]')
         msg_list = align_msg[value]
         msg_list.tap()
-        self.delay(6)
+        self.delay(10)
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
+        self.checkSendCard()
 
     def test_11_goto_xqckxq_小区查看详情(self):
         """
@@ -207,9 +218,10 @@ class Testesfdetail(TestBase):
         """
         e = self.page.get_element('text', inner_text="咨询近期成交数据")
         e.tap()
-        self.delay(6)
+        self.delay(15)
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
+        self.checkSendCard()
 
     def test_14_goto_fjpg_点击房价评估(self):
         """
@@ -355,9 +367,10 @@ class Testesfdetail(TestBase):
         # xpath定位
         elm = self.page.get_element('//view[@class="pf contact"]/contact/view/view/view[2]/view[1]')
         elm.tap()
-        self.delay(6)
+        self.delay(13)
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
+        self.checkSendCard()
 
     def test_25_goto_tel_点击拨打电话(self):
         """

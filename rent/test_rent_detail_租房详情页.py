@@ -14,6 +14,12 @@ class Testrentdetail(TestBase):
         super(Testrentdetail, self).setUp()
         print("Testrentdetail setup")
 
+    def checkSendCard(self):
+        """
+        是不是发送到了咨询卡片
+        """
+        self.verifyByScreenshot('rent/rentdetailchecksendcard.png')
+
     def test_20_goto_photo_点击相册(self):
         """
         点击相册
@@ -112,17 +118,55 @@ class Testrentdetail(TestBase):
         """
         self.page.scroll_to(500, 500)
         self.delay(1)
-        m = self.page.element_is_exists('view[class="center msg"]')
-        if m == True:
-            self.page.get_element('view[class="center msg"]').tap()
 
-            self.delay(6)
-            self.verifyPageName('/im/pages/chating/chating')
-            self.get_screenshot()
-            self.delay(1)
-        else:
-            print('没有房源详情咨询')
+        self.find_element('view[class="houseDesc--center houseDesc--chat"]').tap()
+        self.delay(12)
+        self.verifyPageName('/im/pages/chating/chating')
+        self.get_screenshot()
+        self.checkSendCard()
 
+    def test_22_click_zjim_点击租金详情咨询(self):
+        """
+        点击房源详情咨询
+        :return:
+        """
+        self.page.scroll_to(550, 500)
+        self.delay(1)
+
+        self.find_element('view[class="checkInDetail--center checkInDetail--chat"]').tap()
+        self.delay(12)
+        self.verifyPageName('/im/pages/chating/chating')
+        self.get_screenshot()
+        self.checkSendCard()
+
+    def test_23_click_zbim_点击周边配套咨询(self):
+        """
+        点击房源详情咨询
+        :return:
+        """
+        self.page.scroll_to(750, 500)
+        self.delay(1)
+
+        self.find_element('view[class="zbpt--center zbpt--chat"]').tap()
+        self.delay(12)
+        self.verifyPageName('/im/pages/chating/chating')
+        self.get_screenshot()
+        self.checkSendCard()
+
+    def test_24_click_hotim_点击热门咨询(self):
+        """
+        点击热门咨询
+        :return:
+        """
+        self.page.scroll_to(650, 500)
+        self.delay(1)
+
+        self.find_element('view[class="hotQs--center hotQs--qs"]').tap()
+        self.delay(12)
+        self.verifyPageName('/im/pages/chating/chating')
+        self.get_screenshot()
+        self.checkSendCard()
+        
     def test_07_click_descmsg_点击房源描述中的经纪人Im(self):
         """
         点击房源描述中的经纪人Im
@@ -325,12 +369,13 @@ class Testrentdetail(TestBase):
         :return:
         """
         # xpath定位
-        elm = self.page.get_element('//view[@class="pf contact"]/contact/view/view/view[2]/view[1]')
+        elm = self.page.get_element('view[class="contact--center contact--pr contact--msg"]')
         elm.tap()
 
-        self.delay(6)
+        self.delay(12)
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
+        self.checkSendCard()
 
     def test_19_goto_tel_点击拨打电话(self):
         """
