@@ -106,7 +106,7 @@ class TestCenterJJR(TestMine):
         """
         V7.17: 点击 租售一体激活
         """
-        self.find_element('view[class="tfFlex tfFlexC tfAlignC tfFlexV item"][data-index="0"]').tap()
+        self.find_element('view[class="item"][data-index="0"]').tap()
 
         self.verifyPageName('/zsb/manage/sell')
         self.get_screenshot()
@@ -115,7 +115,7 @@ class TestCenterJJR(TestMine):
         """
         V7.17: 点击 纯租激活
         """
-        self.find_element('view[class="tfFlex tfFlexC tfAlignC tfFlexV item"][data-index="1"]').tap()
+        self.find_element('view[class="item"][data-index="1"]').tap()
 
         self.verifyPageName('/zsb/manage/rent')
         self.get_screenshot()
@@ -124,7 +124,7 @@ class TestCenterJJR(TestMine):
         """
         V7.17: 点击 纯寿激活
         """
-        self.find_element('view[class="tfFlex tfFlexC tfAlignC tfFlexV item"][data-index="2"]').tap()
+        self.find_element('view[class="item"][data-index="2"]').tap()
 
         self.verifyPageName('/zsb/manage/sell')
         self.get_screenshot()
@@ -133,7 +133,7 @@ class TestCenterJJR(TestMine):
         """
         V7.17: 点击 房豆
         """
-        self.find_element('view[class="tfFlex tfFlexC tfAlignC tfFlexV item"][data-index="3"]').tap()
+        self.find_element('view[class="item"][data-index="3"]').tap()
 
         self.verifyPageName('/zsb/houseBeanLog/houseBeanLog')
         self.get_screenshot()
@@ -142,7 +142,7 @@ class TestCenterJJR(TestMine):
         """
         V7.17: 点击 放心看
         """
-        self.find_element('view[class="tfFlex tfFlexC tfAlignC tfFlexV item"][data-index="4"]').tap()
+        self.find_element('view[class="item"][data-index="4"]').tap()
 
         self.verifyPageName('/zsb/manage/sell')
         self.get_screenshot()
@@ -151,7 +151,7 @@ class TestCenterJJR(TestMine):
         """
         V7.17: 点击 急推
         """
-        self.find_element('view[class="tfFlex tfFlexC tfAlignC tfFlexV item"][data-index="6"]').tap()
+        self.find_element('view[class="item"][data-index="6"]').tap()
 
         self.verifyPageName('/zsb/manage/rent')
         self.get_screenshot()
@@ -160,7 +160,7 @@ class TestCenterJJR(TestMine):
         """
         V7.17: 点击 售|租新增
         """
-        self.find_element('view[class="tfFlex tfFlexC tfAlignC tfFlexV item"][data-index="7"]').tap()
+        self.find_element('view[class="item"][data-index="7"]').tap()
 
         self.verifyPageName('/zsb/manage/sell')
         self.get_screenshot()
@@ -523,40 +523,41 @@ class TestCenterJJR(TestMine):
         """
         self.click_jifen()
 
-        self.verifyPageName('/page/mine/myscores/myscores')
+        self.verifyPageName('/page/mine/myscores/alltasks')
         self.get_screenshot()
 
     def test_017_已兑换商品_待使用_赚积分(self):
         """
-        V6.38.x: 点击 已兑换商品，待使用  赚积分
+        V6.38.x: 点击 积分->积分明细->做任务赚积分
         """
         self.click_jifen()
-        self.verifyPageName('/page/mine/myscores/myscores')
+        # self.delay(3)
+        self.verifyPageName('/page/mine/myscores/alltasks')
 
-        # 点击 已兑换商品
-        self.find_element('view[class="jf_ydhgoods flex tfAlignC tfFlexC"]').tap()
+        # 点击 jifen
+        self.find_element('view[class="t_score"]').tap()
         self.delay(3)
-        self.find_element('view[class="getJf"]').tap()
-        self.get_screenshot('点击赚积分到我的积分页面')
-        self.verifyPageName('/page/mine/myscores/myscores')
+        self.find_element('view[class="toMyscore flex tfAlignC tfFlexC"]').tap()
+        self.get_screenshot('点击做任务赚积分')
+        self.verifyPageName('/page/mine/myscores/alltasks')
 
     def test_018_已兑换商品_已使用_赚积分(self):
         """
-        V6.38.X: 点击 已兑换商品，已使用  赚积分
+        V6.38.X: 点击 积分->积分明细->支出->做任务赚积分
         """
         self.click_jifen()
 
         self.delay(2)
 
-        # 点击 已兑换商品
-        self.find_element('view[class="jf_ydhgoods flex tfAlignC tfFlexC"]').tap()
+        # 点击 积分
+        self.find_element('view[class="t_score"]').tap()
         self.delay(3)
 
-        self.find_element('view[class="used"]').tap()
+        self.find_element('view[class="pay"]').tap()
         self.delay(2)
-        self.find_element('view[class="getJf"]').tap()
+        self.find_element('view[class="toMyscore flex tfAlignC tfFlexC"]').tap()
         self.get_screenshot('点击赚积分到我的积分页面')
-        self.verifyPageName('/page/mine/myscores/myscores')
+        self.verifyPageName('/page/mine/myscores/alltasks')
 
     def test_019_点击任务1(self):
         """

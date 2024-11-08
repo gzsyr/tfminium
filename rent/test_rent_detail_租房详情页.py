@@ -48,7 +48,7 @@ class Testrentdetail(TestBase):
         self.delay(3)
         self.get_screenshot()
 
-    def test_21_goto_share_点击分享(self):
+    def test_99_goto_share_点击分享(self):
         """
         点击分享
         :return:

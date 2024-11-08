@@ -152,7 +152,7 @@ class TestCenterFxzj(TestMine):
         """
         self.find_element('view[class="desc"]', inner_text='积分').tap()
 
-        self.verifyPageName('/page/mine/myscores/myscores')
+        self.verifyPageName('/page/mine/myscores/alltasks')
         self.get_screenshot()
 
     def click_quanyiquan(self):
@@ -168,7 +168,7 @@ class TestCenterFxzj(TestMine):
         """
         self.find_element('view[class="desc"]', inner_text='积分').tap()
 
-        self.verifyPageName('/page/mine/myscores/myscores')
+        self.verifyPageName('/page/mine/myscores/alltasks')
         self.get_screenshot()
 
     def test_05_click_my_customer_我的客户全部(self):

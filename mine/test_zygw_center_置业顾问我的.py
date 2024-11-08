@@ -176,7 +176,7 @@ class TestCenterZygw(TestMine):
         """
         self.find_element('view[class="desc"]', inner_text='积分').tap()
 
-        self.verifyPageName('/page/mine/myscores/myscores')
+        self.verifyPageName('/page/mine/myscores/alltasks')
         self.get_screenshot()
 
     def click_quanyiquan(self):
@@ -192,7 +192,7 @@ class TestCenterZygw(TestMine):
         """
         self.find_element('view[class="desc"]', inner_text='积分').tap()
 
-        self.verifyPageName('/page/mine/myscores/myscores')
+        self.verifyPageName('/page/mine/myscores/alltasks')
         self.get_screenshot()
 
     def delete_test_35_权益券TAB切换(self):

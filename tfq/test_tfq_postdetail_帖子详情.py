@@ -143,7 +143,7 @@ class TestTfqPostDetail(TestBase):
 
     def test_11_click_fbscontact_房博士联系(self):
         """
-        帖子详情页，点击评论第一个房博士的“点击联系”按钮
+        帖子详情页，点击评论第一个“点击联系”按钮
         """
         self.page.scroll_to(2300, 500)
         self.find_element('view[class="commentList--contact-fbs commentList--fbs_contact_tap"]').tap()
@@ -203,7 +203,7 @@ class TestTfqPostDetail(TestBase):
         # iscall = self.getShowToast('self.page.get_element(\'button[class="commentList--send-btn"]\').tap()')
         # self.verifyStr(True, iscall, '发布完成的提示 ok')
         self.find_element('button[class="commentList--send-btn"]').tap()
-        self.delay(1)
+        self.delay(3)
 
         # 验证查看第一条评论的回复评论
         self.verifyStr(content, self.find_element('view[class="commentList--reply-content"]').inner_text,

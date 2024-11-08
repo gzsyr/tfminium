@@ -239,7 +239,7 @@ class TestMineAllCustomer(TestMine):
         """
         V6.27.X: 客户列表，点击’回拨记录‘
         """
-        self.find_element('/page/movable-area/movable-view/view').tap()
+        self.find_element('/page/movable-area/view/view/movable-view/view').tap()
 
         self.verifyPageName('/page/business/zygwinfomanage/callback')
         self.get_screenshot()

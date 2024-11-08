@@ -13,7 +13,7 @@ class TestNewhouseDetail(TestBase):
         self.switch = False
         self.classname = self.__class__.__name__
         super(TestNewhouseDetail, self).setUp()
-        self.delay(2)
+        self.delay(4)
 
     def click_caiguang(self):
         """
@@ -448,6 +448,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 功能入口, VR看房
         """
+        self.delay(2)
         self.find_element('/page/view/view[2]/scroll-view/view/view[9]/view/image').click()
 
         self.verifyPageName('/page/newhouse/xcny/photoalbum')
@@ -623,6 +624,7 @@ class TestNewhouseDetail(TestBase):
         """
         选择第一个楼盘，点击“对比”
         """
+        self.delay(4)
         self.find_element('checkbox[aria-disabled="false"]').tap()
         self.delay(4)
         self.find_element('view[class="disflex-flex-shrink-0 lpBtn2 lpBtnAct"]').tap()
@@ -968,6 +970,8 @@ class TestNewhouseDetail(TestBase):
         """
         新房详情页页面，点击报名清册
         """
+
+        self.delay(4)
         self.find_element("view[class='left-icon disflex tfAlignC tfFlexC']").tap()
         self.delay(4)
 
@@ -978,6 +982,7 @@ class TestNewhouseDetail(TestBase):
         """
         新房详情页页面，点击报名序号
         """
+        self.delay(4)
         self.find_element("view[class='disflex tfAlignC xf_xh_title']").tap()
         self.delay(4)
         self.get_screenshot()
