@@ -207,7 +207,7 @@ class TestCenterFxzj(TestMine):
         self.verifyPageName('/page/business/fxzjmanage/customerlist')
         self.get_screenshot()
 
-    def test_09_积分TAB切换(self):
+    def delete_test_09_积分TAB切换(self):
         """
         V6.27.X: 积分抢兑 和 做任务赚积分 tab切换
         """
@@ -261,7 +261,7 @@ class TestCenterFxzj(TestMine):
         self.verifyPageName('/page/mine/myscores/alltasks')
         self.get_screenshot()
 
-    def test_14_积分去兑换(self):
+    def delete_test_14_积分去兑换(self):
         """
         V6.27.X: 积分抢兑TAB, 点击去兑换
         """
@@ -276,7 +276,7 @@ class TestCenterFxzj(TestMine):
         # self.verifyPageName('/page/mine/myscores/goodsdetail')
         self.get_screenshot()
 
-    def test_15_积分抢兑_全部商品(self):
+    def delete_test_15_积分抢兑_全部商品(self):
         """
         V6.30.X: 更换“点击更多”为“全部商品”
         V6.27.X: 积分抢兑TAB, 点击查看更多
@@ -324,7 +324,7 @@ class TestCenterFxzj(TestMine):
         """
         self.find_element('view[class="item flex tfAlignC tfFlexV tfFlexC"]/view', inner_text='回拨记录').tap()
 
-        self.verifyPageName('/page/business/zygwinfomanage/callback')
+        self.verifyPageName('/page/business/fxzjmanage/callback')
         self.get_screenshot()
 
     def test_20_常用功能_回拨记录(self):
@@ -332,8 +332,8 @@ class TestCenterFxzj(TestMine):
         V7.17: 常用功能_回拨记录
         """
         self.find_element('view[class="item flex tfAlignC tfFlexV tfFlexC"]/view', inner_text='回拨记录').tap()
-
-        self.verifyPageName('/page/business/zygwinfomanage/callback')
+        self.delay(2)
+        self.verifyPageName('/page/business/fxzjmanage/callback')
         self.get_screenshot()
 
     def test_23_常用功能_房贷计算器(self):

@@ -24,13 +24,14 @@ class TestAlbum(TestMine):
         click周边配套大图
         """
         self.find_element('image[class="xcnyAllLi-img"][data-name="配套图"][data-index="1"]').tap()
+        self.delay(4)
 
     def test_周边配套大图(self):
         """
         V6.50.x: 周边配套大图
         """
         self.click_zbpt()
-        self.find_element('view[class="page_cont_btn"]', inner_text='查看配套地图').tap()
+        self.find_element('view[class="nav_zbpt"]', inner_text='查看周边配套 >').tap()
 
         self.get_screenshot()
         self.verifyPageName('/page/publicPages/map/map')
@@ -40,7 +41,7 @@ class TestAlbum(TestMine):
         V6.50.X: 周边配套大图_咨询
         """
         self.click_zbpt()
-        self.find_element('view[class="page_cont_btn"]', inner_text='咨询配套详情').tap()
+        self.find_element('view[class="consultEntrance--consultBtn consultEntrance--consultBtn2"]').tap()
         self.delay(3)
         self.get_screenshot()
         self.verifyPageName('/im/pages/chating/chating')

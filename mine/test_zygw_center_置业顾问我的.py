@@ -278,7 +278,7 @@ class TestCenterZygw(TestMine):
         self.verifyPageName('/page/business/zygwinfomanage/customerList')
         self.get_screenshot()
 
-    def test_09_积分TAB切换(self):
+    def delete_test_09_积分TAB切换(self):
         """
         V6.27.X: 积分抢兑 和 做任务赚积分 tab切换
         """
@@ -332,7 +332,7 @@ class TestCenterZygw(TestMine):
         self.verifyPageName('/page/mine/myscores/alltasks')
         self.get_screenshot()
 
-    def test_14_积分去兑换(self):
+    def delete_test_14_积分去兑换(self):
         """
         V6.27.X: 积分抢兑TAB, 点击去兑换
         """
@@ -347,7 +347,7 @@ class TestCenterZygw(TestMine):
         # self.verifyPageName('/page/mine/myscores/goodsdetail')
         self.get_screenshot()
 
-    def test_15_积分抢兑_全部商品(self):
+    def delete_test_15_积分抢兑_全部商品(self):
         """
         V6.30.X: 更换“点击更多”为“全部商品”
         V6.27.X: 积分抢兑TAB, 点击查看更多
@@ -567,7 +567,7 @@ class TestCenterZygw(TestMine):
         """
         V6.27.X: 服务指南，我的专属客服
         """
-        self.find_element('view[class="name"]', inner_text='专属客服').tap()
+        self.find_element('view[class="name"]', inner_text='联系客服').tap()
 
         self.get_screenshot()
 

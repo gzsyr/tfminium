@@ -294,6 +294,7 @@ class TestIndexShouye(TestBase):
         :return:
         """
         self.delay(1)
+        self.page.scroll_to(1500, 200)
         self.page.get_element('image[id="actionToOpenFBSDetail"]').click()
         self.get_screenshot()
 
@@ -302,6 +303,8 @@ class TestIndexShouye(TestBase):
         首页，点击房博士模块“更多”按钮
         :return:
         """
+        self.delay(1)
+        self.page.scroll_to(1500, 200)
         self.page.get_element('view[id="actionToOpenFBSIndex"]').click()
         self.get_screenshot()
 

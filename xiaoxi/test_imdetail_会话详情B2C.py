@@ -43,7 +43,8 @@ class TestImdetailCB(WritePost):
         """
         V6.42.X: 点击 跟进客户
         """
-        self.find_element('view[class="btn"]/view', inner_text='跟进客户').tap()
+        self.find_element('view[class="btn"]/view', inner_text='标记客户').tap()
+        self.delay(2)
         self.get_screenshot()
         self.verifyPageName('/page/business/zygwinfomanage/followAdd')
 
@@ -232,7 +233,8 @@ class TestImdetailCB(WritePost):
 
     def test_11_clickyqzd_邀请致电(self):
         # 点击邀请致电
-        self.page.get_element('view[class="btn"]', inner_text='邀请致电').tap()
+        # self.page.get_element('view[class="btnwrap flex tfAlignC"]/view/text', inner_text='标记客户\n邀请致电').tap()
+        self.page.get_element('view[data-kind="invitecall"]').tap()
         self.delay(3)
         self.page.get_element('view[class="content-card-b flex tfAlignC tfFlexC"]').tap()
         self.delay(3)

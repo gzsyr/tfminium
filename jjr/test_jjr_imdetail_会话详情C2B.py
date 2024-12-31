@@ -68,19 +68,19 @@ class TestJJRImdetailC2B(WritePost):
 
         # 点击 发送房源
         self.find_element('view[class="more-subcontent-item"][data-kind="fy"]', inner_text='我的收藏').tap()
-        self.delay(4)
+        self.delay(7)
         # 进入 我的收藏 页面
         self.verifyPageName('/esf/sell/pages/myCollect/myCollect')
 
         # 切换到 楼盘 tab
         self.find_element('view[class="pr center tab"][data-id="4"]').tap()
-        self.delay(3)
+        self.delay(5)
         # 选择第一个楼盘
         self.find_element('view[class="pa itemPlaceholder"]').tap()
 
         # 进行发送
         self.find_element('view[class="center send"]').tap()
-        self.delay(2)
+        self.delay(5)
 
         self.get_screenshot()
         self.verifyPageName('/im/pages/chating/chating')

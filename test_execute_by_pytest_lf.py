@@ -16,30 +16,6 @@ import pytest
 WORKSPACE_DIR = os.path.abspath(os.getcwd())
 
 
-def del_file(path_data):
-    """
-    删除screenshot  或者   minitest生成的outputs（删除名为全数字的文件夹）
-    如：del_screenshot_png(WORKSPACE_DIR + '\\screenshot')
-    path_data: 要删除的路径
-    """
-    for i in os.listdir(path_data):
-        file_data = path_data + '\\' + i
-        if os.path.isfile(file_data):
-            os.remove(file_data)
-        else:
-            if i.isdigit():
-                shutil.rmtree(file_data)
-            else:
-                del_file(file_data)
-
-
-def change_report_name(report_path):
-    """
-    修改allure报告的名称，待补充
-    """
-    file = report_path + '\\widgets\\summary.json'
-
-
 if __name__ == '__main__':
 
     date = time.strftime('%Y-%m-%d')
@@ -47,7 +23,7 @@ if __name__ == '__main__':
     allure_result_path = WORKSPACE_DIR + "\\allureResult\\result-"+dir_name   # allure 结果路径
     pytest.main(["-v",
                  "-s",
-                 "--cache-clear",
+                 "--lf",
                  # "-rs",
                  # "--show-capture=all",
                  "--html=pytestReport.html",  # html的报告
@@ -60,12 +36,11 @@ if __name__ == '__main__':
                  "./mine",
                  "./xiaoxi",
                  "./logout",
-                 "./city/test_index_allcity_城市.py::TestAllcity::test_select_nj_选择南京",   # 后切换到南京站测二手房相关
+                 "./city/test_index_allcity_城市.py::TestAllcity::test_select_nj_选择南京",   # 后切换到南京站测二手房相关/
+                 "./jjr",
                  "./esf",
                  "./rent",
                  "./mine_esf",
-                 "./sy",
-                 "./jjr",
                  "--reruns", '3',
                  "--reruns-delay", '2'
                  ])
@@ -77,4 +52,5 @@ if __name__ == '__main__':
     #
     # 无需打开
     # command_allure_open = f'allure open {a_report_path}'
+    # allure generate --clean ./allureResult/result-2023-08-03 -o ./allureReport/report-2023-08-03
     # os.system(command_allure_open)  # 打开测试报告

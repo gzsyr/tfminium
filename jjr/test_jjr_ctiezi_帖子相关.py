@@ -82,7 +82,7 @@ class TestJJRTiezi(WritePost):
                              '近期在摸底南京次新小区的房价，需要数据的可以关注～')
 
         self.wp_choose_quanzi('购房指南')
-        self.wp_choose_quanzi('购房问答')
+        self.wp_choose_quanzi('资料干货')
         self.get_screenshot('加入3个圈子')
         self.wp_close_quanzi()
 

@@ -71,7 +71,9 @@ class TestMineScoreJJR(TestMine):
         """
         v6.38.x: 点击 去标记
         """
-        self.find_element('view[class="toPublish"]', inner_text='去标记').tap()
+        self.redirect_to_page('/page/mine/myscores/alltasks')
+        self.delay(4)
+        self.find_element('view[id="toPublish"]', inner_text='去标记').tap()
 
         self.get_screenshot()
         self.verifyPageName('/page/business/customerManage/myCustomer/myCustomer')
@@ -80,7 +82,9 @@ class TestMineScoreJJR(TestMine):
         """
         v6.38.x: 点击 去回复
         """
-        self.find_element('view[class="toPublish"]', inner_text='去回复').tap()
+        self.redirect_to_page('/page/mine/myscores/alltasks')
+        self.delay(4)
+        self.find_element('view[id="toPublish"]', inner_text='去回复').tap()
 
         self.get_screenshot()
         self.verifyPageName('/im/pages/recentchat/recentchat')

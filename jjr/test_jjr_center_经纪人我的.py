@@ -531,7 +531,7 @@ class TestCenterJJR(TestMine):
         V6.38.x: 点击 积分->积分明细->做任务赚积分
         """
         self.click_jifen()
-        # self.delay(3)
+        self.delay(7)
         self.verifyPageName('/page/mine/myscores/alltasks')
 
         # 点击 jifen

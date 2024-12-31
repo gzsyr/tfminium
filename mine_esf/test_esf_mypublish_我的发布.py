@@ -15,6 +15,7 @@ class TestEsfMypublish(TestBase):
         self.classname = self.__class__.__name__
         self.switch = False
         super(TestEsfMypublish, self).setUp()
+        self.delay(6)
 
     @data(('出售', 1), ('出租', 2), ('求购', 3), ('求租', 4))
     @unpack
@@ -22,7 +23,7 @@ class TestEsfMypublish(TestBase):
         """
         我的发布，切换tab
         """
-        self.page.get_element('view[data-id="%d"]' % num, inner_text=name).tap()
+        self.page.get_element('view[data-index="%d"]' % (num-1), inner_text=name).tap()
         self.delay(2)
         self.get_screenshot()
 
@@ -32,10 +33,10 @@ class TestEsfMypublish(TestBase):
         点击出售列表-进入详情页
         :return:
         """
-        self.find_element('view[data-id="1"]', inner_text='出售').tap()
+        self.find_element('view[data-index="0"]', inner_text='出售').tap()
         self.delay(1)
         try:
-            self.find_element('view[class="flex flex_w"]').tap()
+            self.find_element('view[class="myPublishSellItem--flex_1 myPublishSellItem--w0"]').tap()
             self.delay(3)
         except minium.MiniElementNotFoundError:
             self.find_element('view[class="publish"]').tap()
@@ -46,10 +47,10 @@ class TestEsfMypublish(TestBase):
         点击出售列表-修改（显示中）
         :return:
         """
-        self.page.get_element('view[data-id="1"]', inner_text='出售').tap()
+        self.page.get_element('view[data-index="0"]', inner_text='出售').tap()
         self.delay(1)
         try:
-            e = self.page.get_element('view[class="center button"]', inner_text='修改')
+            e = self.page.get_element('view[class="myPublishSellItem--pr"]/view', inner_text='修改')
             e.tap()
             self.delay(1)
             # 修改价格
@@ -72,10 +73,10 @@ class TestEsfMypublish(TestBase):
         点击出售列表-下架（显示中）
         :return:
         """
-        self.page.get_element('view[data-id="1"]', inner_text='出售').tap()
+        self.page.get_element('view[data-index="0"]', inner_text='出售').tap()
         self.delay(1)
         try:
-            e = self.page.get_element('view[class="center button"]', inner_text='下架')
+            e = self.page.get_element('view[class="myPublishSellItem--pr"]/view', inner_text='下架')
             e.tap()
             self.delay(1)
             # 下架
@@ -93,12 +94,12 @@ class TestEsfMypublish(TestBase):
         点击出售列表-重新发布（个人下架）
         :return:
         """
-        self.page.get_element('view[data-id="1"]', inner_text='出售').tap()
+        self.page.get_element('view[data-index="0"]', inner_text='出售').tap()
         self.delay(1)
         try:
             result = {"confirm": True}
             self.app.mock_wx_method("showModal", result=result)
-            e = self.page.get_element('view[class="center button"]', inner_text='重新发布')
+            e = self.page.get_element('view[class="myPublishSellItem--pr"]/view', inner_text='重新发布')
             e.tap()
             self.app.restore_wx_method("showModal")
             self.delay(3)
@@ -111,7 +112,7 @@ class TestEsfMypublish(TestBase):
         点击出售列表-删除（个人下架）
         :return:
         """
-        self.page.get_element('view[data-id="1"]', inner_text='出售').tap()
+        self.page.get_element('view[data-index="0"]', inner_text='出售').tap()
         self.delay(1)
         # grxj = self.page.element_is_exists('view[class="center button"]', inner_text='重新发布')
         # if grxj == True:
@@ -120,7 +121,7 @@ class TestEsfMypublish(TestBase):
             self.delay(1)
             result = {"confirm": True}
             self.app.mock_wx_method("showModal", result=result)
-            e = self.page.get_element('view[class="center button"]', inner_text='删除')
+            e = self.page.get_element('view[class="myPublishSellItem--pr"]/view', inner_text='删除')
             e.tap()
             self.app.restore_wx_method("showModal")
             self.delay(3)
@@ -133,9 +134,9 @@ class TestEsfMypublish(TestBase):
         点击出售列表-悬浮发布按钮
         :return:
         """
-        self.page.get_element('view[data-id="1"]', inner_text='出售').tap()
+        self.page.get_element('view[data-index="0"]', inner_text='出售').tap()
         self.delay(1)
-        self.page.get_element('view[class="pf center column float"]').tap()
+        self.page.get_element('view[class="pf center column publishType"]').tap()
         self.delay(3)
         self.get_screenshot()
 
@@ -145,9 +146,9 @@ class TestEsfMypublish(TestBase):
         点击出租列表-进入详情
         :return:
         """
-        self.find_element('view[data-id="2"]', inner_text='出租').tap()
+        self.find_element('view[data-index="1"]', inner_text='出租').tap()
         self.delay(1)
-        self.find_element('view[class="flex flex_w"]').tap()
+        self.find_element('view[class="myPublishRentItem--flex_1 myPublishRentItem--w0"]').tap()
         self.delay(3)
         self.get_screenshot()
 
@@ -156,10 +157,10 @@ class TestEsfMypublish(TestBase):
         点击出租列表-修改（显示中）
         :return:
         """
-        self.page.get_element('view[data-id="2"]', inner_text='出租').tap()
+        self.page.get_element('view[data-index="1"]', inner_text='出租').tap()
         self.delay(1)
         try:
-            e = self.page.get_element('view[class="center button"]', inner_text='修改')
+            e = self.page.get_element('view[class="myPublishRentItem--pr"]/view', inner_text='修改')
             e.tap()
             self.delay(1)
             # 修改价格
@@ -187,10 +188,10 @@ class TestEsfMypublish(TestBase):
         点击出租列表-下架（显示中）
         :return:
         """
-        self.page.get_element('view[data-id="2"]', inner_text='出租').tap()
+        self.page.get_element('view[data-index="1"]', inner_text='出租').tap()
         self.delay(1)
         try:
-            e = self.page.get_element('view[class="center button"]', inner_text='下架')
+            e = self.page.get_element('view[class="myPublishRentItem--pr"]/view', inner_text='下架')
             e.tap()
             self.delay(1)
             # 下架
@@ -208,12 +209,12 @@ class TestEsfMypublish(TestBase):
         点击出租列表-重新发布（个人下架）
         :return:
         """
-        self.page.get_element('view[data-id="2"]', inner_text='出租').tap()
+        self.page.get_element('view[data-index="1"]', inner_text='出租').tap()
         self.delay(1)
         try:
             result = {"confirm": True}
             self.app.mock_wx_method("showModal", result=result)
-            e = self.page.get_element('view[class="center button"]', inner_text='重新发布')
+            e = self.page.get_element('view[class="myPublishRentItem--pr"]/view', inner_text='重新发布')
             e.tap()
             self.app.restore_wx_method("showModal")
             self.delay(3)
@@ -226,14 +227,14 @@ class TestEsfMypublish(TestBase):
         点击出租列表-删除（个人下架）
         :return:
         """
-        self.page.get_element('view[data-id="2"]', inner_text='出租').tap()
+        self.page.get_element('view[data-index="1"]', inner_text='出租').tap()
         self.delay(1)
         try:
             self.page.scroll_to(1000, 500)
             self.delay(1)
             result = {"confirm": True}
             self.app.mock_wx_method("showModal", result=result)
-            e = self.page.get_element('view[class="center button"]', inner_text='删除')
+            e = self.page.get_element('view[class="myPublishRentItem--pr"]/view', inner_text='删除')
             e.tap()
             self.app.restore_wx_method("showModal")
             self.delay(3)
@@ -246,9 +247,9 @@ class TestEsfMypublish(TestBase):
         点击出租列表-悬浮发布按钮
         :return:
         """
-        self.page.get_element('view[data-id="2"]', inner_text='出租').tap()
+        self.page.get_element('view[data-index="1"]', inner_text='出租').tap()
         self.delay(1)
-        self.page.get_element('view[class="pf center column float"]').tap()
+        self.page.get_element('view[class="pf center column publishType"]').tap()
         self.delay(3)
         self.get_screenshot()
 
@@ -258,7 +259,7 @@ class TestEsfMypublish(TestBase):
         点击求购列表-点击删除（审核通过）
         :return:
         """
-        self.page.get_element('view[data-id="3"]', inner_text='求购').tap()
+        self.page.get_element('view[data-index="2"]', inner_text='求购').tap()
         self.delay(1)
         try:
             result = {"confirm": True}
@@ -275,9 +276,9 @@ class TestEsfMypublish(TestBase):
         点击求购列表-悬浮发布按钮
         :return:
         """
-        self.page.get_element('view[data-id="3"]', inner_text='求购').tap()
+        self.page.get_element('view[data-index="2"]', inner_text='求购').tap()
         self.delay(1)
-        self.page.get_element('view[class="pf center column float"]').tap()
+        self.page.get_element('view[class="pf center column publishType"]').tap()
         self.delay(3)
         self.get_screenshot()
 
@@ -287,7 +288,7 @@ class TestEsfMypublish(TestBase):
         点击求租列表-点击删除（无需审核）
         :return:
         """
-        self.page.get_element('view[data-id="4"]', inner_text='求租').tap()
+        self.page.get_element('view[data-index="3"]', inner_text='求租').tap()
         self.delay(1)
         try:
             result = {"confirm": True}
@@ -304,9 +305,9 @@ class TestEsfMypublish(TestBase):
         点击求购列表-悬浮发布按钮
         :return:
         """
-        self.page.get_element('view[data-id="4"]', inner_text='求租').tap()
+        self.page.get_element('view[data-index="3"]', inner_text='求租').tap()
         self.delay(1)
-        self.page.get_element('view[class="pf center column float"]').tap()
+        self.page.get_element('view[class="pf center column publishType"]').tap()
         self.delay(3)
         self.get_screenshot()
 
@@ -315,12 +316,12 @@ class TestEsfMypublish(TestBase):
         点击出售列表-点击查看原因（审核不通过）
         :return:
         """
-        self.page.get_element('view[data-id="1"]', inner_text='出售').tap()
+        self.page.get_element('view[data-index="0"]', inner_text='出售').tap()
         self.delay(1)
         try:
             result = {"confirm": True}
             self.app.mock_wx_method("showModal", result=result)
-            e = self.page.get_element('view[class="center button"]', inner_text='查看原因')
+            e = self.page.get_element('view[class="myPublishSellItem--pr"]/view', inner_text='查看原因')
             e.tap()
             self.app.restore_wx_method("showModal")
             self.delay(3)

@@ -165,7 +165,7 @@ class TestTfqPostDetail(TestBase):
         """
         帖子详情页，点击评论第一个置业顾问的“点击联系”按钮，进IM聊天
         """
-        self.page.scroll_to(2300, 500)
+        self.page.scroll_to(800, 200)
         self.find_element('view[class="commentList--contact-fbs commentList--zygw_contact_tap"]').tap()
 
         self.delay(6)
@@ -472,6 +472,7 @@ class TestTfqPostDetail(TestBase):
         """
         帖子详情页，点击热门新房模块 第一个
         """
+        self.page.scroll_to(1000, 200)
         self.find_element('view[class="commonNewHouseLi-l"]').tap()
 
         self.verifyPageName('/page/newhouse/detail')

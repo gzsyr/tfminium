@@ -30,14 +30,14 @@ class TestBase(minium.MiniTest):
     blockid = 10017892
 
     # 帖子的id
-    postid = 12746 # online
+    postid = 112326 #12746 # online
     # postid = 3387 # dev
 
     # 南京站  经纪人身份的帖子 id
     jjr_postid = 49711
 
     # 帖子评论的id
-    pinglunid = 47170 # online
+    pinglunid = 119787#47170 # online
     # pinglunid = 7887 # dev
 
     # 话题的id
@@ -338,7 +338,7 @@ class TestBase(minium.MiniTest):
         """
         获取当前登录用户的身份
         """
-        sf = {'fbs': '房博士', 'yunying': '运营', 'zygw': '置业顾问', 'jjr': '经纪人', 'fxzj': '分销中介'}
+        sf = {'fbs': '房博士', 'yunying': '运营', 'zygw': '置业顾问', 'jjr': '经纪人', 'fxzj': '分销中介', 'grfd': 'C端用户'}
         result = self.app.call_wx_method('getStorageSync', 'userInfoNew').\
             get('result').get('result').get('third_data')
 

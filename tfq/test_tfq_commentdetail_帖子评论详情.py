@@ -35,7 +35,7 @@ class TestTfqCommentDetail(TestBase):
         帖子的评论详情页，点击主评论的头像
         """
         self.find_element('image[class="commentList--avator"]').tap()
-
+        self.delay(2)
         self.verifyPageName('/page/newhouse/zygw/detail')
         self.get_screenshot()
 

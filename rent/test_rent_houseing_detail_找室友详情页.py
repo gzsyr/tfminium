@@ -8,7 +8,7 @@ class Testrenthouseingdetail(TestBase):
     找室友详情页
     """
     def setUp(self, true=None) -> None:
-        self.page_name = "/esf/sell/rent/detail/roommate/roommate?rmId=30223&city=nj"
+        self.page_name = "/esf/sell/rent/detail/roommate/roommate?rmId=30527&city=nj"
         self.switch = true
         self.classname = self.__class__.__name__
         super(Testrenthouseingdetail, self).setUp()

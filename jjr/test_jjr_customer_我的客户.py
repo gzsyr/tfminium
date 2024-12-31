@@ -99,7 +99,7 @@ class TestJJRCustomer(TestMine):
         """
         V6.40.X: 点击 5160客户，打电话  发消息 写跟进
         """
-        self.find_element('input[class="flex_1"]').input('测试')
+        self.find_element('input[class="flex_1"]').input('5160')
 
         self.find_element('view[class="customerItem--flex customerItem--a_c customerItem--action"][data-index="1"]').tap()
         self.delay(3)

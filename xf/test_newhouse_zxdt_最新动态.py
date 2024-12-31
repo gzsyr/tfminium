@@ -7,7 +7,7 @@ class TestNewhouseZxdt(TestBase):
     最新动态详情页（山海国际别墅）
     """
     def setUp(self) -> None:
-        self.page_name = '/page/newhouse/zxdt/zxdt?pinyin=shanhaiguojibieshu&city=qz&zygw_id='
+        self.page_name = '/page/newhouse/zxdt/zxdt?pinyin=sjcs1&city=qz&zygw_id=&fxzj_id='
         self.switch = False
         self.classname = self.__class__.__name__
         super(TestNewhouseZxdt, self).setUp()
@@ -16,7 +16,7 @@ class TestNewhouseZxdt(TestBase):
         """
         V6.29.X: 1004932，点击置业顾问头像
         """
-        self.find_element('view[class="avator"]').tap()
+        self.find_element('image[class="commentCard--avator"]').tap()
 
         self.get_screenshot()
 
@@ -25,7 +25,7 @@ class TestNewhouseZxdt(TestBase):
         V6.29.X: 置业顾问楼层，点击IM按钮
         """
         self.page.scroll_to(500, 100)
-        self.find_element('view[id="dp_1_0_0"][class="contenttext"]').tap()
+        self.find_element('text[class="commentCard--before-link"]').tap()
 
         self.get_screenshot()
 
@@ -54,9 +54,9 @@ class TestNewhouseZxdt(TestBase):
         """
         V6.29.X: 1004932，点击楼盘动态正文“展开”按钮
         """
-        self.page.scroll_to(1000, 500)
+        self.page.scroll_to(900, 500)
         # self.find_element('view[class="btn"]').tap()
-        self.find_element('.zxdtAllListBR-b > .btn').tap()
+        self.find_element('.zxdtAllListBR-b > .floatmask > .btn').tap()
 
         self.get_screenshot()
 
