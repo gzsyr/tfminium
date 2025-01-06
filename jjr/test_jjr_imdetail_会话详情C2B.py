@@ -68,7 +68,7 @@ class TestJJRImdetailC2B(WritePost):
 
         # 点击 发送房源
         self.find_element('view[class="more-subcontent-item"][data-kind="fy"]', inner_text='我的收藏').tap()
-        self.delay(7)
+        self.delay(15)
         # 进入 我的收藏 页面
         self.verifyPageName('/esf/sell/pages/myCollect/myCollect')
 

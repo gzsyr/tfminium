@@ -18,6 +18,7 @@ class TestXiaoxiImtest(WritePost):
         self.switch = False
         self.classname = self.__class__.__name__
         super(TestXiaoxiImtest, self).setUp()
+        self.delay(3)
         print("TestZygwWritePost setup")
 
     def test_00_展示列表(self):

@@ -18,7 +18,8 @@ class TestTfqLoupanDetail(TestBase):
         """
         V6.24.X: 进入帖子详情页，点击一个楼盘
         """
-        TestBase.lptoupiaoid = 29464
+        TestBase.lptoupiaoid = 29486
+
         self.find_element('view[class="lpvote--vote-btn"]', inner_text='投票').tap()
         self.delay(1)
 
@@ -29,10 +30,14 @@ class TestTfqLoupanDetail(TestBase):
         """
         V6.24.X: 进入帖子详情页，点击多个楼盘
         """
-        es = self.find_elements('view[class="lpvote--vote-btn"]', inner_text='投票')
-        for e in es:
-            e.tap()
+        try:
+            es = self.find_elements('view[class="lpvote--vote-btn"]', inner_text='投票')
+            for e in es:
+                e.tap()
+        except:
+            print('已投')
 
+        self.delay(2)
         er = self.find_elements('view[class="lpvote--vote-btn"]')
         for e in er:
             self.verifyStr('已投', e.inner_text, 'yitou ok!')

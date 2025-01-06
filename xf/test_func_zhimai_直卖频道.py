@@ -65,7 +65,7 @@ class TestFuncZhiMai(TestBase):
         """
         直卖频道页，点击列表第一个“咨询我”
         """
-        self.page.get_element('view[class="im-btn"]').click()
+        self.page.get_element('view[class="im-btn"]').tap()
 
 
         self.delay(6)

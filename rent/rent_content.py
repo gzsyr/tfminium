@@ -5,12 +5,12 @@ import pyperclip
 class ZufangContent(TestBase):
     def set_img(self):
         self.find_element('image[class="ic_camera"]').tap()
-        self.delay(2)
+        self.delay(5)
 
         # self.page.get_element('view[class="center column upload"]', inner_text='上传视频').tap()
         # self.delay(3)
 
-        self.find_element('view[class="center column upload"]', inner_text='上传图片').tap()
+        self.find_element('view[class="center column upload"]/text', inner_text='上传图片').tap()
         self.delay(3)
 
         self.input_select_image(png='esf\\123.png')

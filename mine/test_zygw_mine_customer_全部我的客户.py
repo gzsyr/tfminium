@@ -26,6 +26,7 @@ class TestMineAllCustomer(TestMine):
         """
         输入客户姓名，搜索
         """
+        self.delay(3)
         self.find_element('input').input(name + '\n')
         self.delay(3)
 
@@ -315,7 +316,7 @@ class TestMineAllCustomer(TestMine):
 
         try:
             self.find_element('view[class="customerWrap"]').tap()
-            self.delay(2)
+            self.delay(5)
         except minium.MiniElementNotFoundError:
             self.get_screenshot('没有搜索到用户')
             return

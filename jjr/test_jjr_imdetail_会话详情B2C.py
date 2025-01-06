@@ -27,11 +27,11 @@ class TestJJRImdetailB2C(WritePost):
         V6.48.X: 发送资料
         """
         self.find_element('view[class="btn sendwxBtn"]').tap()
-        self.delay(4)
+        self.delay(8)
         self.get_screenshot('open')
 
         self.find_element('image[class="img"]').tap()
-        self.delay(2)
+        self.delay(8)
         self.get_screenshot('view')
 
         self.back()

@@ -53,6 +53,7 @@ class TestNewhouseYhcx(TestBase):
         摇号结果查询页，摇号轮次结果tab，输入姓名查询
         """
         # 切换到 摇号轮次结果 tab
+        self.delay(3)
         self.page.get_element('view[data-index="1"]', inner_text='摇号轮次结果').tap()
 
         # 先切换轮次 第x轮
@@ -62,8 +63,8 @@ class TestNewhouseYhcx(TestBase):
         self.page.get_element('input[class="search-int"]').input(kw + '\n')
 
         if ret:
-            self.delay(1)
-            self.verifyContainsStr(kw, self.page.get_element('view[class="disflex-flexgrow-1"]').inner_wxml, f'摇号结果 最终结果 {kw}ok')
+            self.delay(2)
+            self.verifyContainsStr(kw, self.page.get_element('view[class="bdli-name tfLine1"]').inner_text, f'摇号结果 最终结果 {kw}ok')
         self.get_screenshot()
 
     def test_05_hotim_热门咨询(self):

@@ -99,7 +99,7 @@ class TestesfXXDT(TestBase):
         """
         self.find_element('view[class="center shrink0 qs"]').tap()
 
-        self.delay(2)
+        self.delay(3)
         self.get_screenshot()
 
     def test_099_初中小区定位分享(self):

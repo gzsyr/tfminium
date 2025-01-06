@@ -200,7 +200,7 @@ class Testesfsellfb(TestBase):
     def set_img(self):
         # 上传图片
         self.find_element('image[class="ic_camera"]').tap()
-        self.delay(2)
+        self.delay(5)
 
         self.page.get_element('view[class="center column upload"]').tap()
         self.delay(3)

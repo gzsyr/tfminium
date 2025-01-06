@@ -118,7 +118,7 @@ class TestJJRCustomer(TestMine):
         """
         v6.40.X: 客户详情页的 发消息 打电话 写跟进
         """
-        self.find_element('input[class="flex_1"]').input('测试')
+        self.find_element('input[class="flex_1"]').input('5160')
         self.delay(2)
         self.find_element('view[class="customerItem--item"]').tap()
         self.delay(2)

@@ -45,7 +45,7 @@ class TestBase(minium.MiniTest):
     # huatiid = 3393 # dev
 
     # 楼盘投票id
-    lptoupiaoid = 29451
+    lptoupiaoid = 29983 #29451
 
     # PK插件的id
     pkhuatiid = 36907

@@ -274,7 +274,7 @@ class TestCenterJJR(TestMine):
         """
         V7.17: 点击 房贷计算器
         """
-        self.find_element('view[class="item"][data-type="4"]').tap()
+        self.find_element('view[class="item"][data-type="1"]/view[class="name"]', inner_text='房贷计算器').tap()
 
         self.verifyPageName('/page/tools/fdjsq/sd/index')
         self.get_screenshot()
@@ -283,7 +283,7 @@ class TestCenterJJR(TestMine):
         """
         V7.17: 点击 采光计算器
         """
-        self.find_element('view[class="item"][data-type="5"]').tap()
+        self.find_element('view[class="item"][data-type="2"]/view[class="name"]', inner_text='采光计算器').tap()
 
         self.verifyPageName('/page/tools/cgjsq/cgjsq')
         self.get_screenshot()
@@ -457,7 +457,7 @@ class TestCenterJJR(TestMine):
         """
         self.delay(2)
         self.goto_im_autoreply()
-        self.delay(2)
+        self.delay(5)
 
         self.find_element('textarea').input('您好，现在正忙，稍后回复您！')
         self.find_element('button').tap()
