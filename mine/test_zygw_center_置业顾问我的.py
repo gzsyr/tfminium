@@ -77,8 +77,9 @@ class TestCenterZygw(TestMine):
         """
         置业顾问个人中心页面，点击活跃度
         """
+        self.delay(3)
         self.find_element('view[class="desc"]', inner_text='服务分').tap()
-        self.delay(2)
+        self.delay(6)
 
         return self
 
@@ -88,7 +89,7 @@ class TestCenterZygw(TestMine):
         """
         self.click_huoyuedu()
 
-        self.find_element('view[class="pointProgress-name"]', inner_text='IM咨询').tap()
+        self.find_element('view[class="pointProgress-tip"]', inner_text='及时回复').tap()
 
         self.verifyPageName('/im/pages/recentchat/recentchat')
         self.get_screenshot()
@@ -99,7 +100,7 @@ class TestCenterZygw(TestMine):
         """
         self.click_huoyuedu()
 
-        self.find_element('view[class="pointProgress-name"]', inner_text='线索转化').tap()
+        self.find_element('view[class="pointProgress-tip"]', inner_text='维护客户').tap()
 
         self.verifyPageName('/page/business/zygwinfomanage/customerList')
         self.get_screenshot()
@@ -110,7 +111,7 @@ class TestCenterZygw(TestMine):
         """
         self.click_huoyuedu()
 
-        self.find_element('view[class="pointProgress-name"]', inner_text='400电话').tap()
+        self.find_element('view[class="pointProgress-tip"]', inner_text='留心来电').tap()
 
         self.verifyPageName('/page/message/phoneList')
         self.get_screenshot()
@@ -121,7 +122,7 @@ class TestCenterZygw(TestMine):
         """
         self.click_huoyuedu()
 
-        self.find_element('view[class="pointProgress-name"]', inner_text='线索反馈').tap()
+        self.find_element('view[class="pointProgress-tip"]', inner_text='及时标记').tap()
 
         self.verifyPageName('/page/business/zygwinfomanage/customerList')
         self.get_screenshot()
@@ -132,14 +133,15 @@ class TestCenterZygw(TestMine):
         """
         self.click_huoyuedu()
 
-        self.find_element('view[class="pointProgress-name"]', inner_text='线索回拨').tap()
+        self.find_element('view[class="pointProgress-tip"]', inner_text='及时回拨').tap()
 
         self.verifyPageName('/page/business/zygwinfomanage/customerList')
         self.get_screenshot()
 
-    def test_32_活跃度关注服务号(self):
+    def delete_test_32_活跃度关注服务号(self):
         """
         V6.27.X: 点击活跃度，点击关注服务号
+        delete V7.26
         """
         self.click_huoyuedu()
 
@@ -148,9 +150,10 @@ class TestCenterZygw(TestMine):
         self.verifyPageName('/page/mine/gzService/gzService')
         self.get_screenshot()
 
-    def test_33_活跃度来电记录(self):
+    def delete_test_33_活跃度来电记录(self):
         """
         V6.27.X: 点击活跃度，点击关注服务号
+        delete V7.26
         """
         self.click_huoyuedu()
 
@@ -159,9 +162,10 @@ class TestCenterZygw(TestMine):
         self.verifyPageName('/page/message/phoneList')
         self.get_screenshot()
 
-    def test_34_活跃度做任务得线索(self):
+    def delete_test_34_活跃度做任务得线索(self):
         """
         V6.27.X: 点击活跃度，点击做任务得线索
+        delete V7.26
         """
         self.click_huoyuedu()
 
@@ -369,7 +373,7 @@ class TestCenterZygw(TestMine):
         """
         置业顾问个人中心页面，点击我的名片
         """
-        self.page.get_element('view[class="mp"]').tap()
+        self.page.get_element('view[class="item-title"]', inner_text='我的名片').tap()
 
         self.verifyPageName('/page/newhouse/zygw/detail')
         self.get_screenshot()
@@ -529,9 +533,11 @@ class TestCenterZygw(TestMine):
         """
         self.click_set_icon()
         self.delay(6)
-        self.find_element('view[class="inner disflex tfAlignC tfFlexSb"]/view', text_contains='绑定楼盘').tap()
+        self.find_element('view[class="inner disflex tfAlignC tfFlexSb"]/view', text_contains='修改资料').tap()
         self.delay(3)
-        self.verifyPageName('/page/business/updateLoupan')
+        self.find_element('view[class="disflex tfAlignC"]').tap()
+        self.delay(3)
+        self.verifyPageName('/page/business/loapanAdd')
         self.get_screenshot()
 
     def test_26_设置我的红包(self):

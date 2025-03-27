@@ -7,7 +7,8 @@ class Testesfdetail(TestBase):
     """
     def setUp(self, true=None) -> None:
         # self.page_name = "/esf/sell/pages/detail/detail?sellId=331233705"
-        self.page_name = "/esf/sell/pages/detail/detail?sellId=344383365"
+        # self.page_name = "/esf/sell/pages/detail/detail?sellId=344383365"
+        self.page_name = "/esf/sell/pages/detail/detail?sellId=349271367"
         self.switch = true
         self.classname = self.__class__.__name__
         super(Testesfdetail, self).setUp()
@@ -92,6 +93,7 @@ class Testesfdetail(TestBase):
         """
         是不是发送到了咨询卡片
         """
+        self.delay(4)
         self.verifyByScreenshot('esf/esfdetailchecksendcard.png')
 
     def test_04_goto_ygim_首付和月供咨询(self):
@@ -101,7 +103,7 @@ class Testesfdetail(TestBase):
         """
         e = self.page.get_element('text', inner_text="首付和月供咨询")
         e.tap()
-        self.delay(10)
+        self.delay(12)
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
         self.checkSendCard()
