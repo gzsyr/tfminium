@@ -292,6 +292,19 @@ class TestBase(minium.MiniTest):
                 self.get_screenshot(pname=inspect.stack()[1].function)
             raise e
 
+    def verifyPageParams(self, query, value):
+        """
+        对进入pagename的页面参数校验
+        query: 参数名称
+        value: query对应的值
+        """
+        try:
+            self.assertEqual(value, self.app.get_current_page().query[query], f"{query} is {value} OK")
+        except self.failureException as e:
+            print(query, value)
+            raise e
+
+
     def verifyPageName(self, pagename, capture=True):
         """
         对进入pagename的页面路径校验
