@@ -126,6 +126,7 @@ class TestNewhouseDetail(TestBase):
 
         self.get_screenshot()
         self.verifyPageName('/im/pages/chating/chating')
+        self.verifyPageParams('chatTo', 'slwkgj_10858')
 
     def test_cg_采光计算器咨询层高(self):
         """
@@ -137,6 +138,7 @@ class TestNewhouseDetail(TestBase):
 
         self.get_screenshot()
         self.verifyPageName('/im/pages/chating/chating')
+        self.verifyPageParams('chatTo', 'slwkgj_10858')
 
     def test_func_采光计算器(self):
         """
@@ -344,6 +346,7 @@ class TestNewhouseDetail(TestBase):
 
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
+        self.verifyPageParams('chatTo', 'fxzj_15')
         self.get_screenshot()
 
     def test_func_最新动态(self):
@@ -524,6 +527,7 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/im/pages/chating/chating')
         imquestion = self.find_elements('view[class="record-chatting-item self"]')[-1].inner_wxml
         self.verifyContainsStr(question[0], imquestion)
+        self.verifyPageParams('chatTo', 'fxzj_15')
         self.get_screenshot()
 
     def test_check_baoming_优惠活动一(self):
@@ -573,6 +577,7 @@ class TestNewhouseDetail(TestBase):
         self.find_element('view[class="consultEntrance--consultIcon"]').tap()
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
+        self.verifyPageParams('chatTo', 'slwkgj_10858')
         self.get_screenshot()
 
     def goto_pk(self):
@@ -687,6 +692,7 @@ class TestNewhouseDetail(TestBase):
 
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
+        self.verifyPageParams('chatTo', 'slwkgj_10858')
         self.get_screenshot()
 
     def test_PK_07_点击更多内容(self):
@@ -1108,6 +1114,7 @@ class TestNewhouseDetail(TestBase):
 
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
+        self.verifyPageParams('chatTo', 'fxzj_15')
         self.get_screenshot()
 
     def test_goto_zlhx_切换TAB(self):
@@ -1131,6 +1138,7 @@ class TestNewhouseDetail(TestBase):
 
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
+        self.verifyPageParams('chatTo', 'fxzj_15')
         self.get_screenshot()
 
     def test_goto_ldxq_点击户型分布_and_订阅(self):
@@ -1345,6 +1353,7 @@ class TestNewhouseDetail(TestBase):
 
         self.delay(8)
         self.verifyPageName('/im/pages/chating/chating')
+        self.verifyPageParams('chatTo', 'slwkgj_10858')
         self.get_screenshot()
 
     def test_goto_wzzb_zbpt_周边配套切换(self):
@@ -1411,6 +1420,7 @@ class TestNewhouseDetail(TestBase):
 
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
+        self.verifyPageParams('chatTo', 'fxzj_15')
         self.get_screenshot()
 
     def test_goto_jgfx_价格分析(self):
@@ -1494,6 +1504,7 @@ class TestNewhouseDetail(TestBase):
 
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
+        self.verifyPageParams('chatTo', 'slwkgj_10858')
         self.get_screenshot()
 
     def test_zz_click_buttom_call_拨打电话(self):

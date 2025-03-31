@@ -22,6 +22,7 @@ class TestNewhouseKpxx(TestBase):
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
+        self.verifyPageParams('chatTo', 'slwkgj_10858')
 
     def test_02_点击楼距(self):
         """

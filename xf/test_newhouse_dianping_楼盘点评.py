@@ -32,6 +32,7 @@ class TestNewhouseDianping(TestBase):
 
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
+        self.verifyPageParams('chatTo', 'slwkgj_10858')
         self.get_screenshot()
 
     def test_click_first_pinglun_点击评论(self):

@@ -31,6 +31,7 @@ class TestNewhousePKCP(TestBase):
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
+        self.verifyPageParams('chatTo', 'slwkgj_9584')
 
     def test_PK_02_点击支持TA(self):
         """
@@ -70,6 +71,7 @@ class TestNewhousePKCP(TestBase):
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
+        self.verifyPageParams('chatTo', 'slwkgj_9584')
 
     def test_PK_05_进入PK后返回详情(self):
         """
@@ -116,6 +118,7 @@ class TestNewhousePKCP(TestBase):
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot('点击咨询')
+        self.verifyPageParams('chatTo', 'slwkgj_9584')
 
         self.back()
         self.find_element('view[class="button positionRel"]', inner_text='拨打电话\n免费').tap()

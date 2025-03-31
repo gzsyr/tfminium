@@ -26,3 +26,4 @@ class TestNewhouseYfyjDetail(TestBase):
         imquestion = self.find_elements('view[class="record-chatting-item self"]')[-1].inner_wxml
         self.verifyContainsStr(question[0], imquestion)
         self.get_screenshot()
+        self.verifyPageParams('chatTo', 'slwkgj_14508')

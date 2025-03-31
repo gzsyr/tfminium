@@ -68,6 +68,7 @@ class TestNewhouseLpxx(TestMine):
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
+        self.verifyPageParams('chatTo', 'slwkgj_6544')
 
     def test_003_goto_zygw_进置业顾问名片(self):
         """
@@ -99,6 +100,7 @@ class TestNewhouseLpxx(TestMine):
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
+        self.verifyPageParams('chatTo', 'slwkgj_14508')
 
     def test_006_xxxx_地图找房(self):
         """
@@ -118,6 +120,7 @@ class TestNewhouseLpxx(TestMine):
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
+        self.verifyPageParams('chatTo', 'slwkgj_14508')
 
     def test_010_click_zygw_call_置业顾问电话(self):
         """

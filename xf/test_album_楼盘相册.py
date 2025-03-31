@@ -15,6 +15,7 @@ class TestAlbum(TestMine):
 
     def setUp(self) -> None:
         self.page_name = "/page/newhouse/xcny/xcnylist?pinyin=sjcs1&city=qz"
+        # self.page_name = "/page/newhouse/xcny/xcnylist?pinyin=shanhaiguojixzl&city=qz"
         self.switch = False
         self.classname = self.__class__.__name__
         super(TestAlbum, self).setUp()
@@ -45,6 +46,7 @@ class TestAlbum(TestMine):
         self.delay(3)
         self.get_screenshot()
         self.verifyPageName('/im/pages/chating/chating')
+        self.verifyPageParams('chatTo', 'slwkgj_14508')
 
     def test_周边配套小图(self):
         """
@@ -60,8 +62,9 @@ class TestAlbum(TestMine):
         V6.50.X: 点击大图 点击咨询
         """
         self.find_element('image[class="xcnyAllLi-img"]').tap()
-        self.delay(3)
+        self.delay(6)
         self.find_element('view[class="consultEntrance--consultIcon"]').tap()
         self.delay(3)
         self.get_screenshot()
         self.verifyPageName('/im/pages/chating/chating')
+        self.verifyPageParams('chatTo', 'slwkgj_14508')

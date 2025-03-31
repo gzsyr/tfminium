@@ -83,6 +83,7 @@ class TestNewhouseHuxingDetail(TestMine):
 
         self.delay(4)
         self.verifyPageName('/im/pages/chating/chating')
+        self.verifyPageParams('chatTo', 'slwkgj_14508')
         imquestion = self.find_elements('view[class="record-chatting-item self"]')[-1].inner_wxml
         self.verifyContainsStr(question[0], imquestion)
         self.get_screenshot()

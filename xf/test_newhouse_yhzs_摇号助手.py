@@ -78,4 +78,5 @@ class TestNewHouseYhzs(TestBase):
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
+        self.verifyPageParams('chatTo', 'qlt_530')
 

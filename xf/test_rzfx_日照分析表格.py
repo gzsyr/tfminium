@@ -232,6 +232,7 @@ class TestRzfxBg(TestBase):
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
+        self.verifyPageParams('chatTo', 'slwkgj_10858')
 
     def test_yfyj_进入详情(self):
         """
@@ -270,6 +271,7 @@ class TestRzfxBg(TestBase):
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
+        self.verifyPageParams('chatTo', 'slwkgj_10858')
 
     def test_zz_打电话(self):
         """
