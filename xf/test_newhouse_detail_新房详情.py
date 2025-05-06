@@ -692,7 +692,7 @@ class TestNewhouseDetail(TestBase):
 
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
-        self.verifyPageParams('chatTo', 'slwkgj_10858')
+        self.verifyPageParams('chatTo', 'qlt_530')
         self.get_screenshot()
 
     def test_PK_07_点击更多内容(self):
@@ -1269,12 +1269,13 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 新房详情页，位置及周边楼层，点击地图
         """
-        self.page.scroll_to(4500, 500)
+        self.page.scroll_to(5000, 500)
         self.delay(15)
 
         # self.find_element('//*[@id="map"]').tap()
         # self.find_element('view[class="mapNearDes"]').click()
         # self.find_element('map[class="newHouseMap-map-img"]').tap()
+        self.input_value_by_mk('xf/click_map.png')
         self.input_value_by_mk('xf/click_map.png')
         self.delay(3)
 
@@ -1519,6 +1520,6 @@ class TestNewhouseDetail(TestBase):
         """
         新房详情页面，点击底部的“摇号”
         """
-        self.find_element('navigator[class="comBottomBar--link-button comBottomBar--yaohao"]').tap()
+        self.find_element('navigator[class="comBottomBar--link-button comBottomBar--zm comBottomBar--yaohao"]').tap()
         self.verifyPageName('/page/newhouse/historyLp/historyLp')
         self.get_screenshot()

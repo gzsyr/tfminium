@@ -84,6 +84,8 @@ class TestNewsHouseList(TestBase):
         self.page.get_element('view[class="kgjzixun"]').tap()
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
+        self.verifyPageParams('chatTo', 'slwkgj_6544')
+
         self.get_screenshot()
 
     def test_click_1_search_and_select_and_clear_搜索并清除(self):

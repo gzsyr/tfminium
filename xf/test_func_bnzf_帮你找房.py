@@ -96,7 +96,11 @@ class TestFuncBnzf(TestBase):
         self.page.get_element('view', inner_text='二手房').tap()
 
         # 选择意向位置
-        self.find_element('view[class="arr"]').tap()
+        self.find_element('view[class="ar_right"]').tap()
+        # 选择鼓楼区
+        self.find_element('view[class"ESFLocationFilter--between ESFLocationFilter--item"]').tap()
+        # 确定
+        self.find_element('view[class="ESFLocationFilter--flex_1 ESFLocationFilter--center ESFLocationFilter--btn ESFLocationFilter--confirm"]').tap()
 
         # 选择类型
         self.find_element('view[class="item"][data-type="infoType"]').tap()

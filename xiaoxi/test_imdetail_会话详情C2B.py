@@ -114,38 +114,38 @@ class TestImdetail(WritePost):
 
     def test_10_clickfzwx_点击复制微信(self):
         # 点击引导联系卡片的【复制微信】
-        e = self.page.get_elements('view[class="content-card-b"]')
+        e = self.find_elements('view[class="content-card-b"]')
         e[0].tap()
         self.delay(3)
         self.get_screenshot()
 
     def test_11_clicktjwx_扫码添加微信(self):
         # 点击引导联系卡片的【扫码添加微信】
-        e = self.page.get_element('view[class="content-card-b"][data-kind="auto_addwx"]')
+        e = self.find_element('view[class="content-card-b"][data-kind="auto_addwx"]')
         e.tap()
         self.delay(3)
         self.get_screenshot()
 
     def test_12_clickzyhwtel_置业顾问给我回电(self):
         # 点击引导联系卡片的【让置业顾问给我回电】
-        e = self.page.get_element('view[class="content-card-b"]', inner_text='让置业顾问给我回电')
+        e = self.find_element('view[class="content-card-b"]', inner_text='让置业顾问给我回电')
         e.tap()
         self.delay(3)
         self.get_screenshot()
 
     def test_13_clickqunliao_加入群聊链接(self):
         # 点击加入群聊卡片的【加入群聊链接】
-        e = self.page.get_element('view[class="content-card-b flex tfAlignC tfFlexC"]')
+        e = self.find_element('view[class="content-card-b flex tfAlignC tfFlexC"]')
         e.tap()
         self.delay(3)
         self.get_screenshot()
 
     def test_14_clickbqb_表情包按钮(self):
         # 点击表情包按钮
-        e = self.page.get_element('image[class="chatinput-emoji"]')
+        e = self.find_element('image[class="chatinput-emoji"]')
         e.tap()
         self.delay(2)
-        e1 = self.page.get_elements('view[class="emojiWrap"]')
+        e1 = self.find_elements('view[class="emojiWrap"]')
         e1[0].tap()
         self.delay(3)
         self.get_screenshot()
@@ -159,14 +159,14 @@ class TestImdetail(WritePost):
 
     def test_16_clicktel_拨打电话(self):
         # 点击引导联系卡片的【拨打电话】
-        e = self.page.get_element('view[class="content-card-b"]', inner_text='拨打电话')
+        e = self.find_element('view[class="content-card-b"]', inner_text='拨打电话')
         e.tap()
         self.delay(3)
         self.get_screenshot()
 
     def test_17_addtel_拨打电话(self):
         # 点击拨打电话
-        e = self.page.get_elements('view[class="btn"]')
+        e = self.find_elements('view[class="btn"]')
         e[0].tap()
         self.delay(3)
         self.get_screenshot()

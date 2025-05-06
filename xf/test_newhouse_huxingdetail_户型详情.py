@@ -49,6 +49,7 @@ class TestNewhouseHuxingDetail(TestMine):
 
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
+        self.verifyPageParams('chatTo', 'slwkgj_6544')
         self.get_screenshot()
 
     def test_003_goto_zygw_进置业顾问名片(self):

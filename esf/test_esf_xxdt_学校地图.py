@@ -132,11 +132,11 @@ class TestesfXXDT(TestBase):
         """
         self.delay(15)
         # 点击 雨花台区
-        self.find_element('cover-view[class="i_c customCallout districtCallout"][marker-id="3"]').tap()
+        self.find_element('cover-view[class="i_c customCallout districtCallout"][marker-id="6"]').tap()
         self.delay(15)
         self.get_screenshot('点击雨花台区')
 
-        self.find_element('cover-view[class="i_c customCallout schoolCallout"][marker-id="217"]').tap()
+        self.find_element('cover-view[class="i_c customCallout schoolCallout"][marker-id="149"]').tap()
         self.delay(40)
         self.get_screenshot('点击雨花外国语小学')
         # self.find_element('cover-view[class="t_c"]/conver-view', text_contains='雨花台区').tap()

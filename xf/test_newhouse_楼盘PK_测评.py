@@ -57,6 +57,7 @@ class TestNewhousePKCP(TestBase):
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()
+        self.verifyPageParams('chatTo', 'slwkgj_9584')
 
     def test_PK_04_底部咨询底价(self):
         """

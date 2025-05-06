@@ -144,7 +144,7 @@ class TestCenterFxzj(TestMine):
         """
         V6.27.X: 分销中介个人中心页面，点击帖子
         """
-        self.find_element('view[class="mp myTfq flex tfAlignC tfFlexC tfFlexV"]').tap()
+        self.find_element('view[class="quickTabs-item"][data-type="3"]').tap()
 
         self.verifyPageName('/page/business/minetiezi')
         self.get_screenshot()
@@ -301,7 +301,7 @@ class TestCenterFxzj(TestMine):
         """
         分销中介个人中心页面，点击我的名片
         """
-        self.page.get_element('view[class="mp"]').tap()
+        self.page.get_element('view[class="quickTabs-item"][data-type="2"]').tap()
 
         self.verifyPageName('/page/business/fxzjmanage/detail')
         self.get_screenshot()

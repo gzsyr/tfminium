@@ -27,11 +27,11 @@ class Testesfgosellfb(TestBase):
         # self.delay(3)
 
         # 买房预算
-        e = self.page.get_element('//slider[1]')
+        e = self.find_element('//slider[1]')
         e.slide_to(500)
         self.delay(3)
 
         # 点击立刻找房
-        self.page.get_element('view[class="submit"]', inner_text='立刻找房').tap()
+        self.find_element('view[class="center submit"]').tap()
         self.delay(1)
         self.get_screenshot()

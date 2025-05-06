@@ -27,7 +27,7 @@ class TestImdetailCB(WritePost):
         V6.48.X: 发送资料
         """
         self.find_element('view[class="btn sendwxBtn"]').tap()
-        self.delay(5)
+        self.delay(8)
         self.get_screenshot('open')
 
         self.find_element('image[class="img"]').tap()
@@ -220,7 +220,7 @@ class TestImdetailCB(WritePost):
 
     def test_12_clickyqzd_邀请卡片立即致电(self):
         # 邀请卡片中的立即致电
-        self.page.get_element('view[class ="content-card-b flex tfAlignC tfFlexC"]').tap()
+        self.find_element('view[class ="content-card-b flex tfAlignC tfFlexC"]').tap()
         self.delay(3)
         self.get_screenshot()
 
@@ -234,8 +234,8 @@ class TestImdetailCB(WritePost):
     def test_11_clickyqzd_邀请致电(self):
         # 点击邀请致电
         # self.page.get_element('view[class="btnwrap flex tfAlignC"]/view/text', inner_text='标记客户\n邀请致电').tap()
-        self.page.get_element('view[data-kind="invitecall"]').tap()
+        self.find_element('view[data-kind="invitecall"]').tap()
         self.delay(3)
-        self.page.get_element('view[class="content-card-b flex tfAlignC tfFlexC"]').tap()
+        self.find_element('view[class="content-card-b flex tfAlignC tfFlexC"]').tap()
         self.delay(3)
         self.get_screenshot()
