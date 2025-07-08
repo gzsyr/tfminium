@@ -29,11 +29,11 @@ class Testesfxqxq(TestBase):
         V6.43.x: 楼盘测试用例  中冶钟鼎山庄
         同步未登录用例，在logout/test_xq_未登录_小区详情.py中
         """
-        self.redirect_to_page('/esf/village/pages/detail/detail?blockId=1401&city=nj')
+        self.redirect_to_page('/esf/village/pages/detail/detail?blockId=8850&city=nj')
         self.delay(12)
 
         # 点击 进入楼盘测评详情页
-        self.find_element('view[class="evaluation--check-more"]').tap()
+        self.find_element('view[class="price--flex price--a_c price--blockEvaluation"]').tap()
         self.delay(5)
         self.get_screenshot('进入楼盘测评详情页')
 
@@ -48,8 +48,8 @@ class Testesfxqxq(TestBase):
         self.get_screenshot('点击拨打电话')
 
         # 在楼盘测评详情页，点击图片
-        self.find_element('image[class="single-pic"]').tap()
-        self.get_screenshot('查看大图')
+        # self.find_element('image[class="single-pic"]').tap()
+        # self.get_screenshot('查看大图')
         self.back()
 
         self.verifyPageName('/esf/village/pages/detail/detail')

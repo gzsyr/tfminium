@@ -135,6 +135,7 @@ class TestesfXxxq(TestBase):
         """
         V6.42.X: 点击划片小区 咨询底价
         """
+        self.page.scroll_to(400, 100)
         self.find_element('view[class="hpxq--center hpxq--consult"]').tap()
 
         self.delay(6)

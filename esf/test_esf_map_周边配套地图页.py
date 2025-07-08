@@ -12,6 +12,7 @@ class Testesfmap(TestBase):
     def setUp(self, true=None) -> None:
         # self.page_name = "/esf/sell/pages/map/map?type=0&blockId=3982&blockName=水佑岗小区&lat=32.067434981213204&lng=118.76024213761336"
         self.page_name = "/page/publicPages/map/map?city=nj&tbl=block&id=3982&blockName=水佑岗小区&lat=32.067434981213204&lng=118.76024213761336&poiType=教育"
+        # city=nj&tbl=block&lat=32.067871&lng=118.761701&id=3982&name=水佑岗小区&poiType=教育&block_id=3982&addressType=1&addressType=1
         self.switch = true
         self.classname = self.__class__.__name__
         super(Testesfmap, self).setUp()

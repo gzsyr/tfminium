@@ -482,6 +482,8 @@ class TestTfqPostDetail(TestBase):
         """
         帖子详情页，点击 相关推荐 第一条帖子
         """
+        self.delay(2)
+        self.app.redirect_to(url='/page/taofangquan/tieziDetail/tieziDetail?city=qz&postsid=129457')
         self.delay(3)
         self.find_element('view[class="recommend_post_cont"]').tap()
 

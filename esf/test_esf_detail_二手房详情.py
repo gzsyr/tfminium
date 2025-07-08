@@ -93,7 +93,7 @@ class Testesfdetail(TestBase):
         """
         是不是发送到了咨询卡片
         """
-        self.delay(4)
+        self.delay(6)
         self.verifyByScreenshot('esf/esfdetailchecksendcard.png')
 
     def test_04_goto_ygim_首付和月供咨询(self):

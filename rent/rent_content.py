@@ -184,11 +184,11 @@ class ZufangContent(TestBase):
         # 面积(整租）
         self.page.scroll_to(800, 500)
         self.delay(1)
-        self.page.get_element('view[class="between infoItem"][data-picker="6"]').tap()
+        self.find_element('view[class="between infoItem"][data-picker="6"]').tap()
         self.delay(5)
         self.input_value_by_mk(png='rent/area.png', value=area)
         self.delay(5)
-        self.page.get_element('view[class="priceAreaPicker--center priceAreaPicker--confirm"]').tap()
+        self.find_element('view[class="areaPicker--center areaPicker--confirm"]').tap()
         self.delay(5)
         return self
 
@@ -196,13 +196,13 @@ class ZufangContent(TestBase):
         # 租金
         self.page.scroll_to(800, 500)
         self.delay(1)
-        self.page.get_element('view[class="between infoItem"][data-picker="7"]').tap()
+        self.find_element('view[class="between infoItem"][data-picker="7"]').tap()
         self.delay(5)
         self.input_value_by_mk(png='rent/price.png', value=price)
         self.delay(5)
-        self.page.get_element('//priceareapicker//text', inner_text='年付').tap()
+        self.find_element('view[class="pricePicker--center pricePicker--type_map"]', inner_text='年付').tap()
         self.delay(5)
-        self.page.get_element('view[class="priceAreaPicker--center priceAreaPicker--confirm"]').tap()
+        self.find_element('view[class="pricePicker--center pricePicker--confirm"]').tap()
         self.delay(5)
         return self
 

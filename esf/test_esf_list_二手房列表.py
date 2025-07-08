@@ -130,16 +130,16 @@ class Testesflist(TestBase):
         # 更多筛选
         if 'more_flag' in kwargs.keys():
             ary_more_text = {}
-            ary_more_key = ['info_from_text',
-                            'info_type_text',
-                            'build_area_text',
-                            'fitment_text',
-                            'years_text',
-                            'floor_text',
-                            'forward_text',
-                            'tax_type',
-                            'is360_text',
-                            'mright_text'
+            ary_more_key = ['infofrom',
+                            'infotype',
+                            'buildarea',
+                            'fitment',
+                            'years',
+                            'floor',
+                            'forward',
+                            'taxonlytype',
+                            'is360',
+                            'mright'
                             ]
 
             for str_key in ary_more_key:
@@ -167,39 +167,25 @@ class Testesflist(TestBase):
         """
 
         self.delay(1)
-        flag = self.page.element_is_exists('view[class="line_1 screenTabText"]',
-                                           inner_text='位置')
-        if flag:
-            e = self.page.get_element('view[class="line_1 screenTabText"]',
-                                      inner_text="位置")
-            e.tap()
+        self.find_element('view[class="flex a_c screenTab"]', inner_text="位置").tap()
+        self.delay(1)
+
+        if text_1 != '附近':
+            self.find_element('view[class="sellScreen--flex sellScreen--a_c sellScreen--locItem"]', inner_text=text_1).tap()
+        self.delay(1)
+
+        if text_1 != '不限':
+            self.find_element('view[class="sellScreen--flex sellScreen--a_c sellScreen--locItem"]', inner_text=text_2).tap()
             self.delay(1)
 
-            e = self.page.get_element("//location/view/view/view/text", inner_text=text_1)
-            e.tap()
-            self.delay(1)
-
-            if text_1 != '不限':
-                verify_text = text_2
-                e = self.page.get_element("//location//view/scroll-view[1]/view/text", inner_text=text_2)
-                e.tap()
+            if text_3 != '':
+                self.find_element('view[class="sellScreen--flex sellScreen--a_c sellScreen--locItem"]', inner_text=text_3).tap()
                 self.delay(1)
 
-                if text_3 != '':
-                    verify_text = text_3
-                    e = self.page.get_element("//location//view/scroll-view[2]/view/text", inner_text=text_3)
-                    e.tap()
-                    self.delay(1)
+        self.find_element('view[class="sellScreen--center sellScreen--confirm"]').tap()
+        self.delay(2)
 
-                verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText screenTabColor"]',
-                                                          inner_text=verify_text)
-            else:
-                verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText"]',
-                                                          inner_text='位置')
-
-            print(verify_flag)
-        else:
-            print("没找到位置按钮")
+        self.verifyContainsStr('(1)', self.page.get_element('view[class="flex a_c screenTab screenTabA"]').inner_text, '没有筛选到选项')
 
         return self
 
@@ -209,124 +195,61 @@ class Testesflist(TestBase):
         """
 
         self.delay(1)
-        flag = self.page.element_is_exists('view[class="line_1 screenTabText"]', inner_text='总价')
-        if flag:
-            e = self.page.get_element('view[class="line_1 screenTabText"]', inner_text="总价")
-            e.tap()
+        self.find_element('view[class="flex a_c screenTab"]', inner_text="总价").tap()
+        self.delay(1)
+
+        if price_text != '':
+            self.find_element('view[class="sellScreen--center sellScreen--item"]', inner_text=price_text).tap()
             self.delay(1)
-
-            if price_text != '':
-                e = self.page.get_element("//price/view/scroll-view/view/text", inner_text=price_text)
-                e.tap()
-                self.delay(1)
-
-                if price_text == '不限':
-                    verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText"]',
-                                                              inner_text="总价")
-                else:
-                    verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText screenTabColor"]',
-                                                              inner_text=price_text)
-            else:
-                if min_val != '':
-                    e = self.page.get_element("//price/view/view/view/input", inner_text="最低价")
-                    e.input(min_val)
-
-                if max_val != '':
-                    e = self.page.get_element("//price/view/view/view/input", inner_text="最高价")
-                    e.input(max_val)
-
-                e = self.page.get_element('view[class="price--t_c price--confirm"]')
-                e.tap()
-                self.delay(1)
-
-                if min_val == '':
-                    verify_text = max_val + '万以下'
-                elif max_val == '':
-                    verify_text = min_val + '万以上'
-                else:
-                    verify_text = min_val + '-' + max_val + '万'
-                    # 缺 min_val > max_val 情况
-
-                verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText screenTabColor"]',
-                                                          inner_text=verify_text)
-
-            print(verify_flag)
         else:
-            print("没找到总价按钮")
+            if min_val != '':
+                self.find_element('input[class="sellScreen--ipt"]', inner_text="最低价格").input(min_val)
+
+            if max_val != '':
+                self.find_element('input[class="sellScreen--ipt"]', inner_text="最高价格").input(max_val)
+
+        self.find_element('view[class="sellScreen--center sellScreen--confirm"]').tap()
+        self.delay(1)
+
+        self.verifyContainsStr('(1)', self.page.get_element('view[class="flex a_c screenTab screenTabA"]').inner_text, '没有筛选到选项')
 
         return self
 
-    def house_type_search(self, hx_text):
+    def house_type_search(self, hx_text='三室'):
         """
         房型筛选
         """
 
         self.delay(1)
-        flag = self.page.element_is_exists('view[class="line_1 screenTabText"]',
-                                           inner_text='房型')
-        if flag:
-            e = self.page.get_element('view[class="line_1 screenTabText"]',
-                                      inner_text="房型")
-            e.tap()
-            self.delay(1)
+        self.find_element('view[class="flex a_c screenTab"]', inner_text="房型").tap()
+        self.delay(1)
 
-            if hx_text == '不限':
-                e = self.page.get_element("view", inner_text=hx_text)
-                e.tap()
-                self.delay(1)
+        ary_hx = hx_text.split("|")
+        for hx in ary_hx:
+            self.find_element('view[class="sellScreen--center sellScreen--item"]', inner_text=hx).tap()
 
-                verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText"]',
-                                                          inner_text="房型")
-            else:
-                ary_hx = hx_text.split("|")
+        self.find_element('view[class="sellScreen--center sellScreen--confirm"]').tap()
+        self.delay(2)
 
-                if len(ary_hx) == 1:
-                    e = self.page.get_element("//room/view/scroll-view/view/text", inner_text=hx_text)
-                    e.tap()
-
-                    e = self.page.get_element('//room/view/view/view/text', inner_text="确定")
-                    e.tap()
-                    self.delay(1)
-
-                    verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText screenTabColor"]',
-                                                              inner_text=hx_text)
-                else:
-                    for hx in ary_hx:
-                        e = self.page.get_element("//room/view/scroll-view/view/text", inner_text=hx)
-                        e.tap()
-
-                    e = self.page.get_element('//room/view/view/view/text', inner_text="确定")
-                    e.tap()
-                    self.delay(1)
-
-                    verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText screenTabColor"]',
-                                                              inner_text="多选")
-
-            print(verify_flag)
-        else:
-            print("没找到房型按钮")
+        self.verifyContainsStr(f'({len(ary_hx)})', self.find_element('view[class="flex a_c screenTab screenTabA"]').inner_text, '没有筛选到选项')
 
         return self
 
-    def search_order_by(self, order_by_text):
+    def search_order_by(self, order_by_text='总价由高到低'):
         """
         筛选排序
         """
 
         self.delay(1)
-        flag = self.page.element_is_exists('view[class="line_1 screenTabText"]',
-                                           inner_text='排序')
-        if flag:
-            e = self.page.get_element('view[class="line_1 screenTabText"]',
-                                      inner_text="排序")
-            e.tap()
-            self.delay(1)
+        self.find_element('view[class="flex a_c screenTab"]', inner_text='排序').tap()
+        self.delay(1)
 
-            e = self.page.get_element("//sort/view/scroll-view/view/text", inner_text=order_by_text)
-            e.tap()
-            self.delay(1)
-        else:
-            print("没找到排序按钮")
+        self.find_element('view[class="sellScreen--center sellScreen--sortItem"]', inner_text=order_by_text).tap()
+        self.delay(1)
+        self.find_element('view[class="sellScreen--center sellScreen--confirm"]').tap()
+        self.delay(2)
+
+        self.verifyContainsStr('排序(1)', self.find_element('view[class="flex a_c screenTab screenTabA"]').inner_text, '没有筛选到选项')
 
         return self
 
@@ -334,53 +257,50 @@ class Testesflist(TestBase):
         """
         更多筛选
         """
+        # ary_more_text= {"infofrom":"放心看",
+        #                 "infotype": "住宅",
+        #                 "buildarea": "50-80㎡",
+        #                 "fitment": "毛坯",
+        #                 "years": "2015年后",
+        #                 "floor": "2-5层",
+        #                 "forward": "南北通透",
+        #                 "taxonlytype": "无增值税无个税",
+        #                 "is360": "AI讲房",
+        #                 "mright": "产权房"}
         self.delay(1)
-        flag = self.page.element_is_exists('view[class="line_1 screenTabText"]',
-                                           inner_text='更多')
-        if flag:
-            e = self.page.get_element('view[class="line_1 screenTabText"]',
-                                      inner_text="更多")
-            e.tap()
-            self.delay(1)
+        self.find_element('view[class="flex a_c screenTab"]', inner_text='更多').tap()
+        self.delay(1)
 
-            dict_more_height = {'info_from_text': 0,
-                                'info_type_text': 70,
-                                'build_area_text': 180,
-                                'fitment_text': 290,
-                                'years_text': 360,
-                                'floor_text': 470,
-                                'forward_text': 540,
-                                'tax_type': 650,
-                                'is360_text': 720,
-                                'mright_text': 790
-                                }
+        dict_more_height = {'infofrom': 0,
+                            'infotype': 70,
+                            'buildarea': 180,
+                            'fitment': 290,
+                            'years': 360,
+                            'floor': 470,
+                            'forward': 540,
+                            'taxonlytype': 650,
+                            'is360': 720,
+                            'mright': 790
+                            }
 
-            scroll_view = self.page.get_element('//more/view/scroll-view')
+        scroll_view = self.find_element('scroll-view[class="sellScreen--screen sellScreen--more"]')
 
-            for str_key in ary_more_text:
-                more_text = ary_more_text[str_key]
-                more_height = dict_more_height[str_key]
+        for str_key in ary_more_text:
+            more_text = ary_more_text[str_key]
+            more_height = dict_more_height[str_key]
 
-                if more_text != '':
-                    if more_height != 0:
-                        scroll_view.scroll_to(y=more_height)
-                        self.delay(1)
-
-                    e = self.page.get_element("//more/view/scroll-view/view/view[2]/view/text",
-                                              inner_text=more_text)
-                    e.tap()
+            if more_text != '':
+                if more_height != 0:
+                    scroll_view.scroll_to(y=more_height)
                     self.delay(1)
 
-            e = self.page.get_element('//more/view/view/view/text', inner_text="确定")
-            e.tap()
-            self.delay(1)
+                self.find_element(f'view[class="sellScreen--center sellScreen--item"][data-type="{str_key}"]', inner_text=more_text).tap()
+                self.delay(1)
 
-            verify_flag = self.page.element_is_exists('view[class="line_1 screenTabText screenTabColor"]',
-                                                      inner_text="更多")
+        self.find_element('view[class="sellScreen--center sellScreen--confirm"]').tap()
+        self.delay(1)
 
-            print(verify_flag)
-        else:
-            print("没找到更多按钮")
+        self.verifyContainsStr('(10)', self.page.get_element('view[class="flex a_c screenTab screenTabA"]').inner_text, '没有筛选到选项')
 
         return self
 
