@@ -189,25 +189,26 @@ class TestNewsHouseList(TestBase):
         """
         self.find_element('view[class="newHouseTabLi-msg"]', inner_text="位置").tap()
         self.delay(3)
-        self.find_element('view[class="newHouseMaskLi-oneLi"]', inner_text="地铁").tap()
-        self.find_element('view[class="newHouseMaskLi-twoLi tfLine1"]', inner_text='1号线').tap()
-        self.find_element('view[class="newHouseMaskLi-threeLi-check"]').tap()
-        self.find_element('view[class="newHouseMaskLi-sx-btn-confirm"]').tap()
+        self.find_element('view[class="dropFilter--newHouseMaskLi-oneLi"]', inner_text="地铁").tap()
+        self.find_element('view[class="dropFilter--newHouseMaskLi-twoLi dropFilter--tfLine1"]', inner_text='1号线').tap()
+        self.find_element('view[class="dropFilter--newHouseMaskLi-threeLi-check"]').tap()
+        self.find_element('view[class="dropFilter--newHouseMaskLi-sx-btn-confirm"]').tap()
 
         self.delay(2)
         self.verifyStr(True, self.element_is_exist('view[class="newHouseTabLi-msg"]'),
                        '筛选区域正确')
         self.get_screenshot()
 
-    def test_select_bk_筛选板块(self, bk='城东板块'):
+    def delete_test_select_bk_筛选板块(self, bk='城东板块'):
         """
         V6.32.X: 列表页，筛选板块
+        v7.35.x: delete
         """
         self.find_element('view[class="newHouseTabLi-msg"]', inner_text="位置").tap()
         self.delay(3)
-        self.find_element('view[class="newHouseMaskLi-oneLi"]', inner_text="板块").tap()
-        self.find_element('view[class="newHouseMaskLi-twoLi tfLine1"]', inner_text=bk).tap()
-        self.find_element('view[class="newHouseMaskLi-sx-btn-confirm"]').tap()
+        self.find_element('view[class="dropFilter--newHouseMaskLi-oneLi"]', inner_text="板块").tap()
+        self.find_element('view[class="dropFilter--newHouseMaskLi-twoLi dropFilter--tfLine1"]', inner_text=bk).tap()
+        self.find_element('view[class="dropFilter--newHouseMaskLi-sx-btn-confirm"]').tap()
 
         self.verifyStr(True, self.page.element_is_exists('view[class="newHouseTabLi-msg"]'),
                        '筛选区域正确')
@@ -219,10 +220,11 @@ class TestNewsHouseList(TestBase):
         新房列表页面，筛选区域
         """
         self.find_element('view[class="newHouseTabLi-msg"]', inner_text="位置").tap()
-        self.find_element('view[class="newHouseMaskLi-oneLi on"]', inner_text="区域").tap()
-        self.find_element('view[class="newHouseMaskLi-twoLi tfLine1"]', inner_text=qy).tap()
+        self.delay(2)
+        self.find_element('view[class="dropFilter--newHouseMaskLi-oneLi dropFilter--on"]', inner_text="区域").tap()
+        self.find_element('view[class="dropFilter--newHouseMaskLi-twoLi dropFilter--tfLine1"]', inner_text=qy).tap()
 
-        self.find_element('view[class="newHouseMaskLi-sx-btn-confirm"]').tap()
+        self.find_element('view[class="dropFilter--newHouseMaskLi-sx-btn-confirm"]').tap()
         self.verifyStr(True, self.page.element_is_exists('view[class="newHouseTabLi-msg"]'),
                        '筛选区域正确')
         self.get_screenshot()
@@ -287,11 +289,12 @@ class TestNewsHouseList(TestBase):
         V6.32.X: 新房列表页，选择位置区域，点击筛选条件，点击“清空”
         """
         self.find_element('view[class="newHouseTabLi-msg"]', inner_text="位置").tap()
-        self.find_element('view[class="newHouseMaskLi-oneLi on"]', inner_text="区域").tap()
-        self.find_element('view[class="newHouseMaskLi-twoLi tfLine1"]', inner_text='洛江').tap()
+        self.delay(2)
+        self.find_element('view[class="dropFilter--newHouseMaskLi-oneLi dropFilter--on"]', inner_text="区域").tap()
+        self.find_element('view[class="dropFilter--newHouseMaskLi-twoLi dropFilter--tfLine1"]', inner_text='洛江').tap()
 
         self.get_screenshot('select')
-        self.find_element('view[class="newHouseMaskLi-sx-btn-cancle"]').tap()
+        self.find_element('view[class="dropFilter--newHouseMaskLi-sx-btn-cancle"]').tap()
         self.get_screenshot()
 
     def delete_test_z_click_fx_分享(self):

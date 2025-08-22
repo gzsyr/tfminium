@@ -282,7 +282,7 @@ class Testesfxqlb(TestBase):
         点击小区列表的im
         :return:
         """
-        self.search_village('测试\t\n')
+        self.search_village('测试小区\t\n')
         self.find_element('image[class="villageItem--icon"]').tap()
         self.delay(6)
 

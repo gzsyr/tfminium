@@ -358,7 +358,7 @@ class Testrentdetail(TestBase):
         :return:
         """
         # xpath定位
-        elm = self.page.get_element('//view[@class="pf contact"]/contact/view/view/view[1]')
+        elm = self.find_element('//view[@class="pf contact"]/contact/view/view/view[1]')
         elm.tap()
         self.delay(2)
         self.get_screenshot()
@@ -369,7 +369,7 @@ class Testrentdetail(TestBase):
         :return:
         """
         # xpath定位
-        elm = self.page.get_element('view[class="contact--center contact--pr contact--msg"]')
+        elm = self.find_element('view[class="contact--center contact--pr contact--msg"]')
         elm.tap()
 
         self.delay(12)
@@ -377,13 +377,13 @@ class Testrentdetail(TestBase):
         self.get_screenshot()
         self.checkSendCard()
 
-    def test_19_goto_tel_点击拨打电话(self):
+    def test_99_goto_tel_点击拨打电话(self):
         """
         点击拨打电话
         :return:
         """
         # xpath定位
-        elm = self.page.get_element('//view[@class="pf contact"]/contact/view/view/view[2]/view[2]')
+        elm = self.find_element('//view[@class="pf contact"]/contact/view/view/view[2]/view[2]')
         elm.tap()
         self.delay(2)
         self.get_screenshot()

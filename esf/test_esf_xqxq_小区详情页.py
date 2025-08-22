@@ -26,25 +26,26 @@ class Testesfxqxq(TestBase):
 
     def test_楼盘测评(self):
         """
-        V6.43.x: 楼盘测试用例  中冶钟鼎山庄
+        V6.43.x: 楼盘测试用例  测试小区 勿删
         同步未登录用例，在logout/test_xq_未登录_小区详情.py中
         """
         self.redirect_to_page('/esf/village/pages/detail/detail?blockId=8850&city=nj')
         self.delay(12)
 
         # 点击 进入楼盘测评详情页
-        self.find_element('view[class="price--flex price--a_c price--blockEvaluation"]').tap()
+        self.find_element('view[class="price--name"]', inner_text='深度测评').tap()
         self.delay(5)
         self.get_screenshot('进入楼盘测评详情页')
 
         # 在楼盘测评详情页，点击 在线咨询
-        self.find_element('view[class="bottomContact--pr bottomContact--center bottomContact--chat"]').tap()
+        self.find_element('view[class="chat"]').tap()
+        pass
         self.delay(5)
         self.get_screenshot('进入咨询页面')
         self.back()
 
         # 在楼盘测评详情页，点击拨打电话
-        self.find_element('view[class="bottomContact--pr bottomContact--center bottomContact--call"]').tap()
+        self.find_element('view[class="call"]').tap()
         self.get_screenshot('点击拨打电话')
 
         # 在楼盘测评详情页，点击图片
@@ -85,9 +86,10 @@ class Testesfxqxq(TestBase):
 
         # self.blockId=3982
 
-    def test_帖子_点击头像(self):
+    def delete_test_帖子_点击头像(self):
         """
         V6.38.X: 点击 加精帖子 的头像
+        V7.35.x: delete
         """
         self.delay(5)
         self.page.scroll_to(1580, 500)
@@ -101,9 +103,10 @@ class Testesfxqxq(TestBase):
 
         self.get_screenshot()
 
-    def test_帖子_点击咨询(self):
+    def delete_test_帖子_点击咨询(self):
         """
         V6.38.X: 点击 加精帖子的咨询按钮
+        V7.35.x: delete
         """
         self.delay(5)
         self.page.scroll_to(1580, 500)
@@ -117,9 +120,10 @@ class Testesfxqxq(TestBase):
 
         self.get_screenshot()
 
-    def test_帖子_点击门店(self):
+    def delete_test_帖子_点击门店(self):
         """
         V6.38.X: 点击 加精帖子的 经纪人门店
+        V7.35.x: delete
         """
         self.delay(5)
         self.page.scroll_to(1580, 500)
@@ -133,9 +137,10 @@ class Testesfxqxq(TestBase):
 
         self.get_screenshot()
 
-    def test_帖子_点击标题(self):
+    def delete_test_帖子_点击标题(self):
         """
         V6.38.X: 点击 加精帖子的 标题
+        V7.35.x: delete
         """
         self.delay(5)
         self.page.scroll_to(1580, 500)
@@ -149,9 +154,10 @@ class Testesfxqxq(TestBase):
 
         self.get_screenshot()
 
-    def test_帖子_点击正文(self):
+    def delete_test_帖子_点击正文(self):
         """
         V6.38.X: 点击 加精帖子的 正文
+        V7.35.x: delete
         """
         self.delay(5)
         self.page.scroll_to(1580, 500)
@@ -165,9 +171,10 @@ class Testesfxqxq(TestBase):
 
         self.get_screenshot()
 
-    def test_帖子_点击图片(self):
+    def delete_test_帖子_点击图片(self):
         """
         V6.38.X: 点击 加精帖子的 图片
+        V7.35.x: delete
         """
         self.delay(5)
         self.page.scroll_to(1580, 500)
@@ -180,9 +187,10 @@ class Testesfxqxq(TestBase):
 
         self.get_screenshot()
 
-    def test_帖子_点击标签(self):
+    def delete_test_帖子_点击标签(self):
         """
         V6.38.X: 点击 加精帖子的 标签
+        V7.35.x: delete
         """
         self.delay(5)
         self.page.scroll_to(1580, 500)
@@ -195,9 +203,10 @@ class Testesfxqxq(TestBase):
 
         self.get_screenshot()
 
-    def test_帖子_点击分享(self):
+    def delete_test_帖子_点击分享(self):
         """
         V6.38.X: 点击 加精帖子的 分享
+        V7.35.x: delete
         """
         self.delay(5)
         self.page.scroll_to(1580, 500)
@@ -209,9 +218,10 @@ class Testesfxqxq(TestBase):
 
         self.get_screenshot()
 
-    def test_帖子_点击点赞(self):
+    def delete_test_帖子_点击点赞(self):
         """
         V6.38.X: 点击 加精帖子的 点赞
+        V7.35.x: delete
         """
         self.delay(5)
         self.page.scroll_to(1580, 500)
@@ -223,9 +233,10 @@ class Testesfxqxq(TestBase):
 
         self.get_screenshot()
 
-    def test_帖子_点击评论(self):
+    def delete_test_帖子_点击评论(self):
         """
         V6.38.X: 点击 加精帖子的 评论
+        V7.35.x: delete
         """
         self.delay(5)
         self.page.scroll_to(1580, 500)
@@ -272,7 +283,7 @@ class Testesfxqxq(TestBase):
         点击收藏
         :return:
         """
-        self.page.get_element('image[class="image"]').tap()
+        self.page.get_element('view[class="subscribe--pa subscribe--subscribe"]').tap()
         self.get_screenshot()
 
     def del_test_z_goto_share_点击分享(self):
@@ -290,7 +301,7 @@ class Testesfxqxq(TestBase):
         点击在售房源
         :return:
         """
-        self.find_element('view[class="price--w33"][data-type="1"]').tap()
+        self.find_element('view[class="price--name"]', inner_text='在售房源').tap()
         self.delay(3)
         self.get_screenshot()
 
@@ -299,15 +310,17 @@ class Testesfxqxq(TestBase):
         V6.42.x: 点击新上房源
         :return:
         """
-        self.find_element('view[class="price--w33"][data-type="3"]').tap()
+        self.find_element('view[class="price--name"]', inner_text='新上房源').tap()
         self.delay(3)
         self.get_screenshot()
 
-    def test_goto_zrent_点击在租房源(self):
+    def delete_test_goto_zrent_点击在租房源(self):
         """
         V6.42.X: UPDATE
         点击在租房源
         :return:
+
+        V7.35.x: delete
         """
         self.find_element('view[class="price--w33"][data-type="2"]').tap()
         self.delay(3)
@@ -322,9 +335,11 @@ class Testesfxqxq(TestBase):
         self.delay(3)
         self.get_screenshot()
 
-    def test_goto_dkjs_点击贷款计算(self):
+    def delete_test_goto_dkjs_点击贷款计算(self):
         """
         V6.42.x: 点击贷款计算
+
+        V7.35.x: delete
         """
         self.find_element('view[class="price--tool"]/text', inner_text='房贷计算').tap()
         self.delay(3)
@@ -336,7 +351,7 @@ class Testesfxqxq(TestBase):
         V7.19: 变更为“历史成交”
         """
         # self.find_element('view[class="price--tool"]/text', inner_text='采光计算').tap()
-        self.find_element('view[class="price--tool"]').tap()
+        self.find_element('view[class="price--name"]', inner_text='历史成交').tap()
         self.get_screenshot()
 
     def del_test_goto_wx_点击复制微信(self):
@@ -356,10 +371,11 @@ class Testesfxqxq(TestBase):
         V6.42.X: 点击基础信息处的地图
         """
         try:
-            self.find_element('image[class="price--map"]').tap()
+            self.find_element('image[class="blockInfo--map"]').tap()
         except:
             print('没有地图')
         self.get_screenshot()
+        self.verifyPageName('/page/publicPages/map/map')
 
     def test_goto_jcxx_点击基础信息(self):
         """
@@ -444,10 +460,11 @@ class Testesfxqxq(TestBase):
         else:
             print("没有小区户型模块")
 
-    def test_goto_housecomment_小区评论全部评论(self):
+    def delete_test_goto_housecomment_小区评论全部评论(self):
         """
         点击小区评论-全部评论
         :return:
+        V7.35.x: delete
         """
         self.page.scroll_to(1280, 500)
         self.delay(1)
@@ -461,10 +478,11 @@ class Testesfxqxq(TestBase):
         else:
             print("没有小区评论模块")
 
-    def test_goto_comxq_小区评论全部评论(self):
+    def delete_test_goto_comxq_小区评论全部评论(self):
         """
         点击小区评论-全部评论
         :return:
+        V7.35.x: delete
         """
         self.page.scroll_to(1350, 500)
         self.delay(1)
@@ -499,10 +517,11 @@ class Testesfxqxq(TestBase):
         else:
             print("没有评论")
 
-    def test_goto_pldz_评论点赞(self):
+    def delete_test_goto_pldz_评论点赞(self):
         """
         评论点赞
         :return:
+        V7.35.X: DELETE
         """
         self.page.scroll_to(1400, 500)
         self.delay(1)
@@ -514,10 +533,11 @@ class Testesfxqxq(TestBase):
         else:
             print("没有评论")
 
-    def test_goto_qxdz_取消点赞(self):
+    def delete_test_goto_qxdz_取消点赞(self):
         """
         取消点赞
         :return:
+        V7.35.x: delete
         """
         self.page.scroll_to(1400, 500)
         self.delay(1)
@@ -531,10 +551,11 @@ class Testesfxqxq(TestBase):
         else:
             print("没有点赞")
 
-    def test_goto_wypl_点击我要评论(self):
+    def delete_test_goto_wypl_点击我要评论(self):
         """
         点击我要评论（有评论时）
         :return:
+        v7.35.x: delete
         """
         self.page.scroll_to(1400, 500)
         self.delay(1)
@@ -687,7 +708,7 @@ class Testesfxqxq(TestBase):
         V6.42.X: 点击价格走势下方的“咨询详情”
         """
 
-        self.find_element('view[class="price--center price--consult"]').tap()
+        self.find_element('view[class="price--center price--chat"]').tap()
         self.delay(6)
         self.verifyPageName('/im/pages/chating/chating')
         self.get_screenshot()

@@ -40,7 +40,7 @@ class TestNewhouseHuxingDetail(TestMine):
 
     def test_002_click_zygw_im_置业顾问咨询(self):
         """
-        V6.23.X: 置业顾问楼层，点击IM按钮
+        V6.23.X: 置业顾问楼层，点击IM按钮 手机号13776645736
         """
         self.page.scroll_to(500, 300)
         self.delay(8)
@@ -75,7 +75,7 @@ class TestNewhouseHuxingDetail(TestMine):
 
     def test_005_hotim_热门咨询(self):
         """
-        V6.23.X: 点击热门咨询模块提问
+        V6.23.X: 点击热门咨询模块提问  手机号18555555555
         """
         ele = self.find_element('view[class="hotConsult_content flex tfAlignC mb20"]')
 
@@ -87,6 +87,26 @@ class TestNewhouseHuxingDetail(TestMine):
         self.verifyPageParams('chatTo', 'slwkgj_14508')
         imquestion = self.find_elements('view[class="record-chatting-item self"]')[-1].inner_wxml
         self.verifyContainsStr(question[0], imquestion)
+        self.get_screenshot()
+
+    def test_007_底部咨询(self):
+        """
+        页面底部咨询 手机号18555555555
+        """
+        self.find_element('view[class="comBottomBar--link-button comBottomBar--im"]').tap()
+
+        self.delay(4)
+        self.verifyPageName('/im/pages/chating/chating')
+
+        self.verifyPageParams('chatTo', 'slwkgj_14508')
+        self.get_screenshot()
+
+    def test_008_底部电话(self):
+        """
+        页面底部电话
+        """
+        self.find_element('view[class="comBottomBar--link-button comBottomBar--call"]').tap()
+
         self.get_screenshot()
 
     def test_010_click_zygw_call_置业顾问电话(self):

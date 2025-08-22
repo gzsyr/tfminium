@@ -1270,7 +1270,7 @@ class TestNewhouseDetail(TestBase):
         V6.30.X: 新房详情页，位置及周边楼层，点击地图
         """
         self.page.scroll_to(5000, 500)
-        self.delay(15)
+        self.delay(20)
 
         # self.find_element('//*[@id="map"]').tap()
         # self.find_element('view[class="mapNearDes"]').click()

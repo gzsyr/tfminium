@@ -17,7 +17,7 @@ class TestFuncVR(TestBase):
         """
         VR看房页面，点击筛选项“区域”选择
         """
-        self.set_pick_filter('picker[data-bj="0"]', 3)
+        self.set_pick_filter('picker[data-bj="0"]', 6)
 
         ele = self.page.get_elements('view[class= "headBarLi-txt tfLine1 picker"]')
         self.verifyStr(ele[0].inner_text, '丰泽', "VR看房页面，点击筛选项“区域”选择 丰泽 ok")
