@@ -653,12 +653,13 @@ class Testesfxqxq(TestBase):
         在售房源tab
         :return:
         """
-        self.redirect_to_page("/esf/village/pages/detail/detail?blockId=10020371&city=nj")
+        # self.redirect_to_page("/esf/village/pages/detail/detail?blockId=10020371&city=nj")
+        self.redirect_to_page("/esf/village/pages/detail/detail?blockId=455957&city=nj")
         self.delay(5)
         self.page.scroll_to(3500, 500)
         self.delay(5)
 
-        self.find_element('image[class="sellItem--img"]').tap()
+        self.find_element('image[class="sellItem--pic"]').tap()
 
         self.delay(2)
         self.get_screenshot()

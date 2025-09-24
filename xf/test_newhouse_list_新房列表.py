@@ -234,8 +234,14 @@ class TestNewsHouseList(TestBase):
         """
         新房列表页面，筛选价格
         """
-        self.page.get_element('view[class="newHouseTabLi-msg"]', inner_text="价格").tap()
-        self.page.get_element('view[class="tfLine1 newHouseMaskLi-price-li"]', inner_text=jg).tap()
+        self.find_element('view[class="newHouseTabLi-msg"]', inner_text="价格").tap()
+        self.delay(1)
+
+        # update by 2025-9-24
+        self.find_element('view[class="dropFilter--newHouseMaskLi-oneLi"]').tap()
+        self.delay(1)
+
+        self.find_element('view[class="dropFilter--tfLine1 dropFilter--newHouseMaskLi-price-li"]', inner_text='0.8万-1万/㎡').tap()
 
         self.verifyStr(True, self.page.element_is_exists('view[class="newHouseTabLi-msg"]'),
                        '筛选价格正确')

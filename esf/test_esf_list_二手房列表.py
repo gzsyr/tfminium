@@ -203,10 +203,10 @@ class Testesflist(TestBase):
             self.delay(1)
         else:
             if min_val != '':
-                self.find_element('input[class="sellScreen--ipt"]', inner_text="最低价格").input(min_val)
+                self.find_element('input[class="sellScreen--ipt"]', inner_text="最低价格(万)").input(min_val)
 
             if max_val != '':
-                self.find_element('input[class="sellScreen--ipt"]', inner_text="最高价格").input(max_val)
+                self.find_element('input[class="sellScreen--ipt"]', inner_text="最高价格(万)").input(max_val)
 
         self.find_element('view[class="sellScreen--center sellScreen--confirm"]').tap()
         self.delay(1)

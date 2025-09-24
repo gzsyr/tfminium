@@ -67,7 +67,7 @@ class Testesfjgzs(TestBase):
         在售房源-进入房源详情页
         :return:
         """
-        self.find_element('view[class="sellItem--pr sellItem--sellItemImg"]').tap()
+        self.find_element('view[class="sellItem--pr sellItem--coverPic"]').tap()
         self.delay(3)
         self.get_screenshot()
 
