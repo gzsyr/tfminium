@@ -1,4 +1,6 @@
 # add by zsy
+import pytest
+
 from base.test_base import TestBase
 
 
@@ -10,6 +12,7 @@ class TestAllcity(TestBase):
         super(TestAllcity, self).setUp()
         print("TestAllcity setup atest")
 
+    @pytest.mark.qz
     def test_select_qz_选择泉州(self):
         """
         选择站点：泉州
@@ -22,6 +25,7 @@ class TestAllcity(TestBase):
         self.app.go_home()
         self.get_screenshot()
 
+    @pytest.mark.im_consult
     def test_select_nj_选择南京(self):
         """
         选择站点：南京

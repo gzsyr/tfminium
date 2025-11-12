@@ -1,4 +1,6 @@
 # -*-coding:utf-8-*-
+import pytest
+
 from base.test_base import TestBase
 
 
@@ -12,6 +14,7 @@ class TestNewhouseYfyjDetail(TestBase):
         self.classname = self.__class__.__name__
         super(TestNewhouseYfyjDetail, self).setUp()
 
+    @pytest.mark.im_consult
     def test_001_hotim_热门咨询(self):
         """
         V6.23.X: 点击热门咨询模块提问

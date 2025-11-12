@@ -1,4 +1,5 @@
 # add by zsy
+import pytest
 from ddt import ddt, file_data
 
 from base.test_base import TestBase
@@ -15,7 +16,7 @@ class TestFuncGfzl(TestBase):
         super(TestFuncGfzl, self).setUp()
         print('TestFuncGfzl setup test')
 
-
+    @pytest.mark.im_consult
     def test_点击底部IM咨询(self):
         """
         点击底部在线咨询按钮 手机号13776640000
@@ -26,6 +27,7 @@ class TestFuncGfzl(TestBase):
         self.verifyPageParams('chatTo', 'fxzj_8')
         self.get_screenshot()
 
+    @pytest.mark.im_consult
     def test_点击列表IM咨询(self):
         """
         点击底部在线咨询按钮 手机号13776640000

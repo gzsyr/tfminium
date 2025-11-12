@@ -258,11 +258,10 @@ class Testesfxqlb(TestBase):
 
     def test_select_dxsq_点击大型社区(self):
         """
-        点击大型社区
+        点击大型社区 （快捷选项 第一个)
         :return:
         """
-        e = self.page.get_element('view[class="screenQuickItem"][data-index="1"]')
-        e.tap()
+        self.find_element('view[class="screenQuickItem"]').tap()
         self.delay(3)
         self.get_screenshot()
         self.page.get_element('view[class="pa clear"]').tap()

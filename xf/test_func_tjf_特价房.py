@@ -1,4 +1,5 @@
 # add by zsy
+import pytest
 from ddt import ddt, file_data
 
 from base.test_base import TestBase
@@ -16,6 +17,7 @@ class TestFuncTejiaFang(TestBase):
         print('TestFuncBangDan setup test')
 
 
+    @pytest.mark.im_consult
     def test_点击底部IM咨询(self):
         """
         点击底部在线咨询按钮 手机号15000000002
@@ -26,6 +28,7 @@ class TestFuncTejiaFang(TestBase):
         self.verifyPageParams('chatTo', 'slwkgj_10858')
         self.get_screenshot()
 
+    @pytest.mark.im_consult
     def test_点击列表IM咨询(self):
         """
         点击底部在线咨询按钮 手机号15000000002

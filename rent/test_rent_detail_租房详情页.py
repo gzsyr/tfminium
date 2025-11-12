@@ -1,3 +1,4 @@
+import pytest
 from ddt import file_data, ddt
 from minium import ddt_class, ddt_case
 from base.test_base import TestBase
@@ -8,7 +9,8 @@ class Testrentdetail(TestBase):
     租房详情页
     """
     def setUp(self, true=None) -> None:
-        self.page_name = "/esf/sell/rent/r_detail/detail?rentId=104329493&city=nj"
+        # self.page_name = "/esf/sell/rent/r_detail/detail?rentId=104329493&city=nj"
+        self.page_name = "/esf/sell/rent/r_detail/detail?rentId=110646121&city=nj"
         self.switch = true
         self.classname = self.__class__.__name__
         super(Testrentdetail, self).setUp()
@@ -111,6 +113,7 @@ class Testrentdetail(TestBase):
         else:
             print('没有地铁')
 
+    @pytest.mark.im_consult
     def test_06_click_fyim_点击房源详情咨询(self):
         """
         点击房源详情咨询
@@ -125,6 +128,7 @@ class Testrentdetail(TestBase):
         self.get_screenshot()
         self.checkSendCard()
 
+    @pytest.mark.im_consult
     def test_22_click_zjim_点击租金详情咨询(self):
         """
         点击房源详情咨询
@@ -139,6 +143,7 @@ class Testrentdetail(TestBase):
         self.get_screenshot()
         self.checkSendCard()
 
+    @pytest.mark.im_consult
     def test_23_click_zbim_点击周边配套咨询(self):
         """
         点击房源详情咨询
@@ -153,6 +158,7 @@ class Testrentdetail(TestBase):
         self.get_screenshot()
         self.checkSendCard()
 
+    @pytest.mark.im_consult
     def test_24_click_hotim_点击热门咨询(self):
         """
         点击热门咨询
@@ -363,6 +369,7 @@ class Testrentdetail(TestBase):
         self.delay(2)
         self.get_screenshot()
 
+    @pytest.mark.im_consult
     def test_17_goto_zxmsg_点击在线咨询(self):
         """
         点击在线咨询

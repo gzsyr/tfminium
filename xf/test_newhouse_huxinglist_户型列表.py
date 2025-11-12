@@ -1,4 +1,5 @@
 # add by zsy
+import pytest
 from ddt import ddt, file_data
 
 from base.test_base import TestBase
@@ -16,6 +17,7 @@ class TestFuncHxList(TestBase):
         print('TestFuncHxList setup test')
 
 
+    @pytest.mark.im_consult
     def test_点击底部IM咨询(self):
         """
         点击底部在线咨询按钮 手机号18555555555
@@ -26,6 +28,7 @@ class TestFuncHxList(TestBase):
         self.verifyPageParams('chatTo', 'slwkgj_14508')
         self.get_screenshot()
 
+    @pytest.mark.im_consult
     def test_点击列表IM咨询(self):
         """
         点击列表项在线咨询按钮  手机号18555555555

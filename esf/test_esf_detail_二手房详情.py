@@ -1,3 +1,4 @@
+import pytest
 from minium import ddt_class, ddt_case
 from base.test_base import TestBase
 @ddt_class()
@@ -96,6 +97,7 @@ class Testesfdetail(TestBase):
         self.delay(6)
         self.verifyByScreenshot('esf/esfdetailchecksendcard.png')
 
+    @pytest.mark.im_consult
     def test_04_goto_ygim_首付和月供咨询(self):
         """
         点击首付和月供咨询
@@ -108,6 +110,7 @@ class Testesfdetail(TestBase):
         self.get_screenshot()
         self.checkSendCard()
 
+    @pytest.mark.im_consult
     def test_05_goto_lcim_点击楼层咨询(self):
         """
         点击楼层咨询
@@ -120,6 +123,7 @@ class Testesfdetail(TestBase):
         self.get_screenshot()
         self.checkSendCard()
 
+    @pytest.mark.im_consult
     def test_06_goto_sfim_点击税费咨询(self):
         """
         点击税费咨询
@@ -142,6 +146,7 @@ class Testesfdetail(TestBase):
         self.delay(3)
         self.get_screenshot()
 
+    @pytest.mark.im_consult
     def test_08_goto_xqzx_房源详情咨询(self):
         """
         点击咨询房源详情
@@ -176,6 +181,7 @@ class Testesfdetail(TestBase):
         else:
             print('没有房源描述模块')
 
+    @pytest.mark.im_consult
     @ddt_case(
         1, 2, 3, 4
     )
@@ -213,6 +219,7 @@ class Testesfdetail(TestBase):
         self.delay(5)
         self.get_screenshot()
 
+    @pytest.mark.im_consult
     def test_13_goto_cjmsg_咨询近期成交数据(self):
         """
         点击咨询近期成交数据
@@ -361,6 +368,7 @@ class Testesfdetail(TestBase):
         self.delay(5)
         self.get_screenshot()
 
+    @pytest.mark.im_consult
     def test_24_goto_zxmsg_点击在线咨询(self):
         """
         点击在线咨询

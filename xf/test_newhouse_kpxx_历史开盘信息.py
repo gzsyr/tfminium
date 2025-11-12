@@ -1,4 +1,6 @@
 # -*-coding:utf-8-*-
+import pytest
+
 from base.test_base import TestBase
 
 
@@ -12,6 +14,7 @@ class TestNewhouseKpxx(TestBase):
         self.classname = self.__class__.__name__
         super(TestNewhouseKpxx, self).setUp()
 
+    @pytest.mark.im_consult
     def test_01_点击咨询(self):
         """
         V6.24.X: 点击“咨询开盘详情”按钮

@@ -1,4 +1,6 @@
 # -*-coding:utf-8-*-
+import pytest
+
 from base.test_base import TestBase
 from base.test_mine import TestMine
 
@@ -38,6 +40,7 @@ class TestNewhouseHuxingDetail(TestMine):
         self.verifyPageName('/page/newhouse/zygw/list')
         self.get_screenshot()
 
+    @pytest.mark.im_consult
     def test_002_click_zygw_im_置业顾问咨询(self):
         """
         V6.23.X: 置业顾问楼层，点击IM按钮 手机号13776645736
@@ -73,6 +76,7 @@ class TestNewhouseHuxingDetail(TestMine):
         self.verifyPageName('/page/index/mine')
         self.get_screenshot()
 
+    @pytest.mark.im_consult
     def test_005_hotim_热门咨询(self):
         """
         V6.23.X: 点击热门咨询模块提问  手机号18555555555
@@ -89,6 +93,7 @@ class TestNewhouseHuxingDetail(TestMine):
         self.verifyContainsStr(question[0], imquestion)
         self.get_screenshot()
 
+    @pytest.mark.im_consult
     def test_007_底部咨询(self):
         """
         页面底部咨询 手机号18555555555

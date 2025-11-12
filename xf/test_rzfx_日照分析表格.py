@@ -1,4 +1,6 @@
 # add by zsy
+import pytest
+
 from base.test_base import TestBase
 
 
@@ -221,6 +223,7 @@ class TestRzfxBg(TestBase):
         self.get_screenshot()
         self.verifyPageName('/page/newhouse/fd/xkb')
 
+    @pytest.mark.im_consult
     def test_yfyj_咨询(self):
         """
         V6.37.X: 点击 一房一价，点击 更多
@@ -262,6 +265,7 @@ class TestRzfxBg(TestBase):
         self.get_screenshot()
         self.verifyPageName('/page/newhouse/detail')
 
+    @pytest.mark.im_consult
     def test_z_在线咨询(self):
         """
         V6.37.X: 点击 在线咨询

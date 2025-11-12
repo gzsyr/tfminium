@@ -1,5 +1,6 @@
 # add by yfl
 import minium
+import pytest
 from ddt import file_data, ddt, data
 
 from base.test_base import TestBase
@@ -76,6 +77,7 @@ class TestNewsHouseList(TestBase):
         self.verifyPageName('/page/newhouse/zygw/detail')
         self.get_screenshot()
 
+    @pytest.mark.im_consult
     def test_click_zygw_置业顾问咨询(self):
         """
         V6.20.X: 点击新房列表项下第五个的置业顾问咨询

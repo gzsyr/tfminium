@@ -1,4 +1,6 @@
 # -*-coding:utf-8-*-
+import pytest
+
 from base.test_base import TestBase
 from base.test_mine import TestMine
 
@@ -57,6 +59,7 @@ class TestNewhouseLpxx(TestMine):
         self.verifyPageName('/page/newhouse/zygw/list')
         self.get_screenshot()
 
+    @pytest.mark.im_consult
     def test_002_click_zygw_im_置业顾问咨询(self):
         """
         V6.23.X: 置业顾问楼层，点击IM按钮
@@ -91,6 +94,7 @@ class TestNewhouseLpxx(TestMine):
         self.verifyPageName('/page/index/mine')
         self.get_screenshot()
 
+    @pytest.mark.im_consult
     def test_005_xxxx_咨询周边板块(self):
         """
         V6.23.X: 详细信息楼层-板块旁“咨询周边板块”入口
@@ -111,6 +115,7 @@ class TestNewhouseLpxx(TestMine):
         self.verifyPageName('/page/newhouse/mapzf/mapzf')
         self.get_screenshot()
 
+    @pytest.mark.im_consult
     def test_007_gjdt_im_公交地铁咨询(self):
         """
         V6.23.X: 公交地铁楼层，点击“咨询周边交通详情”按钮

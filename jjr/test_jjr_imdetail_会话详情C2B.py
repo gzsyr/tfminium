@@ -39,11 +39,11 @@ class TestJJRImdetailC2B(WritePost):
         点击悬浮层的“主推房源”，进入房源页，选择房源发送
         """
         # 点击 悬浮层的“主推房源”
-        self.delay(3)
+        self.delay(4)
         self.find_element('view[class="recentchat-item-right im_enter"]').tap()
-        self.delay(3)
+        self.delay(4)
         self.find_element('view[class="mainFybtn"]').tap()
-        self.delay(20)
+        self.delay(21)
 
         # 进入 主推房源  页面，选择房源
         self.find_element('view[class="pa itemPlaceholder"]').tap()

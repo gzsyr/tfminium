@@ -1,4 +1,5 @@
 # add by zsy
+import pytest
 
 from base.test_base import TestBase
 from xf.func_cgjs import Funccgjs
@@ -75,6 +76,7 @@ class TestNewhouseDetail(TestBase):
         self.get_screenshot()
         self.verifyPageName('/page/newhouse/rizhaofenxi/rizhaofenxi')
 
+    @pytest.mark.im_consult
     def test_cg_采光计算器咨询采光(self):
         """
         V6.36.X: 点击采光计算器页面的 咨询采光
@@ -128,6 +130,7 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/im/pages/chating/chating')
         self.verifyPageParams('chatTo', 'slwkgj_10858')
 
+    @pytest.mark.im_consult
     def test_cg_采光计算器咨询层高(self):
         """
         V6.36.X: 点击采光计算器页面的 咨询 按钮
@@ -336,6 +339,7 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/newhouse/fd/fdfydetail')
         self.get_screenshot()
 
+    @pytest.mark.im_consult
     def test_zbxx_周边学校_咨询(self):
         """
         V6.30.X: 点击周边学校的’咨询周边学校情况‘
@@ -511,6 +515,7 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/publicPages/map/map')
         self.get_screenshot()
 
+    @pytest.mark.im_consult
     def test_goto_hotim_点击热门咨询(self):
         """
         V6.23.X: 点击“热门咨询”模块提问
@@ -567,6 +572,7 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/newhouse/xcny/photoalbum')
         self.get_screenshot()
 
+    @pytest.mark.im_consult
     def test_goto_photo_相册咨询(self):
         """
         V6.22.X: 1004113 新房楼盘详情页下  进入楼盘相册，点击页面底部的【咨询】按钮
@@ -682,6 +688,7 @@ class TestNewhouseDetail(TestBase):
 
         self.get_screenshot()
 
+    @pytest.mark.im_consult
     def test_PK_06_点击热门咨询(self):
         """
         V6.32.X: pk结果页面，点击下面的热门咨询
@@ -1105,6 +1112,7 @@ class TestNewhouseDetail(TestBase):
         self.verifyPageName('/page/publicPages/map/map')
         self.get_screenshot()
 
+    @pytest.mark.im_consult
     def test_goto_xxxx_more_IM_详细信息咨询(self):
         """
         V6.21.X: 1003947   新房详情页页面，详情详细信息位置，点击【咨询更多楼盘信息】按钮
@@ -1127,6 +1135,7 @@ class TestNewhouseDetail(TestBase):
 
         self.get_screenshot()
 
+    @pytest.mark.im_consult
     def test_goto_zlhx_IM_主力户型咨询(self):
         """
         V6.21.X: 1003947   新房详情页页面，主力户型位置，点击【咨询低价】按钮
@@ -1339,6 +1348,7 @@ class TestNewhouseDetail(TestBase):
         self.get_screenshot()
         self.input_value_by_mk('xf/mapreturn.png')
 
+    @pytest.mark.im_consult
     def test_goto_wzzb_zbpt_周边配套咨询(self):
         """
         V6.22.X: 1004113 新房楼盘详情页下的位置及周边下的地图  进入周边配套地图，点击页面底部的【咨询】按钮
@@ -1409,6 +1419,7 @@ class TestNewhouseDetail(TestBase):
         self.delay(3)
         self.get_screenshot('收起')
 
+    @pytest.mark.im_consult
     def test_goto_wzzb_dt_地图页咨询(self):
         """
         V6.22.X: 1004113  新房楼盘详情页下的位置及周边 点击【咨询周边配套及规划】按钮
@@ -1497,6 +1508,7 @@ class TestNewhouseDetail(TestBase):
         self.delay(2)
         self.get_screenshot()
 
+    @pytest.mark.im_consult
     def test_goto_buttom_im_在线咨询(self):
         """
         新房详情页面，点击底部的“在线咨询”

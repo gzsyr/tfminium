@@ -1,4 +1,5 @@
 # add by zsy
+import pytest
 from ddt import ddt, file_data
 
 from base.test_base import TestBase
@@ -16,6 +17,7 @@ class TestFuncLouPanBangdan(TestBase):
         print('TestFuncLouPanBangdan setup test')
 
 
+    @pytest.mark.im_consult
     def test_点击底部IM咨询(self):
         """
         点击底部在线咨询按钮

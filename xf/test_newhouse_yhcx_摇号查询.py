@@ -1,4 +1,5 @@
 # add by zsy
+import pytest
 from ddt import ddt, file_data
 
 from base.test_base import TestBase
@@ -67,6 +68,7 @@ class TestNewhouseYhcx(TestBase):
             self.verifyContainsStr(kw, self.page.get_element('view[class="bdli-name tfLine1"]').inner_text, f'摇号结果 最终结果 {kw}ok')
         self.get_screenshot()
 
+    @pytest.mark.im_consult
     def test_05_hotim_热门咨询(self):
         """
         V6.23.V: 热门咨询模块，点击提问

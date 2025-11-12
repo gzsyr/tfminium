@@ -1,4 +1,6 @@
 # add by zsy
+import pytest
+
 from base.test_base import TestBase
 from base.test_mine import TestMine
 
@@ -37,6 +39,7 @@ class TestAlbum(TestMine):
         self.get_screenshot()
         self.verifyPageName('/page/publicPages/map/map')
 
+    @pytest.mark.im_consult
     def test_周边配套大图_咨询(self):
         """
         V6.50.X: 周边配套大图_咨询
@@ -57,6 +60,7 @@ class TestAlbum(TestMine):
         self.get_screenshot()
         self.verifyPageName('/page/publicPages/map/map')
 
+    @pytest.mark.im_consult
     def test_click_picture_im(self):
         """
         V6.50.X: 点击大图 点击咨询

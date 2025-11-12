@@ -1,5 +1,6 @@
 import time
 
+import pytest
 from ddt import ddt, file_data
 
 from base.test_base import TestBase
@@ -23,6 +24,7 @@ class TestNewhouseDianping(TestBase):
         self.find_element('view[class="commentList--more-reply"]').tap()
         self.get_screenshot()
 
+    @pytest.mark.im_consult
     def test_click_IM_在线咨询(self):
         """
         V6.21.X: 1003947   楼盘点评页，点击咨询

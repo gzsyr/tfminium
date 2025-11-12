@@ -1,5 +1,6 @@
 # -*-coding:utf-8-*-
 import minium
+import pytest
 
 from tfq.writepost import WritePost
 
@@ -21,6 +22,7 @@ class TestFangYuanChengjia(WritePost):
         self.classname = self.__class__.__name__
         super(TestFangYuanChengjia, self).setUp()
 
+    @pytest.mark.im_consult
     def test_001_点击底部IM咨询(self):
         """
         点击底部IM咨询，进入im页面
@@ -30,15 +32,17 @@ class TestFangYuanChengjia(WritePost):
         self.get_screenshot()
         self.verifyPageName('/im/pages/chating/chating')
 
+    @pytest.mark.im_consult
     def test_002_点击咨询同小区在售(self):
         """
         点击底部经纪人咨询，进入im
         """
-        self.find_element('image[class="center sameBlockSell"]').tap()
+        self.find_element('view[class="center sameBlockSell"]').tap()
 
         self.get_screenshot()
         self.verifyPageName('/im/pages/chating/chating')
 
+    @pytest.mark.im_consult
     def test_003_点击咨询房源详细信息咨询(self):
         """
         点击咨询房源详细信息，进入IM
