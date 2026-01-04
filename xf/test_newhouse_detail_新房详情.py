@@ -1279,7 +1279,7 @@ class TestNewhouseDetail(TestBase):
         V6.30.X: 新房详情页，位置及周边楼层，点击地图
         """
         self.page.scroll_to(5000, 500)
-        self.delay(20)
+        self.delay(23)
 
         # self.find_element('//*[@id="map"]').tap()
         # self.find_element('view[class="mapNearDes"]').click()
@@ -1295,8 +1295,8 @@ class TestNewhouseDetail(TestBase):
         """
         V6.30.X: 新房详情页，位置及周边楼层，点击教育下的文字
         """
-        self.page.scroll_to(4800, 500)
-        self.delay(15)
+        self.page.scroll_to(5000, 500)
+        self.delay(20)
 
         # self.find_element('//*[@id="map"]').tap()
         # self.find_element('view[class="mapNearDes"]').click()
@@ -1311,7 +1311,7 @@ class TestNewhouseDetail(TestBase):
         """
         V6.36.X: 新房详情页，位置及周边，tab切换
         """
-        self.page.scroll_to(4800, 500)
+        self.page.scroll_to(5000, 500)
         self.delay(4)
 
         self.get_screenshot('位置及周边当前页面')

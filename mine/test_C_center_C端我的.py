@@ -116,7 +116,7 @@ class TestCenterC(TestMine):
         """
         C端用户个人中心页面，C端用户点击广告
         """
-        self.page.get_element('image[class="ad"]').tap()
+        self.page.get_element('image[class="swiperAds--ads-img"]').tap()
 
         # self.verifyPageName('/page/index/webview')
         self.get_screenshot()

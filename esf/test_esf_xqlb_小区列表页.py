@@ -239,11 +239,10 @@ class Testesfxqlb(TestBase):
         点击有vr
         :return:
         """
-        e = self.page.get_element('view[class="screenQuickItem"][data-index="4"]')
-        e.tap()
+        self.find_element('view[class="screenQuickItem"]', inner_text ='有VR').tap()
         self.delay(3)
         self.get_screenshot()
-        self.page.get_element('view[class="pa clear"]').tap()
+        self.find_element('view[class="pa clear"]').tap()
 
     def test_select_xqjd_点击小区解读(self):
         """

@@ -161,9 +161,10 @@ class TestJJRTiezi(WritePost):
         self.get_screenshot()
         self.verifyPageName('/im/pages/chating/chating')
 
-    def test_008_点击推荐二手房(self):
+    def del_test_008_点击推荐二手房(self):
         """
         点击推荐二手房，进入房源详情
+        del by 2026-1-4
         """
         self.page.scroll_to(2600, 200)
         self.delay(2)

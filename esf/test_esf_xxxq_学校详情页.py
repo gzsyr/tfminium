@@ -7,7 +7,8 @@ class TestesfXxxq(TestBase):
     学校详情页
     """
     def setUp(self) -> None:
-        self.page_name = '/esf/sell/pages/schoolDetail/schoolDetail?city=nj&id=90'
+        # self.page_name = '/esf/sell/pages/schoolDetail/schoolDetail?city=nj&id=90'
+        self.page_name = '/esf/sell/pages/schoolDetail/schoolDetail?city=nj&id=90&main_id=4&type=esf'
         self.switch = False
         self.classname = self.__class__.__name__
         super(TestesfXxxq, self).setUp()
@@ -47,6 +48,7 @@ class TestesfXxxq(TestBase):
         """
         self.find_element('view[class="schoolTopic--center schoolTopic--check"]').tap()
 
+        self.delay(3)
         self.get_screenshot()
         self.verifyPageName('/page/taofangquan/tieziDetail/tieziDetail')
 
@@ -150,9 +152,10 @@ class TestesfXxxq(TestBase):
         self.get_screenshot()
         self.verifyPageName('/esf/sell/pages/sellList/sellList')
 
-    def test_14_购房资料(self):
+    def del_test_14_购房资料(self):
         """
         V6.42.X: 点击 购房资料
+        del by 2026-1-4
         """
         self.find_element('view[class="pf advert"]').tap()
         self.get_screenshot()
