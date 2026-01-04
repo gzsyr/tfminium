@@ -27,15 +27,17 @@ if __name__ == '__main__':
                  # "-rs",
                  # "--show-capture=all",
                  "--html=pytestReportIM.html",  # html的报告
-                 "--co",  # 仅收集用例
+                 # "--co",  # 仅收集用例
                  "--alluredir", allure_result_path,   # 使用allure报告
 
                  # 以下使用mark方法（@pytest.mark.im_consult(在项目pytest.ini文件中定义)）代替原来一条一条用例列举，执行开始前将城市手动切换至泉州站
+                 "./city/test_index_allcity_城市.py::TestAllcity::test_select_qz_选择泉州",
                  "xf",
                  "city",
                  "esf",
                  "rent",
-                 "-m", "im_consult",
+                 "-m", "im_consult or qz",
+                 "--modify-items",
 
                  # 以下废弃，使用上述方案代替
                  # "./city/test_index_allcity_城市.py::TestAllcity::test_select_qz_选择泉州",   # 先切换到泉州站测新房相关
