@@ -16,7 +16,9 @@ class TestMineTrack(TestBase):
         """
         点击足迹的第一个楼盘
         """
+        self.delay(1)
         self.find_element('view[class="commonNewHouseLi-name commonNewHouseLi-name-flex tfLine1"]').tap()
+        self.delay(1)
 
         # 校验
         self.verifyPageName('/page/newhouse/detail')

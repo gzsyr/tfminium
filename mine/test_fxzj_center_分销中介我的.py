@@ -361,7 +361,7 @@ class TestCenterFxzj(TestMine):
         """
         V7.17: 常用功能_积分商城
         """
-        self.find_element('view[class="item flex tfAlignC tfFlexV tfFlexC"]/view', inner_text='积分商城').tap()
+        self.find_element('view[class="item flex tfAlignC tfFlexV tfFlexC"]/view', inner_text='购买套餐').tap()
 
         self.get_screenshot()
 

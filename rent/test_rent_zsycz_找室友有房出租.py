@@ -71,26 +71,26 @@ class Testrentzsycz(TestBase):
 
     def set_img(self):
         # 上传图片
-        self.page.get_element('//step_1head/view/view/view[2]').tap()
+        self.find_element('//step_1head/view/view/view[2]').tap()
         self.delay(3)
         # 第一张
-        self.page.get_element('view[class="center column upload"]').tap()
+        self.find_element('view[class="center column upload"]').tap()
         self.delay(5)
         self.input_select_image(png='esf\\123.png')
         self.delay(3)
         # 第二张
-        self.page.get_element('view[class="center column upload"]').tap()
+        self.find_element('view[class="center column upload"]').tap()
         self.delay(5)
         self.input_select_image(png='rent\\2.png')
         self.delay(3)
         # 第三张
-        self.page.get_element('view[class="center column upload"]').tap()
+        self.find_element('view[class="center column upload"]').tap()
         self.delay(5)
         self.input_select_image(png='rent\\3.png')
         self.delay(3)
-        self.page.get_element('view[class="center completeBtn"]', inner_text='完成').tap()
+        self.find_element('view[class="center completeBtn"]', inner_text='完成').tap()
         self.delay(3)
-        # self.page.get_element('view[class="center noMorePics"]', inner_text='不需要').tap()
+        # self.find_element('view[class="center noMorePics"]', inner_text='不需要').tap()
         # self.delay(3)
         return self
 
@@ -106,75 +106,75 @@ class Testrentzsycz(TestBase):
 
     def set_xqmc(self, xqmc='测试'):
         # 小区名称
-        # self.page.get_element('view[class="flex_1 center column partItem"]/view[2]').tap()
+        # self.find_element('view[class="flex_1 center column partItem"]/view[2]').tap()
         self.find_element('view[class="flex_1 center column partItem"]').tap()
         self.delay(8)
-        self.page.get_element('input[class="flex_1 input"]').input(xqmc)
+        self.find_element('input[class="flex_1 input"]').input(xqmc)
         self.delay(5)
-        item = self.page.get_elements('/view[2]/view/view')
+        item = self.find_elements('/view[2]/view/view')
         item[0].tap()
         self.delay(2)
         return self
 
     def set_price(self, price='3500'):
         # 月租金
-        self.page.get_element('view[class="flex_1 center column partItem"][data-picker="1"]').tap()
+        self.find_element('view[class="flex_1 center column partItem"][data-picker="1"]').tap()
         self.delay(5)
         self.input_value_by_mk(png='rent/zsyprice.png', value=price)
         self.delay(5)
-        self.page.get_element('//roommateprice//text', inner_text = '年付').tap()
+        self.find_element('//roommateprice//text', inner_text = '年付').tap()
         self.delay(5)
-        self.page.get_element('view[class="roommatePrice--center roommatePrice--confirm"]').tap()
+        self.find_element('view[class="roommatePrice--center roommatePrice--confirm"]').tap()
         self.delay(1)
         return self
 
     def set_huxing(self, huxing=[3, 2, 1]):
         # 户型
-        self.page.get_element('view[class="flex_1 center column partItem"][data-picker="2"]').tap()
+        self.find_element('view[class="flex_1 center column partItem"][data-picker="2"]').tap()
         self.delay(2)
-        e = self.page.get_element('picker-view')
+        e = self.find_element('picker-view')
         self.delay(1)
         e.trigger("change", {"value": huxing})
         self.delay(2)
-        self.page.get_element('view[class="houseTypePicker--center houseTypePicker--confirm"]').tap()
+        self.find_element('view[class="houseTypePicker--center houseTypePicker--confirm"]').tap()
         return self
 
     def set_chuzutpye(self, chuzutpye=[1]):
         # 出租类型
-        self.page.get_element('view[class="flex_1 center column partItem"][data-picker="18"]').tap()
+        self.find_element('view[class="flex_1 center column partItem"][data-picker="18"]').tap()
         self.delay(2)
-        e = self.page.get_element('picker-view')
+        e = self.find_element('picker-view')
         self.delay(1)
         e.trigger("change", {"value": chuzutpye})
         self.delay(2)
-        self.page.get_element('view[class="selector--center selector--confirm"]').tap()
+        self.find_element('view[class="selector--center selector--confirm"]').tap()
         return self
 
     def set_ruzhutime(self, ruzhutime=[1, 2, 3]):
         # 入住时间
-        self.page.get_element('view[class="flex_1 center column partItem"][data-picker="3"]').tap()
+        self.find_element('view[class="flex_1 center column partItem"][data-picker="3"]').tap()
         self.delay(2)
-        e = self.page.get_element('picker-view')
+        e = self.find_element('picker-view')
         self.delay(1)
         e.trigger("change", {"value": ruzhutime})
         self.delay(2)
-        self.page.get_element('view[class="yearPicker--center yearPicker--confirm"]').tap()
+        self.find_element('view[class="yearPicker--center yearPicker--confirm"]').tap()
         return self
 
     def set_ruzhuqk(self, ruzhuqk=[1, 2]):
         # 已入住情况
-        self.page.get_element('view[class="flex_1 center column partItem"][data-picker="4"]').tap()
+        self.find_element('view[class="flex_1 center column partItem"][data-picker="4"]').tap()
         self.delay(2)
-        e = self.page.get_element('picker-view')
+        e = self.find_element('picker-view')
         self.delay(1)
         e.trigger("change", {"value": ruzhuqk})
         self.delay(2)
-        self.page.get_element('view[class="multiSelector--center multiSelector--confirm"]').tap()
+        self.find_element('view[class="multiSelector--center multiSelector--confirm"]').tap()
         return self
 
     def set_roomsex(self):
         # 室友性别
-        self.page.get_element('view[class="center option"][data-id="2"]', inner_text='限女生').tap()
+        self.find_element('view[class="center option"][data-id="2"]', inner_text='限女生').tap()
         self.delay(3)
         return self
 
@@ -182,9 +182,9 @@ class Testrentzsycz(TestBase):
         # 室友期望
         self.page.scroll_to(800, 500)
         self.delay(1)
-        self.page.get_element('view[class="center option"][data-id="2"]', inner_text='不吸烟').tap()
+        self.find_element('view[class="center option"][data-id="2"]', inner_text='不吸烟').tap()
         self.delay(2)
-        self.page.get_element('view[class="center option"][data-id="3"]', inner_text='不养宠物').tap()
+        self.find_element('view[class="center option"][data-id="3"]', inner_text='不养宠物').tap()
         self.delay(2)
         return self
 
@@ -192,15 +192,17 @@ class Testrentzsycz(TestBase):
         # 房屋亮点
         self.page.scroll_to(800, 500)
         self.delay(1)
-        self.page.get_element('view[class="center option"][data-id="1"]', inner_text='有电梯').tap()
+        self.find_element('view[class="center option"][data-id="1"]', inner_text='有电梯').tap()
         self.delay(2)
-        self.page.get_element('view[class="center option"][data-id="5"]', inner_text='拎包入住').tap()
+        self.find_element('view[class="center option"][data-id="5"]', inner_text='拎包入住').tap()
         self.delay(2)
         return self
 
     def set_xiayibu(self):
         # 下一步
-        self.page.get_element('//resetconfirm/view/view/view[2]').tap()
+        self.delay(3)
+        # self.find_element('//resetconfirm/view/view/view[2]').tap()
+        self.find_element('view[class="resetConfirm--flex_1 resetConfirm--center resetConfirm--confirm"]').tap()
         self.delay(3)
         return self
 
@@ -208,9 +210,9 @@ class Testrentzsycz(TestBase):
         self.set_result()
         # 家具
         self.delay(3)
-        self.page.get_element('view[class="center option"][data-id="1"]', inner_text='床').tap()
+        self.find_element('view[class="center option"][data-id="1"]', inner_text='床').tap()
         self.delay(3)
-        self.page.get_element('view[class="center option"][data-id="2"]', inner_text='衣柜').tap()
+        self.find_element('view[class="center option"][data-id="2"]', inner_text='衣柜').tap()
         self.delay(3)
         return self
 
@@ -218,9 +220,9 @@ class Testrentzsycz(TestBase):
         # self.set_xiayibu()
         # 家电
         self.delay(3)
-        self.page.get_element('view[class="center option"][data-id="7"]', inner_text='洗衣机').tap()
+        self.find_element('view[class="center option"][data-id="7"]', inner_text='洗衣机').tap()
         self.delay(3)
-        self.page.get_element('view[class="center option"][data-id="9"]', inner_text='热水器').tap()
+        self.find_element('view[class="center option"][data-id="9"]', inner_text='热水器').tap()
         self.delay(3)
         return self
 
@@ -228,9 +230,9 @@ class Testrentzsycz(TestBase):
         # self.set_xiayibu()
         # 其他
         self.delay(3)
-        self.page.get_element('view[class="center option"][data-id="14"]', inner_text='宽带').tap()
+        self.find_element('view[class="center option"][data-id="14"]', inner_text='宽带').tap()
         self.delay(3)
-        self.page.get_element('view[class="center option"][data-id="16"]', inner_text='独立卫生间').tap()
+        self.find_element('view[class="center option"][data-id="16"]', inner_text='独立卫生间').tap()
         self.delay(3)
         return self
 
@@ -240,7 +242,7 @@ class Testrentzsycz(TestBase):
         self.delay(1)
         # 房源描述
         self.delay(3)
-        self.page.get_element('view[class="pr desc"]').tap()
+        self.find_element('view[class="pr desc"]').tap()
         self.delay(3)
         pyperclip.copy(fyms)
         self.delay(3)
@@ -248,7 +250,7 @@ class Testrentzsycz(TestBase):
         self.delay(5)
         pyautogui.hotkey('Ctrl', 'V')
         self.delay(3)
-        self.page.get_element('view[class="center confirm"]').tap()
+        self.find_element('view[class="center confirm"]').tap()
         return self
 
     def set_identity(self):
@@ -257,7 +259,7 @@ class Testrentzsycz(TestBase):
         # self.delay(1)
         # 您的身份
         self.delay(3)
-        self.page.get_element('view[class="center identity"][data-id="1"]').tap()
+        self.find_element('view[class="center identity"][data-id="1"]').tap()
         self.delay(3)
         return self
 
@@ -278,16 +280,16 @@ class Testrentzsycz(TestBase):
         # self.page.scroll_to(800, 500)
         # self.delay(1)
         # 点击我已阅读并同意
-        self.page.get_element('view[class="center checkTap"]').tap()
+        self.find_element('view[class="center checkTap"]').tap()
         self.delay(3)
         # 确认发布
-        self.page.get_element('view[class="resetConfirm--flex_1 resetConfirm--center resetConfirm--confirm"]').tap()
+        self.find_element('view[class="resetConfirm--flex_1 resetConfirm--center resetConfirm--confirm"]').tap()
         self.delay(3)
         return self
 
     def set_grzx(self):
         #个人中心
-        self.page.get_element('//view[@class="success"]/view[3]/text[2]').tap()
+        self.find_element('//view[@class="success"]/view[3]/text[2]').tap()
         self.delay(3)
         return self
 
@@ -295,7 +297,7 @@ class Testrentzsycz(TestBase):
         # 重置
         result = {"confirm": True}
         self.app.mock_wx_method("showModal", result=result)
-        self.page.get_element('//resetconfirm/view/view/view').tap()
+        self.find_element('//resetconfirm/view/view/view').tap()
         self.app.restore_wx_method("showModal")
         self.delay(3)
         return self
