@@ -49,6 +49,6 @@ class TestTfqLoupanDetail(TestBase):
         V6.24.X: 进入帖子详情页，点击投票选项中的楼盘
         """
         self.find_element('image[class="lpvote--lpimg"]').tap()
-
+        self.delay(1)
         self.verifyPageName('/page/newhouse/detail')
         self.get_screenshot()

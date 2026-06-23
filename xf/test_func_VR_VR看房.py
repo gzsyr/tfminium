@@ -49,6 +49,7 @@ class TestFuncVR(TestBase):
         """
         self.page.get_element('view[class="vrLiT tfLine1"]').click()
 
+        self.delay(1)
         self.verifyPageName("/page/newhouse/detail")
         self.get_screenshot()
 

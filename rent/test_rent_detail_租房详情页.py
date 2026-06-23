@@ -10,7 +10,9 @@ class Testrentdetail(TestBase):
     """
     def setUp(self, true=None) -> None:
         # self.page_name = "/esf/sell/rent/r_detail/detail?rentId=104329493&city=nj"
-        self.page_name = "/esf/sell/rent/r_detail/detail?rentId=110646121&city=nj"
+        # self.page_name = "/esf/sell/rent/r_detail/detail?rentId=110646121&city=nj"
+        # self.page_name = "/esf/sell/rent/r_detail/detail?rentId=109329245&city=nj"
+        self.page_name = "/esf/sell/rent/r_detail/detail?rentId=110976288&city=nj"
         self.switch = true
         self.classname = self.__class__.__name__
         super(Testrentdetail, self).setUp()

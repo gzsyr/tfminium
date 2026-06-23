@@ -18,7 +18,7 @@ class TestMineTrack(TestBase):
         """
         self.delay(1)
         self.find_element('view[class="commonNewHouseLi-name commonNewHouseLi-name-flex tfLine1"]').tap()
-        self.delay(1)
+        self.delay(2)
 
         # 校验
         self.verifyPageName('/page/newhouse/detail')

@@ -229,6 +229,7 @@ class TestRzfxBg(TestBase):
         V6.37.X: 点击 一房一价，点击 更多
         """
         self.click_yfyj()
+        self.delay(1)
 
         self.find_element('view[class="lpBottomBar--consult_imicon_yfyj"]').tap()
 
